@@ -19,7 +19,7 @@ namespace NetPos.Frm
             //dataGridView1.DataSource = _da.GetAllListSimple();
             //MyString.Slug("nguyen quang khanh");
             //label1.Text = MyString.Slug("nguyen quang khanh");
-            //label2.Text = Common.UserName;
+            //label2.Text = Common.UserName;fdfd
             
         }
     }
