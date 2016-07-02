@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4384473452047d1aa9a2cf831d68262" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="FDIModel.ActiveRole" Width="1.5" PointX="5.5396919704692866" PointY="10.588254605693861" />
+        <EntityTypeShape EntityType="FDIModel.Advertising_Advertising_Zone_Mapping" Width="1.5" PointX="5.2469856409574795" PointY="4.7465065441776559" />
+        <EntityTypeShape EntityType="FDIModel.Advertising_Category_Zone" Width="1.5" PointX="4.96930787943737" PointY="1.5846467025506528" />
+        <EntityTypeShape EntityType="FDIModel.Advertising_Zone" Width="1.5" PointX="10.630399155724049" PointY="9.3652940436104757" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Applications" Width="1.5" PointX="7.3060963020222713" PointY="22.134334246690539" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Membership" Width="1.5" PointX="8.838513810578041" PointY="12.215478709067906" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Paths" Width="1.5" PointX="5.1979454109435643" PointY="28.877864433861273" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="8.6732502675956358" PointY="29.806914626530798" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="9.2789511332656023" PointY="11.313353424572085" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Profile" Width="1.5" PointX="3.3174666405271118" PointY="30.935264840226278" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Roles" Width="1.5" PointX="9.37540996883782" PointY="11.722537224983116" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_SchemaVersions" Width="1.5" PointX="10.09382189535248" PointY="4.3673228641819781" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_Users" Width="1.5" PointX="2.3284956805075034" PointY="22.122849847247288" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_UsersIPMembership" Width="1.5" PointX="11.478715790192929" PointY="16.919734351765239" />
+        <EntityTypeShape EntityType="FDIModel.aspnet_WebEvent_Events" Width="1.5" PointX="4.1942119524787236" PointY="28.882726399639029" />
+        <EntityTypeShape EntityType="FDIModel.CayMoi" Width="1.5" PointX="0.936757794086243" PointY="27.929035095464918" />
+        <EntityTypeShape EntityType="FDIModel.CheckAccount" Width="1.5" PointX="7.7343481368079541" PointY="20.342518562610504" />
+        <EntityTypeShape EntityType="FDIModel.CheckAward" Width="1.5" PointX="1.2178869383492912" PointY="19.72785302425169" />
+        <EntityTypeShape EntityType="FDIModel.CheckLogin" Width="1.5" PointX="8.5622782281424286" PointY="21.835868532692952" />
+        <EntityTypeShape EntityType="FDIModel.Custome_RankCustomer" Width="1.5" PointX="4.2947162521512787" PointY="19.63349887152831" />
+        <EntityTypeShape EntityType="FDIModel.Custome_RankCustomerHistory" Width="1.5" PointX="1.4992126661814806" PointY="9.3664694323048323" />
+        <EntityTypeShape EntityType="FDIModel.Customer" Width="1.5" PointX="11.918434867597387" PointY="15.233841336906814" />
+        <EntityTypeShape EntityType="FDIModel.Customer_Type" Width="1.5" PointX="7.2982929178039972" PointY="27.084547621703031" />
+        <EntityTypeShape EntityType="FDIModel.Distributor" Width="1.5" PointX="5.086756218730824" PointY="22.59360463479236" />
+        <EntityTypeShape EntityType="FDIModel.DynamicCustomer" Width="1.5" PointX="9.3356083172073632" PointY="4.9369510435205655" />
+        <EntityTypeShape EntityType="FDIModel.Gallery_Picture" Width="1.5" PointX="11.395492214428025" PointY="3.1100819572387643" />
+        <EntityTypeShape EntityType="FDIModel.HistoryAwardLoop" Width="1.5" PointX="6.4517693791779553" PointY="6.194519910120647" />
+        <EntityTypeShape EntityType="FDIModel.HistoryAward" Width="1.5" PointX="7.2913320377894362" PointY="3.0499746962683156" />
+        <EntityTypeShape EntityType="FDIModel.HistoryAwaysMaRoi" Width="1.5" PointX="5.8767735817827162" PointY="9.6246388450379659" />
+        <EntityTypeShape EntityType="FDIModel.HistoryUpRank" Width="1.5" PointX="11.451444273559119" PointY="23.128637831252366" />
+        <EntityTypeShape EntityType="FDIModel.HtmlSetting" Width="1.5" PointX="1.1155267232635648" PointY="11.427996730165555" />
+        <EntityTypeShape EntityType="FDIModel.Language" Width="1.5" PointX="11.317773313875204" PointY="22.600197072420361" />
+        <EntityTypeShape EntityType="FDIModel.Log_Data" Width="1.5" PointX="7.3636175484227095" PointY="27.640335066076524" />
+        <EntityTypeShape EntityType="FDIModel.LogSendSMSToCustomer" Width="1.5" PointX="8.8464563790925119" PointY="25.51866919990567" />
+        <EntityTypeShape EntityType="FDIModel.MenuGroup" Width="1.5" PointX="9.611312224348687" PointY="3.4008143560033357" />
+        <EntityTypeShape EntityType="FDIModel.Menu" Width="1.5" PointX="2.6153147568066206" PointY="2.9080011560153221" />
+        <EntityTypeShape EntityType="FDIModel.Module" Width="1.5" PointX="11.947791282063253" PointY="21.213078836543989" />
+        <EntityTypeShape EntityType="FDIModel.ModuleControl" Width="1.5" PointX="10.101511648903372" PointY="15.634623817929358" />
+        <EntityTypeShape EntityType="FDIModel.Module1" Width="1.5" PointX="4.4775165917712805" PointY="11.683017050699805" />
+        <EntityTypeShape EntityType="FDIModel.ModuleSetting" Width="1.5" PointX="6.3394531562642431" PointY="11.124774192983645" />
+        <EntityTypeShape EntityType="FDIModel.News_Category" Width="1.5" PointX="3.209312473986909" PointY="8.0163041390554532" />
+        <EntityTypeShape EntityType="FDIModel.Order" Width="1.5" PointX="9.0092920647046029" PointY="6.2476141630893638" />
+        <EntityTypeShape EntityType="FDIModel.OrderDetail" Width="1.5" PointX="11.43553018543661" PointY="31.387938826991217" />
+        <EntityTypeShape EntityType="FDIModel.Page" Width="1.5" PointX="4.02161878162139" PointY="14.430408454700563" />
+        <EntityTypeShape EntityType="FDIModel.Payment_Method" Width="1.5" PointX="0.33711242318950241" PointY="0.19772380599646075" />
+        <EntityTypeShape EntityType="FDIModel.PaymentAccount" Width="1.5" PointX="1.521171302311668" PointY="13.208103096675176" />
+        <EntityTypeShape EntityType="FDIModel.ProvincialAgency" Width="1.5" PointX="8.73700642620074" PointY="20.323938841151044" />
+        <EntityTypeShape EntityType="FDIModel.Rank" Width="1.5" PointX="6.2470353535595518" PointY="24.569903712985059" />
+        <EntityTypeShape EntityType="FDIModel.RankCustome" Width="1.5" PointX="4.1946527232391073" PointY="9.18229590783934" />
+        <EntityTypeShape EntityType="FDIModel.RankNow" Width="1.5" PointX="10.349072952917345" PointY="23.821779381400802" />
+        <EntityTypeShape EntityType="FDIModel.RankNow_BackUp" Width="1.5" PointX="1.3102489790461256" PointY="20.046014050043194" />
+        <EntityTypeShape EntityType="FDIModel.RegisteredAgency" Width="1.5" PointX="10.861289513698448" PointY="21.494141156549631" />
+        <EntityTypeShape EntityType="FDIModel.Role_ModuleActive" Width="1.5" PointX="11.236041884513591" PointY="27.479978082459411" />
+        <EntityTypeShape EntityType="FDIModel.Shop_Log_System" Width="1.5" PointX="1.2184894519012837" PointY="27.991639507930557" />
+        <EntityTypeShape EntityType="FDIModel.Shop_Order_Product" Width="1.5" PointX="4.2214333173918694" PointY="3.8089282828424724" />
+        <EntityTypeShape EntityType="FDIModel.Shop_Product" Width="1.5" PointX="8.6662239193293384" PointY="3.9883791673874387" />
+        <EntityTypeShape EntityType="FDIModel.sysdiagram" Width="1.5" PointX="9.2697864106249934" PointY="19.412410536507334" />
+        <EntityTypeShape EntityType="FDIModel.System_City" Width="1.5" PointX="5.4639267127327287" PointY="26.958433789647387" />
+        <EntityTypeShape EntityType="FDIModel.System_Config" Width="1.5" PointX="7.2762067091074805" PointY="23.933114673911181" />
+        <EntityTypeShape EntityType="FDIModel.System_Country" Width="1.5" PointX="9.039543716721024" PointY="20.248374635469343" />
+        <EntityTypeShape EntityType="FDIModel.System_District" Width="1.5" PointX="6.3435068681573057" PointY="9.1601418895461322" />
+        <EntityTypeShape EntityType="FDIModel.System_MessageTemplate" Width="1.5" PointX="9.2323885267751251" PointY="25.432442125600037" />
+        <EntityTypeShape EntityType="FDIModel.User_ModuleActive" Width="1.5" PointX="11.754134081189584" PointY="25.766069588142479" />
+        <EntityTypeShape EntityType="FDIModel.Voucher" Width="1.5" PointX="4.3534940073050068" PointY="11.53683791101763" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_Applications" Width="1.5" PointX="1.7078692101444439" PointY="2.3674606840906014" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="1.6683312084844015" PointY="2.7577483368840761" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_Profiles" Width="1.5" PointX="6.0320584410950815" PointY="25.083429035303848" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_Roles" Width="1.5" PointX="2.8615413433227417" PointY="20.51215254725523" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_Users" Width="1.5" PointX="4.144824538447347" PointY="2.5306376826626424" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="3.10681342664492" PointY="3.0147690787048864" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="10.551987608220422" PointY="14.732677243059817" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="1.189969853120842" PointY="29.0900381789962" />
+        <EntityTypeShape EntityType="FDIModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="3.4079225079193347" PointY="0.068077638777009036" />
+        <AssociationConnector Association="FDIModel.FK_Role_ModuleActive_ActiveRole" />
+        <AssociationConnector Association="FDIModel.FK_User_ModuleActive_ActiveRole" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Me__Appli__276EDEB3" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Pa__Appli__59063A47" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Ro__Appli__45F365D3" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Us__Appli__173876EA" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Me__UserI__286302EC" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Pe__PathI__5EBF139D" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Pe__PathI__628FA481" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Pe__UserI__6383C8BA" />
+        <AssociationConnector Association="FDIModel.FK__aspnet_Pr__UserI__3C69FB99" />
+        <AssociationConnector Association="FDIModel.FK_Role_ModuleActive_aspnet_Roles" />
+        <AssociationConnector Association="FDIModel.FK_aspnet_UsersIPMembership_aspnet_Users" />
+        <AssociationConnector Association="FDIModel.FK_Shop_Log_System_aspnet_Users" />
+        <AssociationConnector Association="FDIModel.FK_User_ModuleActive_aspnet_Users" />
+        <AssociationConnector Association="FDIModel.FK_CayMoi_Customer" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwards_CheckAwards" />
+        <AssociationConnector Association="FDIModel.FK_CheckLogin_Customer" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomer_Customer" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomer_ProvincialAgencies" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomer_RankCustome" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomer_Voucher" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwardLoop_Custome_RankCustomer" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwaysMaRoi_Custome_RankCustomer" />
+        <AssociationConnector Association="FDIModel.FK_Shop_Order_Product_Custome_RankCustomer" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomerHistory_Customer" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomerHistory_ProvincialAgencies" />
+        <AssociationConnector Association="FDIModel.FK_Custome_RankCustomerHistory_RankCustome" />
+        <AssociationConnector Association="FDIModel.FK_Customer_Distributors" />
+        <AssociationConnector Association="FDIModel.FK_Customer_Gallery_Picture" />
+        <AssociationConnector Association="FDIModel.FK_Customer_Payment_Method" />
+        <AssociationConnector Association="FDIModel.FK_Customer_ProvincialAgencies" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwardLoop_Customer" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwards_Custormer" />
+        <AssociationConnector Association="FDIModel.FK_HistoryAwaysMaRoi_Customer" />
+        <AssociationConnector Association="FDIModel.FK_HistoryUpRank_Customer" />
+        <AssociationConnector Association="FDIModel.FK_Order_Customer" />
+        <AssociationConnector Association="FDIModel.FK_RankNow_BackUp_Customer" />
+        <AssociationConnector Association="FDIModel.FK_RankNow_Customer" />
+        <AssociationConnector Association="FDIModel.FK_RegisteredAgency_Customer" />
+        <AssociationConnector Association="FDIModel.FK_Voucher_Customer" />
+        <AssociationConnector Association="FDIModel.FK__Distribut__Pictu__0F6D37F0" />
+        <AssociationConnector Association="FDIModel.FK__Distribut__Pictu__396371BC" />
+        <AssociationConnector Association="FDIModel.FK__Distribut__Provi__10615C29" />
+        <AssociationConnector Association="FDIModel.FK__Distribut__Provi__3A5795F5" />
+        <AssociationConnector Association="FDIModel.FK_Distributors_Gallery_Picture" />
+        <AssociationConnector Association="FDIModel.FK_Distributors_Gallery_Picture1" />
+        <AssociationConnector Association="FDIModel.FK_Languages_Gallery_Picture" />
+        <AssociationConnector Association="FDIModel.FK_Menus_MenuGroups" />
+        <AssociationConnector Association="FDIModel.FK_Menus_Menus" />
+        <AssociationConnector Association="FDIModel.FK_Role_ModuleActive_Module" />
+        <AssociationConnector Association="FDIModel.FK_User_ModuleActive_Module" />
+        <AssociationConnector Association="FDIModel.FK_OrderDetail_Order" />
+        <AssociationConnector Association="FDIModel.FK_OrderDetail_Shop_Product" />
+        <AssociationConnector Association="FDIModel.FK_ProvincialAgencies_System_City" />
+        <AssociationConnector Association="FDIModel.FK_ProvincialAgencies_System_District" />
+        <AssociationConnector Association="FDIModel.FK_RegisteredAgency_ProvincialAgencies" />
+        <AssociationConnector Association="FDIModel.FK_RankNow_BackUp_Rank" />
+        <AssociationConnector Association="FDIModel.FK_RankNow_Rank" />
+        <AssociationConnector Association="FDIModel.FK_Shop_Order_Product_Shop_Product" />
+        <AssociationConnector Association="FDIModel.FK_District_City" />
+        <AssociationConnector Association="FDIModel.aspnet_UsersInRoles" />
+        <AssociationConnector Association="FDIModel.PaymentAccount_CheckAccount" />
+        <AssociationConnector Association="FDIModel.Roles_ActiveRole" />
+        <AssociationConnector Association="FDIModel.Roles_Module" />
+        <AssociationConnector Association="FDIModel.User_Module" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
