@@ -64,16 +64,25 @@
     <Compile Include="Common\ExportManager.cs" />
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />
-    <Compile Include="Frm\Form1.cs">
+    <Compile Include="FrmCtrl\frmChild.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmChild.Designer.cs">
+      <DependentUpon>frmChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Frm\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCtrl\frmChild.resx">
+      <DependentUpon>frmChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
