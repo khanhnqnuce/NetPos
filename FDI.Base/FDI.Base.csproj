@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\NetPos\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -51,93 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveRole.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Advertising_Advertising_Zone_Mapping.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Advertising_Category_Zone.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Advertising_Zone.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Applications.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership_GetPasswordWithFormat_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership_GetPassword_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership_GetUserByName_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership_GetUserByUserId_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Paths.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Profile.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Profile_GetProperties_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Roles.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_SchemaVersions.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Users.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_UsersInRoles_RemoveUsersFromRoles_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_UsersIPMembership.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_WebEvent_Events.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CayMoi.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CheckAccount.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CheckAward.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CheckLogin.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Customer_Type.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Custome_RankCustomer.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Custome_RankCustomerHistory.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -153,170 +66,68 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Distributor.cs">
+    <Compile Include="Product.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="DynamicCustomer.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Gallery_Picture.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryAward.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryAwardLoop.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryAwaysMaRoi.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryRankCustomer_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HistoryUpRank.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HtmlSetting.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Language.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LogSendSMSToCustomer.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Log_Data.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MenuGroup.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Menu_GetChildByParentId_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Module.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Module1.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleControl.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleSetting.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="News_Category.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Order.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OrderDetail.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Page.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PaymentAccount.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Payment_Method.cs">
+    <Compile Include="ProductCategory.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProvincialAgency.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Rank.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RankCustome.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RankNow.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RankNow_BackUp.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RegisteredAgency.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Role_ModuleActive.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Shop_Log_System.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Shop_Order_Product.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Shop_Product.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_ExeclStatisticCommissionByMonth_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="System_City.cs">
+    <Compile Include="tblArea.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="System_Config.cs">
+    <Compile Include="tblBlackList.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="System_Country.cs">
+    <Compile Include="tblBuiding.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="System_District.cs">
+    <Compile Include="tblCard.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="System_MessageTemplate.cs">
+    <Compile Include="tblCardProcess.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="User_ModuleActive.cs">
+    <Compile Include="tblCardType.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Voucher.cs">
+    <Compile Include="tblDBInfo.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_Applications.cs">
+    <Compile Include="tblEvent.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_MembershipUsers.cs">
+    <Compile Include="tblEventAlarm.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_Profiles.cs">
+    <Compile Include="tblEventCode.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_Roles.cs">
+    <Compile Include="tblFunction.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_Users.cs">
+    <Compile Include="tblLine.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_UsersInRoles.cs">
+    <Compile Include="tblLog.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_WebPartState_Paths.cs">
+    <Compile Include="tblObject.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_WebPartState_Shared.cs">
+    <Compile Include="tblPC.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="vw_aspnet_WebPartState_User.cs">
+    <Compile Include="tblRecord.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSystemConfig.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
   </ItemGroup>

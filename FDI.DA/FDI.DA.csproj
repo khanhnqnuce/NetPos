@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\NetPos\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,11 +36,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\NetPos\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="FDI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FDI">
+      <HintPath>..\NetPos\bin\Debug\FDI.dll</HintPath>
+    </Reference>
+    <Reference Include="FDI.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\FDI.Web\bin\FDI.dll</HintPath>
+      <HintPath>..\NetPos\bin\Debug\FDI.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="FDI.Simple, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NetPos\bin\Debug\FDI.Simple.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,61 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\ActiveRoleDA.cs" />
-    <Compile Include="Admin\AdminDA.cs" />
-    <Compile Include="Admin\CheckLoginDA.cs" />
-    <Compile Include="Admin\VoucherDA.cs" />
-    <Compile Include="Admin\ExportExcelDA.cs" />
-    <Compile Include="Admin\HistoryAwaysMaRoiDA.cs" />
-    <Compile Include="Admin\CustomeRankCustomerDA.cs" />
-    <Compile Include="Admin\CustomeRankCustomerHistoryDA.cs" />
-    <Compile Include="Admin\Customer_PaymentMethodDA.cs" />
-    <Compile Include="Admin\DistributorDA.cs" />
-    <Compile Include="Admin\DynamicCustomerDA.cs" />
-    <Compile Include="Admin\HistoryAwardDA.cs" />
-    <Compile Include="Admin\HistoryAwardLoopDA.cs" />
-    <Compile Include="Admin\HistoryUpRankDA.cs" />
-    <Compile Include="Admin\LanguagesDA.cs" />
-    <Compile Include="Admin\Log_DataDA.cs" />
-    <Compile Include="Admin\MenuDA.cs" />
-    <Compile Include="Admin\MenuGroupsDA.cs" />
-    <Compile Include="Admin\QueryExtensions.cs" />
-    <Compile Include="Admin\RankNow_BackUpDA.cs" />
-    <Compile Include="Admin\RegisteredAgencyDA.cs" />
-    <Compile Include="Admin\SystemMessageTemplateDA.cs" />
-    <Compile Include="Admin\HtmlSettingDA.cs" />
-    <Compile Include="Admin\CustomerDA.cs" />
-    <Compile Include="Admin\Gallery_PictureDA.cs" />
-    <Compile Include="Admin\LogProductDa.cs" />
-    <Compile Include="Admin\ModuleDA.cs" />
-    <Compile Include="Admin\RoleDA.cs" />
-    <Compile Include="Admin\RoleModuleActiveDA.cs" />
-    <Compile Include="Admin\SystemConfigDA.cs" />
-    <Compile Include="Admin\System_CityDA.cs" />
-    <Compile Include="Admin\System_CountryDA.cs" />
-    <Compile Include="Admin\System_DistrictDA.cs" />
-    <Compile Include="Admin\UserDA.cs" />
+    <Compile Include="CustomerDA.cs" />
     <Compile Include="BaseDA.cs" />
-    <Compile Include="CheckAwardDA.cs" />
-    <Compile Include="CustomeRankCustomerHistoryDA.cs" />
-    <Compile Include="LogSendSMSToCustomerDA.cs" />
-    <Compile Include="Admin\ProductDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProvincialAgencyDA.cs" />
-    <Compile Include="RankCustomeDA.cs" />
-    <Compile Include="RankNowDA.cs" />
-    <Compile Include="System_LogDA.cs" />
-    <Compile Include="Admin\UserIPMembershipDA.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FDI.Base\FDI.Base.csproj">
-      <Project>{689f0818-80d1-4e5c-a498-806c59e25a3a}</Project>
-      <Name>FDI.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FDI.Simple\FDI.Simple.csproj">
-      <Project>{187fd03c-2a93-4881-9b02-9e7a80f54f7f}</Project>
-      <Name>FDI.Simple</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

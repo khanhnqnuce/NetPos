@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\NetPos\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FDI.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NetPos\bin\Debug\FDI.Base.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -45,73 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionActiveItem.cs" />
-    <Compile Include="ActiveRoleItem.cs" />
-    <Compile Include="AspnetRolesItem.cs" />
-    <Compile Include="AspnetUsersInRolesItem.cs" />
-    <Compile Include="AspnetUsersIpMembershipItem.cs" />
-    <Compile Include="AspnetUsersItem.cs" />
-    <Compile Include="aspnet_RolesItem.cs" />
-    <Compile Include="aspnet_UsersIPMembershipItem.cs" />
-    <Compile Include="aspnet_UsersItem.cs" />
-    <Compile Include="AutoCompleteCommonItem.cs" />
-    <Compile Include="AutoCompleteItem.cs" />
     <Compile Include="BaseSimple.cs" />
-    <Compile Include="CheckAccountrItem.cs" />
-    <Compile Include="CheckAwardItem.cs" />
-    <Compile Include="CheckLoginItem.cs" />
-    <Compile Include="CityItem.cs" />
-    <Compile Include="OrderItem.cs" />
-    <Compile Include="VoucherItem.cs" />
-    <Compile Include="HistoryAwaysMaRoiItem.cs" />
-    <Compile Include="CustomeRankCustomerItem.cs" />
-    <Compile Include="CustomerPaymentMethodItem.cs" />
-    <Compile Include="DistributorItem.cs" />
-    <Compile Include="HistoryAwardItem.cs" />
-    <Compile Include="HistoryAwardLoopItem.cs" />
-    <Compile Include="HistoryUpRankItem.cs" />
-    <Compile Include="LanguagesItem.cs" />
-    <Compile Include="MenuGroupsItem.cs" />
-    <Compile Include="MenusItem.cs" />
-    <Compile Include="ProvincialAgenciesItem.cs" />
-    <Compile Include="ProvincialAgencyItem.cs" />
-    <Compile Include="RankCustomeItem.cs" />
-    <Compile Include="RankNowBackUpItem.cs" />
-    <Compile Include="RankNowItem.cs" />
-    <Compile Include="RegisteredAgencyItem.cs" />
-    <Compile Include="HtmlSettingItem.cs" />
-    <Compile Include="CountryItem.cs" />
-    <Compile Include="CustomerActionItem.cs" />
-    <Compile Include="CustomerItem.cs" />
-    <Compile Include="CustomerPointItem.cs" />
-    <Compile Include="CustomerTypeItem.cs" />
-    <Compile Include="DistrictItem.cs" />
-    <Compile Include="DynamicCustomerItem.cs" />
-    <Compile Include="LabelItem.cs" />
-    <Compile Include="ModuleadminItem.cs" />
-    <Compile Include="ModuleItem.cs" />
-    <Compile Include="PaymentAccountItem.cs" />
-    <Compile Include="PictureItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ProductItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RolesItem.cs" />
-    <Compile Include="Role_ModuleActiveItem.cs" />
-    <Compile Include="SuggestionsItem.cs" />
-    <Compile Include="SystemActionItem.cs" />
-    <Compile Include="SystemConfigItem.cs" />
-    <Compile Include="SystemLogItem.cs" />
-    <Compile Include="SystemMessageTemplateItem.cs" />
-    <Compile Include="TransactionHistoryItem.cs" />
-    <Compile Include="UserItem.cs" />
-    <Compile Include="UserModuleActiveItem.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FDI.Base\FDI.Base.csproj">
-      <Project>{689F0818-80D1-4E5C-A498-806C59E25A3A}</Project>
-      <Name>FDI.Base</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
