@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
 using FDI.DA;
-using FDI.Utils;
-using FDI.Base;
 
 namespace NetPos.Frm
 {
     public partial class frmMain : Form
     {
-        readonly CustomerDA _da = new CustomerDA();
+        readonly CardDA _da = new CardDA();
         public frmMain()
         {
            
@@ -24,9 +22,50 @@ namespace NetPos.Frm
             
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void quảnLýThẻToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void menuThem_Click(object sender, EventArgs e)
+        {
+            var form = new frmAddCard();
+            form.Show();
+        }
+
+        private void menuSua_Click(object sender, EventArgs e)
+        {
+            var form = new frmEditCard();
+            form.Show();
+        }
+
+        private void menuMatDoiThe_Click(object sender, EventArgs e)
+        {
+            var form = new frmMatDoiThe();
+            form.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuTheTrungNhau_Click(object sender, EventArgs e)
+        {
+            var form = new frmTheTrungNhau();
+            form.Show();
+        }
+
+        private void menuDanhSachDen_Click(object sender, EventArgs e)
+        {
+            var form = new frmDanhSachDen();
+            form.Show();
+        }
+
+        private void menuThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+       
     }
 }

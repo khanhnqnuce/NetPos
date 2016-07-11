@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using FDI.Base;
+using FDI.Simple;
 
 namespace FDI.DA
 {
-    public partial class CustomerDA : BaseDA
+    public partial class UserDA : BaseDA
     {
-        public List<tblUser> GetAdminAllSimple()
+        public List<UserItem> GetAdminAllSimple()
         {
             try
             {
                 var query = from c in FDIDB.tblUsers
-                            select c;
+                    select new UserItem
+                    {
+                        UserName = c.UserName,
+                        FullName = c.FullName
+                    };
                 return query.ToList();
             }
             catch (Exception)
