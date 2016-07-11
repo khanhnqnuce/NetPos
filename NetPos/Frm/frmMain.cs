@@ -15,11 +15,7 @@ namespace NetPos.Frm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _da.GetAdminAllSimple();
-            //MyString.Slug("nguyen quang khanh");
-            //label1.Text = MyString.Slug("nguyen quang khanh");
-            //label2.Text = Common.UserName;fdfd    
-            
+            dataGridViewCard.DataSource = _da.GetAdminAllSimple();
         }
 
         private void quảnLýThẻToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,8 +60,11 @@ namespace NetPos.Frm
 
         private void menuThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult kq = MessageBox.Show("Bạn có chắc muốn thoát chương trình?", "", MessageBoxButtons.YesNo);
+            if (kq == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
-       
     }
 }

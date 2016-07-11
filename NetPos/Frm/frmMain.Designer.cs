@@ -33,18 +33,8 @@
             this.thêmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuTheTrungNhau = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuThongKeThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDanhSachDen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoc = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuNapLai = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.groupLoc = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,11 +45,30 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCard = new System.Windows.Forms.DataGridView();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTheTrungNhau = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuThongKeThe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDanhSachDen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNapLai = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardTypeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsRelease = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsLockCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsEdit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupLoc.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,73 +123,11 @@
             this.xóaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.xóaToolStripMenuItem.Text = "Xóa";
             // 
-            // menuThem
-            // 
-            this.menuThem.Name = "menuThem";
-            this.menuThem.Size = new System.Drawing.Size(50, 20);
-            this.menuThem.Text = "Thêm";
-            this.menuThem.Click += new System.EventHandler(this.menuThem_Click);
-            // 
-            // menuSua
-            // 
-            this.menuSua.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.menuSua.Image = global::NetPos.Properties.Resources.icon_add;
-            this.menuSua.Name = "menuSua";
-            this.menuSua.Size = new System.Drawing.Size(54, 20);
-            this.menuSua.Text = "Sửa";
-            this.menuSua.Click += new System.EventHandler(this.menuSua_Click);
-            // 
-            // xóaToolStripMenuItem1
-            // 
-            this.xóaToolStripMenuItem1.Name = "xóaToolStripMenuItem1";
-            this.xóaToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
-            this.xóaToolStripMenuItem1.Text = "Xóa";
-            // 
-            // menuMatDoiThe
-            // 
-            this.menuMatDoiThe.Name = "menuMatDoiThe";
-            this.menuMatDoiThe.Size = new System.Drawing.Size(109, 20);
-            this.menuMatDoiThe.Text = "Mất Thẻ/Đổi Thẻ";
-            this.menuMatDoiThe.Click += new System.EventHandler(this.menuMatDoiThe_Click);
-            // 
-            // menuTheTrungNhau
-            // 
-            this.menuTheTrungNhau.AutoSize = false;
-            this.menuTheTrungNhau.Name = "menuTheTrungNhau";
-            this.menuTheTrungNhau.Size = new System.Drawing.Size(106, 20);
-            this.menuTheTrungNhau.Text = "Thẻ Trùng Nhau";
-            this.menuTheTrungNhau.Click += new System.EventHandler(this.menuTheTrungNhau_Click);
-            // 
-            // menuThongKeThe
-            // 
-            this.menuThongKeThe.Name = "menuThongKeThe";
-            this.menuThongKeThe.Size = new System.Drawing.Size(93, 20);
-            this.menuThongKeThe.Text = "Thống Kê Thẻ";
-            // 
-            // menuDanhSachDen
-            // 
-            this.menuDanhSachDen.Name = "menuDanhSachDen";
-            this.menuDanhSachDen.Size = new System.Drawing.Size(99, 20);
-            this.menuDanhSachDen.Text = "Danh Sách Đen";
-            this.menuDanhSachDen.Click += new System.EventHandler(this.menuDanhSachDen_Click);
-            // 
             // menuLoc
             // 
             this.menuLoc.Name = "menuLoc";
             this.menuLoc.Size = new System.Drawing.Size(41, 20);
             this.menuLoc.Text = "Lọc ";
-            // 
-            // menuNapLai
-            // 
-            this.menuNapLai.Name = "menuNapLai";
-            this.menuNapLai.Size = new System.Drawing.Size(62, 20);
-            this.menuNapLai.Text = "Nạp Lại ";
-            // 
-            // menuIn
-            // 
-            this.menuIn.Name = "menuIn";
-            this.menuIn.Size = new System.Drawing.Size(29, 20);
-            this.menuIn.Text = "In";
             // 
             // menuXuatKhau
             // 
@@ -188,15 +135,9 @@
             this.menuXuatKhau.Size = new System.Drawing.Size(73, 20);
             this.menuXuatKhau.Text = "Xuất Khẩu";
             // 
-            // menuThoat
-            // 
-            this.menuThoat.Name = "menuThoat";
-            this.menuThoat.Size = new System.Drawing.Size(50, 20);
-            this.menuThoat.Text = "Thoát";
-            this.menuThoat.Click += new System.EventHandler(this.menuThoat_Click);
-            // 
             // groupLoc
             // 
+            this.groupLoc.Controls.Add(this.btnTimKiem);
             this.groupLoc.Controls.Add(this.comboBox1);
             this.groupLoc.Controls.Add(this.label4);
             this.groupLoc.Controls.Add(this.textBox3);
@@ -280,7 +221,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dataGridViewCard);
             this.groupBox1.Location = new System.Drawing.Point(12, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1326, 655);
@@ -288,13 +229,161 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh Sách Thẻ:";
             // 
-            // dataGridView1
+            // dataGridViewCard
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1314, 630);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewCard.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridViewCard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.CardNumber,
+            this.AccountName,
+            this.Balance,
+            this.CardTypeCode,
+            this.IsRelease,
+            this.IsLockCard,
+            this.IsEdit});
+            this.dataGridViewCard.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewCard.Name = "dataGridViewCard";
+            this.dataGridViewCard.Size = new System.Drawing.Size(1314, 630);
+            this.dataGridViewCard.TabIndex = 0;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(1064, 18);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.TabIndex = 8;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            // 
+            // menuThem
+            // 
+            this.menuThem.Image = global::NetPos.Properties.Resources.Add;
+            this.menuThem.Name = "menuThem";
+            this.menuThem.Size = new System.Drawing.Size(66, 20);
+            this.menuThem.Text = "Thêm";
+            this.menuThem.Click += new System.EventHandler(this.menuThem_Click);
+            // 
+            // menuSua
+            // 
+            this.menuSua.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuSua.Image = global::NetPos.Properties.Resources.Modify;
+            this.menuSua.Name = "menuSua";
+            this.menuSua.Size = new System.Drawing.Size(54, 20);
+            this.menuSua.Text = "Sửa";
+            this.menuSua.Click += new System.EventHandler(this.menuSua_Click);
+            // 
+            // xóaToolStripMenuItem1
+            // 
+            this.xóaToolStripMenuItem1.Image = global::NetPos.Properties.Resources.Delete;
+            this.xóaToolStripMenuItem1.Name = "xóaToolStripMenuItem1";
+            this.xóaToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
+            this.xóaToolStripMenuItem1.Text = "Xóa";
+            // 
+            // menuMatDoiThe
+            // 
+            this.menuMatDoiThe.Image = global::NetPos.Properties.Resources.Change_card;
+            this.menuMatDoiThe.Name = "menuMatDoiThe";
+            this.menuMatDoiThe.Size = new System.Drawing.Size(125, 20);
+            this.menuMatDoiThe.Text = "Mất Thẻ/Đổi Thẻ";
+            this.menuMatDoiThe.Click += new System.EventHandler(this.menuMatDoiThe_Click);
+            // 
+            // menuTheTrungNhau
+            // 
+            this.menuTheTrungNhau.AutoSize = false;
+            this.menuTheTrungNhau.Image = global::NetPos.Properties.Resources.Duplicate;
+            this.menuTheTrungNhau.Name = "menuTheTrungNhau";
+            this.menuTheTrungNhau.Size = new System.Drawing.Size(120, 20);
+            this.menuTheTrungNhau.Text = "Thẻ Trùng Nhau";
+            this.menuTheTrungNhau.Click += new System.EventHandler(this.menuTheTrungNhau_Click);
+            // 
+            // menuThongKeThe
+            // 
+            this.menuThongKeThe.Image = global::NetPos.Properties.Resources.Line_Chart;
+            this.menuThongKeThe.Name = "menuThongKeThe";
+            this.menuThongKeThe.Size = new System.Drawing.Size(109, 20);
+            this.menuThongKeThe.Text = "Thống Kê Thẻ";
+            // 
+            // menuDanhSachDen
+            // 
+            this.menuDanhSachDen.Image = global::NetPos.Properties.Resources.Black_List;
+            this.menuDanhSachDen.Name = "menuDanhSachDen";
+            this.menuDanhSachDen.Size = new System.Drawing.Size(115, 20);
+            this.menuDanhSachDen.Text = "Danh Sách Đen";
+            this.menuDanhSachDen.Click += new System.EventHandler(this.menuDanhSachDen_Click);
+            // 
+            // menuNapLai
+            // 
+            this.menuNapLai.Image = global::NetPos.Properties.Resources.Load;
+            this.menuNapLai.Name = "menuNapLai";
+            this.menuNapLai.Size = new System.Drawing.Size(78, 20);
+            this.menuNapLai.Text = "Nạp Lại ";
+            // 
+            // menuIn
+            // 
+            this.menuIn.Image = global::NetPos.Properties.Resources.Print;
+            this.menuIn.Name = "menuIn";
+            this.menuIn.Size = new System.Drawing.Size(45, 20);
+            this.menuIn.Text = "In";
+            // 
+            // menuThoat
+            // 
+            this.menuThoat.Image = global::NetPos.Properties.Resources.Exit;
+            this.menuThoat.Name = "menuThoat";
+            this.menuThoat.Size = new System.Drawing.Size(66, 20);
+            this.menuThoat.Text = "Thoát";
+            this.menuThoat.Click += new System.EventHandler(this.menuThoat_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã khách hàng";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // CardNumber
+            // 
+            this.CardNumber.HeaderText = "Mã Thẻ ";
+            this.CardNumber.Name = "CardNumber";
+            this.CardNumber.Width = 120;
+            // 
+            // AccountName
+            // 
+            this.AccountName.HeaderText = "Tên Tài Khoản";
+            this.AccountName.Name = "AccountName";
+            this.AccountName.Width = 250;
+            // 
+            // Balance
+            // 
+            this.Balance.HeaderText = "Số dư tài khoản";
+            this.Balance.Name = "Balance";
+            this.Balance.Width = 150;
+            // 
+            // CardTypeCode
+            // 
+            this.CardTypeCode.HeaderText = "Loại Thẻ";
+            this.CardTypeCode.Name = "CardTypeCode";
+            this.CardTypeCode.Width = 200;
+            // 
+            // IsRelease
+            // 
+            this.IsRelease.HeaderText = "Đã được phát hành";
+            this.IsRelease.Name = "IsRelease";
+            this.IsRelease.Width = 150;
+            // 
+            // IsLockCard
+            // 
+            this.IsLockCard.HeaderText = "Khóa thẻ";
+            this.IsLockCard.Name = "IsLockCard";
+            this.IsLockCard.Width = 150;
+            // 
+            // IsEdit
+            // 
+            this.IsEdit.HeaderText = "IsEdit";
+            this.IsEdit.Name = "IsEdit";
+            this.IsEdit.Width = 120;
             // 
             // frmMain
             // 
@@ -315,7 +404,7 @@
             this.groupLoc.ResumeLayout(false);
             this.groupLoc.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,7 +439,16 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewCard;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardTypeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsRelease;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsLockCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsEdit;
 
 
 
