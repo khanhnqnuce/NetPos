@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using FDI.DA;
+using FDI.Simple;
 
 namespace NetPos.Frm
 {
@@ -15,7 +17,11 @@ namespace NetPos.Frm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridViewCard.DataSource = _da.GetAdminAllSimple();
+            var lst = _da.GetAdminAllSimple();
+            var bindingList = new BindingList<CardItem>(lst);
+            var source = new BindingSource(bindingList, null);
+            dataGridViewCard.DataSource = source;
+            dataGridViewCard.Columns[0].HeaderText = "My Header";
         }
 
         private void quảnLýThẻToolStripMenuItem_Click(object sender, EventArgs e)

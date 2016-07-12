@@ -41,6 +41,9 @@
             this.menuBaoCaoDanhThuChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCaoTongHop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSuKienCanhBao = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuNhatKyLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDSNapTien = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBackUpDuLieu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNapLai = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,9 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCard = new System.Windows.Forms.DataGridView();
-            this.menuNhatKyLog = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDSNapTien = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBackUpDuLieu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.groupLoc.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -178,6 +178,24 @@
             this.menuSuKienCanhBao.Name = "menuSuKienCanhBao";
             this.menuSuKienCanhBao.Size = new System.Drawing.Size(226, 22);
             this.menuSuKienCanhBao.Text = "Sự kiện cảnh báo";
+            // 
+            // menuNhatKyLog
+            // 
+            this.menuNhatKyLog.Name = "menuNhatKyLog";
+            this.menuNhatKyLog.Size = new System.Drawing.Size(226, 22);
+            this.menuNhatKyLog.Text = "Nhật ký hệ thống log";
+            // 
+            // menuDSNapTien
+            // 
+            this.menuDSNapTien.Name = "menuDSNapTien";
+            this.menuDSNapTien.Size = new System.Drawing.Size(226, 22);
+            this.menuDSNapTien.Text = "Danh sách nạp tiền cho thẻ";
+            // 
+            // menuBackUpDuLieu
+            // 
+            this.menuBackUpDuLieu.Name = "menuBackUpDuLieu";
+            this.menuBackUpDuLieu.Size = new System.Drawing.Size(226, 22);
+            this.menuBackUpDuLieu.Text = "Dữ liệu Backup";
             // 
             // menuLoc
             // 
@@ -326,24 +344,6 @@
             this.dataGridViewCard.Name = "dataGridViewCard";
             this.dataGridViewCard.Size = new System.Drawing.Size(1314, 626);
             this.dataGridViewCard.TabIndex = 0;
-            // 
-            // menuNhatKyLog
-            // 
-            this.menuNhatKyLog.Name = "menuNhatKyLog";
-            this.menuNhatKyLog.Size = new System.Drawing.Size(226, 22);
-            this.menuNhatKyLog.Text = "Nhật ký hệ thống log";
-            // 
-            // menuDSNapTien
-            // 
-            this.menuDSNapTien.Name = "menuDSNapTien";
-            this.menuDSNapTien.Size = new System.Drawing.Size(226, 22);
-            this.menuDSNapTien.Text = "Danh sách nạp tiền cho thẻ";
-            // 
-            // menuBackUpDuLieu
-            // 
-            this.menuBackUpDuLieu.Name = "menuBackUpDuLieu";
-            this.menuBackUpDuLieu.Size = new System.Drawing.Size(226, 22);
-            this.menuBackUpDuLieu.Text = "Dữ liệu Backup";
             // 
             // frmMain
             // 
