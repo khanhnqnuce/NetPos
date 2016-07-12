@@ -26,7 +26,8 @@ namespace NetPos.Frm
         private void menuThem_Click(object sender, EventArgs e)
         {
             var form = new frmAddCard();
-            form.Show();
+            form.ShowDialog();
+            Form1_Load(sender, e);
         }
 
         private void menuSua_Click(object sender, EventArgs e)
