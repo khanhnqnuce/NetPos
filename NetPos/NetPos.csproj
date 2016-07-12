@@ -75,19 +75,88 @@
     <Compile Include="FrmCtrl\frmChild.Designer.cs">
       <DependentUpon>frmChild.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\frmDanhSachDen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmDanhSachDen.Designer.cs">
+      <DependentUpon>frmDanhSachDen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmEditCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmEditCard.Designer.cs">
+      <DependentUpon>frmEditCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmAddCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmAddCard.Designer.cs">
+      <DependentUpon>frmAddCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frm\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\frmMatDoiThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmMatDoiThe.Designer.cs">
+      <DependentUpon>frmMatDoiThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmTheTrungNhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmTheTrungNhau.Designer.cs">
+      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\Change card.png" />
+    <None Include="Resources\Duplicate.png" />
+    <None Include="Resources\Black List.png" />
+    <None Include="Resources\Warning.ico" />
+    <None Include="Resources\Search.ico" />
+    <None Include="Resources\Save.ico" />
+    <None Include="Resources\Profile.ico" />
+    <None Include="Resources\Print.ico" />
+    <None Include="Resources\Pie Chart.ico" />
+    <None Include="Resources\Picture.ico" />
+    <None Include="Resources\Next.ico" />
+    <None Include="Resources\Modify.ico" />
+    <None Include="Resources\Loading.ico" />
+    <None Include="Resources\Load.ico" />
+    <None Include="Resources\Line Chart.ico" />
+    <None Include="Resources\Info.ico" />
+    <None Include="Resources\Exit.ico" />
+    <None Include="Resources\Email.ico" />
+    <None Include="Resources\Delete.ico" />
+    <None Include="Resources\Comment.ico" />
+    <None Include="Resources\Bar Chart.ico" />
+    <None Include="Resources\Back.ico" />
+    <None Include="Resources\Add.ico" />
+    <None Include="Resources\icon-add.png" />
     <EmbeddedResource Include="FrmCtrl\frmChild.resx">
       <DependentUpon>frmChild.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmDanhSachDen.resx">
+      <DependentUpon>frmDanhSachDen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmEditCard.resx">
+      <DependentUpon>frmEditCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmAddCard.resx">
+      <DependentUpon>frmAddCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmMatDoiThe.resx">
+      <DependentUpon>frmMatDoiThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmTheTrungNhau.resx">
+      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,8 +166,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="App.Config" />
+    <Content Include="App.Config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

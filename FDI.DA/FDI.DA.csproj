@@ -63,7 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerDA.cs" />
+    <Compile Include="CardDA.cs" />
+    <Compile Include="UserDA.cs" />
     <Compile Include="BaseDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

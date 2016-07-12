@@ -35,12 +35,12 @@
             this.MenuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewCard = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,13 +90,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dataGridViewCard);
             this.groupBox1.Location = new System.Drawing.Point(12, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(864, 472);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách thẻ trùng nhau: ";
+            // 
+            // dataGridViewCard
+            // 
+            this.dataGridViewCard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCard.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewCard.Name = "dataGridViewCard";
+            this.dataGridViewCard.Size = new System.Drawing.Size(852, 447);
+            this.dataGridViewCard.TabIndex = 0;
             // 
             // label1
             // 
@@ -116,14 +124,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Số Lượng:";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(852, 447);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // frmTheTrungNhau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,10 +136,11 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmTheTrungNhau";
             this.Text = "Danh sách thẻ trùng nhau";
+            this.Load += new System.EventHandler(this.menuThoat_Click);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,7 +155,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuXuatKhau;
         private System.Windows.Forms.ToolStripMenuItem menuThoat;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewCard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

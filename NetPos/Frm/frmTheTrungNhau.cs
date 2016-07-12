@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FDI.DA;
 
 namespace NetPos.Frm
 {
     public partial class frmTheTrungNhau : Form
     {
+        readonly CardDA _da = new CardDA();
         public frmTheTrungNhau()
         {
             InitializeComponent();
@@ -19,6 +21,7 @@ namespace NetPos.Frm
 
         private void menuThoat_Click(object sender, EventArgs e)
         {
+            dataGridViewCard.DataSource = _da.GetAdminAllSimple();
             this.Close();
         }
     }
