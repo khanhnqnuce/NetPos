@@ -77,17 +77,24 @@
     <Compile Include="Common\log2File.cs" />
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />
+    <Compile Include="FrmCtrl\BackListDA.cs" />
+    <Compile Include="FrmCtrl\frmCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmCard.Designer.cs">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCtrl\frmChild.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FrmCtrl\frmChild.Designer.cs">
       <DependentUpon>frmChild.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm\frmDanhSachDen.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FrmCtrl\frmDachSachDen.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Frm\frmDanhSachDen.Designer.cs">
-      <DependentUpon>frmDanhSachDen.cs</DependentUpon>
+    <Compile Include="FrmCtrl\frmDachSachDen.Designer.cs">
+      <DependentUpon>frmDachSachDen.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\frmEditCard.cs">
       <SubType>Form</SubType>
@@ -121,6 +128,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Reports\bangdiem.rst" />
+    <None Include="Reports\danhsachthe.rst" />
     <None Include="Resources\Change card.png" />
     <None Include="Resources\Duplicate.png" />
     <None Include="Resources\Black List.png" />
@@ -145,11 +154,14 @@
     <None Include="Resources\Back.ico" />
     <None Include="Resources\Add.ico" />
     <None Include="Resources\icon-add.png" />
+    <EmbeddedResource Include="FrmCtrl\frmCard.resx">
+      <DependentUpon>frmCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmChild.resx">
       <DependentUpon>frmChild.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm\frmDanhSachDen.resx">
-      <DependentUpon>frmDanhSachDen.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCtrl\frmDachSachDen.resx">
+      <DependentUpon>frmDachSachDen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmEditCard.resx">
       <DependentUpon>frmEditCard.cs</DependentUpon>

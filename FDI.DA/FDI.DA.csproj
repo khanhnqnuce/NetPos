@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackListDA.cs" />
     <Compile Include="CardDA.cs" />
     <Compile Include="UserDA.cs" />
     <Compile Include="BaseDA.cs" />

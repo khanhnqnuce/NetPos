@@ -7,6 +7,9 @@ using FDI;
 using FDI.Base;
 using FDI.DA;
 using FDI.Simple;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+using NetPos.FrmCtrl;
 
 namespace NetPos.Frm
 {
@@ -18,17 +21,26 @@ namespace NetPos.Frm
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private static void ShowControl(Control frm, Control panel)
+        {
+            try
+            {
+                panel.Controls.Clear();
+                frm.Dock = DockStyle.Fill;
+                panel.Controls.Add(frm);
+                panel.Controls[frm.Name].Focus();
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+        private void frmMain_Load(object sender, EventArgs e)
         {
             var lst = _da.GetAdminAllSimple();
             //var a = ToDataTable(lst);
             dgv_DanhSach.DataSource = lst.ToDataTable();
             //dataGridViewCard.Columns[0].HeaderText = "My Header";
-        }
-
-        private void quảnLýThẻToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void menuThem_Click(object sender, EventArgs e)
@@ -63,8 +75,8 @@ namespace NetPos.Frm
 
         private void menuDanhSachDen_Click(object sender, EventArgs e)
         {
-            var form = new frmDanhSachDen();
-            form.Show();
+            var form = new frmDachSachDen();
+            ShowControl(form,pn_Main);
         }
 
         private void menuThoat_Click(object sender, EventArgs e)
@@ -79,10 +91,47 @@ namespace NetPos.Frm
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
+            band.Columns["ID"].Hidden = true;
+
+            band.Columns["Code"].CellActivation = Activation.NoEdit;
+            band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
+            band.Columns["AccountName"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["CardTypeCode"].CellActivation = Activation.NoEdit;
+            band.Columns["IsRelease"].CellActivation = Activation.NoEdit;
+            band.Columns["IsLockCard"].CellActivation = Activation.NoEdit;
+            band.Columns["IsEdit"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Code"].MinWidth = 80;
+            band.Columns["CardNumber"].MinWidth = 80;
+            band.Columns["AccountName"].MinWidth = 200;
+            band.Columns["Balance"].MinWidth = 120;
+            band.Columns["CardTypeCode"].MinWidth = 150;
+            band.Columns["IsRelease"].MinWidth = 120;
+            band.Columns["IsLockCard"].MinWidth = 120;
+            band.Columns["IsEdit"].MinWidth = 120;
+
+            band.Columns["Code"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["AccountName"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["CardTypeCode"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["IsRelease"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["IsLockCard"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["IsEdit"].CellAppearance.TextHAlign = HAlign.Center;
 
             #region Caption
-            band.Columns["CardNumber"].Header.Caption = @"Số tài khoản";
+            band.Columns["Code"].Header.Caption = @"Mã khách hàng";
+            band.Columns["CardNumber"].Header.Caption = @"Số thẻ";
+            band.Columns["AccountName"].Header.Caption = @"Tên tài khoản";
+            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["CardTypeCode"].Header.Caption = @"Loại thẻ";
+            band.Columns["IsRelease"].Header.Caption = @"Đã được phát hành";
+            band.Columns["IsEdit"].Header.Caption = @"Thẻ thành viên";
+            band.Columns["IsLockCard"].Header.Caption = @"Khóa thẻ";
+
             #endregion
+            band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 
         #region Event
@@ -111,5 +160,17 @@ namespace NetPos.Frm
             }
         }
         #endregion
+
+        private void menuThongKe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuThongKeThe_Click(object sender, EventArgs e)
+        {
+            var form = new frmCard();
+            ShowControl(form, pn_Main);
+        }
+
     }
 }

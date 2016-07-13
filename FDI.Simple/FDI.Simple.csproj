@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackListItem.cs" />
     <Compile Include="BaseSimple.cs" />
     <Compile Include="CardItem.cs" />
     <Compile Include="CardTypeItem.cs" />
