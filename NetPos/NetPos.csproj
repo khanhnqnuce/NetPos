@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EPPlus">
-      <HintPath>..\FDI.Web\bin\EPPlus.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\AdminMLMTL\NetPos\bin\Debug\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="FDI">
       <HintPath>..\FDI.Web\Bin\FDI.dll</HintPath>
@@ -50,9 +50,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\FDI.Simple.dll</HintPath>
     </Reference>
+    <Reference Include="Infragistics2.Shared.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +74,7 @@
     <Compile Include="Common\Email.cs" />
     <Compile Include="Common\Excel.cs" />
     <Compile Include="Common\ExportManager.cs" />
+    <Compile Include="Common\log2File.cs" />
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />
     <Compile Include="FrmCtrl\frmChild.cs">
@@ -158,6 +166,7 @@
     <EmbeddedResource Include="Frm\frmTheTrungNhau.resx">
       <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

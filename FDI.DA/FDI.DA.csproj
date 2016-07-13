@@ -39,7 +39,7 @@
       <HintPath>..\NetPos\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="FDI">
-      <HintPath>..\NetPos\bin\Debug\FDI.dll</HintPath>
+      <HintPath>C:\Users\Administrator\Desktop\AdminMLMTL\NetPos\bin\Debug\FDI.dll</HintPath>
     </Reference>
     <Reference Include="FDI.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

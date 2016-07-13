@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddCard));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,18 +36,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtMaKhachHang = new System.Windows.Forms.TextBox();
-            this.txtMaThe = new System.Windows.Forms.TextBox();
-            this.txtTenTaiKhoan = new System.Windows.Forms.TextBox();
-            this.txtSoDuTaiKhoan = new System.Windows.Forms.TextBox();
-            this.cboLoaiThe = new System.Windows.Forms.ComboBox();
+            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtCardNumber = new System.Windows.Forms.TextBox();
+            this.txtAccountName = new System.Windows.Forms.TextBox();
+            this.txtBalance = new System.Windows.Forms.TextBox();
+            this.cboCardType = new System.Windows.Forms.ComboBox();
             this.txtDiemThuong = new System.Windows.Forms.TextBox();
-            this.chkTheThanhVien = new System.Windows.Forms.CheckBox();
-            this.chkTheDaDuocPhatHanh = new System.Windows.Forms.CheckBox();
-            this.chkKhoaThe = new System.Windows.Forms.CheckBox();
-            this.btnLuuLai = new System.Windows.Forms.Button();
+            this.chkIsEdit = new System.Windows.Forms.CheckBox();
+            this.chkIsRelease = new System.Windows.Forms.CheckBox();
+            this.chkIsLockCard = new System.Windows.Forms.CheckBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtError = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.txtError)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -103,41 +106,44 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Số dư tài khoản:";
             // 
-            // txtMaKhachHang
+            // txtCode
             // 
-            this.txtMaKhachHang.Location = new System.Drawing.Point(169, 75);
-            this.txtMaKhachHang.Name = "txtMaKhachHang";
-            this.txtMaKhachHang.Size = new System.Drawing.Size(227, 20);
-            this.txtMaKhachHang.TabIndex = 9;
+            this.txtCode.Location = new System.Drawing.Point(169, 75);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(227, 20);
+            this.txtCode.TabIndex = 9;
             // 
-            // txtMaThe
+            // txtCardNumber
             // 
-            this.txtMaThe.Location = new System.Drawing.Point(169, 108);
-            this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(227, 20);
-            this.txtMaThe.TabIndex = 10;
+            this.txtCardNumber.Location = new System.Drawing.Point(169, 108);
+            this.txtCardNumber.Name = "txtCardNumber";
+            this.txtCardNumber.Size = new System.Drawing.Size(227, 20);
+            this.txtCardNumber.TabIndex = 10;
             // 
-            // txtTenTaiKhoan
+            // txtAccountName
             // 
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(169, 141);
-            this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
-            this.txtTenTaiKhoan.Size = new System.Drawing.Size(227, 20);
-            this.txtTenTaiKhoan.TabIndex = 11;
+            this.txtAccountName.Location = new System.Drawing.Point(169, 141);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(227, 20);
+            this.txtAccountName.TabIndex = 11;
             // 
-            // txtSoDuTaiKhoan
+            // txtBalance
             // 
-            this.txtSoDuTaiKhoan.Location = new System.Drawing.Point(169, 172);
-            this.txtSoDuTaiKhoan.Name = "txtSoDuTaiKhoan";
-            this.txtSoDuTaiKhoan.Size = new System.Drawing.Size(227, 20);
-            this.txtSoDuTaiKhoan.TabIndex = 12;
+            this.txtBalance.Location = new System.Drawing.Point(169, 172);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.Size = new System.Drawing.Size(227, 20);
+            this.txtBalance.TabIndex = 12;
             // 
-            // cboLoaiThe
+            // cboCardType
             // 
-            this.cboLoaiThe.FormattingEnabled = true;
-            this.cboLoaiThe.Location = new System.Drawing.Point(169, 202);
-            this.cboLoaiThe.Name = "cboLoaiThe";
-            this.cboLoaiThe.Size = new System.Drawing.Size(227, 21);
-            this.cboLoaiThe.TabIndex = 13;
+            this.cboCardType.DisplayMember = "Name";
+            this.cboCardType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCardType.FormattingEnabled = true;
+            this.cboCardType.Location = new System.Drawing.Point(169, 202);
+            this.cboCardType.Name = "cboCardType";
+            this.cboCardType.Size = new System.Drawing.Size(227, 21);
+            this.cboCardType.TabIndex = 13;
+            this.cboCardType.ValueMember = "Code";
             // 
             // txtDiemThuong
             // 
@@ -146,44 +152,45 @@
             this.txtDiemThuong.Size = new System.Drawing.Size(227, 20);
             this.txtDiemThuong.TabIndex = 14;
             // 
-            // chkTheThanhVien
+            // chkIsEdit
             // 
-            this.chkTheThanhVien.AutoSize = true;
-            this.chkTheThanhVien.Location = new System.Drawing.Point(169, 275);
-            this.chkTheThanhVien.Name = "chkTheThanhVien";
-            this.chkTheThanhVien.Size = new System.Drawing.Size(98, 17);
-            this.chkTheThanhVien.TabIndex = 15;
-            this.chkTheThanhVien.Text = "Thẻ thành viên";
-            this.chkTheThanhVien.UseVisualStyleBackColor = true;
+            this.chkIsEdit.AutoSize = true;
+            this.chkIsEdit.Location = new System.Drawing.Point(169, 275);
+            this.chkIsEdit.Name = "chkIsEdit";
+            this.chkIsEdit.Size = new System.Drawing.Size(98, 17);
+            this.chkIsEdit.TabIndex = 15;
+            this.chkIsEdit.Text = "Thẻ thành viên";
+            this.chkIsEdit.UseVisualStyleBackColor = true;
             // 
-            // chkTheDaDuocPhatHanh
+            // chkIsRelease
             // 
-            this.chkTheDaDuocPhatHanh.AutoSize = true;
-            this.chkTheDaDuocPhatHanh.Location = new System.Drawing.Point(169, 310);
-            this.chkTheDaDuocPhatHanh.Name = "chkTheDaDuocPhatHanh";
-            this.chkTheDaDuocPhatHanh.Size = new System.Drawing.Size(140, 17);
-            this.chkTheDaDuocPhatHanh.TabIndex = 16;
-            this.chkTheDaDuocPhatHanh.Text = "Thẻ đã được phát hành";
-            this.chkTheDaDuocPhatHanh.UseVisualStyleBackColor = true;
+            this.chkIsRelease.AutoSize = true;
+            this.chkIsRelease.Location = new System.Drawing.Point(169, 310);
+            this.chkIsRelease.Name = "chkIsRelease";
+            this.chkIsRelease.Size = new System.Drawing.Size(140, 17);
+            this.chkIsRelease.TabIndex = 16;
+            this.chkIsRelease.Text = "Thẻ đã được phát hành";
+            this.chkIsRelease.UseVisualStyleBackColor = true;
             // 
-            // chkKhoaThe
+            // chkIsLockCard
             // 
-            this.chkKhoaThe.AutoSize = true;
-            this.chkKhoaThe.Location = new System.Drawing.Point(169, 341);
-            this.chkKhoaThe.Name = "chkKhoaThe";
-            this.chkKhoaThe.Size = new System.Drawing.Size(73, 17);
-            this.chkKhoaThe.TabIndex = 17;
-            this.chkKhoaThe.Text = "Khóa Thẻ";
-            this.chkKhoaThe.UseVisualStyleBackColor = true;
+            this.chkIsLockCard.AutoSize = true;
+            this.chkIsLockCard.Location = new System.Drawing.Point(169, 341);
+            this.chkIsLockCard.Name = "chkIsLockCard";
+            this.chkIsLockCard.Size = new System.Drawing.Size(73, 17);
+            this.chkIsLockCard.TabIndex = 17;
+            this.chkIsLockCard.Text = "Khóa Thẻ";
+            this.chkIsLockCard.UseVisualStyleBackColor = true;
             // 
-            // btnLuuLai
+            // btnSave
             // 
-            this.btnLuuLai.Location = new System.Drawing.Point(169, 383);
-            this.btnLuuLai.Name = "btnLuuLai";
-            this.btnLuuLai.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuLai.TabIndex = 18;
-            this.btnLuuLai.Text = "Lưu lại";
-            this.btnLuuLai.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(169, 383);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Lưu lại";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnHuyBo
             // 
@@ -204,6 +211,11 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Thêm Thông Tin Thẻ";
             // 
+            // txtError
+            // 
+            this.txtError.ContainerControl = this;
+            this.txtError.Icon = ((System.Drawing.Icon)(resources.GetObject("txtError.Icon")));
+            // 
             // frmAddCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,16 +223,16 @@
             this.ClientSize = new System.Drawing.Size(510, 437);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnHuyBo);
-            this.Controls.Add(this.btnLuuLai);
-            this.Controls.Add(this.chkKhoaThe);
-            this.Controls.Add(this.chkTheDaDuocPhatHanh);
-            this.Controls.Add(this.chkTheThanhVien);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.chkIsLockCard);
+            this.Controls.Add(this.chkIsRelease);
+            this.Controls.Add(this.chkIsEdit);
             this.Controls.Add(this.txtDiemThuong);
-            this.Controls.Add(this.cboLoaiThe);
-            this.Controls.Add(this.txtSoDuTaiKhoan);
-            this.Controls.Add(this.txtTenTaiKhoan);
-            this.Controls.Add(this.txtMaThe);
-            this.Controls.Add(this.txtMaKhachHang);
+            this.Controls.Add(this.cboCardType);
+            this.Controls.Add(this.txtBalance);
+            this.Controls.Add(this.txtAccountName);
+            this.Controls.Add(this.txtCardNumber);
+            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -230,6 +242,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddCard";
             this.Text = "Thêm thông tin thẻ";
+            this.Load += new System.EventHandler(this.frmAddCard_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,17 +257,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtMaKhachHang;
-        private System.Windows.Forms.TextBox txtMaThe;
-        private System.Windows.Forms.TextBox txtTenTaiKhoan;
-        private System.Windows.Forms.TextBox txtSoDuTaiKhoan;
-        private System.Windows.Forms.ComboBox cboLoaiThe;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.TextBox txtCardNumber;
+        private System.Windows.Forms.TextBox txtAccountName;
+        private System.Windows.Forms.TextBox txtBalance;
+        private System.Windows.Forms.ComboBox cboCardType;
         private System.Windows.Forms.TextBox txtDiemThuong;
-        private System.Windows.Forms.CheckBox chkTheThanhVien;
-        private System.Windows.Forms.CheckBox chkTheDaDuocPhatHanh;
-        private System.Windows.Forms.CheckBox chkKhoaThe;
-        private System.Windows.Forms.Button btnLuuLai;
+        private System.Windows.Forms.CheckBox chkIsEdit;
+        private System.Windows.Forms.CheckBox chkIsRelease;
+        private System.Windows.Forms.CheckBox chkIsLockCard;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider txtError;
     }
 }

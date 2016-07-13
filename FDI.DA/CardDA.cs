@@ -6,7 +6,7 @@ using FDI.Simple;
 
 namespace FDI.DA
 {
-    public partial class CardDA : BaseDA
+    public class CardDA : BaseDA
     {
         public List<CardItem> GetAdminAllSimple()
         {
@@ -19,18 +19,36 @@ namespace FDI.DA
                         AccountName = c.AccountName,
                         Balance = c.Balance,
                         CardTypeCode = c.CardTypeCode,
-                        IsRelease = c.IsRelease,
-                        IsLockCard = c.IsLockCard,
+                        IsRelease = c.IsRelease??false,
+                        IsLockCard = c.IsLockCard??false,
                         IsEdit = c.IsEdit
                     };
                 return query.ToList();
             }
             catch (Exception)
             {
-                return null;
+                return new List<CardItem>();
             }
             
         }
+
+        public List<CardTypeItem> GetTypeCard()
+        {
+            try
+            {
+                var query = from c in FDIDB.tblCardTypes
+                            select new CardTypeItem
+                            {
+                                Name = c.Name,
+                                Code = c.Code
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<CardTypeItem>();
+            }
+        } 
 
         public void Add(tblCard item)
         {

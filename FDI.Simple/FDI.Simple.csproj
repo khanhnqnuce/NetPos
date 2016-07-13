@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BaseSimple.cs" />
     <Compile Include="CardItem.cs" />
+    <Compile Include="CardTypeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserItem.cs" />
   </ItemGroup>

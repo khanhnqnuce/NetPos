@@ -60,10 +60,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.dataGridViewCard = new System.Windows.Forms.DataGridView();
             this.menuMain.SuspendLayout();
             this.groupLoc.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).BeginInit();
             this.SuspendLayout();
             // 
@@ -329,6 +331,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgv_DanhSach);
             this.groupBox1.Controls.Add(this.dataGridViewCard);
             this.groupBox1.Location = new System.Drawing.Point(12, 85);
             this.groupBox1.Name = "groupBox1";
@@ -337,12 +340,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh Sách Thẻ:";
             // 
+            // dgv_DanhSach
+            // 
+            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
+            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
+            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_DanhSach.Name = "dgv_DanhSach";
+            this.dgv_DanhSach.Size = new System.Drawing.Size(1320, 636);
+            this.dgv_DanhSach.TabIndex = 26;
+            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
+            // 
             // dataGridViewCard
             // 
             this.dataGridViewCard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCard.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewCard.Name = "dataGridViewCard";
-            this.dataGridViewCard.Size = new System.Drawing.Size(1314, 626);
+            this.dataGridViewCard.Size = new System.Drawing.Size(251, 626);
             this.dataGridViewCard.TabIndex = 0;
             // 
             // frmMain
@@ -365,6 +384,7 @@
             this.groupLoc.ResumeLayout(false);
             this.groupLoc.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -401,10 +421,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.DataGridView dataGridViewCard;
         private System.Windows.Forms.ToolStripMenuItem menuNhatKyLog;
         private System.Windows.Forms.ToolStripMenuItem menuDSNapTien;
         private System.Windows.Forms.ToolStripMenuItem menuBackUpDuLieu;
+        private System.Windows.Forms.DataGridView dataGridViewCard;
+        private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
 
 
 
