@@ -56,12 +56,6 @@ namespace NetPos.Frm
             form.Show();
         }
 
-        private void menuMatDoiThe_Click(object sender, EventArgs e)
-        {
-            var form = new frmMatDoiThe();
-            form.Show();
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -170,6 +164,54 @@ namespace NetPos.Frm
         {
             var form = new frmCard();
             ShowControl(form, pn_Main);
+        }
+
+        private void menuTheTrungNhau_Click_1(object sender, EventArgs e)
+        {
+            var form = new frmTheTrungNhau();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuNhatKyLog_Click(object sender, EventArgs e)
+        {
+            var form = new frmLog();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuSuKienCanhBao_Click(object sender, EventArgs e)
+        {
+            var form = new frmEventAlarm();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuDSNapTien_Click(object sender, EventArgs e)
+        {
+            var form = new frmCardProcess();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuBackUpDuLieu_Click(object sender, EventArgs e)
+        {
+            var form = new frmDataBackup();
+            ShowControl(form, pn_Main);
+        }
+
+        private void MenuTKThe_Click(object sender, EventArgs e)
+        {
+            var form = new frmThongKeThe();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)
+        {
+            var form = new frmRecord();
+            ShowControl(form, pn_Main);
+        }
+
+        private void menuMatDoiThe_Click(object sender, EventArgs e)
+        {
+            var form = new frmMatDoiThe();
+            form.Show();
         }
 
     }

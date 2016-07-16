@@ -84,17 +84,53 @@
     <Compile Include="FrmCtrl\frmCard.Designer.cs">
       <DependentUpon>frmCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCtrl\frmChild.cs">
+    <Compile Include="FrmCtrl\frmCardProcess.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmCtrl\frmChild.Designer.cs">
-      <DependentUpon>frmChild.cs</DependentUpon>
+    <Compile Include="FrmCtrl\frmCardProcess.Designer.cs">
+      <DependentUpon>frmCardProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCtrl\frmDachSachDen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FrmCtrl\frmDachSachDen.Designer.cs">
       <DependentUpon>frmDachSachDen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmDataBackup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmDataBackup.Designer.cs">
+      <DependentUpon>frmDataBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmEventAlarm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmEventAlarm.Designer.cs">
+      <DependentUpon>frmEventAlarm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmLog.Designer.cs">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmRecord.Designer.cs">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmTheTrungNhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmTheTrungNhau.Designer.cs">
+      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCtrl\frmThongKeThe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmThongKeThe.Designer.cs">
+      <DependentUpon>frmThongKeThe.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\frmEditCard.cs">
       <SubType>Form</SubType>
@@ -120,16 +156,11 @@
     <Compile Include="Frm\frmMatDoiThe.Designer.cs">
       <DependentUpon>frmMatDoiThe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm\frmTheTrungNhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm\frmTheTrungNhau.Designer.cs">
-      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Reports\bangdiem.rst" />
-    <None Include="Reports\danhsachthe.rst" />
+    <None Include="Resources\cards-icon.png" />
+    <None Include="FrmCtrl\Reports\bangdiem.rst" />
+    <None Include="FrmCtrl\Reports\danhsachthe.rst" />
     <None Include="Resources\Change card.png" />
     <None Include="Resources\Duplicate.png" />
     <None Include="Resources\Black List.png" />
@@ -157,11 +188,29 @@
     <EmbeddedResource Include="FrmCtrl\frmCard.resx">
       <DependentUpon>frmCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCtrl\frmChild.resx">
-      <DependentUpon>frmChild.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCtrl\frmCardProcess.resx">
+      <DependentUpon>frmCardProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmDachSachDen.resx">
       <DependentUpon>frmDachSachDen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmDataBackup.resx">
+      <DependentUpon>frmDataBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmEventAlarm.resx">
+      <DependentUpon>frmEventAlarm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmLog.resx">
+      <DependentUpon>frmLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmRecord.resx">
+      <DependentUpon>frmRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmTheTrungNhau.resx">
+      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmThongKeThe.resx">
+      <DependentUpon>frmThongKeThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmEditCard.resx">
       <DependentUpon>frmEditCard.cs</DependentUpon>
@@ -174,9 +223,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmMatDoiThe.resx">
       <DependentUpon>frmMatDoiThe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm\frmTheTrungNhau.resx">
-      <DependentUpon>frmTheTrungNhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace NetPos.FrmCtrl
 {
-    public partial class frmChild : UserControl
+    public partial class frmThongKeThe : UserControl
     {
-        public frmChild()
+        public frmThongKeThe()
         {
             InitializeComponent();
-        }
-
-        private void frmChild_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

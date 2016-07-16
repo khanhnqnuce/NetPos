@@ -36,21 +36,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupThongTinGiaoDich = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupXuLyThe = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.chkThemDanhSachDen = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupThongTinThe.SuspendLayout();
             this.groupThongTinGiaoDich.SuspendLayout();
-            this.groupXuLyThe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupXuLyThe.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupThongTinThe
@@ -136,6 +136,14 @@
             this.groupThongTinGiaoDich.TabStop = false;
             this.groupThongTinGiaoDich.Text = "Thông tin giao dịch gần nhất:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(593, 270);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // groupXuLyThe
             // 
             this.groupXuLyThe.Controls.Add(this.button1);
@@ -146,12 +154,28 @@
             this.groupXuLyThe.Controls.Add(this.radioButton2);
             this.groupXuLyThe.Controls.Add(this.radioButton1);
             this.groupXuLyThe.Controls.Add(this.chkThemDanhSachDen);
-            this.groupXuLyThe.Location = new System.Drawing.Point(653, 34);
+            this.groupXuLyThe.Location = new System.Drawing.Point(648, 24);
             this.groupXuLyThe.Name = "groupXuLyThe";
-            this.groupXuLyThe.Size = new System.Drawing.Size(273, 457);
+            this.groupXuLyThe.Size = new System.Drawing.Size(273, 466);
             this.groupXuLyThe.TabIndex = 2;
             this.groupXuLyThe.TabStop = false;
             this.groupXuLyThe.Text = "Xử lý thẻ:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(73, 311);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Xử lý mất thẻ/ đổi thẻ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(28, 245);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(210, 20);
+            this.textBox2.TabIndex = 9;
             // 
             // label5
             // 
@@ -211,44 +235,20 @@
             this.chkThemDanhSachDen.Text = "Thêm thẻ vào danh sách đen";
             this.chkThemDanhSachDen.UseVisualStyleBackColor = true;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(28, 245);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 20);
-            this.textBox2.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(68, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Xử lý mất thẻ/ đổi thẻ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(852, 512);
+            this.button2.Location = new System.Drawing.Point(848, 511);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(593, 270);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // frmMatDoiThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 558);
+            this.ClientSize = new System.Drawing.Size(950, 558);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupXuLyThe);
             this.Controls.Add(this.groupThongTinGiaoDich);
@@ -258,9 +258,9 @@
             this.groupThongTinThe.ResumeLayout(false);
             this.groupThongTinThe.PerformLayout();
             this.groupThongTinGiaoDich.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupXuLyThe.ResumeLayout(false);
             this.groupXuLyThe.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
