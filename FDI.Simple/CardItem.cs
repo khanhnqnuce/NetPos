@@ -2,6 +2,7 @@
 {
     public class CardItem:BaseSimple
     {
+        public long RowNumber { get; set; }
         public string Code { get; set; }
         public string CardNumber { get; set; }
         public string AccountName { get; set; }
