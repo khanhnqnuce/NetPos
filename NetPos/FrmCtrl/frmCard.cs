@@ -13,7 +13,7 @@ namespace NetPos.FrmCtrl
 {
     public partial class frmCard : UserControl
     {
-        readonly CardDA _da = new CardDA();
+        readonly CardDA _da = new CardDA(); 
 
         public frmCard()
         {
