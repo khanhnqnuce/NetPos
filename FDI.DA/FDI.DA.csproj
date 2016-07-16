@@ -65,6 +65,10 @@
   <ItemGroup>
     <Compile Include="BackListDA.cs" />
     <Compile Include="CardDA.cs" />
+    <Compile Include="CardProcessDA.cs" />
+    <Compile Include="EventAlarmDA.cs" />
+    <Compile Include="LogDA.cs" />
+    <Compile Include="RecordDA.cs" />
     <Compile Include="UserDA.cs" />
     <Compile Include="BaseDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
