@@ -74,6 +74,7 @@
     <Compile Include="Common\Email.cs" />
     <Compile Include="Common\Excel.cs" />
     <Compile Include="Common\ExportManager.cs" />
+    <Compile Include="Common\FormatProcess.cs" />
     <Compile Include="Common\log2File.cs" />
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />

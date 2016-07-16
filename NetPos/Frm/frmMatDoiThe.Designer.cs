@@ -254,6 +254,7 @@
             this.Controls.Add(this.groupThongTinGiaoDich);
             this.Controls.Add(this.groupThongTinThe);
             this.Name = "frmMatDoiThe";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mất Thẻ/ Đổi Thẻ";
             this.groupThongTinThe.ResumeLayout(false);
             this.groupThongTinThe.PerformLayout();

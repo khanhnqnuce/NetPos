@@ -31,13 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pn_Top = new System.Windows.Forms.Panel();
             this.menuMain = new System.Windows.Forms.MenuStrip();
-            this.menuDSThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuTheTrungNhau = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDanhSachDen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThongKe = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTKThe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCaoDanhThuChiTiet = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,19 +40,23 @@
             this.menuNhatKyLog = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDSNapTien = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBackUpDuLieu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuXoa = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoc = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuNapLai = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Main = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.QLT = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDSThe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDanhSachDen = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTheTrungNhau = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Top.SuspendLayout();
             this.menuMain.SuspendLayout();
-            this.pn_Main.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_Top
@@ -73,54 +71,24 @@
             // menuMain
             // 
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuDSThe,
+            this.QLT,
+            this.menuThongKe,
+            this.toolStripMenuItem2,
             this.menuThem,
             this.menuSua,
             this.menuXoa,
             this.menuMatDoiThe,
-            this.menuTheTrungNhau,
-            this.menuDanhSachDen,
-            this.menuThongKe,
+            this.toolStripMenuItem3,
             this.menuLoc,
-            this.menuNapLai,
             this.menuIn,
             this.menuXuatKhau,
+            this.toolStripMenuItem1,
             this.menuThoat});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
             this.menuMain.Size = new System.Drawing.Size(1350, 24);
             this.menuMain.TabIndex = 8;
             this.menuMain.Text = "menuStrip1";
-            // 
-            // menuDSThe
-            // 
-            this.menuDSThe.Image = global::NetPos.Properties.Resources.cards_icon;
-            this.menuDSThe.Name = "menuDSThe";
-            this.menuDSThe.Size = new System.Drawing.Size(110, 20);
-            this.menuDSThe.Text = "Danh sách thẻ";
-            this.menuDSThe.Click += new System.EventHandler(this.menuThongKeThe_Click);
-            // 
-            // menuThem
-            // 
-            this.menuThem.Image = global::NetPos.Properties.Resources.Add;
-            this.menuThem.Name = "menuThem";
-            this.menuThem.Size = new System.Drawing.Size(66, 20);
-            this.menuThem.Text = "Thêm";
-            // 
-            // menuSua
-            // 
-            this.menuSua.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.menuSua.Image = global::NetPos.Properties.Resources.Modify;
-            this.menuSua.Name = "menuSua";
-            this.menuSua.Size = new System.Drawing.Size(54, 20);
-            this.menuSua.Text = "Sửa";
-            // 
-            // menuXoa
-            // 
-            this.menuXoa.Image = global::NetPos.Properties.Resources.Delete;
-            this.menuXoa.Name = "menuXoa";
-            this.menuXoa.Size = new System.Drawing.Size(55, 20);
-            this.menuXoa.Text = "Xóa";
             // 
             // menuMatDoiThe
             // 
@@ -129,23 +97,6 @@
             this.menuMatDoiThe.Size = new System.Drawing.Size(125, 20);
             this.menuMatDoiThe.Text = "Mất Thẻ/Đổi Thẻ";
             this.menuMatDoiThe.Click += new System.EventHandler(this.menuMatDoiThe_Click);
-            // 
-            // menuTheTrungNhau
-            // 
-            this.menuTheTrungNhau.AutoSize = false;
-            this.menuTheTrungNhau.Image = global::NetPos.Properties.Resources.Duplicate;
-            this.menuTheTrungNhau.Name = "menuTheTrungNhau";
-            this.menuTheTrungNhau.Size = new System.Drawing.Size(120, 20);
-            this.menuTheTrungNhau.Text = "Thẻ Trùng Nhau";
-            this.menuTheTrungNhau.Click += new System.EventHandler(this.menuTheTrungNhau_Click_1);
-            // 
-            // menuDanhSachDen
-            // 
-            this.menuDanhSachDen.Image = global::NetPos.Properties.Resources.Black_List;
-            this.menuDanhSachDen.Name = "menuDanhSachDen";
-            this.menuDanhSachDen.Size = new System.Drawing.Size(115, 20);
-            this.menuDanhSachDen.Text = "Danh Sách Đen";
-            this.menuDanhSachDen.Click += new System.EventHandler(this.menuDanhSachDen_Click);
             // 
             // menuThongKe
             // 
@@ -211,18 +162,53 @@
             this.menuBackUpDuLieu.Text = "Dữ liệu Backup";
             this.menuBackUpDuLieu.Click += new System.EventHandler(this.menuBackUpDuLieu_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem2.Text = "|";
+            // 
+            // menuThem
+            // 
+            this.menuThem.Image = global::NetPos.Properties.Resources.Add;
+            this.menuThem.Name = "menuThem";
+            this.menuThem.Size = new System.Drawing.Size(66, 20);
+            this.menuThem.Text = "Thêm";
+            this.menuThem.Click += new System.EventHandler(this.menuThem_Click);
+            // 
+            // menuSua
+            // 
+            this.menuSua.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuSua.Image = global::NetPos.Properties.Resources.Modify;
+            this.menuSua.Name = "menuSua";
+            this.menuSua.Size = new System.Drawing.Size(54, 20);
+            this.menuSua.Text = "Sửa";
+            this.menuSua.Click += new System.EventHandler(this.menuSua_Click);
+            // 
+            // menuXoa
+            // 
+            this.menuXoa.Image = global::NetPos.Properties.Resources.Delete;
+            this.menuXoa.Name = "menuXoa";
+            this.menuXoa.Size = new System.Drawing.Size(55, 20);
+            this.menuXoa.Text = "Xóa";
+            this.menuXoa.Click += new System.EventHandler(this.menuXoa_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem3.Text = "|";
+            // 
             // menuLoc
             // 
+            this.menuLoc.Image = global::NetPos.Properties.Resources.Search;
             this.menuLoc.Name = "menuLoc";
-            this.menuLoc.Size = new System.Drawing.Size(41, 20);
+            this.menuLoc.Size = new System.Drawing.Size(57, 20);
             this.menuLoc.Text = "Lọc ";
-            // 
-            // menuNapLai
-            // 
-            this.menuNapLai.Image = global::NetPos.Properties.Resources.Load;
-            this.menuNapLai.Name = "menuNapLai";
-            this.menuNapLai.Size = new System.Drawing.Size(78, 20);
-            this.menuNapLai.Text = "Nạp Lại ";
             // 
             // menuIn
             // 
@@ -234,8 +220,16 @@
             // menuXuatKhau
             // 
             this.menuXuatKhau.Name = "menuXuatKhau";
-            this.menuXuatKhau.Size = new System.Drawing.Size(73, 20);
-            this.menuXuatKhau.Text = "Xuất Khẩu";
+            this.menuXuatKhau.Size = new System.Drawing.Size(72, 20);
+            this.menuXuatKhau.Text = "Xuất Excel";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem1.Text = "|";
             // 
             // menuThoat
             // 
@@ -247,44 +241,53 @@
             // 
             // pn_Main
             // 
-            this.pn_Main.Controls.Add(this.groupBox1);
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 34);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1350, 708);
+            this.pn_Main.Size = new System.Drawing.Size(1350, 655);
             this.pn_Main.TabIndex = 1;
             // 
-            // groupBox1
+            // QLT
             // 
-            this.groupBox1.Controls.Add(this.dgv_DanhSach);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1350, 708);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh Sách Thẻ:";
+            this.QLT.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuDSThe,
+            this.menuTheTrungNhau,
+            this.menuDanhSachDen});
+            this.QLT.Image = global::NetPos.Properties.Resources.Loading;
+            this.QLT.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.QLT.Name = "QLT";
+            this.QLT.Size = new System.Drawing.Size(96, 20);
+            this.QLT.Text = "Quản lý thẻ";
             // 
-            // dgv_DanhSach
+            // menuDSThe
             // 
-            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
-            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
-            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
-            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(1344, 689);
-            this.dgv_DanhSach.TabIndex = 26;
+            this.menuDSThe.Image = global::NetPos.Properties.Resources.cards_icon;
+            this.menuDSThe.Name = "menuDSThe";
+            this.menuDSThe.Size = new System.Drawing.Size(156, 22);
+            this.menuDSThe.Text = "Danh sách thẻ";
+            this.menuDSThe.Click += new System.EventHandler(this.menuDSThe_Click);
+            // 
+            // menuDanhSachDen
+            // 
+            this.menuDanhSachDen.Image = global::NetPos.Properties.Resources.Black_List;
+            this.menuDanhSachDen.Name = "menuDanhSachDen";
+            this.menuDanhSachDen.Size = new System.Drawing.Size(156, 22);
+            this.menuDanhSachDen.Text = "Danh Sách Đen";
+            this.menuDanhSachDen.Click += new System.EventHandler(this.menuDanhSachDen_Click);
+            // 
+            // menuTheTrungNhau
+            // 
+            this.menuTheTrungNhau.Image = global::NetPos.Properties.Resources.Duplicate;
+            this.menuTheTrungNhau.Name = "menuTheTrungNhau";
+            this.menuTheTrungNhau.Size = new System.Drawing.Size(156, 22);
+            this.menuTheTrungNhau.Text = "Thẻ trùng nhau";
+            this.menuTheTrungNhau.Click += new System.EventHandler(this.menuTheTrungNhau_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 742);
+            this.ClientSize = new System.Drawing.Size(1350, 689);
             this.Controls.Add(this.pn_Main);
             this.Controls.Add(this.pn_Top);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -297,9 +300,6 @@
             this.pn_Top.PerformLayout();
             this.menuMain.ResumeLayout(false);
             this.menuMain.PerformLayout();
-            this.pn_Main.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -313,9 +313,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuSua;
         private System.Windows.Forms.ToolStripMenuItem menuXoa;
         private System.Windows.Forms.ToolStripMenuItem menuMatDoiThe;
-        private System.Windows.Forms.ToolStripMenuItem menuTheTrungNhau;
-        private System.Windows.Forms.ToolStripMenuItem menuDSThe;
-        private System.Windows.Forms.ToolStripMenuItem menuDanhSachDen;
         private System.Windows.Forms.ToolStripMenuItem menuThongKe;
         private System.Windows.Forms.ToolStripMenuItem menuBaoCaoDanhThuChiTiet;
         private System.Windows.Forms.ToolStripMenuItem menuBaoCaoTongHop;
@@ -324,13 +321,17 @@
         private System.Windows.Forms.ToolStripMenuItem menuDSNapTien;
         private System.Windows.Forms.ToolStripMenuItem menuBackUpDuLieu;
         private System.Windows.Forms.ToolStripMenuItem menuLoc;
-        private System.Windows.Forms.ToolStripMenuItem menuNapLai;
         private System.Windows.Forms.ToolStripMenuItem menuIn;
         private System.Windows.Forms.ToolStripMenuItem menuXuatKhau;
         private System.Windows.Forms.ToolStripMenuItem menuThoat;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
         private System.Windows.Forms.ToolStripMenuItem MenuTKThe;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem QLT;
+        private System.Windows.Forms.ToolStripMenuItem menuDSThe;
+        private System.Windows.Forms.ToolStripMenuItem menuDanhSachDen;
+        private System.Windows.Forms.ToolStripMenuItem menuTheTrungNhau;
 
 
 

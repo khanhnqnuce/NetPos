@@ -15,8 +15,8 @@ namespace NetPos.Frm
             var handler = AddCard;
             if (handler != null) handler(this, hs);
         }
-
         readonly CardDA _cardDa = new CardDA();
+
         public frmAddCard()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace NetPos.Frm
                 Code = txtCode.Text,
                 AccountName = txtAccountName.Text,
                 CardNumber = txtCardNumber.Text,
-                Balance = int.Parse(txtBalance.Text),
+                Balance = int.Parse(txtBalance.Value.ToString()),
                 IsEdit = chkIsEdit.Checked,
                 IsLockCard = chkIsLockCard.Checked,
                 IsRelease = chkIsRelease.Checked,
@@ -42,6 +42,8 @@ namespace NetPos.Frm
             _cardDa.Add(carditem);
             _cardDa.Save();
             OnAddCard(carditem);
+            Reset();
+            MessageBox.Show(@"Thêm mới thành công !");
         }
 
         private bool Checkghi()
@@ -73,7 +75,7 @@ namespace NetPos.Frm
                     txtBalance.Focus();
                     return false;
                 }
-                
+
                 if (string.IsNullOrEmpty(txtDiemThuong.Text))
                 {
                     txtError.SetError(txtDiemThuong, "Không được để trống");
@@ -88,10 +90,23 @@ namespace NetPos.Frm
                 return false;
             }
         }
+
         private void frmAddCard_Load(object sender, EventArgs e)
         {
             var lstCardType = _cardDa.GetTypeCard();
             cboCardType.DataSource = lstCardType;
+        }
+
+        private void Reset()
+        {
+            txtCode.Text = "";
+            txtAccountName.Text = "";
+            txtCardNumber.Text = "";
+            txtBalance.Value = 0;
+            chkIsEdit.Checked = false;
+            chkIsLockCard.Checked = false;
+            chkIsRelease.Checked = false;
+            cboCardType.SelectedItem = 0;
         }
     }
 }

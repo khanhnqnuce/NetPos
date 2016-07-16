@@ -39,7 +39,6 @@
             this.txtCode = new System.Windows.Forms.TextBox();
             this.txtCardNumber = new System.Windows.Forms.TextBox();
             this.txtAccountName = new System.Windows.Forms.TextBox();
-            this.txtBalance = new System.Windows.Forms.TextBox();
             this.cboCardType = new System.Windows.Forms.ComboBox();
             this.txtDiemThuong = new System.Windows.Forms.TextBox();
             this.chkIsEdit = new System.Windows.Forms.CheckBox();
@@ -49,7 +48,9 @@
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtBalance = new Infragistics.Win.UltraWinEditors.UltraNumericEditor();
             ((System.ComponentModel.ISupportInitialize)(this.txtError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBalance)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,13 +127,6 @@
             this.txtAccountName.Name = "txtAccountName";
             this.txtAccountName.Size = new System.Drawing.Size(227, 20);
             this.txtAccountName.TabIndex = 11;
-            // 
-            // txtBalance
-            // 
-            this.txtBalance.Location = new System.Drawing.Point(169, 172);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.Size = new System.Drawing.Size(227, 20);
-            this.txtBalance.TabIndex = 12;
             // 
             // cboCardType
             // 
@@ -216,11 +210,22 @@
             this.txtError.ContainerControl = this;
             this.txtError.Icon = ((System.Drawing.Icon)(resources.GetObject("txtError.Icon")));
             // 
+            // txtBalance
+            // 
+            this.txtBalance.Location = new System.Drawing.Point(169, 168);
+            this.txtBalance.MaskInput = "{LOC}nnn,nnn,nnn";
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.NumericType = Infragistics.Win.UltraWinEditors.NumericType.Decimal;
+            this.txtBalance.PromptChar = ' ';
+            this.txtBalance.Size = new System.Drawing.Size(227, 21);
+            this.txtBalance.TabIndex = 21;
+            // 
             // frmAddCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 437);
+            this.Controls.Add(this.txtBalance);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnHuyBo);
             this.Controls.Add(this.btnSave);
@@ -229,7 +234,6 @@
             this.Controls.Add(this.chkIsEdit);
             this.Controls.Add(this.txtDiemThuong);
             this.Controls.Add(this.cboCardType);
-            this.Controls.Add(this.txtBalance);
             this.Controls.Add(this.txtAccountName);
             this.Controls.Add(this.txtCardNumber);
             this.Controls.Add(this.txtCode);
@@ -241,9 +245,11 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddCard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm thông tin thẻ";
             this.Load += new System.EventHandler(this.frmAddCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBalance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +266,6 @@
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.TextBox txtCardNumber;
         private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.ComboBox cboCardType;
         private System.Windows.Forms.TextBox txtDiemThuong;
         private System.Windows.Forms.CheckBox chkIsEdit;
@@ -270,5 +275,6 @@
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider txtError;
+        private Infragistics.Win.UltraWinEditors.UltraNumericEditor txtBalance;
     }
 }
