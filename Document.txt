@@ -1,0 +1,16 @@
+USE [NetPOS]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_TheTrungNhau]    Script Date: 7/16/2016 10:10:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[sp_TheTrungNhau]
+	 
+AS
+BEGIN
+	select ROW_NUMBER() OVER (Order by a.Id) AS RowNumber, a.* from [tblCard] as a
+	join
+	 (SELECT CardNumber, COUNT(CardNumber) as [Count] FROM [NetPOS].[dbo].[tblCard] group by CardNumber having COUNT(CardNumber) > 1) as b
+	 on a.CardNumber = b.CardNumber
+END
