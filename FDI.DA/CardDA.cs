@@ -48,7 +48,31 @@ namespace FDI.DA
             {
                 return new List<CardTypeItem>();
             }
-        } 
+        }
+
+        public List<CardItem> GetDuplicateCardTypeItems()
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_TheTrungNhau()
+                            select new CardItem
+                            {
+                                RowNumber = c.RowNumber??0,
+                                CardNumber = c.CardNumber,
+                                AccountName = c.AccountName,
+                                Balance = c.Balance,
+                                CardTypeCode = c.CardTypeCode,
+                                IsRelease = c.IsRelease ?? false,
+                                IsLockCard = c.IsLockCard ?? false,
+                                IsEdit = c.IsEdit
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<CardItem>();
+            }
+        }
 
         public void Add(tblCard item)
         {
