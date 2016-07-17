@@ -30,6 +30,7 @@ namespace NetPos.FrmCtrl
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Code"].CellActivation = Activation.NoEdit;
@@ -49,8 +50,6 @@ namespace NetPos.FrmCtrl
             band.Columns["IsRelease"].MinWidth = 120;
             band.Columns["IsLockCard"].MinWidth = 120;
             band.Columns["IsEdit"].MinWidth = 120;
-            band.Columns["RowNumber"].MinWidth = 50;
-            band.Columns["RowNumber"].MaxWidth = 70;
 
             band.Columns["Code"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
@@ -61,7 +60,6 @@ namespace NetPos.FrmCtrl
             band.Columns["IsRelease"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["IsLockCard"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["IsEdit"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["RowNumber"].CellAppearance.TextHAlign = HAlign.Center;
 
             #region Caption
             band.Columns["Code"].Header.Caption = @"Mã khách hàng";
@@ -72,7 +70,6 @@ namespace NetPos.FrmCtrl
             band.Columns["IsRelease"].Header.Caption = @"Đã được phát hành";
             band.Columns["IsEdit"].Header.Caption = @"Thẻ thành viên";
             band.Columns["IsLockCard"].Header.Caption = @"Khóa thẻ";
-            band.Columns["RowNumber"].Header.Caption = @"STT";
 
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
