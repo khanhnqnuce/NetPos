@@ -12,19 +12,20 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblRecords
+                var query = from c in FDIDB.sp_Record()
                             select new RecordItem
                     {
                         CardNumber = c.CardNumber,
-                        Date = (DateTime) c.Date,
-                        Bonus = (int) c.Bonus,
-                        Balance = (int) c.Balance,
+                        Date = c.Date?? new DateTime(),
+                        Bonus = c.Bonus??0,
+                        Balance = c.Balance??0,
                         Action = c.Action,
-                        CardTypeCode = c.CardTypeCode,
-                        BuidingCode = c.BuidingCode,
-                        AreaCode = c.AreaCode,
-                        UserCode = c.UserCode,
-                        EventID = c.EventID,
+                        AccountName = c.AccountName,
+                        CardType = c.CardType,
+                        Buiding = c.Buiding,
+                        Area = c.Area,
+                        UserName = c.UserName,
+                        EventId = c.EventID,
                         ProductCode = c.ProductCode
                     };
                 return query.ToList();
@@ -34,6 +35,25 @@ namespace FDI.DA
                 return null;
             }
             
+        }
+
+        public List<BCKhuVucItem> GetBcKhuVucItems()
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_BCTheoKhuVuc()
+                            select new BCKhuVucItem
+                            {
+                                Area = c.Area,
+                                Bonus = c.Bonus ?? 0
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
 
     }

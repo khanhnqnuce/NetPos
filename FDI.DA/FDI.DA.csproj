@@ -69,6 +69,7 @@
     <Compile Include="EventAlarmDA.cs" />
     <Compile Include="LogDA.cs" />
     <Compile Include="RecordDA.cs" />
+    <Compile Include="ThongKeTheDA.cs" />
     <Compile Include="UserDA.cs" />
     <Compile Include="BaseDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

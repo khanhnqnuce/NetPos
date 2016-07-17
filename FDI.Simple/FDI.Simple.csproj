@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BackListItem.cs" />
     <Compile Include="BaseSimple.cs" />
+    <Compile Include="BCKhuVucItem.cs" />
     <Compile Include="CardItem.cs" />
     <Compile Include="CardProcessItem.cs" />
     <Compile Include="CardTypeItem.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="LogItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordItem.cs" />
+    <Compile Include="ThongKeTheItem.cs" />
     <Compile Include="UserItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
