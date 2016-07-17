@@ -127,5 +127,17 @@ namespace NetPos.Frm
             ShowControl(form, pn_Main);
         }
 
+        private void menuLoc_Click(object sender, EventArgs e)
+        {
+            var form = new frmLoc();
+            form.Show();
+        }
+
+        private void menuBaoCaoTongHop_Click(object sender, EventArgs e)
+        {
+            var form = new frmBCDoanhThuTongHop();
+            ShowControl(form, pn_Main);
+        }
+
     }
 }

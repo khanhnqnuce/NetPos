@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using FDI;
 using FDI.DA;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
 
 namespace NetPos.FrmCtrl
 {
@@ -17,6 +19,56 @@ namespace NetPos.FrmCtrl
         {
             var lst = _da.GetAdminAllSimple();
             dgv_DanhSach.DataSource = lst.ToDataTable();
+        }
+
+        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Columns["ID"].Hidden = true;
+
+            band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
+            band.Columns["Date"].CellActivation = Activation.NoEdit;
+            band.Columns["Bonus"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["Action"].CellActivation = Activation.NoEdit;
+            band.Columns["AccountName"].CellActivation = Activation.NoEdit;
+            band.Columns["CardType"].CellActivation = Activation.NoEdit;
+            band.Columns["Buiding"].CellActivation = Activation.NoEdit;
+            band.Columns["Area"].CellActivation = Activation.NoEdit;
+            band.Columns["UserName"].CellActivation = Activation.NoEdit;
+            band.Columns["EventId"].CellActivation = Activation.NoEdit;
+            band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
+
+            band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Bonus"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Action"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["AccountName"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["CardType"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["Buiding"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["Area"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["UserName"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["EventId"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["ProductCode"].CellAppearance.TextHAlign = HAlign.Right;
+
+            #region Caption
+            band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
+            band.Columns["Date"].Header.Caption = @"Thời gian";
+            band.Columns["Bonus"].Header.Caption = @"Thanh toán";
+            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["Action"].Header.Caption = @"Miêu tả";
+            band.Columns["AccountName"].Header.Caption = @"Tên tài khoản";
+            band.Columns["CardType"].Header.Caption = @"Loại Thẻ";
+            band.Columns["Buiding"].Header.Caption = @"Tòa Nhà";
+            band.Columns["Area"].Header.Caption = @"Khu vực";
+            band.Columns["UserName"].Header.Caption = @"Nhân viên bán vé";
+            band.Columns["EventId"].Header.Caption = @"EventId";
+            band.Columns["ProductCode"].Header.Caption = @"Mã hàng";
+
+            #endregion
+            band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
     }
 }

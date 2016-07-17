@@ -24,6 +24,9 @@ namespace NetPos.FrmCtrl
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
+
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Date"].CellActivation = Activation.NoEdit;

@@ -76,7 +76,7 @@
             this.groupBox1.Size = new System.Drawing.Size(1182, 543);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DANH SÁCH THẺ NẠP TIỀN (MẤT THẺ/ĐỔI THẺ...)";
+            this.groupBox1.Text = "Danh sách nạp tiền cho thẻ ( Mất/Đổi thẻ ):";
             // 
             // dgv_DanhSach
             // 

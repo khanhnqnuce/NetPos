@@ -21,22 +21,29 @@ namespace NetPos.FrmCtrl
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
 
-        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        private void dgv_DanhSach_InitializeLayout(object sender,
+            Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             band.Columns["ID"].Hidden = true;
 
+            band.Columns["RowNumber"].CellActivation = Activation.NoEdit;
             band.Columns["Date"].CellActivation = Activation.NoEdit;
             band.Columns["BuidingCode"].CellActivation = Activation.NoEdit;
             band.Columns["Object"].CellActivation = Activation.NoEdit;
             band.Columns["EventCode"].CellActivation = Activation.NoEdit;
 
+            band.Columns["RowNumber"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["BuidingCode"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["Object"].CellAppearance.TextHAlign = HAlign.Left;
             band.Columns["EventCode"].CellAppearance.TextHAlign = HAlign.Center;
 
-            #region Caption
+            band.Columns["RowNumber"].MaxWidth = 80;
+            band.Columns["RowNumber"].Header.Caption = @"STT";
+            
+
+        #region Caption
             //band.Columns["Date"].Header.Caption = @"Thời gian";
             //band.Columns["MemoryID"].Header.Caption = @"MemoryID";
             //band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
