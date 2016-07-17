@@ -28,8 +28,7 @@ namespace FDI.DA
                         CardTypeCode = c.NameType??"#",
                         IsRelease = c.IsRelease ?? false,
                         IsLockCard = c.IsLockCard ?? false,
-                        IsEdit = c.IsEdit,
-                        RowNumber = c.RowNumber??0
+                        IsEdit = c.IsEdit
                     };
                 return query.ToList();
             }
@@ -65,7 +64,6 @@ namespace FDI.DA
                 var query = from c in FDIDB.sp_TheTrungNhau()
                             select new CardItem
                             {
-                                RowNumber = c.RowNumber ?? 0,
                                 CardNumber = c.CardNumber,
                                 AccountName = c.AccountName,
                                 Balance = c.Balance,
