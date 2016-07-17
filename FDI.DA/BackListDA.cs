@@ -15,7 +15,7 @@ namespace FDI.DA
                 var query = from c in FDIDB.tblBlackLists
                             select new BackListItem
                             {
-                                Date = c.Date??new DateTime(),
+                                Date = c.Date ?? new DateTime(),
                                 MemoryID = c.MemoryID,
                                 CardNumber = c.CardNumber,
                                 ToObjects = c.ToObjects,
@@ -30,6 +30,33 @@ namespace FDI.DA
                 return new List<BackListItem>();
             }
 
+        }
+
+        public tblBlackList Get(string card)
+        {
+            var query = from c in FDIDB.tblBlackLists where  c.CardNumber == card select c;
+            return query.FirstOrDefault();
+        }
+
+        public void Add(tblBlackList item)
+        {
+            FDIDB.tblBlackLists.Add(item);
+        }
+
+        public int Count()
+        {
+            return FDIDB.tblBlackLists.Count();
+        }
+
+        public void Delete(tblBlackList item)
+        {
+            FDIDB.tblBlackLists.Remove(item);
+        }
+
+        public void Save()
+        {
+
+            FDIDB.SaveChanges();
         }
 
     }

@@ -25,7 +25,7 @@ namespace FDI.DA
                         CardNumber = c.CardNumber,
                         AccountName = c.AccountName,
                         Balance = c.Balance,
-                        CardTypeCode = c.NameType??"#",
+                        CardTypeCode = c.NameType ?? "#",
                         IsRelease = c.IsRelease ?? false,
                         IsLockCard = c.IsLockCard ?? false,
                         IsEdit = c.IsEdit
@@ -79,9 +79,29 @@ namespace FDI.DA
                 return new List<CardItem>();
             }
         }
+
+        public List<sp_GiaoDichGanNhat_Result> GetRecord(string card)
+        {
+            var query = from c in FDIDB.sp_GiaoDichGanNhat(card)
+                        select c;
+            return query.ToList();
+        }
+
         public tblCard Get(int id)
         {
             var query = from c in FDIDB.tblCards where c.Id == id select c;
+            return query.FirstOrDefault();
+        }
+
+        public CardItem Get(string card)
+        {
+            var query = from c in FDIDB.sp_GetCard(card)
+                        select new CardItem
+                            {
+                                AccountName = c.AccountName,
+                                CardNumber = c.CardNumber,
+                                CardTypeCode = c.NameType
+                            };
             return query.FirstOrDefault();
         }
 
@@ -90,6 +110,12 @@ namespace FDI.DA
             var query = from c in FDIDB.tblCards where lst.Contains(c.Id) select c;
             return query.ToList();
         }
+
+        public void UpdateCard(string cardOld, string cardNew)
+        {
+            FDIDB.sp_UpdateCard(cardNew, cardOld);
+        }
+
         public void Add(tblCard item)
         {
             FDIDB.tblCards.Add(item);

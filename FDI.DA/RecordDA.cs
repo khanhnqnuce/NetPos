@@ -24,7 +24,7 @@ namespace FDI.DA
                         CardType = c.CardType,
                         Buiding = c.Buiding,
                         Area = c.Area,
-                        UserName = c.UserName,
+                        UserName = c.NameUser,
                         EventId = c.EventID,
                         ProductCode = c.ProductCode
                     };

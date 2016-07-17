@@ -111,8 +111,7 @@ namespace NetPos.Frm
 
         private void menuMatDoiThe_Click(object sender, EventArgs e)
         {
-            var form = new frmMatDoiThe();
-            form.Show();
+            _frmCard.Rename();
         }
 
         private void menuXoa_Click(object sender, EventArgs e)

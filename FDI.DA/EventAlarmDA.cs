@@ -12,10 +12,9 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.sp_EventAlarm()
+                var query = from c in FDIDB.tblEventAlarms
                             select new EventAlarmItem
                     {
-                        RowNumber = c.RowNumber ?? 0,
                         Date = c.Date ?? new DateTime(),
                         BuidingCode = c.BuidingCode,
                         Object = c.Object,

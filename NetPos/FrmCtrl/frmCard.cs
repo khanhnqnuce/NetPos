@@ -13,7 +13,7 @@ namespace NetPos.FrmCtrl
 {
     public partial class frmCard : UserControl
     {
-        readonly CardDA _da = new CardDA(); 
+        readonly CardDA _da = new CardDA();
 
         public frmCard()
         {
@@ -98,6 +98,7 @@ namespace NetPos.FrmCtrl
         {
             try
             {
+                if (dgv_DanhSach.ActiveRow == null) return;
                 var frm = new frmEditCard();
                 var id = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
                 if (string.IsNullOrEmpty(id)) return;
@@ -112,6 +113,31 @@ namespace NetPos.FrmCtrl
                     dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.TblCardItem.IsLockCard;
                     dgv_DanhSach.ActiveRow.Cells["IsRelease"].Value = frm.TblCardItem.IsRelease;
                 }
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Rename()
+        {
+            try
+            {
+                if (dgv_DanhSach.ActiveRow == null) return;
+                var frm = new frmMatDoiThe();
+                var cardNumber = dgv_DanhSach.ActiveRow.Cells["CardNumber"].Text;
+                var idCard = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
+                frm.IdCard = int.Parse(idCard);
+                if (string.IsNullOrEmpty(cardNumber)) return;
+                frm.CardNumber = cardNumber;
+                frm.ShowDialog();
+                if (frm.IsUpdate)
+                {
+                    dgv_DanhSach.ActiveRow.Cells["CardNumber"].Value = frm.CardNumber;
+                    dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.IsLockCard;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -152,8 +178,8 @@ namespace NetPos.FrmCtrl
                     _da.Delete(item);
                 }
                 _da.Save();
-                
-                
+
+
             }
             catch (Exception ex)
             {
