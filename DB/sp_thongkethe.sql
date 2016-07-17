@@ -1,5 +1,6 @@
 
-ALTER PROCEDURE [dbo].[sp_GetListCard]	 
+
+CREATE PROCEDURE [dbo].[sp_ThongKeThe]	 
 AS
 BEGIN
 	SELECT tb.NameType,SUM(tb.TotalCard),SUM(tb.[TotalUsed]),SUM(tb.TotalBalance) AS [TotalBalance] FROM(
