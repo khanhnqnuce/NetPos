@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using FDI;
 using FDI.DA;
@@ -24,9 +25,9 @@ namespace NetPos.FrmCtrl
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
             band.Columns["ID"].Hidden = true;
 
-            band.Columns["RowNumber"].CellActivation = Activation.NoEdit;
             band.Columns["Code"].CellActivation = Activation.NoEdit;
             band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
             band.Columns["AccountName"].CellActivation = Activation.NoEdit;
@@ -36,7 +37,6 @@ namespace NetPos.FrmCtrl
             band.Columns["IsLockCard"].CellActivation = Activation.NoEdit;
             band.Columns["IsEdit"].CellActivation = Activation.NoEdit;
 
-            band.Columns["RowNumber"].MinWidth = 20;
             band.Columns["Code"].MinWidth = 80;
             band.Columns["CardNumber"].MinWidth = 80;
             band.Columns["AccountName"].MinWidth = 200;
@@ -45,8 +45,7 @@ namespace NetPos.FrmCtrl
             band.Columns["IsRelease"].MinWidth = 120;
             band.Columns["IsLockCard"].MinWidth = 120;
             band.Columns["IsEdit"].MinWidth = 120;
-
-            band.Columns["RowNumber"].CellAppearance.TextHAlign = HAlign.Right;
+             
             band.Columns["Code"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["AccountName"].CellAppearance.TextHAlign = HAlign.Left;
@@ -57,7 +56,6 @@ namespace NetPos.FrmCtrl
             band.Columns["IsEdit"].CellAppearance.TextHAlign = HAlign.Center;
 
             #region Caption
-            band.Columns["RowNumber"].Header.Caption = @"STT";
             band.Columns["Code"].Header.Caption = @"Mã khách hàng";
             band.Columns["CardNumber"].Header.Caption = @"Số thẻ";
             band.Columns["AccountName"].Header.Caption = @"Tên tài khoản";
