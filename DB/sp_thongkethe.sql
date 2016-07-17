@@ -1,9 +1,13 @@
 
 
-CREATE PROCEDURE [dbo].[sp_ThongKeThe]	 
+ALTER PROCEDURE [dbo].[sp_ThongKeThe]
 AS
 BEGIN
-	SELECT tb.NameType,SUM(tb.TotalCard),SUM(tb.[TotalUsed]),SUM(tb.TotalBalance) AS [TotalBalance] FROM(
+	SELECT tb.NameType, SUM(tb.TotalCard) as [TotalCard],
+	SUM(tb.[TotalUsed]) as [TotalUsed],
+	(SUM(tb.TotalCard) -  SUM(tb.[TotalUsed])) as [TotalNotUsed],
+	SUM(tb.TotalBalance) AS [TotalBalance]
+	FROM (
 	SELECT tb_a.CardTypeCode,
 		CAST(CASE WHEN tb_b.Name IS NULL THEN '#' ELSE tb_b.Name END AS NVARCHAR) AS [NameType],
 		COUNT(*) AS [TotalCard],

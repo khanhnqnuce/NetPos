@@ -1,0 +1,8 @@
+ALTER PROCEDURE [dbo].[sp_BCTheoKhuVuc]
+AS
+BEGIN
+	select Area.[Desc] as [Area], Record.Bonus from [tblArea] as Area
+	left join
+	 (SELECT AreaCode, sum(Bonus) as [Bonus] FROM [tblRecord] group by AreaCode ) as Record
+	 on Area.Code = Record.AreaCode
+END
