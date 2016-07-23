@@ -49,15 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaItem.cs" />
     <Compile Include="BackListItem.cs" />
     <Compile Include="BaseSimple.cs" />
     <Compile Include="BCKhuVucItem.cs" />
+    <Compile Include="BuidingItem.cs" />
     <Compile Include="CardItem.cs" />
     <Compile Include="CardProcessItem.cs" />
     <Compile Include="CardTypeItem.cs" />
     <Compile Include="EventAlarmItem.cs" />
+    <Compile Include="EventCodeItem.cs" />
+    <Compile Include="FunctionItem.cs" />
     <Compile Include="GiaoDichItem.cs" />
     <Compile Include="LogItem.cs" />
+    <Compile Include="ObjectItem.cs" />
+    <Compile Include="PCItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordItem.cs" />
     <Compile Include="ThongKeTheItem.cs" />

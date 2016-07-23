@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using FDI;
 using FDI.DA;
+using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using NetPos.Frm;
 
 namespace NetPos.FrmCtrl
 {
@@ -17,8 +20,10 @@ namespace NetPos.FrmCtrl
 
         private void frmRecord_Load(object sender, EventArgs e)
         {
-            var lst = _da.GetAdminAllSimple();
-            dgv_DanhSach.DataSource = lst.ToDataTable();
+            //var lst = _da.GetAdminAllSimple();
+            //dgv_DanhSach.DataSource = lst.ToDataTable();
+            
+            Loc();
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
@@ -70,5 +75,19 @@ namespace NetPos.FrmCtrl
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
+
+        public void Loc()
+        {
+            var form = new frmLoc();
+            form.FillterRecord += FillterRecord;
+            form.ShowDialog();
+        }
+
+        #region Event
+        private void FillterRecord(object sender, List<RecordItem> lst)
+        {
+            dgv_DanhSach.DataSource = lst.ToDataTable();
+        }
+        #endregion
     }
 }
