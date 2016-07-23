@@ -80,11 +80,26 @@ namespace FDI.DA
             }
         }
 
-        public List<sp_GiaoDichGanNhat_Result> GetRecord(string card)
+        public List<GiaoDichItem> GetRecord(string card)
         {
+            try
+            {
             var query = from c in FDIDB.sp_GiaoDichGanNhat(card)
-                        select c;
+                        select new GiaoDichItem
+                        {
+                            Action = c.Action,
+                            Date = c.Date ?? new DateTime(),
+                            Value = c.Value ?? 0,
+                            Balance = c.Balance ?? 0,
+                            Object = c.Object,
+                            ProductCode = c.ProductCode
+                        };
             return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<GiaoDichItem>();
+            }
         }
 
         public tblCard Get(int id)

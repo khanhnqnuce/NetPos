@@ -1,8 +1,6 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using FDI.Base;
 using FDI.Simple;
 
 namespace FDI.DA

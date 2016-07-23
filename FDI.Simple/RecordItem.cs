@@ -6,8 +6,8 @@ namespace FDI.Simple
     {
         public string CardNumber { get; set; }
         public DateTime Date { get; set; }
-        //public int Value { get; set; }
-        public int Bonus { get; set; }
+        public decimal Value { get; set; }
+        //public int Bonus { get; set; }
         public int Balance { get; set; }
         public string Action { get; set; }
         public string AccountName { get; set; }

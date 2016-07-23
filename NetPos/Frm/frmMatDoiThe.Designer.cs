@@ -38,8 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupThongTinGiaoDich = new System.Windows.Forms.GroupBox();
+            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.groupXuLyThe = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.txtDes = new System.Windows.Forms.TextBox();
             this.lbMoTa = new System.Windows.Forms.Label();
             this.txtCard = new System.Windows.Forms.TextBox();
@@ -47,14 +47,14 @@
             this.rdoRename = new System.Windows.Forms.RadioButton();
             this.rdoBlock = new System.Windows.Forms.RadioButton();
             this.cbAddBackList = new System.Windows.Forms.CheckBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.groupThongTinThe.SuspendLayout();
             this.groupThongTinGiaoDich.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.groupXuLyThe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // groupThongTinThe
@@ -142,6 +142,22 @@
             this.groupThongTinGiaoDich.TabStop = false;
             this.groupThongTinGiaoDich.Text = "Thông tin giao dịch gần nhất:";
             // 
+            // dgv_DanhSach
+            // 
+            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
+            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
+            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_DanhSach.Name = "dgv_DanhSach";
+            this.dgv_DanhSach.Size = new System.Drawing.Size(599, 284);
+            this.dgv_DanhSach.TabIndex = 27;
+            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
+            // 
             // groupXuLyThe
             // 
             this.groupXuLyThe.Controls.Add(this.txtDes);
@@ -157,16 +173,6 @@
             this.groupXuLyThe.TabIndex = 2;
             this.groupXuLyThe.TabStop = false;
             this.groupXuLyThe.Text = "Xử lý thẻ:";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(705, 511);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(137, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Xử lý mất thẻ/ đổi thẻ";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDes
             // 
@@ -234,6 +240,16 @@
             this.cbAddBackList.UseVisualStyleBackColor = true;
             this.cbAddBackList.CheckedChanged += new System.EventHandler(this.cbAddBackList_CheckedChanged);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(705, 511);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(137, 23);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Xử lý mất thẻ/ đổi thẻ";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(848, 511);
@@ -248,21 +264,6 @@
             // 
             this.txtError.ContainerControl = this;
             this.txtError.Icon = ((System.Drawing.Icon)(resources.GetObject("txtError.Icon")));
-            // 
-            // dgv_DanhSach
-            // 
-            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
-            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
-            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
-            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(599, 284);
-            this.dgv_DanhSach.TabIndex = 27;
             // 
             // frmMatDoiThe
             // 
@@ -281,10 +282,10 @@
             this.groupThongTinThe.ResumeLayout(false);
             this.groupThongTinThe.PerformLayout();
             this.groupThongTinGiaoDich.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.groupXuLyThe.ResumeLayout(false);
             this.groupXuLyThe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.ResumeLayout(false);
 
         }

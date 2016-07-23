@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using FDI;
@@ -209,5 +210,26 @@ namespace NetPos.FrmCtrl
             }
         }
         #endregion
+
+        private void dgv_DanhSach_MouseClick(object sender, MouseEventArgs e)
+        {
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    ContextMenu m = new ContextMenu();
+            //    m.MenuItems.Add(new MenuItem("Cut"));
+            //    m.MenuItems.Add(new MenuItem("Copy"));
+            //    m.MenuItems.Add(new MenuItem("Paste"));
+
+            //    int currentMouseOverRow = dgv_DanhSach.HitTest(e.X, e.Y).RowIndex;
+
+            //    if (currentMouseOverRow >= 0)
+            //    {
+            //        m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+            //    }
+
+            //    m.Show(dgv_DanhSach, new Point(e.X, e.Y));
+
+            //}
+        }
     }
 }

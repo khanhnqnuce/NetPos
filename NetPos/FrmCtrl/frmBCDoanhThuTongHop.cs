@@ -28,14 +28,14 @@ namespace NetPos.FrmCtrl
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Area"].CellActivation = Activation.NoEdit;
-            band.Columns["Bonus"].CellActivation = Activation.NoEdit;
+            band.Columns["CountValue"].CellActivation = Activation.NoEdit;
 
             band.Columns["Area"].CellAppearance.TextHAlign = HAlign.Left;
-            band.Columns["Bonus"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["CountValue"].CellAppearance.TextHAlign = HAlign.Right;
 
             #region Caption
             band.Columns["Area"].Header.Caption = @"Khu vực";
-            band.Columns["Bonus"].Header.Caption = @"Tổng giao dịch";
+            band.Columns["CountValue"].Header.Caption = @"Tổng giao dịch";
 
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;

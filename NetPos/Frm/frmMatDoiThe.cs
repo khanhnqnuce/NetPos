@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using FDI;
 using FDI.Base;
 using FDI.DA;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
 
 namespace NetPos.Frm
 {
@@ -127,6 +129,38 @@ namespace NetPos.Frm
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Columns["ID"].Hidden = true;
+
+            band.Columns["Action"].CellActivation = Activation.NoEdit;
+            band.Columns["Date"].CellActivation = Activation.NoEdit;
+            band.Columns["Value"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["Object"].CellActivation = Activation.NoEdit;
+            band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Action"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Object"].CellAppearance.TextHAlign = HAlign.Left;
+            band.Columns["ProductCode"].CellAppearance.TextHAlign = HAlign.Right;
+
+            #region Caption
+            band.Columns["Action"].Header.Caption = @"Miêu tả";
+            band.Columns["Date"].Header.Caption = @"Thời gian";
+            band.Columns["Value"].Header.Caption = @"Thanh toán";
+            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["Object"].Header.Caption = @"Đối tượng";
+            band.Columns["ProductCode"].Header.Caption = @"Mã hàng";
+
+            #endregion
+            band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 
     }

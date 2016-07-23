@@ -17,14 +17,14 @@ namespace FDI.DA
                     {
                         CardNumber = c.CardNumber,
                         Date = c.Date?? new DateTime(),
-                        Bonus = c.Bonus??0,
+                        Value = c.Value??0,
                         Balance = c.Balance??0,
                         Action = c.Action,
                         AccountName = c.AccountName,
                         CardType = c.CardType,
                         Buiding = c.Buiding,
                         Area = c.Area,
-                        UserName = c.NameUser,
+                        UserName = c.UserName,
                         EventId = c.EventID,
                         ProductCode = c.ProductCode
                     };
@@ -45,7 +45,7 @@ namespace FDI.DA
                             select new BCKhuVucItem
                             {
                                 Area = c.Area,
-                                Bonus = c.Bonus ?? 0
+                                CountValue = c.CountValue ?? 0
                             };
                 return query.ToList();
             }

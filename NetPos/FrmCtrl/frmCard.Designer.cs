@@ -85,6 +85,7 @@
             this.dgv_DanhSach.TabIndex = 26;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
             this.dgv_DanhSach.DoubleClickCell += new Infragistics.Win.UltraWinGrid.DoubleClickCellEventHandler(this.dgv_DanhSach_DoubleClickCell);
+            this.dgv_DanhSach.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_DanhSach_MouseClick);
             // 
             // btnTimKiem
             // 

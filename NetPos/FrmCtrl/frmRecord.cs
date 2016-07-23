@@ -29,7 +29,7 @@ namespace NetPos.FrmCtrl
 
             band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
             band.Columns["Date"].CellActivation = Activation.NoEdit;
-            band.Columns["Bonus"].CellActivation = Activation.NoEdit;
+            band.Columns["Value"].CellActivation = Activation.NoEdit;
             band.Columns["Balance"].CellActivation = Activation.NoEdit;
             band.Columns["Action"].CellActivation = Activation.NoEdit;
             band.Columns["AccountName"].CellActivation = Activation.NoEdit;
@@ -42,7 +42,7 @@ namespace NetPos.FrmCtrl
 
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;
-            band.Columns["Bonus"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Action"].CellAppearance.TextHAlign = HAlign.Left;
             band.Columns["AccountName"].CellAppearance.TextHAlign = HAlign.Left;
@@ -56,7 +56,7 @@ namespace NetPos.FrmCtrl
             #region Caption
             band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
             band.Columns["Date"].Header.Caption = @"Thời gian";
-            band.Columns["Bonus"].Header.Caption = @"Thanh toán";
+            band.Columns["Value"].Header.Caption = @"Thanh toán";
             band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
             band.Columns["Action"].Header.Caption = @"Miêu tả";
             band.Columns["AccountName"].Header.Caption = @"Tên tài khoản";

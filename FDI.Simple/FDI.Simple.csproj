@@ -56,6 +56,7 @@
     <Compile Include="CardProcessItem.cs" />
     <Compile Include="CardTypeItem.cs" />
     <Compile Include="EventAlarmItem.cs" />
+    <Compile Include="GiaoDichItem.cs" />
     <Compile Include="LogItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordItem.cs" />
