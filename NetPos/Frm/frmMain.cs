@@ -13,6 +13,7 @@ namespace NetPos.Frm
     {
         #region Contructor
         readonly frmCard _frmCard;
+        frmRecord _frmRecord;
         #endregion
 
         private int _process;
@@ -20,6 +21,7 @@ namespace NetPos.Frm
         {
             InitializeComponent();
             _frmCard = new frmCard();
+            _frmRecord = new frmRecord();
         }
 
         private static void ShowControl(Control frm, Control panel)
@@ -105,8 +107,8 @@ namespace NetPos.Frm
 
         private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)
         {
-            var form = new frmRecord();
-            ShowControl(form, pn_Main);
+            
+            ShowControl(_frmRecord, pn_Main);
         }
 
         private void menuMatDoiThe_Click(object sender, EventArgs e)
@@ -128,8 +130,7 @@ namespace NetPos.Frm
 
         private void menuLoc_Click(object sender, EventArgs e)
         {
-            var form = new frmLoc();
-            form.Show();
+            _frmRecord.Loc();
         }
 
         private void menuBaoCaoTongHop_Click(object sender, EventArgs e)
