@@ -7,17 +7,23 @@ BEGIN
 	 on Area.Code = Record.AreaCode
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_CardProcess]
 AS
 BEGIN
 	select ROW_NUMBER() OVER (Order by Id) AS STT, * from [tblCardProcess]
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_EventAlarm]
 AS
 BEGIN
 	select ROW_NUMBER() OVER (Order by Id) AS RowNumber, * from [tblEventAlarm]
 END
+
+GO
 
 ALTER PROCEDURE [dbo].[sp_GetCard]	 
 	@ch NVARCHAR(20)
@@ -30,6 +36,8 @@ BEGIN
 	WHERE tc.CardNumber = @ch
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_GetListCard]	 
 AS
 BEGIN
@@ -37,6 +45,8 @@ BEGIN
 	left join
 	tblCardType AS tb_b ON tb_a.CardTypeCode = tb_b.Code
 END
+
+GO
 
 ALTER PROCEDURE [dbo].[sp_GiaoDichGanNhat]
  @CardNumber nvarchar(20)
@@ -67,12 +77,15 @@ BEGIN
     ORDER BY Record.Date DESC
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_Log]
 AS
 BEGIN
 	select ROW_NUMBER() OVER (Order by Id) AS STT, * from [tblLog]
 END
 
+GO
 
 ALTER PROCEDURE [dbo].[sp_Record]
 @StartDate DateTime, 
@@ -121,6 +134,8 @@ BEGIN
 	 Record.Date >= @StartDate and Record.Date <= @EndDate
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_TheTrungNhau]
 	 
 AS
@@ -131,6 +146,7 @@ BEGIN
 	 on a.CardNumber = b.CardNumber
 END
 
+GO
 
 ALTER PROCEDURE [dbo].[sp_ThongKeThe]
 AS
@@ -151,6 +167,8 @@ BEGIN
 	GROUP BY tb.NameType
 END
 
+GO
+
 ALTER PROCEDURE [dbo].[sp_UpdateCard]	 
 	@ch NVARCHAR(20),
 	@Card NVARCHAR(20)
@@ -162,7 +180,9 @@ BEGIN
 	Update tblCard SET CardNumber = @ch WHERE CardNumber = @Card
 END
 
-create PROCEDURE [dbo].[sp_findCard]
+GO
+
+ALTER PROCEDURE [dbo].[sp_findCard]
 @Code nvarchar(20),
 @CardNumber nvarchar(20),
 @Name nvarchar(20),
