@@ -205,7 +205,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Reports\designerLog.txt" />
     <None Include="Resources\matkhau1.png" />
     <None Include="Resources\taikhoan1.png" />
     <None Include="Reports\danhsachthe.rst" />

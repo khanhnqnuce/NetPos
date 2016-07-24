@@ -25,19 +25,20 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
-var thread = new Thread(LoadGrid) { IsBackground = true };
-            thread.Start();
-            OnShowDialog("Loading...");        }
-private void LoadGrid()
-        {
-            var lst = _da.GetAll();
-            //var a = ToDataTable(lst);
-            dgv_DanhSach.DataSource = lst.ToDataTable();
-var lstCardType = _da.GetTypeCard();
+            var lstCardType = _da.GetTypeCard();
             lstCardType.Insert(0, new CardTypeItem { Name = "Chọn tất cả", Code = "" });
             cboTypeCard.DataSource = lstCardType;
             cboTypeCard.DisplayMember = "Name";
             cboTypeCard.ValueMember = "Code";
+            var thread = new Thread(LoadGrid) { IsBackground = true };
+            thread.Start();
+            OnShowDialog("Loading...");
+        }
+
+        private void LoadGrid()
+        {
+            var lst = _da.GetAll();
+            dgv_DanhSach.DataSource = lst.ToDataTable();
 
             lock (LockTotal)
             {
@@ -214,7 +215,6 @@ var lstCardType = _da.GetTypeCard();
                 reportManager.DataSources.Add("danhsach", lst.ToDataTable());
                 rpCard.FilePath = Application.StartupPath + @"\Reports\rpCard.rst";
                 rpCard.Prepare();
-                //rpCard.GetReportParameter += GetParameter;
                 var previewForm = new PreviewForm(rpCard)
                 {
                     WindowState = FormWindowState.Maximized
@@ -281,7 +281,7 @@ var lstCardType = _da.GetTypeCard();
 
             var lst = _da.FindCardItems(code, NumberCard, name, TypeCard);
             dgv_DanhSach.DataSource = lst.ToDataTable();
-           
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)

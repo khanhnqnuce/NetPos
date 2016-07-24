@@ -23,7 +23,7 @@ namespace NetPos.Frm
 
         #region Contructor
         readonly frmCard _frmCard;
-        frmRecord _frmRecord;
+        readonly frmRecord _frmRecord;
         #endregion
 
         private Process _process = Process.Card;
