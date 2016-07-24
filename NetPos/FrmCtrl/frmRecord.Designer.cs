@@ -42,7 +42,7 @@
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 0);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1133, 629);
+            this.pn_Main.Size = new System.Drawing.Size(1296, 621);
             this.pn_Main.TabIndex = 5;
             // 
             // group
@@ -51,7 +51,7 @@
             this.group.Dock = System.Windows.Forms.DockStyle.Fill;
             this.group.Location = new System.Drawing.Point(0, 0);
             this.group.Name = "group";
-            this.group.Size = new System.Drawing.Size(1133, 629);
+            this.group.Size = new System.Drawing.Size(1296, 621);
             this.group.TabIndex = 9;
             this.group.TabStop = false;
             this.group.Text = "Báo cáo chi tiết:";
@@ -68,7 +68,7 @@
             this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
             this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(1127, 610);
+            this.dgv_DanhSach.Size = new System.Drawing.Size(1290, 602);
             this.dgv_DanhSach.TabIndex = 26;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
             // 
@@ -78,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_Main);
             this.Name = "frmRecord";
-            this.Size = new System.Drawing.Size(1133, 629);
+            this.Size = new System.Drawing.Size(1296, 621);
             this.Load += new System.EventHandler(this.frmRecord_Load);
             this.pn_Main.ResumeLayout(false);
             this.group.ResumeLayout(false);

@@ -39,6 +39,32 @@ namespace FDI.DA
 
         }
 
+        public List<CardItem> FindCardItems( string code, string numberCard, string name, string cardType )
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_findCard(code, numberCard, name, cardType)
+                            select new CardItem
+                            {
+                                ID = c.Id,
+                                Code = c.Code,
+                                CardNumber = c.CardNumber,
+                                AccountName = c.AccountName,
+                                Balance = c.Balance,
+                                CardTypeCode = c.NameType ?? "#",
+                                IsRelease = c.IsRelease ?? false,
+                                IsLockCard = c.IsLockCard ?? false,
+                                IsEdit = c.IsEdit
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<CardItem>();
+            }
+
+        }
+
         public List<CardTypeItem> GetTypeCard()
         {
             try

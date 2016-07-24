@@ -35,19 +35,23 @@ namespace NetPos.Frm
 
         }
 
-        public static DateTime GetStartOfDay(DateTime dateTime)
+        public static DateTime EndOfDay(DateTime date)
         {
-            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0, 0);
+            return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
         }
-        public static DateTime GetEndOfDay(DateTime dateTime)
+
+        public static DateTime StartOfDay(DateTime date)
         {
-            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 59, 59, 999);
+            return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
         }
 
         private void frmLoc_Load(object sender, EventArgs e)
         {
-            //datEndDate.Value = 
-            //datStartDate.Value = 
+            datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
+            datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
+            var date = DateTime.Now;
+            datStartDate.Value = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            datEndDate.Value = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
             // load buiding
             var lstBuiding = _recordDa.GetBuidingItems();
             lstBuiding.Insert(0, new BuidingItem{ Name = "-----------------Chọn------------------", Code = "" });
@@ -58,7 +62,7 @@ namespace NetPos.Frm
             // load area
             var lstArea = _recordDa.GetAreaItems();
             lstArea.Insert(0, new AreaItem { Desc = "-----------------Chọn------------------", Code = "" });
-            cboArea.DataSource = lstArea;
+            cboArea.DataSource = lstArea; 
             cboArea.DisplayMember = "Desc";
             cboArea.ValueMember = "Code";
 
@@ -109,7 +113,7 @@ namespace NetPos.Frm
         private void button1_Click(object sender, EventArgs e)
         {
             var StartDate = datStartDate.Value;
-            var EndDate = datStartDate.Value;
+            var EndDate = datEndDate.Value;
             var Buiding = cboBuiding.SelectedValue.ToString();
             var Area = cboArea.SelectedValue.ToString();
             var PC = cboPC.SelectedValue.ToString();
@@ -122,8 +126,12 @@ namespace NetPos.Frm
 
             var RecordItems = _recordDa.FindRecordItems(StartDate, EndDate, Buiding, Area, PC, Object, Function, EventCode, TypeCard, CardNumber, User);
 
-
             OnFillterRecord(RecordItems);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,8 +21,7 @@ namespace NetPos.FrmCtrl
         private void frmRecord_Load(object sender, EventArgs e)
         {
             //var lst = _da.GetAdminAllSimple();
-            //dgv_DanhSach.DataSource = lst.ToDataTable();
-            
+            //dgv_DanhSach.DataSource = lst.ToDataTable();   
             Loc();
         }
 
@@ -44,6 +43,9 @@ namespace NetPos.FrmCtrl
             band.Columns["UserName"].CellActivation = Activation.NoEdit;
             band.Columns["EventId"].CellActivation = Activation.NoEdit;
             band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Balance"].MinWidth = 120;
+            band.Columns["UserName"].MinWidth = 120;
 
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;

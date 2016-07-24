@@ -12,23 +12,24 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.sp_Record()
-                            select new RecordItem
-                    {
-                        CardNumber = c.CardNumber,
-                        Date = c.Date?? new DateTime(),
-                        Value = c.Value??0,
-                        Balance = c.Balance??0,
-                        Action = c.Action,
-                        AccountName = c.AccountName,
-                        CardType = c.CardType,
-                        Buiding = c.Buiding,
-                        Area = c.Area,
-                        UserName = c.UserName,
-                        EventId = c.EventID,
-                        ProductCode = c.ProductCode
-                    };
-                return query.Take(10).ToList();
+                return new List<RecordItem>();
+                //var query = from c in FDIDB.sp_Record()
+                //            select new RecordItem
+                //    {
+                //        CardNumber = c.CardNumber,
+                //        Date = c.Date?? new DateTime(),
+                //        Value = c.Value??0,
+                //        Balance = c.Balance??0,
+                //        Action = c.Action,
+                //        AccountName = c.AccountName,
+                //        CardType = c.CardType,
+                //        Buiding = c.Buiding,
+                //        Area = c.Area,
+                //        UserName = c.UserName,
+                //        EventId = c.EventID,
+                //        ProductCode = c.ProductCode
+                //    };
+                //return query.ToList();
             }
             catch (Exception)
             {
@@ -60,8 +61,7 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.sp_Record()
-                            where c.Date >= StartDate && c.Date <= EndDate && c.BuidingCode.Contains(Buiding) && c.AreaCode.Contains(Area) && c.PCCode.Contains(PC) && c.ObjectCode.Contains(Object) && c.FID.Contains(Function) && c.EventCode.Contains(EventCode) && c.CardTypeCode.Contains(TypeCard) && c.CardNumber.Contains(CardNumber) && c.UserCode.Contains(User)
+                var query = from c in FDIDB.sp_Record( StartDate, EndDate, Buiding, Area, PC, Object, Function, EventCode, TypeCard, CardNumber, User)
                             select new RecordItem
                             {
                                 CardNumber = c.CardNumber,

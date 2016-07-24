@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using FDI;
 using FDI.Base;
 using FDI.DA;
+using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
@@ -23,9 +24,18 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
+            // load card type
+            var lstCardType = _da.GetTypeCard();
+            lstCardType.Insert(0, new CardTypeItem { Name = "Chọn tất cả", Code = "" });
+            cboTypeCard.DataSource = lstCardType;
+            cboTypeCard.DisplayMember = "Name";
+            cboTypeCard.ValueMember = "Code";
+
             var lst = _da.GetAll();
             //var a = ToDataTable(lst);
             dgv_DanhSach.DataSource = lst.ToDataTable();
+
+
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -230,6 +240,28 @@ namespace NetPos.FrmCtrl
             //    m.Show(dgv_DanhSach, new Point(e.X, e.Y));
 
             //}
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var code = txtMaKhachHang.Text;
+            var NumberCard = txtMaThe.Text;
+            var name = txtName.Text;
+            var TypeCard = cboTypeCard.SelectedValue.ToString();
+
+            var lst = _da.FindCardItems(code, NumberCard, name, TypeCard);
+            dgv_DanhSach.DataSource = lst.ToDataTable();
+           
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtMaKhachHang.Text = "";
+            txtMaThe.Text = "";
+            txtName.Text = "";
+            cboTypeCard.SelectedItem = 0;
+            var lst = _da.GetAll();
+            dgv_DanhSach.DataSource = lst.ToDataTable();
         }
     }
 }

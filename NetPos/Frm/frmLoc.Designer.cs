@@ -73,6 +73,7 @@
             // 
             // datEndDate
             // 
+            this.datEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datEndDate.Location = new System.Drawing.Point(131, 50);
             this.datEndDate.Name = "datEndDate";
             this.datEndDate.Size = new System.Drawing.Size(234, 20);
@@ -80,10 +81,12 @@
             // 
             // datStartDate
             // 
+            this.datStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datStartDate.Location = new System.Drawing.Point(131, 19);
             this.datStartDate.Name = "datStartDate";
             this.datStartDate.Size = new System.Drawing.Size(234, 20);
             this.datStartDate.TabIndex = 1;
+            this.datStartDate.Value = new System.DateTime(2016, 7, 24, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -310,6 +313,7 @@
             this.button2.TabIndex = 14;
             this.button2.Text = "Hủy";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmLoc
             // 
@@ -322,7 +326,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmLoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLoc";
+            this.Text = "Lọc danh sách";
             this.Load += new System.EventHandler(this.frmLoc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
