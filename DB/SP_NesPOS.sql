@@ -75,9 +75,22 @@ END
 
 
 ALTER PROCEDURE [dbo].[sp_Record]
+@StartDate DateTime, 
+@EndDate DateTime, 
+@Buiding nvarchar(20), 
+@Area nvarchar(20), 
+@PC nvarchar(20),
+@Object nvarchar(20), 
+@Function nvarchar(20), 
+@EventCode nvarchar(20), 
+@TypeCard nvarchar(20), 
+@CardNumber nvarchar(20), 
+@User nvarchar(20)
+
 AS
 BEGIN
-	SELECT Record.*,
+	SELECT Record.CardNumber, Record.Date, (Record.Value - Record.Bonus) as [Value],
+	Record.Balance, Record.Action, Record.EventID, Record.ProductCode,
 	Card.AccountName as [AccountName],
 	CardType.Name as [CardType],
 	Buiding.Name as [Buiding],
@@ -94,6 +107,18 @@ BEGIN
 	  [tblArea] as Area ON Record.AreaCode = Area.Code
 	LEFT JOIN
 	  [tblUser] AS U ON Record.UserCode = u.Code 
+
+	WHERE
+	 Record.BuidingCode LIKE '%' + @Buiding + '%' and
+	 Record.AreaCode LIKE '%' + @Area + '%' and
+	 Record.PCCode LIKE '%' + @PC + '%' and
+	 Record.ObjectCode LIKE '%' + @Object + '%' and
+	 Record.FID LIKE '%' + @Function + '%' and
+	 Record.EventCode LIKE '%' + @EventCode + '%' and
+	 Record.CardTypeCode LIKE '%' + @TypeCard + '%' and
+	 Record.CardNumber LIKE '%' + @CardNumber + '%' and
+	 Record.UserCode LIKE '%' + @User and
+	 Record.Date >= @StartDate and Record.Date <= @EndDate
 END
 
 ALTER PROCEDURE [dbo].[sp_TheTrungNhau]
@@ -135,4 +160,22 @@ BEGIN
 	Update tblBlackList SET CardNumber = @ch WHERE CardNumber = @Card
 	Update tblCardProcess SET CardNumber = @ch WHERE CardNumber = @Card
 	Update tblCard SET CardNumber = @ch WHERE CardNumber = @Card
+END
+
+create PROCEDURE [dbo].[sp_findCard]
+@Code nvarchar(20),
+@CardNumber nvarchar(20),
+@Name nvarchar(20),
+@CardType nvarchar(20)
+
+AS
+BEGIN
+	SELECT tb_a.*,tb_b.Name AS [NameType] from [tblCard] as tb_a
+	LeFT JOIN
+	  tblCardType AS tb_b ON tb_a.CardTypeCode = tb_b.Code
+    WHERE
+	tb_a.Code LIKE '%' + @Code + '%' and
+	tb_a.CardNumber LIKE '%' + @CardNumber + '%' and
+	tb_a.AccountName LIKE '%' + @Name + '%' and
+	tb_a.CardTypeCode LIKE '%' + @CardType + '%'
 END
