@@ -194,6 +194,7 @@
             this.btnHuyBo.TabIndex = 19;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = true;
+            this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
             // 
             // label7
             // 

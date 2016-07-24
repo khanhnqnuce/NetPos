@@ -108,5 +108,10 @@ namespace NetPos.Frm
             chkIsRelease.Checked = false;
             cboCardType.SelectedItem = 0;
         }
+
+        private void btnHuyBo_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
     }
 }

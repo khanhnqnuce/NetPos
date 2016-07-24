@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters1 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters2 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
@@ -42,8 +45,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pn_Top = new System.Windows.Forms.Panel();
             this.groupLoc = new System.Windows.Forms.GroupBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.pn_Main.SuspendLayout();
+this.btnReset = new System.Windows.Forms.Button();
+this.rpCard = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
+            this.pdfExportFilter1 = new PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter(this.components);
+            this.excelExportFilter1 = new PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter(this.components);            this.pn_Main.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.pn_Top.SuspendLayout();
@@ -56,8 +61,7 @@
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 51);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1266, 493);
-            this.pn_Main.TabIndex = 3;
+this.pn_Main.Size = new System.Drawing.Size(1360, 592);            this.pn_Main.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -65,8 +69,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1266, 493);
-            this.groupBox1.TabIndex = 9;
+this.groupBox1.Size = new System.Drawing.Size(1360, 592);            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh Sách Thẻ:";
             // 
@@ -82,8 +85,7 @@
             this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
             this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(1260, 474);
-            this.dgv_DanhSach.TabIndex = 26;
+            this.dgv_DanhSach.Size = new System.Drawing.Size(1208, 462);this.dgv_DanhSach.Size = new System.Drawing.Size(1354, 573);            this.dgv_DanhSach.TabIndex = 26;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
             this.dgv_DanhSach.DoubleClickCell += new Infragistics.Win.UltraWinGrid.DoubleClickCellEventHandler(this.dgv_DanhSach_DoubleClickCell);
             this.dgv_DanhSach.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_DanhSach_MouseClick);
@@ -172,8 +174,7 @@
             this.pn_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_Top.Location = new System.Drawing.Point(0, 0);
             this.pn_Top.Name = "pn_Top";
-            this.pn_Top.Size = new System.Drawing.Size(1266, 51);
-            this.pn_Top.TabIndex = 2;
+this.pn_Top.Size = new System.Drawing.Size(1360, 63);            this.pn_Top.TabIndex = 2;
             // 
             // groupLoc
             // 
@@ -190,12 +191,11 @@
             this.groupLoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupLoc.Location = new System.Drawing.Point(0, 0);
             this.groupLoc.Name = "groupLoc";
-            this.groupLoc.Size = new System.Drawing.Size(1266, 51);
-            this.groupLoc.TabIndex = 9;
+this.groupLoc.Size = new System.Drawing.Size(1360, 63);            this.groupLoc.TabIndex = 9;
             this.groupLoc.TabStop = false;
             this.groupLoc.Text = "Tìm kiếm:";
             // 
-            // btnReset
+ // btnReset
             // 
             this.btnReset.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -207,16 +207,40 @@
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            //
+// reportManager
             // 
-            // frmCard
+            this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
+            this.rpCard});
+            // 
+            // rpCard
+            // 
+            this.rpCard.FilePath = "D:\\qlsv-khanhnq\\FDI\\NetPos\\trunk\\NetPos\\bin\\Debug\\Reports\\rpCard.rst";
+            this.rpCard.ReportName = "";
+            this.rpCard.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
+            // 
+            // pdfExportFilter1
+            // 
+            this.pdfExportFilter1.ChangePermissionsPassword = null;
+            this.pdfExportFilter1.Compress = true;
+            this.pdfExportFilter1.ExtraParameters = extraParameters1;
+            this.pdfExportFilter1.UserPassword = null;
+            // 
+            // excelExportFilter1
+            // 
+            this.excelExportFilter1.ExportInLargePage = true;
+            this.excelExportFilter1.ExportInOnePage = true;
+            this.excelExportFilter1.ExportWithoutPageDelimeters = true;
+            this.excelExportFilter1.ExtraParameters = extraParameters2;
+            //             // frmCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_Main);
             this.Controls.Add(this.pn_Top);
             this.Name = "frmCard";
-            this.Size = new System.Drawing.Size(1266, 544);
-            this.Load += new System.EventHandler(this.frmCard_Load);
+this.Size = new System.Drawing.Size(1360, 655);            this.Load += new System.EventHandler(this.frmCard_Load);
             this.pn_Main.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
@@ -243,6 +267,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pn_Top;
         private System.Windows.Forms.GroupBox groupLoc;
-        private System.Windows.Forms.Button btnReset;
-    }
+private System.Windows.Forms.Button btnReset;private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter pdfExportFilter1;
+        private PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter excelExportFilter1;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCard;    }
 }

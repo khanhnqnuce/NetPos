@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 using FDI;
 using FDI.DA;
@@ -10,8 +11,9 @@ using NetPos.Frm;
 
 namespace NetPos.FrmCtrl
 {
-    public partial class frmRecord : UserControl
+    public partial class frmRecord : BaseControl
     {
+        
         readonly RecordDA _da = new RecordDA();
         public frmRecord()
         {
@@ -20,12 +22,23 @@ namespace NetPos.FrmCtrl
 
         private void frmRecord_Load(object sender, EventArgs e)
         {
-            //var lst = _da.GetAdminAllSimple();
-            //dgv_DanhSach.DataSource = lst.ToDataTable();   
-            Loc();
+var thread = new Thread(LoadGrid) { IsBackground = true };
+            thread.Start();
+            OnShowDialog("Loading...");            Loc();
         }
 
-        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        
+        private void LoadGrid()
+        {
+            var lst = _da.GetAdminAllSimple();
+            dgv_DanhSach.DataSource = lst.ToDataTable();
+            lock (LockTotal)
+            {
+                OnCloseDialog();
+            }
+        }
+
+        private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;

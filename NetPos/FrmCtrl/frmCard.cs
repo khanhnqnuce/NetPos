@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using FDI;
 using FDI.Base;
@@ -10,10 +10,11 @@ using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
 {
-    public partial class frmCard : UserControl
+    public partial class frmCard : BaseControl
     {
         readonly CardDA _da = new CardDA();
 
@@ -24,18 +25,24 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
-            // load card type
-            var lstCardType = _da.GetTypeCard();
+var thread = new Thread(LoadGrid) { IsBackground = true };
+            thread.Start();
+            OnShowDialog("Loading...");        }
+private void LoadGrid()
+        {
+            var lst = _da.GetAll();
+            //var a = ToDataTable(lst);
+            dgv_DanhSach.DataSource = lst.ToDataTable();
+var lstCardType = _da.GetTypeCard();
             lstCardType.Insert(0, new CardTypeItem { Name = "Chọn tất cả", Code = "" });
             cboTypeCard.DataSource = lstCardType;
             cboTypeCard.DisplayMember = "Name";
             cboTypeCard.ValueMember = "Code";
 
-            var lst = _da.GetAll();
-            //var a = ToDataTable(lst);
-            dgv_DanhSach.DataSource = lst.ToDataTable();
-
-
+            lock (LockTotal)
+            {
+                OnCloseDialog();
+            }
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -148,7 +155,7 @@ namespace NetPos.FrmCtrl
                     dgv_DanhSach.ActiveRow.Cells["CardNumber"].Value = frm.CardNumber;
                     dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.IsLockCard;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -190,6 +197,29 @@ namespace NetPos.FrmCtrl
                 }
                 _da.Save();
 
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Printf()
+        {
+            try
+            {
+                var lst = _da.GetAll();
+                reportManager.DataSources.Clear();
+                reportManager.DataSources.Add("danhsach", lst.ToDataTable());
+                rpCard.FilePath = Application.StartupPath + @"\Reports\rpCard.rst";
+                rpCard.Prepare();
+                //rpCard.GetReportParameter += GetParameter;
+                var previewForm = new PreviewForm(rpCard)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
 
             }
             catch (Exception ex)

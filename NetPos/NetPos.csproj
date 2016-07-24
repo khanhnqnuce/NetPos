@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="EPPlus">
       <HintPath>C:\Users\Administrator\Desktop\AdminMLMTL\NetPos\bin\Debug\EPPlus.dll</HintPath>
     </Reference>
@@ -55,10 +61,20 @@
     <Reference Include="Infragistics2.Win.UltraWinEditors.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinGrid.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v12.1, Version=12.1.20121.1001, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca" />
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PerpetuumSoft.Charts, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5" />
+    <Reference Include="PerpetuumSoft.Framework, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5" />
+    <Reference Include="PerpetuumSoft.Framework.Model, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5" />
+    <Reference Include="PerpetuumSoft.Instrumentation, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5" />
+    <Reference Include="PerpetuumSoft.Reporting, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5, processorArchitecture=MSIL" />
+    <Reference Include="PerpetuumSoft.Reporting.Export.OpenXML, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5, processorArchitecture=MSIL" />
+    <Reference Include="PerpetuumSoft.Reporting.Export.Pdf, Version=7.1.1.18, Culture=neutral, PublicKeyToken=8a6ae0a3e67829b5, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,6 +95,12 @@
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />
     <Compile Include="FrmCtrl\BackListDA.cs" />
+    <Compile Include="FrmCtrl\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCtrl\frmBCDoanhThuTongHop.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +161,12 @@
     <Compile Include="FrmCtrl\frmThongKeThe.Designer.cs">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmDangNhap.Designer.cs">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\frmEditCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +178,12 @@
     </Compile>
     <Compile Include="Frm\frmAddCard.Designer.cs">
       <DependentUpon>frmAddCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FrmLoadding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmLoadding.designer.cs">
+      <DependentUpon>FrmLoadding.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\frmLoc.cs">
       <SubType>Form</SubType>
@@ -171,6 +205,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Reports\designerLog.txt" />
+    <None Include="Resources\matkhau1.png" />
+    <None Include="Resources\taikhoan1.png" />
+    <None Include="Reports\danhsachthe.rst" />
+    <Content Include="Reports\rpCard.rst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\loading.GIF" />
+    <None Include="Resources\taikhoan.png" />
+    <None Include="Resources\matkhau.png" />
     <None Include="Resources\cards-icon.png" />
     <None Include="FrmCtrl\Reports\bangdiem.rst" />
     <None Include="FrmCtrl\Reports\danhsachthe.rst" />
@@ -198,6 +242,9 @@
     <None Include="Resources\Back.ico" />
     <None Include="Resources\Add.ico" />
     <None Include="Resources\icon-add.png" />
+    <EmbeddedResource Include="FrmCtrl\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmBCDoanhThuTongHop.resx">
       <DependentUpon>frmBCDoanhThuTongHop.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,11 +275,17 @@
     <EmbeddedResource Include="FrmCtrl\frmThongKeThe.resx">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmDangNhap.resx">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmEditCard.resx">
       <DependentUpon>frmEditCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmAddCard.resx">
       <DependentUpon>frmAddCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmLoadding.resx">
+      <DependentUpon>FrmLoadding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmLoc.resx">
       <DependentUpon>frmLoc.cs</DependentUpon>
@@ -246,14 +299,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Content Include="App.Config">
       <SubType>Designer</SubType>
     </Content>
@@ -261,6 +309,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

@@ -4,3 +4,24 @@
 7/13/2016 11:57:58 PM   DEBUG Cannot connect help2 System.Exception: Cannot create ActiveX component.
    at Microsoft.VisualBasic.Interaction.CreateObject(String ProgId, String ServerName)
    at PerpetuumSoft.Reporting.DOM.Design.ModernScriptEditorForm.OnLoad(EventArgs e)
+24/07/2016 07:37:44   DEBUG Cannot connect help2 System.Exception: Cannot create ActiveX component.
+   at Microsoft.VisualBasic.Interaction.CreateObject(String ProgId, String ServerName)
+   at PerpetuumSoft.Reporting.DOM.Design.ModernScriptEditorForm.OnLoad(EventArgs e)
+24/07/2016 15:04:08   DEBUG Cannot connect help2 System.Exception: Cannot create ActiveX component.
+   at Microsoft.VisualBasic.Interaction.CreateObject(String ProgId, String ServerName)
+   at PerpetuumSoft.Reporting.DOM.Design.ModernScriptEditorForm.OnLoad(EventArgs e)
+24/07/2016 15:05:49   DEBUG Error compiling scripts PerpetuumSoft.Reporting.Rendering.ScriptException: Exception of type 'PerpetuumSoft.Reporting.Rendering.ScriptException' was thrown.
+   at PerpetuumSoft.Reporting.Rendering.ScriptGenerator.CompileScript()
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.GenerateTemplateScript(Document template, String templateName, List`1 processedTemlates)
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.CheckScript(Document template)
+24/07/2016 15:06:21   DEBUG Error compiling scripts PerpetuumSoft.Reporting.Rendering.ScriptException: Exception of type 'PerpetuumSoft.Reporting.Rendering.ScriptException' was thrown.
+   at PerpetuumSoft.Reporting.Rendering.ScriptGenerator.CompileScript()
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.GenerateTemplateScript(Document template, String templateName, List`1 processedTemlates)
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.CheckScript(Document template)
+24/07/2016 15:07:41   DEBUG Cannot connect help2 System.Exception: Cannot create ActiveX component.
+   at Microsoft.VisualBasic.Interaction.CreateObject(String ProgId, String ServerName)
+   at PerpetuumSoft.Reporting.DOM.Design.ModernScriptEditorForm.OnLoad(EventArgs e)
+24/07/2016 15:09:29   DEBUG Error compiling scripts PerpetuumSoft.Reporting.Rendering.ScriptException: Exception of type 'PerpetuumSoft.Reporting.Rendering.ScriptException' was thrown.
+   at PerpetuumSoft.Reporting.Rendering.ScriptGenerator.CompileScript()
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.GenerateTemplateScript(Document template, String templateName, List`1 processedTemlates)
+   at PerpetuumSoft.Reporting.Designer.ReportDesigner.CheckScript(Document template)

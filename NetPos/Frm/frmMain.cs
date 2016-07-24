@@ -3,22 +3,34 @@ using System.Windows.Forms;
 using FDI;
 using FDI.Base;
 using FDI.DA;
+using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.FrmCtrl;
+using QLSV.Frm.Frm;
 
 namespace NetPos.Frm
 {
     public partial class frmMain : Form
     {
+        public delegate void CustomHandler(object sender);
+        public event CustomHandler Logout;
+        protected virtual void OnLogout()
+        {
+            var handler = Logout;
+            if (handler != null) handler(this);
+        }
+
         #region Contructor
         readonly frmCard _frmCard;
         frmRecord _frmRecord;
         #endregion
 
-        private int _process;
-        public frmMain()
+        private Process _process = Process.Card;
+        private UserItem _userItem;
+        public frmMain(UserItem item)
         {
+            _userItem = item;
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
@@ -29,8 +41,8 @@ namespace NetPos.Frm
             try
             {
                 panel.Controls.Clear();
-                frm.Dock = DockStyle.Fill;
                 panel.Controls.Add(frm);
+                frm.Dock = DockStyle.Fill;
                 panel.Controls[frm.Name].Focus();
             }
             catch (Exception ex)
@@ -41,6 +53,10 @@ namespace NetPos.Frm
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            Function();
+            _frmCard.ShowDialog += ShowLoading;
+            _frmCard.CloseDialog += KillLoading;
+            _frmCard.UpdateDialog += UpdateLoading;
             ShowControl(_frmCard, pn_Main);
         }
 
@@ -56,23 +72,22 @@ namespace NetPos.Frm
 
         private void menuTheTrungNhau_Click(object sender, EventArgs e)
         {
+            _process = Process.DoubleCard;
             var frm = new frmTheTrungNhau();
             ShowControl(frm, pn_Main);
         }
 
         private void menuDanhSachDen_Click(object sender, EventArgs e)
         {
+            _process = Process.BackList;
+            Function();
             var form = new frmDachSachDen();
             ShowControl(form, pn_Main);
         }
 
         private void menuThoat_Click(object sender, EventArgs e)
         {
-            var kq = MessageBox.Show(@"Bạn có chắc muốn thoát chương trình?", "", MessageBoxButtons.YesNo);
-            if (kq == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            Close();
         }
 
         private void menuNhatKyLog_Click(object sender, EventArgs e)
@@ -101,13 +116,19 @@ namespace NetPos.Frm
 
         private void MenuTKThe_Click(object sender, EventArgs e)
         {
+            _process = Process.ReportCard;
+            Function();
             var form = new frmThongKeThe();
             ShowControl(form, pn_Main);
         }
 
         private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)
         {
-            
+            _process = Process.ReportDetail;
+            Function();
+            _frmRecord.ShowDialog += ShowLoading;
+            _frmRecord.CloseDialog += KillLoading;
+            _frmRecord.UpdateDialog += UpdateLoading;
             ShowControl(_frmRecord, pn_Main);
         }
 
@@ -123,8 +144,12 @@ namespace NetPos.Frm
 
         private void menuDSThe_Click(object sender, EventArgs e)
         {
-            _process = (int)Process.Card;
+            _process = Process.Card;
+            Function();
             var form = new frmCard();
+            form.ShowDialog += ShowLoading;
+            form.CloseDialog += KillLoading;
+            form.UpdateDialog += UpdateLoading;
             ShowControl(form, pn_Main);
         }
 
@@ -135,9 +160,138 @@ namespace NetPos.Frm
 
         private void menuBaoCaoTongHop_Click(object sender, EventArgs e)
         {
+            _process = Process.ReportTotal;
+            Function();
             var form = new frmBCDoanhThuTongHop();
             ShowControl(form, pn_Main);
         }
 
+        #region Loadding
+
+        private FrmLoadding _loading;
+
+        private void ShowLoading(object sender, string msg)
+        {
+            _loading = new FrmLoadding();
+            _loading.Update(msg);
+            _loading.ShowDialog();
+        }
+
+        private void KillLoading(object sender)
+        {
+            try
+            {
+                if (_loading != null)
+                {
+                    _loading.Invoke((Action)(() =>
+                    {
+                        _loading.Close();
+                        //_loading.Dispose();
+                        _loading = null;
+                    }));
+                }
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void UpdateLoading(object sender, string strInfo)
+        {
+            if (_loading != null)
+            {
+                _loading.Invoke((Action)(() => _loading.Update(strInfo)));
+            }
+        }
+
+        #endregion
+
+        private void menuIn_Click(object sender, EventArgs e)
+        {
+            _frmCard.Printf();
+        }
+
+        private void Function()
+        {
+            switch (_process)
+            {
+                case Process.Card:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.BackList:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.DoubleCard:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.ReportCard:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.ReportDetail:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.ReportTotal:
+                    menuThem.Visible = true;
+                    menuSua.Visible = true;
+                    menuXoa.Visible = true;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+            }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                var check = MessageBox.Show(@"Bạn có muốn thoát chương trình không?",
+                    @"Thông báo",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1) != DialogResult.OK;
+                if (!check)
+                {
+                    OnLogout();
+                }
+                e.Cancel = check;
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
     }
 }
