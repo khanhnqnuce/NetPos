@@ -199,3 +199,42 @@ BEGIN
 	tb_a.AccountName LIKE '%' + @Name + '%' and
 	tb_a.CardTypeCode LIKE '%' + @CardType + '%'
 END
+
+
+ 
+ALTER PROCEDURE [dbo].[sp_LocCard]
+@buiding varchar(20),
+@area varchar(20),
+@object varchar(20),
+@typeCard varchar(20),
+@cardNumber varchar(20),
+@code varchar(20),
+@name varchar(20),
+@phatHanh bit,
+@chuaPhatHanh bit,
+@isLockCard bit
+
+AS
+BEGIN
+	SELECT a.Code, a.CardNumber, a.AccountName, a.Balance, 
+	a.CardTypeCode, a.IsRelease, a.IsLockCard, a.IsEdit, a.DateModified,
+	b.EventCode, b.BuidingCode, b.AreaCode, b.PCCode, b.LineCode, b.ObjectCode, b.UserCode
+	
+	 from [tblCard] as a
+		Left JOIN
+		  (SELECT * FROM [tblRecord] where EventCode = 00) as b
+		On a.CardNumber = b.CardNumber
+	where 
+	(b.BuidingCode LIKE '%' + @buiding + '%' or (b.BuidingCode is null and @buiding ='' )) and 
+	(b.AreaCode LIKE '%' + @area + '%' or (b.AreaCode is null and @area ='' )) and
+	(b.ObjectCode LIKE '%' + @object + '%' or (b.ObjectCode is null and @object ='' ) ) and
+	(b.CardTypeCode LIKE '%' + @typeCard + '%' or (b.CardTypeCode is null and @typeCard ='' ) ) and
+	(a.Code LIKE '%' + @code + '%' or (a.Code is null and @code ='' ) )and
+	(a.CardNumber LIKE '%' + @cardNumber + '%' or (a.CardNumber is null and @cardNumber ='' ) ) and
+	(a.AccountName LIKE '%' + @name + '%' or (a.AccountName is null and @name ='' ) ) and
+	a.IsLockCard = @isLockCard and
+	(a.IsRelease = @phatHanh or a.IsRelease != @chuaPhatHanh )
+
+END
+
+--exec [sp_LocCard] '04','','','','','','',0,0,0
