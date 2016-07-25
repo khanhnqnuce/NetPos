@@ -13,10 +13,6 @@ namespace FDI.DA
         {
             try
             {
-                //ObjectParameter name = new ObjectParameter("Name", typeof(String));
-                //context.GetDepartmentName(1, name);
-                //Console.WriteLine(name.Value);
-
                 var query = from c in FDIDB.sp_GetListCard()
                             select new CardItem
                     {

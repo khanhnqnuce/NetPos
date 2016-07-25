@@ -92,7 +92,7 @@ namespace NetPos.FrmCtrl
 
         private void dgv_DanhSach_DoubleClickCell(object sender, DoubleClickCellEventArgs e)
         {
-            Edit();
+            View();
         }
 
         public void Add()
@@ -115,6 +115,32 @@ namespace NetPos.FrmCtrl
             {
                 if (dgv_DanhSach.ActiveRow == null) return;
                 var frm = new frmEditCard();
+                var id = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
+                if (string.IsNullOrEmpty(id)) return;
+                frm.Id = int.Parse(id);
+                frm.ShowDialog();
+                if (frm.IsUpdate)
+                {
+                    dgv_DanhSach.ActiveRow.Cells["Code"].Value = frm.TblCardItem.Code;
+                    dgv_DanhSach.ActiveRow.Cells["AccountName"].Value = frm.TblCardItem.AccountName;
+                    dgv_DanhSach.ActiveRow.Cells["CardTypeCode"].Value = frm.TblCardItem.CardTypeCode;
+                    dgv_DanhSach.ActiveRow.Cells["IsEdit"].Value = frm.TblCardItem.IsEdit;
+                    dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.TblCardItem.IsLockCard;
+                    dgv_DanhSach.ActiveRow.Cells["IsRelease"].Value = frm.TblCardItem.IsRelease;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void View()
+        {
+            try
+            {
+                if (dgv_DanhSach.ActiveRow == null) return;
+                var frm = new FrmCardDetails();
                 var id = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
                 if (string.IsNullOrEmpty(id)) return;
                 frm.Id = int.Parse(id);

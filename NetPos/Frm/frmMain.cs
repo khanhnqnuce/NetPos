@@ -310,5 +310,10 @@ namespace NetPos.Frm
                 Log2File.LogExceptionToFile(ex);
             }
         }
+
+        private void menuXemThongTin_Click(object sender, EventArgs e)
+        {
+            _frmCard.View();
+        }
     }
 }

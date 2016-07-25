@@ -38,14 +38,14 @@
             this.txtBalance = new Infragistics.Win.UltraWinEditors.UltraNumericEditor();
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.chkIsLockCard = new System.Windows.Forms.CheckBox();
-            this.chkIsRelease = new System.Windows.Forms.CheckBox();
-            this.chkIsEdit = new System.Windows.Forms.CheckBox();
             this.txtDiemThuong = new System.Windows.Forms.TextBox();
             this.cboCardType = new System.Windows.Forms.ComboBox();
             this.txtAccountName = new System.Windows.Forms.TextBox();
             this.txtCardNumber = new System.Windows.Forms.TextBox();
             this.txtCode = new System.Windows.Forms.TextBox();
+            this.chkIsEdit = new System.Windows.Forms.CheckBox();
+            this.chkIsRelease = new System.Windows.Forms.CheckBox();
+            this.chkIsLockCard = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtBalance)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,36 +143,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // chkIsLockCard
-            // 
-            this.chkIsLockCard.AutoSize = true;
-            this.chkIsLockCard.Location = new System.Drawing.Point(177, 350);
-            this.chkIsLockCard.Name = "chkIsLockCard";
-            this.chkIsLockCard.Size = new System.Drawing.Size(73, 17);
-            this.chkIsLockCard.TabIndex = 46;
-            this.chkIsLockCard.Text = "Khóa Thẻ";
-            this.chkIsLockCard.UseVisualStyleBackColor = true;
-            // 
-            // chkIsRelease
-            // 
-            this.chkIsRelease.AutoSize = true;
-            this.chkIsRelease.Location = new System.Drawing.Point(177, 319);
-            this.chkIsRelease.Name = "chkIsRelease";
-            this.chkIsRelease.Size = new System.Drawing.Size(140, 17);
-            this.chkIsRelease.TabIndex = 45;
-            this.chkIsRelease.Text = "Thẻ đã được phát hành";
-            this.chkIsRelease.UseVisualStyleBackColor = true;
-            // 
-            // chkIsEdit
-            // 
-            this.chkIsEdit.AutoSize = true;
-            this.chkIsEdit.Location = new System.Drawing.Point(177, 284);
-            this.chkIsEdit.Name = "chkIsEdit";
-            this.chkIsEdit.Size = new System.Drawing.Size(98, 17);
-            this.chkIsEdit.TabIndex = 44;
-            this.chkIsEdit.Text = "Thẻ thành viên";
-            this.chkIsEdit.UseVisualStyleBackColor = true;
-            // 
             // txtDiemThuong
             // 
             this.txtDiemThuong.Location = new System.Drawing.Point(177, 244);
@@ -212,6 +182,36 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(227, 20);
             this.txtCode.TabIndex = 39;
+            // 
+            // chkIsEdit
+            // 
+            this.chkIsEdit.AutoSize = true;
+            this.chkIsEdit.Location = new System.Drawing.Point(177, 284);
+            this.chkIsEdit.Name = "chkIsEdit";
+            this.chkIsEdit.Size = new System.Drawing.Size(98, 17);
+            this.chkIsEdit.TabIndex = 44;
+            this.chkIsEdit.Text = "Thẻ thành viên";
+            this.chkIsEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkIsRelease
+            // 
+            this.chkIsRelease.AutoSize = true;
+            this.chkIsRelease.Location = new System.Drawing.Point(177, 319);
+            this.chkIsRelease.Name = "chkIsRelease";
+            this.chkIsRelease.Size = new System.Drawing.Size(140, 17);
+            this.chkIsRelease.TabIndex = 45;
+            this.chkIsRelease.Text = "Thẻ đã được phát hành";
+            this.chkIsRelease.UseVisualStyleBackColor = true;
+            // 
+            // chkIsLockCard
+            // 
+            this.chkIsLockCard.AutoSize = true;
+            this.chkIsLockCard.Location = new System.Drawing.Point(177, 350);
+            this.chkIsLockCard.Name = "chkIsLockCard";
+            this.chkIsLockCard.Size = new System.Drawing.Size(73, 17);
+            this.chkIsLockCard.TabIndex = 46;
+            this.chkIsLockCard.Text = "Khóa Thẻ";
+            this.chkIsLockCard.UseVisualStyleBackColor = true;
             // 
             // frmEditCard
             // 
@@ -258,13 +258,13 @@
         private Infragistics.Win.UltraWinEditors.UltraNumericEditor txtBalance;
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.CheckBox chkIsLockCard;
-        private System.Windows.Forms.CheckBox chkIsRelease;
-        private System.Windows.Forms.CheckBox chkIsEdit;
         private System.Windows.Forms.TextBox txtDiemThuong;
         private System.Windows.Forms.ComboBox cboCardType;
         private System.Windows.Forms.TextBox txtAccountName;
         private System.Windows.Forms.TextBox txtCardNumber;
         private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.CheckBox chkIsEdit;
+        private System.Windows.Forms.CheckBox chkIsRelease;
+        private System.Windows.Forms.CheckBox chkIsLockCard;
     }
 }

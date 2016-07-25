@@ -22,9 +22,10 @@ namespace NetPos.FrmCtrl
 
         private void frmRecord_Load(object sender, EventArgs e)
         {
-var thread = new Thread(LoadGrid) { IsBackground = true };
-            thread.Start();
-            OnShowDialog("Loading...");            Loc();
+            //var thread = new Thread(LoadGrid) { IsBackground = true };
+            //thread.Start();
+            //OnShowDialog("Loading..."); 
+            Loc();
         }
 
         

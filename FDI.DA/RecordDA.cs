@@ -57,7 +57,7 @@ namespace FDI.DA
 
         }
 
-        public List<RecordItem> FindRecordItems(DateTime? StartDate, DateTime? EndDate, string Buiding, string Area, string PC, string Object, string Function, string EventCode, string TypeCard, string CardNumber, string User)
+        public List<RecordItem> FindRecordItems(DateTime StartDate, DateTime EndDate, string Buiding, string Area, string PC, string Object, string Function, string EventCode, string TypeCard, string CardNumber, string User)
         {
             try
             {
