@@ -155,7 +155,24 @@ namespace NetPos.Frm
 
         private void menuLoc_Click(object sender, EventArgs e)
         {
-            _frmRecord.Loc();
+            
+            switch (_process)
+            {
+                case Process.Card:
+                    _frmCard.LocCard();
+                    break;
+                case Process.BackList:
+                    break;
+                case Process.DoubleCard:
+                    break;
+                case Process.ReportCard:
+                    _frmRecord.Loc();
+                    break;
+                case Process.ReportDetail:
+                    break;
+                case Process.ReportTotal:
+                    break;
+            }
         }
 
         private void menuBaoCaoTongHop_Click(object sender, EventArgs e)

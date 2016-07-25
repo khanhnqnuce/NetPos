@@ -11,6 +11,7 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
 using PerpetuumSoft.Reporting.View;
+using QLSV.Frm.Frm;
 
 namespace NetPos.FrmCtrl
 {
@@ -25,11 +26,6 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
-            var lstCardType = _da.GetTypeCard();
-            lstCardType.Insert(0, new CardTypeItem { Name = "Chọn tất cả", Code = "" });
-            cboTypeCard.DataSource = lstCardType;
-            cboTypeCard.DisplayMember = "Name";
-            cboTypeCard.ValueMember = "Code";
             var thread = new Thread(LoadGrid) { IsBackground = true };
             thread.Start();
             OnShowDialog("Loading...");
@@ -272,26 +268,83 @@ namespace NetPos.FrmCtrl
             //}
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        //private void btnTimKiem_Click(object sender, EventArgs e)
+        //{
+        //    var code = txtMaKhachHang.Text;
+        //    var NumberCard = txtMaThe.Text;
+        //    var name = txtName.Text;
+        //    var TypeCard = cboTypeCard.SelectedValue.ToString();
+
+        //    var lst = _da.FindCardItems(code, NumberCard, name, TypeCard);
+        //    dgv_DanhSach.DataSource = lst.ToDataTable();
+
+        //}
+
+        //private void btnReset_Click(object sender, EventArgs e)
+        //{
+        //    txtMaKhachHang.Text = "";
+        //    txtMaThe.Text = "";
+        //    txtName.Text = "";
+        //    cboTypeCard.SelectedItem = 0;
+        //    var lst = _da.GetAll();
+        //    dgv_DanhSach.DataSource = lst.ToDataTable();
+        //}
+
+        public void LocCard()
         {
-            var code = txtMaKhachHang.Text;
-            var NumberCard = txtMaThe.Text;
-            var name = txtName.Text;
-            var TypeCard = cboTypeCard.SelectedValue.ToString();
-
-            var lst = _da.FindCardItems(code, NumberCard, name, TypeCard);
-            dgv_DanhSach.DataSource = lst.ToDataTable();
-
+            var form = new frmLocCard();
+            form.FillterRecord += FillterRecord;
+            form.ShowDialog();
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        #region Event
+        private void FillterRecord(object sender, List<CardItem> lst)
         {
-            txtMaKhachHang.Text = "";
-            txtMaThe.Text = "";
-            txtName.Text = "";
-            cboTypeCard.SelectedItem = 0;
-            var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
+        #endregion
+
+        #region Loadding
+
+        private FrmLoadding _loading;
+
+        private void ShowLoading(object sender, string msg)
+        {
+            _loading = new FrmLoadding();
+            _loading.Update(msg);
+            _loading.ShowDialog();
+        }
+
+        private void KillLoading(object sender)
+        {
+            try
+            {
+                if (_loading != null)
+                {
+                    _loading.Invoke((Action)(() =>
+                    {
+                        _loading.Close();
+                        //_loading.Dispose();
+                        _loading = null;
+                    }));
+                }
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void UpdateLoading(object sender, string strInfo)
+        {
+            if (_loading != null)
+            {
+                _loading.Invoke((Action)(() => _loading.Update(strInfo)));
+            }
+        }
+
+        #endregion
     }
 }
+
+

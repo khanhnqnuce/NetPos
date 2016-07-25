@@ -125,7 +125,19 @@ namespace NetPos.Frm
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var date = DateTime.Now;
+            datStartDate.Value = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            datEndDate.Value = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
+            cboBuiding.SelectedValue = "";
+            cboArea.SelectedValue = "";
+            cboPC.SelectedValue = "";
+            cboObject.SelectedValue = "";
+            cboFunction.SelectedValue = "";
+            cboEventCode.SelectedValue = "";
+            txtCardNumber.Text = "";
+            cboUser.SelectedValue = "";
 
+            //this.Hide();
         }
     }
 }

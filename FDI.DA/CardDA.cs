@@ -39,19 +39,18 @@ namespace FDI.DA
 
         }
 
-        public List<CardItem> FindCardItems( string code, string numberCard, string name, string cardType )
+        public List<CardItem> FindCardItems(string buiding, string area, string obj, string cardType, string cardNumber, string code, string name, bool? phathanh, bool? chuaphathanh, bool? islock)
         {
             try
             {
-                var query = from c in FDIDB.sp_findCard(code, numberCard, name, cardType)
+                var query = from c in FDIDB.sp_LocCard(buiding, area, obj, cardType, cardNumber, code, name, phathanh, chuaphathanh, islock)
                             select new CardItem
                             {
-                                ID = c.Id,
                                 Code = c.Code,
                                 CardNumber = c.CardNumber,
                                 AccountName = c.AccountName,
                                 Balance = c.Balance,
-                                CardTypeCode = c.NameType ?? "#",
+                                CardTypeCode = c.CardTypeCode ?? "#",
                                 IsRelease = c.IsRelease ?? false,
                                 IsLockCard = c.IsLockCard ?? false,
                                 IsEdit = c.IsEdit
