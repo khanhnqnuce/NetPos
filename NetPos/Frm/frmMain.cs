@@ -155,7 +155,7 @@ namespace NetPos.Frm
 
         private void menuLoc_Click(object sender, EventArgs e)
         {
-            
+
             switch (_process)
             {
                 case Process.Card:
@@ -166,9 +166,10 @@ namespace NetPos.Frm
                 case Process.DoubleCard:
                     break;
                 case Process.ReportCard:
-                    _frmRecord.Loc();
+
                     break;
                 case Process.ReportDetail:
+                    _frmRecord.Loc();
                     break;
                 case Process.ReportTotal:
                     break;
@@ -232,18 +233,18 @@ namespace NetPos.Frm
                     _frmCard.Printf();
                     break;
                 case Process.BackList:
-                    
+
                     break;
                 case Process.DoubleCard:
-                    
+
                 case Process.ReportCard:
                     _frmRecord.Printf();
                     break;
                 case Process.ReportDetail:
-                    
+
                     break;
                 case Process.ReportTotal:
-                    
+
                     break;
             }
         }
@@ -253,6 +254,7 @@ namespace NetPos.Frm
             switch (_process)
             {
                 case Process.Card:
+                    menuXemThongTin.Visible = true;
                     menuThem.Visible = true;
                     menuSua.Visible = true;
                     menuXoa.Visible = true;
@@ -262,45 +264,50 @@ namespace NetPos.Frm
                     menuThoat.Visible = true;
                     break;
                 case Process.BackList:
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
+                    menuXemThongTin.Visible = false;
+                    menuThem.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
                     menuThoat.Visible = true;
                     break;
                 case Process.DoubleCard:
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
+                    menuXemThongTin.Visible = false;
+                    menuThem.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
                     menuThoat.Visible = true;
                     break;
                 case Process.ReportCard:
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
+                    menuXemThongTin.Visible = false;
+                    menuThem.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
                     menuThoat.Visible = true;
                     break;
                 case Process.ReportDetail:
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
+                    menuXemThongTin.Visible = false;
+                    menuThem.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
                     menuThoat.Visible = true;
                     break;
                 case Process.ReportTotal:
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
+                    menuXemThongTin.Visible = false;
+                    menuThem.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -329,16 +336,17 @@ namespace NetPos.Frm
                 Log2File.LogExceptionToFile(ex);
             }
         }
- private void menuXemThongTin_Click(object sender, EventArgs e)
+        private void menuXemThongTin_Click(object sender, EventArgs e)
         {
             _frmCard.View();
         }
- private void menuXuatKhau_Click(object sender, EventArgs e)
+        private void menuXuatKhau_Click(object sender, EventArgs e)
         {
             var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
                 _frmCard.Export(folderBrowserDialog1.SelectedPath);
             }
-        }    }
+        }
+    }
 }

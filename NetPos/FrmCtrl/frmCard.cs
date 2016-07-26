@@ -30,12 +30,11 @@ namespace NetPos.FrmCtrl
             var thread = new Thread(LoadGrid) { IsBackground = true };
             thread.Start();
             OnShowDialog("Loading...");
+            LocCard();
         }
 
         private void LoadGrid()
         {
-            var a = dgv_DanhSach;
-
             var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
 

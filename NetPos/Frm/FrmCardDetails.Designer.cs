@@ -248,6 +248,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmCardDetails";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xem thông tin thẻ";
             this.Load += new System.EventHandler(this.FrmCardDetails_Load);

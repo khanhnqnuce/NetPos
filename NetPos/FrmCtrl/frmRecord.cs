@@ -47,8 +47,8 @@ namespace NetPos.FrmCtrl
             band.Columns["Buiding"].CellActivation = Activation.NoEdit;
             band.Columns["Area"].CellActivation = Activation.NoEdit;
             band.Columns["UserName"].CellActivation = Activation.NoEdit;
-            band.Columns["EventId"].CellActivation = Activation.NoEdit;
-            band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
+            //band.Columns["EventId"].CellActivation = Activation.NoEdit;
+            //band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
 
             band.Columns["Balance"].MinWidth = 120;
             band.Columns["UserName"].MinWidth = 120;
@@ -63,8 +63,10 @@ namespace NetPos.FrmCtrl
             band.Columns["Buiding"].CellAppearance.TextHAlign = HAlign.Left;
             band.Columns["Area"].CellAppearance.TextHAlign = HAlign.Left;
             band.Columns["UserName"].CellAppearance.TextHAlign = HAlign.Left;
-            band.Columns["EventId"].CellAppearance.TextHAlign = HAlign.Right;
-            band.Columns["ProductCode"].CellAppearance.TextHAlign = HAlign.Right;
+            //band.Columns["EventId"].CellAppearance.TextHAlign = HAlign.Right;
+            //band.Columns["ProductCode"].CellAppearance.TextHAlign = HAlign.Right; 
+            band.Columns["EventId"].Hidden = true;
+            band.Columns["ProductCode"].Hidden = true;
 
             #region Caption
             band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
@@ -97,8 +99,7 @@ namespace NetPos.FrmCtrl
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
         #endregion
-
-
+        
         public void Printf()
         {
             try
@@ -118,7 +119,6 @@ namespace NetPos.FrmCtrl
                 Log2File.LogExceptionToFile(ex);
             }
         }
-
 
     }
 }

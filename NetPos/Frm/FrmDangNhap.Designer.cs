@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -131,9 +131,9 @@
             // 
             // lbdangnhap
             // 
-            appearance3.TextHAlignAsString = "Center";
-            appearance3.TextVAlignAsString = "Middle";
-            this.lbdangnhap.Appearance = appearance3;
+            appearance1.TextHAlignAsString = "Center";
+            appearance1.TextVAlignAsString = "Middle";
+            this.lbdangnhap.Appearance = appearance1;
             this.lbdangnhap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbdangnhap.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
             this.lbdangnhap.Location = new System.Drawing.Point(25, 179);

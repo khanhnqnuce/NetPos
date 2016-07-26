@@ -51,10 +51,10 @@ namespace QLSV.Frm.Frm
                 var item = _da.Login(txtTaiKhoan.Text, txtMatKhau.Text);
                 if (item != null)
                 {
+                    Hide();
                     _frmMain = new frmMain(item);
                     _frmMain.Logout += Logout;
                     _frmMain.Show();
-                    Hide();
                 }
             }
         }
