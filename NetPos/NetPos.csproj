@@ -203,6 +203,12 @@
     <Compile Include="Frm\frmLoc.Designer.cs">
       <DependentUpon>frmLoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm\FrmLogThongKeThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FrmLogThongKeThe.Designer.cs">
+      <DependentUpon>FrmLogThongKeThe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,7 @@
     <Content Include="Reports\rpRecord.rst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\change.png" />
     <None Include="Resources\matkhau1.png" />
     <None Include="Resources\taikhoan1.png" />
     <None Include="Reports\danhsachthe.rst" />
@@ -309,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmLoc.resx">
       <DependentUpon>frmLoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FrmLogThongKeThe.resx">
+      <DependentUpon>FrmLogThongKeThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

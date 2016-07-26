@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using FDI;
 using FDI.DA;
+using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using NetPos.Frm;
 
 namespace NetPos.FrmCtrl
 {
     public partial class frmThongKeThe : UserControl
     {
         readonly ThongKeTheDA _da = new ThongKeTheDA();
+        
         public frmThongKeThe()
         {
             InitializeComponent();
@@ -19,7 +23,7 @@ namespace NetPos.FrmCtrl
 
         private void frmThongKeThe_Load(object sender, EventArgs e)
         {
-            var lst = _da.GetAdminAllSimple();
+            var lst = _da.GetThongKeTheItems("","","");
             dgv_DanhSach.DataSource = lst.ToDataTable();
 
            var row = dgv_DanhSach.DisplayLayout.Bands[0].AddNew();
@@ -28,6 +32,7 @@ namespace NetPos.FrmCtrl
            row.Cells["TotalCard"].Value = lst.Sum(c=>c.TotalCard);
            row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
            row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
+           row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalNotUsed);
            row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
            row.CellAppearance.BackColor = Color.LightCyan;
             row.CellAppearance.FontData.Bold = DefaultableBoolean.True ;
@@ -44,12 +49,14 @@ namespace NetPos.FrmCtrl
             band.Columns["TotalCard"].CellActivation = Activation.NoEdit;
             band.Columns["TotalUsed"].CellActivation = Activation.NoEdit;
             band.Columns["TotalNotUsed"].CellActivation = Activation.NoEdit;
+            band.Columns["TotalBlock"].CellActivation = Activation.NoEdit;
             band.Columns["TotalBalance"].CellActivation = Activation.NoEdit;
 
             band.Columns["NameType"].CellAppearance.TextHAlign = HAlign.Left;
             band.Columns["TotalCard"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["TotalUsed"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["TotalNotUsed"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["TotalBlock"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["TotalBalance"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["TotalBalance"].FormatMonney();
 
@@ -63,5 +70,29 @@ namespace NetPos.FrmCtrl
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
+
+        public void LocThongKeThe()
+        {
+            var form = new FrmLogThongKeThe();
+            form.FillterTkThe += FillterTkThe;
+            form.ShowDialog();
+        }
+
+        #region Event
+        private void FillterTkThe(object sender, List<ThongKeTheItem> lst)
+        {
+            dgv_DanhSach.DataSource = lst.ToDataTable();
+            var row = dgv_DanhSach.DisplayLayout.Bands[0].AddNew();
+            row.Cells["NameType"].Value = "Tổng";
+            row.Cells["TotalCard"].Value = lst.Sum(c => c.TotalCard);
+            row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
+            row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
+            row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalNotUsed);
+            row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
+            row.CellAppearance.BackColor = Color.LightCyan;
+            row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
+            row.CellAppearance.FontData.SizeInPoints = 14;
+        }
+        #endregion
     }
 }

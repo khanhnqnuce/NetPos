@@ -24,6 +24,7 @@ namespace NetPos.Frm
         #region Contructor
         readonly frmCard _frmCard;
         readonly frmRecord _frmRecord;
+        readonly frmThongKeThe _frmTKThe;
         #endregion
 
         private Process _process = Process.Card;
@@ -34,6 +35,7 @@ namespace NetPos.Frm
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
+            _frmTKThe =  new frmThongKeThe();
         }
 
         private static void ShowControl(Control frm, Control panel)
@@ -118,8 +120,7 @@ namespace NetPos.Frm
         {
             _process = Process.ReportCard;
             Function();
-            var form = new frmThongKeThe();
-            ShowControl(form, pn_Main);
+            ShowControl(_frmTKThe, pn_Main);
         }
 
         private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)
@@ -166,8 +167,7 @@ namespace NetPos.Frm
                 case Process.DoubleCard:
                     break;
                 case Process.ReportCard:
-
-                    break;
+frmTKThe.LocThongKeThe();                    break;
                 case Process.ReportDetail:
                     _frmRecord.Loc();
                     break;
