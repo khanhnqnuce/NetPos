@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using FDI.Base;
 using FDI.DA;
 using FDI.Simple;
 
@@ -10,8 +8,8 @@ namespace NetPos.Frm
 {
     public partial class frmLoc : Form
     {
-        readonly CardDA _cardDa = new CardDA();
-        readonly RecordDA _recordDa = new RecordDA();
+        //readonly CardDA _cardDa = new CardDA();
+        //readonly RecordDA _recordDa = new RecordDA();
         public delegate void CustomHandler(object sender, List<RecordItem> lst);
         public event CustomHandler FillterRecord;
         protected virtual void OnFillterRecord(List<RecordItem> hs)
@@ -41,6 +39,8 @@ namespace NetPos.Frm
 
         private void frmLoc_Load(object sender, EventArgs e)
         {
+            CardDA _cardDa = new CardDA();
+            RecordDA _recordDa = new RecordDA();
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             var date = DateTime.Now;
@@ -106,6 +106,7 @@ namespace NetPos.Frm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RecordDA _recordDa = new RecordDA();
             var StartDate = datStartDate.Value;
             var EndDate = datEndDate.Value;
             var Buiding = cboBuiding.SelectedValue.ToString();

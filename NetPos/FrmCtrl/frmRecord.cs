@@ -8,13 +8,14 @@ using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
 {
-    public partial class frmRecord : BaseControl
+    public partial class frmRecord : UserControl
     {
-        
-        readonly RecordDA _da = new RecordDA();
+
+        //readonly RecordDA _da = new RecordDA();
         public frmRecord()
         {
             InitializeComponent();
@@ -22,21 +23,12 @@ namespace NetPos.FrmCtrl
 
         private void frmRecord_Load(object sender, EventArgs e)
         {
-            //var thread = new Thread(LoadGrid) { IsBackground = true };
-            //thread.Start();
-            //OnShowDialog("Loading..."); 
-            Loc();
-        }
+			Loc();        }
 
-        
+
         private void LoadGrid()
         {
-            var lst = _da.GetAdminAllSimple();
-            dgv_DanhSach.DataSource = lst.ToDataTable();
-            lock (LockTotal)
-            {
-                OnCloseDialog();
-            }
+            
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -105,5 +97,28 @@ namespace NetPos.FrmCtrl
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
         #endregion
+
+
+        public void Printf()
+        {
+            try
+            {
+                reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
+                rpRecord.FilePath = Application.StartupPath + @"\Reports\rpRecord.rst";
+                rpRecord.Prepare();
+                var previewForm = new PreviewForm(rpRecord)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+
     }
 }

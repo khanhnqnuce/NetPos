@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.group = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpRecord = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
             this.pn_Main.SuspendLayout();
             this.group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
@@ -72,6 +75,18 @@
             this.dgv_DanhSach.TabIndex = 26;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
             // 
+            // reportManager
+            // 
+            this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
+            this.rpRecord});
+            // 
+            // rpRecord
+            // 
+            this.rpRecord.FilePath = "D:\\qlsv-khanhnq\\FDI\\NetPos\\trunk\\NetPos\\Reports\\rpRecord.rst";
+            this.rpRecord.ReportName = "";
+            this.rpRecord.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
+            // 
             // frmRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,5 +107,7 @@
         private System.Windows.Forms.Panel pn_Main;
         private System.Windows.Forms.GroupBox group;
         private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
+        private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpRecord;
     }
 }

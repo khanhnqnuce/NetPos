@@ -56,6 +56,7 @@
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXemThongTin = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pn_Top.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -281,7 +282,21 @@
             this.menuIn.Text = "In";
             this.menuIn.Click += new System.EventHandler(this.menuIn_Click);
             // 
-            // menuThoat
+// menuXuatKhau
+            // 
+            this.menuXuatKhau.Name = "menuXuatKhau";
+            this.menuXuatKhau.Size = new System.Drawing.Size(72, 20);
+            this.menuXuatKhau.Text = "Xuất Excel";
+            this.menuXuatKhau.Click += new System.EventHandler(this.menuXuatKhau_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem1.Text = "|";
+            //             // menuThoat
             // 
             this.menuThoat.Image = global::NetPos.Properties.Resources.Exit;
             this.menuThoat.Name = "menuThoat";
@@ -347,8 +362,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuDSThe;
         private System.Windows.Forms.ToolStripMenuItem menuDanhSachDen;
         private System.Windows.Forms.ToolStripMenuItem menuTheTrungNhau;
-        private System.Windows.Forms.ToolStripMenuItem menuXemThongTin;
-
+private System.Windows.Forms.ToolStripMenuItem menuXemThongTin;private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
 
 
 

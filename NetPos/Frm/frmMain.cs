@@ -54,9 +54,9 @@ namespace NetPos.Frm
         private void frmMain_Load(object sender, EventArgs e)
         {
             Function();
-            _frmCard.ShowDialog += ShowLoading;
-            _frmCard.CloseDialog += KillLoading;
-            _frmCard.UpdateDialog += UpdateLoading;
+            //_frmCard.ShowDialog += ShowLoading;
+            //_frmCard.CloseDialog += KillLoading;
+            //_frmCard.UpdateDialog += UpdateLoading;
             ShowControl(_frmCard, pn_Main);
         }
 
@@ -126,9 +126,9 @@ namespace NetPos.Frm
         {
             _process = Process.ReportDetail;
             Function();
-            _frmRecord.ShowDialog += ShowLoading;
-            _frmRecord.CloseDialog += KillLoading;
-            _frmRecord.UpdateDialog += UpdateLoading;
+            //_frmRecord.ShowDialog += ShowLoading;
+            //_frmRecord.CloseDialog += KillLoading;
+            //_frmRecord.UpdateDialog += UpdateLoading;
             ShowControl(_frmRecord, pn_Main);
         }
 
@@ -226,7 +226,26 @@ namespace NetPos.Frm
 
         private void menuIn_Click(object sender, EventArgs e)
         {
-            _frmCard.Printf();
+            switch (_process)
+            {
+                case Process.Card:
+                    _frmCard.Printf();
+                    break;
+                case Process.BackList:
+                    
+                    break;
+                case Process.DoubleCard:
+                    
+                case Process.ReportCard:
+                    _frmRecord.Printf();
+                    break;
+                case Process.ReportDetail:
+                    
+                    break;
+                case Process.ReportTotal:
+                    
+                    break;
+            }
         }
 
         private void Function()
@@ -310,10 +329,16 @@ namespace NetPos.Frm
                 Log2File.LogExceptionToFile(ex);
             }
         }
-
-        private void menuXemThongTin_Click(object sender, EventArgs e)
+ private void menuXemThongTin_Click(object sender, EventArgs e)
         {
             _frmCard.View();
         }
-    }
+ private void menuXuatKhau_Click(object sender, EventArgs e)
+        {
+            var result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                _frmCard.Export(folderBrowserDialog1.SelectedPath);
+            }
+        }    }
 }

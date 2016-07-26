@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -33,6 +34,8 @@ namespace NetPos.FrmCtrl
 
         private void LoadGrid()
         {
+            var a = dgv_DanhSach;
+
             var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
 
@@ -232,9 +235,9 @@ namespace NetPos.FrmCtrl
         {
             try
             {
-                var lst = _da.GetAll();
+                //var lst = _da.GetAll();
                 reportManager.DataSources.Clear();
-                reportManager.DataSources.Add("danhsach", lst.ToDataTable());
+                reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
                 rpCard.FilePath = Application.StartupPath + @"\Reports\rpCard.rst";
                 rpCard.Prepare();
                 var previewForm = new PreviewForm(rpCard)
@@ -242,6 +245,21 @@ namespace NetPos.FrmCtrl
                     WindowState = FormWindowState.Maximized
                 };
                 previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Export(string path)
+        {
+            try
+            {
+                var fileName = string.Format("danh_sach_the_{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(path, fileName);
+                Excel.ExportToCard(filePath, dgv_DanhSach);
 
             }
             catch (Exception ex)
