@@ -167,7 +167,8 @@ namespace NetPos.Frm
                 case Process.DoubleCard:
                     break;
                 case Process.ReportCard:
-frmTKThe.LocThongKeThe();                    break;
+                    _frmTKThe.LocThongKeThe();                    
+                    break;
                 case Process.ReportDetail:
                     _frmRecord.Loc();
                     break;
