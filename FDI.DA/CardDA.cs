@@ -141,6 +141,17 @@ namespace FDI.DA
             return query.FirstOrDefault();
         }
 
+        public List<DTBanTheItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        {
+            var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
+                        select new DTBanTheItem
+                        {
+                            Name = c.Name,
+                            Value = c.Value ?? 0
+                        };
+            return query.ToList();
+        }
+
         public List<tblCard> Get(List<int> lst)
         {
             var query = from c in FDIDB.tblCards where lst.Contains(c.Id) select c;

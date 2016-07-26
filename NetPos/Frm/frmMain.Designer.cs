@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pn_Top = new System.Windows.Forms.Panel();
             this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pn_Main = new System.Windows.Forms.Panel();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.QLT = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDSThe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTheTrungNhau = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,24 +45,15 @@
             this.MenuTKThe = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCaoDanhThuChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCaoTongHop = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSuKienCanhBao = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuNhatKyLog = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDSNapTien = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBackUpDuLieu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXemThongTin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
-            this.pn_Main = new System.Windows.Forms.Panel();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.menuBCDTBanThe = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Top.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +90,45 @@
             this.menuMain.Size = new System.Drawing.Size(1350, 24);
             this.menuMain.TabIndex = 8;
             this.menuMain.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem2.Text = "|";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem3.Text = "|";
+            // 
+            // menuXuatKhau
+            // 
+            this.menuXuatKhau.Name = "menuXuatKhau";
+            this.menuXuatKhau.Size = new System.Drawing.Size(72, 20);
+            this.menuXuatKhau.Text = "Xuất Excel";
+            this.menuXuatKhau.Click += new System.EventHandler(this.menuXuatKhau_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 20);
+            this.toolStripMenuItem1.Text = "|";
+            // 
+            // pn_Main
+            // 
+            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Main.Location = new System.Drawing.Point(0, 34);
+            this.pn_Main.Name = "pn_Main";
+            this.pn_Main.Size = new System.Drawing.Size(1350, 655);
+            this.pn_Main.TabIndex = 1;
             // 
             // QLT
             // 
@@ -136,10 +172,7 @@
             this.MenuTKThe,
             this.menuBaoCaoDanhThuChiTiet,
             this.menuBaoCaoTongHop,
-            this.menuSuKienCanhBao,
-            this.menuNhatKyLog,
-            this.menuDSNapTien,
-            this.menuBackUpDuLieu});
+            this.menuBCDTBanThe});
             this.menuThongKe.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.menuThongKe.Image = global::NetPos.Properties.Resources.Bar_Chart;
             this.menuThongKe.Name = "menuThongKe";
@@ -166,42 +199,6 @@
             this.menuBaoCaoTongHop.Size = new System.Drawing.Size(226, 22);
             this.menuBaoCaoTongHop.Text = "Báo cáo doanh thu tổng hợp";
             this.menuBaoCaoTongHop.Click += new System.EventHandler(this.menuBaoCaoTongHop_Click);
-            // 
-            // menuSuKienCanhBao
-            // 
-            this.menuSuKienCanhBao.Name = "menuSuKienCanhBao";
-            this.menuSuKienCanhBao.Size = new System.Drawing.Size(226, 22);
-            this.menuSuKienCanhBao.Text = "Sự kiện cảnh báo";
-            this.menuSuKienCanhBao.Click += new System.EventHandler(this.menuSuKienCanhBao_Click);
-            // 
-            // menuNhatKyLog
-            // 
-            this.menuNhatKyLog.Name = "menuNhatKyLog";
-            this.menuNhatKyLog.Size = new System.Drawing.Size(226, 22);
-            this.menuNhatKyLog.Text = "Nhật ký hệ thống log";
-            this.menuNhatKyLog.Click += new System.EventHandler(this.menuNhatKyLog_Click);
-            // 
-            // menuDSNapTien
-            // 
-            this.menuDSNapTien.Name = "menuDSNapTien";
-            this.menuDSNapTien.Size = new System.Drawing.Size(226, 22);
-            this.menuDSNapTien.Text = "Danh sách nạp tiền cho thẻ";
-            this.menuDSNapTien.Click += new System.EventHandler(this.menuDSNapTien_Click);
-            // 
-            // menuBackUpDuLieu
-            // 
-            this.menuBackUpDuLieu.Name = "menuBackUpDuLieu";
-            this.menuBackUpDuLieu.Size = new System.Drawing.Size(226, 22);
-            this.menuBackUpDuLieu.Text = "Dữ liệu Backup";
-            this.menuBackUpDuLieu.Click += new System.EventHandler(this.menuBackUpDuLieu_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Red;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(14, 20);
-            this.toolStripMenuItem2.Text = "|";
             // 
             // menuXemThongTin
             // 
@@ -244,14 +241,6 @@
             this.menuMatDoiThe.Text = "Mất Thẻ/Đổi Thẻ";
             this.menuMatDoiThe.Click += new System.EventHandler(this.menuMatDoiThe_Click);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.Red;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(14, 20);
-            this.toolStripMenuItem3.Text = "|";
-            // 
             // menuLoc
             // 
             this.menuLoc.Image = global::NetPos.Properties.Resources.Search;
@@ -268,21 +257,6 @@
             this.menuIn.Text = "In";
             this.menuIn.Click += new System.EventHandler(this.menuIn_Click);
             // 
-            // menuXuatKhau
-            // 
-            this.menuXuatKhau.Name = "menuXuatKhau";
-            this.menuXuatKhau.Size = new System.Drawing.Size(72, 20);
-            this.menuXuatKhau.Text = "Xuất Excel";
-            this.menuXuatKhau.Click += new System.EventHandler(this.menuXuatKhau_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Red;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(14, 20);
-            this.toolStripMenuItem1.Text = "|";
-            // 
             // menuThoat
             // 
             this.menuThoat.Image = global::NetPos.Properties.Resources.Exit;
@@ -291,13 +265,12 @@
             this.menuThoat.Text = "Thoát";
             this.menuThoat.Click += new System.EventHandler(this.menuThoat_Click);
             // 
-            // pn_Main
+            // menuBCDTBanThe
             // 
-            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Main.Location = new System.Drawing.Point(0, 34);
-            this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1350, 655);
-            this.pn_Main.TabIndex = 1;
+            this.menuBCDTBanThe.Name = "menuBCDTBanThe";
+            this.menuBCDTBanThe.Size = new System.Drawing.Size(226, 22);
+            this.menuBCDTBanThe.Text = "Báo cáo doanh thu bán thẻ";
+            this.menuBCDTBanThe.Click += new System.EventHandler(this.menuBCDTBanThe_Click);
             // 
             // frmMain
             // 
@@ -333,10 +306,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuThongKe;
         private System.Windows.Forms.ToolStripMenuItem menuBaoCaoDanhThuChiTiet;
         private System.Windows.Forms.ToolStripMenuItem menuBaoCaoTongHop;
-        private System.Windows.Forms.ToolStripMenuItem menuSuKienCanhBao;
-        private System.Windows.Forms.ToolStripMenuItem menuNhatKyLog;
-        private System.Windows.Forms.ToolStripMenuItem menuDSNapTien;
-        private System.Windows.Forms.ToolStripMenuItem menuBackUpDuLieu;
         private System.Windows.Forms.ToolStripMenuItem menuLoc;
         private System.Windows.Forms.ToolStripMenuItem menuIn;
         private System.Windows.Forms.ToolStripMenuItem menuXuatKhau;
@@ -350,6 +319,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuDanhSachDen;
         private System.Windows.Forms.ToolStripMenuItem menuTheTrungNhau;
 private System.Windows.Forms.ToolStripMenuItem menuXemThongTin;private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+private System.Windows.Forms.ToolStripMenuItem menuBCDTBanThe;
 
 
 

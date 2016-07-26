@@ -131,6 +131,12 @@
     <Compile Include="FrmCtrl\frmDataBackup.Designer.cs">
       <DependentUpon>frmDataBackup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCtrl\frmDTBanThe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmDTBanThe.Designer.cs">
+      <DependentUpon>frmDTBanThe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCtrl\frmEventAlarm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,6 +166,12 @@
     </Compile>
     <Compile Include="FrmCtrl\frmThongKeThe.Designer.cs">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmLocDTBanThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmLocDTBanThe.Designer.cs">
+      <DependentUpon>frmLocDTBanThe.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\FrmCardDetails.cs">
       <SubType>Form</SubType>
@@ -281,6 +293,9 @@
     <EmbeddedResource Include="FrmCtrl\frmDataBackup.resx">
       <DependentUpon>frmDataBackup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmDTBanThe.resx">
+      <DependentUpon>frmDTBanThe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmEventAlarm.resx">
       <DependentUpon>frmEventAlarm.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmThongKeThe.resx">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmLocDTBanThe.resx">
+      <DependentUpon>frmLocDTBanThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\FrmCardDetails.resx">
       <DependentUpon>FrmCardDetails.cs</DependentUpon>

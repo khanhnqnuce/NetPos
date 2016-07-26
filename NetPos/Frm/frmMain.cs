@@ -25,6 +25,7 @@ namespace NetPos.Frm
         readonly frmCard _frmCard;
         readonly frmRecord _frmRecord;
         readonly frmThongKeThe _frmTKThe;
+        readonly frmDTBanThe _frmDTBanThe;
         #endregion
 
         private Process _process = Process.Card;
@@ -35,7 +36,8 @@ namespace NetPos.Frm
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
-            _frmTKThe =  new frmThongKeThe();
+            _frmTKThe = new frmThongKeThe();
+            _frmDTBanThe = new frmDTBanThe();
         }
 
         private static void ShowControl(Control frm, Control panel)
@@ -173,6 +175,9 @@ namespace NetPos.Frm
                     _frmRecord.Loc();
                     break;
                 case Process.ReportTotal:
+                    break;
+                case Process.DTBanThe:
+                    _frmDTBanThe.Loc();
                     break;
             }
         }
@@ -374,6 +379,13 @@ namespace NetPos.Frm
                         break;
                 }
             }
+        }
+
+        private void menuBCDTBanThe_Click(object sender, EventArgs e)
+        {
+            _process = Process.DTBanThe;
+            Function();
+            ShowControl(_frmDTBanThe, pn_Main);
         }
     }
 }

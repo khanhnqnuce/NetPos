@@ -8,5 +8,6 @@
         ReportCard = 4,
         ReportDetail = 5,
         ReportTotal = 6,
+        DTBanThe = 7,
     }
 }
