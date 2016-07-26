@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using FDI;
@@ -32,14 +33,14 @@ namespace NetPos.FrmCtrl
            row.Cells["TotalCard"].Value = lst.Sum(c=>c.TotalCard);
            row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
            row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
-           row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalNotUsed);
+           row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalBlock);
            row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
            row.CellAppearance.BackColor = Color.LightCyan;
             row.CellAppearance.FontData.Bold = DefaultableBoolean.True ;
             row.CellAppearance.FontData.SizeInPoints = 14;
         }
 
-        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
@@ -65,6 +66,7 @@ namespace NetPos.FrmCtrl
             band.Columns["TotalCard"].Header.Caption = @"Tổng số thẻ";
             band.Columns["TotalUsed"].Header.Caption = @"Tổng số thẻ đã phát hành - T";
             band.Columns["TotalNotUsed"].Header.Caption = @"Tổng số thẻ còn lại - R";
+            band.Columns["TotalBlock"].Header.Caption = @"Tổng số thẻ đã khóa";
             band.Columns["TotalBalance"].Header.Caption = @"Số dư tài khoản";
 
             #endregion
@@ -87,12 +89,26 @@ namespace NetPos.FrmCtrl
             row.Cells["TotalCard"].Value = lst.Sum(c => c.TotalCard);
             row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
             row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
-            row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalNotUsed);
+            row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalBlock);
             row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
             row.CellAppearance.BackColor = Color.LightCyan;
             row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
             row.CellAppearance.FontData.SizeInPoints = 14;
         }
         #endregion
+
+        public void Export(string path)
+        {
+            try
+            {
+                var fileName = string.Format("thong_ke_the{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(path, fileName);
+                Excel.ExportToTalCard(filePath, dgv_DanhSach);
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
     }
 }

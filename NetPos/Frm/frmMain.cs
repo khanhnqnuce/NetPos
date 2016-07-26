@@ -361,9 +361,10 @@ namespace NetPos.Frm
 
                         break;
                     case Process.DoubleCard:
-
-                    case Process.ReportCard:
                         
+                        break;
+                    case Process.ReportCard:
+                        _frmTKThe.Export(folderBrowserDialog1.SelectedPath);
                         break;
                     case Process.ReportDetail:
                         _frmRecord.Export(folderBrowserDialog1.SelectedPath);
