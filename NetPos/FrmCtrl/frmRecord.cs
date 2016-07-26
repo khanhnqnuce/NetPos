@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using FDI;
@@ -112,6 +113,21 @@ namespace NetPos.FrmCtrl
                     WindowState = FormWindowState.Maximized
                 };
                 previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Export(string path)
+        {
+            try
+            {
+                var fileName = string.Format("bao_cao_doanh_thu_chi-tiet{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(path, fileName);
+                Excel.ExportToReportCardDetail(filePath, dgv_DanhSach);
 
             }
             catch (Exception ex)

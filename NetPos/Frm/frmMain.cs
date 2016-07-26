@@ -239,10 +239,10 @@ namespace NetPos.Frm
                 case Process.DoubleCard:
 
                 case Process.ReportCard:
-                    _frmRecord.Printf();
+                   
                     break;
                 case Process.ReportDetail:
-
+                    _frmRecord.Printf();
                     break;
                 case Process.ReportTotal:
 
@@ -259,6 +259,7 @@ namespace NetPos.Frm
                     menuThem.Visible = true;
                     menuSua.Visible = true;
                     menuXoa.Visible = true;
+                    menuMatDoiThe.Visible = true;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -269,6 +270,7 @@ namespace NetPos.Frm
                     menuThem.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -279,6 +281,7 @@ namespace NetPos.Frm
                     menuThem.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -289,6 +292,7 @@ namespace NetPos.Frm
                     menuThem.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -299,6 +303,7 @@ namespace NetPos.Frm
                     menuThem.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -309,6 +314,7 @@ namespace NetPos.Frm
                     menuThem.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
@@ -346,7 +352,26 @@ namespace NetPos.Frm
             var result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                _frmCard.Export(folderBrowserDialog1.SelectedPath);
+                switch (_process)
+                {
+                    case Process.Card:
+                        _frmCard.Export(folderBrowserDialog1.SelectedPath);
+                        break;
+                    case Process.BackList:
+
+                        break;
+                    case Process.DoubleCard:
+
+                    case Process.ReportCard:
+                        
+                        break;
+                    case Process.ReportDetail:
+                        _frmRecord.Export(folderBrowserDialog1.SelectedPath);
+                        break;
+                    case Process.ReportTotal:
+
+                        break;
+                }
             }
         }
     }

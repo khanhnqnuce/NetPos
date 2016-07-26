@@ -27,9 +27,10 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
-            var thread = new Thread(LoadGrid) { IsBackground = true };
-            thread.Start();
-            OnShowDialog("Loading...");
+            LoadGrid();
+            //var thread = new Thread(LoadGrid) { IsBackground = true };
+            //thread.Start();
+            //OnShowDialog("Loading...");
             LocCard();
         }
 
@@ -38,10 +39,10 @@ namespace NetPos.FrmCtrl
             var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
 
-            lock (LockTotal)
-            {
-                OnCloseDialog();
-            }
+            //lock (LockTotal)
+            //{
+            //    OnCloseDialog();
+            //}
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)

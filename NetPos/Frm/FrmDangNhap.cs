@@ -56,6 +56,10 @@ namespace QLSV.Frm.Frm
                     _frmMain.Logout += Logout;
                     _frmMain.Show();
                 }
+                else
+                {
+                    MessageBox.Show(@"Sai thông tin đăng nhập");
+                }
             }
         }
 
