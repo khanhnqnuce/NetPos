@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupLoc = new System.Windows.Forms.GroupBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.pn_Top = new System.Windows.Forms.Panel();
+            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpCard = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
             this.groupLoc.SuspendLayout();
             this.pn_Main.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -190,6 +193,18 @@
             this.pn_Top.Size = new System.Drawing.Size(1195, 63);
             this.pn_Top.TabIndex = 4;
             // 
+            // reportManager
+            // 
+            this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
+            this.rpCard});
+            // 
+            // rpCard
+            // 
+            this.rpCard.FilePath = "D:\\qlsv-khanhnq\\FDI\\NetPos\\trunk\\NetPos\\Reports\\rpCard.rst";
+            this.rpCard.ReportName = "";
+            this.rpCard.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
+            // 
             // frmDachSachDen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +241,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
         private System.Windows.Forms.Panel pn_Top;
+        private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCard;
 
 
     }

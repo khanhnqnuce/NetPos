@@ -24,7 +24,9 @@ namespace NetPos.Frm
         #region Contructor
         readonly frmCard _frmCard;
         readonly frmRecord _frmRecord;
-        readonly frmThongKeThe _frmTKThe;
+        readonly frmThongKeThe _frmTkThe;
+        readonly frmTheTrungNhau _frmTheTrung;
+        readonly frmDachSachDen _frmDachSachDen;
         readonly frmDTBanThe _frmDTBanThe;
         #endregion
 
@@ -36,9 +38,9 @@ namespace NetPos.Frm
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
-            _frmTKThe = new frmThongKeThe();
-            _frmDTBanThe = new frmDTBanThe();
-        }
+_frmTkThe =  new frmThongKeThe();
+            _frmTheTrung = new frmTheTrungNhau();
+            _frmDachSachDen = new frmDachSachDen();        }
 
         private static void ShowControl(Control frm, Control panel)
         {
@@ -77,8 +79,7 @@ namespace NetPos.Frm
         private void menuTheTrungNhau_Click(object sender, EventArgs e)
         {
             _process = Process.DoubleCard;
-            var frm = new frmTheTrungNhau();
-            ShowControl(frm, pn_Main);
+            ShowControl(_frmTheTrung, pn_Main);
         }
 
         private void menuDanhSachDen_Click(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace NetPos.Frm
         {
             _process = Process.ReportCard;
             Function();
-            ShowControl(_frmTKThe, pn_Main);
+            ShowControl(_frmTkThe, pn_Main);
         }
 
         private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)
@@ -165,11 +166,12 @@ namespace NetPos.Frm
                     _frmCard.LocCard();
                     break;
                 case Process.BackList:
+
                     break;
                 case Process.DoubleCard:
                     break;
                 case Process.ReportCard:
-                    _frmTKThe.LocThongKeThe();                    
+                    _frmTkThe.LocThongKeThe();                    
                     break;
                 case Process.ReportDetail:
                     _frmRecord.Loc();
@@ -239,10 +241,11 @@ namespace NetPos.Frm
                     _frmCard.Printf();
                     break;
                 case Process.BackList:
-
+                    _frmDachSachDen.Printf();
                     break;
                 case Process.DoubleCard:
-
+                    _frmTheTrung.Printf();
+                    break;
                 case Process.ReportCard:
                    
                     break;
@@ -363,13 +366,13 @@ namespace NetPos.Frm
                         _frmCard.Export(folderBrowserDialog1.SelectedPath);
                         break;
                     case Process.BackList:
-
+                        _frmDachSachDen.Export(folderBrowserDialog1.SelectedPath);
                         break;
                     case Process.DoubleCard:
-                        
+                        _frmTheTrung.Export(folderBrowserDialog1.SelectedPath);
                         break;
                     case Process.ReportCard:
-                        _frmTKThe.Export(folderBrowserDialog1.SelectedPath);
+                        _frmTkThe.Export(folderBrowserDialog1.SelectedPath);
                         break;
                     case Process.ReportDetail:
                         _frmRecord.Export(folderBrowserDialog1.SelectedPath);

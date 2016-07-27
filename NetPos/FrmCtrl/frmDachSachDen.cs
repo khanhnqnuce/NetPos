@@ -1,8 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 using FDI;
 using FDI.DA;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
 {
@@ -50,5 +53,43 @@ namespace NetPos.FrmCtrl
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
+
+        public void Printf()
+        {
+            try
+            {
+                //var lst = _da.GetAll();
+                reportManager.DataSources.Clear();
+                reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
+                rpCard.FilePath = Application.StartupPath + @"\Reports\rpCard.rst";
+                rpCard.Prepare();
+                var previewForm = new PreviewForm(rpCard)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Export(string path)
+        {
+            try
+            {
+                var fileName = string.Format("danh_sach_the_{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(path, fileName);
+                Excel.ExportToCard(filePath, dgv_DanhSach);
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
     }
 }
