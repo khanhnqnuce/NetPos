@@ -9,5 +9,6 @@
         ReportDetail = 5,
         ReportTotal = 6,
         DTBanThe = 7,
+        DTBanHang = 8,
     }
 }

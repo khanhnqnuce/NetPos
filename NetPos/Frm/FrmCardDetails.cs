@@ -9,6 +9,7 @@ namespace NetPos.Frm
     public partial class FrmCardDetails : Form
     {
         public string CardNumber;
+        public string CardType;
         public int Id;
         readonly CardDA _cardDa = new CardDA();
         public tblCard TblCardItem;
@@ -32,10 +33,7 @@ namespace NetPos.Frm
             //chkIsEdit.Enabled = false;
             //chkIsLockCard.Enabled = false;
             //chkIsRelease.Enabled = false;
-
-            CardNumber = TblCardItem.CardNumber;
-            var item = _cardDa.Get(CardNumber);
-            txtloaiThe.Text = item.CardTypeCode;
+            txtloaiThe.Text = CardType;
 
             dgv_DanhSach.DataSource = _cardDa.GetRecord(CardNumber);
         }

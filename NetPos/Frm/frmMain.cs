@@ -28,6 +28,7 @@ namespace NetPos.Frm
         readonly frmTheTrungNhau _frmTheTrung;
         readonly frmDachSachDen _frmDachSachDen;
         readonly frmDTBanThe _frmDTBanThe;
+        readonly frmDTBanHang _frmDTBanHang;
         #endregion
 
         private Process _process = Process.Card;
@@ -38,9 +39,12 @@ namespace NetPos.Frm
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
-_frmTkThe =  new frmThongKeThe();
+            _frmTkThe = new frmThongKeThe();
             _frmTheTrung = new frmTheTrungNhau();
-            _frmDachSachDen = new frmDachSachDen();        }
+            _frmDachSachDen = new frmDachSachDen();
+            _frmDTBanThe = new frmDTBanThe();
+            _frmDTBanHang = new frmDTBanHang();
+        }
 
         private static void ShowControl(Control frm, Control panel)
         {
@@ -171,7 +175,7 @@ _frmTkThe =  new frmThongKeThe();
                 case Process.DoubleCard:
                     break;
                 case Process.ReportCard:
-                    _frmTkThe.LocThongKeThe();                    
+                    _frmTkThe.LocThongKeThe();
                     break;
                 case Process.ReportDetail:
                     _frmRecord.Loc();
@@ -180,6 +184,9 @@ _frmTkThe =  new frmThongKeThe();
                     break;
                 case Process.DTBanThe:
                     _frmDTBanThe.Loc();
+                    break;
+                case Process.DTBanHang:
+                    _frmDTBanHang.Loc();
                     break;
             }
         }
@@ -247,7 +254,7 @@ _frmTkThe =  new frmThongKeThe();
                     _frmTheTrung.Printf();
                     break;
                 case Process.ReportCard:
-                   
+
                     break;
                 case Process.ReportDetail:
                     _frmRecord.Printf();
@@ -389,6 +396,13 @@ _frmTkThe =  new frmThongKeThe();
             _process = Process.DTBanThe;
             Function();
             ShowControl(_frmDTBanThe, pn_Main);
+        }
+
+        private void menuBCDTBanHang_Click(object sender, EventArgs e)
+        {
+            _process = Process.DTBanHang;
+            Function();
+            ShowControl(_frmDTBanHang, pn_Main);
         }
     }
 }

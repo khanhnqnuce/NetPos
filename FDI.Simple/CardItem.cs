@@ -10,7 +10,5 @@
         public bool IsRelease { get; set; }
         public bool IsLockCard { get; set; }
         public bool IsEdit { get; set; }
-        public string Name { get; set; }
-        public decimal Value { get; set; }
     }
 }

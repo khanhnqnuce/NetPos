@@ -101,6 +101,12 @@
     <Compile Include="FrmCtrl\BaseControl.Designer.cs">
       <DependentUpon>BaseControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCtrl\frmDTBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmCtrl\frmDTBanHang.Designer.cs">
+      <DependentUpon>frmDTBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCtrl\frmBCDoanhThuTongHop.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     </Compile>
     <Compile Include="FrmCtrl\frmThongKeThe.Designer.cs">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\frmLocDTBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\frmLocDTBanHang.Designer.cs">
+      <DependentUpon>frmLocDTBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\frmLocDTBanThe.cs">
       <SubType>Form</SubType>
@@ -278,6 +290,9 @@
     <EmbeddedResource Include="FrmCtrl\BaseControl.resx">
       <DependentUpon>BaseControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCtrl\frmDTBanHang.resx">
+      <DependentUpon>frmDTBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmBCDoanhThuTongHop.resx">
       <DependentUpon>frmBCDoanhThuTongHop.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmThongKeThe.resx">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\frmLocDTBanHang.resx">
+      <DependentUpon>frmLocDTBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmLocDTBanThe.resx">
       <DependentUpon>frmLocDTBanThe.cs</DependentUpon>

@@ -31,7 +31,7 @@ namespace NetPos.FrmCtrl
             //var thread = new Thread(LoadGrid) { IsBackground = true };
             //thread.Start();
             //OnShowDialog("Loading...");
-            LocCard();
+            //LocCard();
         }
 
         private void LoadGrid()
@@ -147,6 +147,7 @@ namespace NetPos.FrmCtrl
                 var id = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
                 if (string.IsNullOrEmpty(id)) return;
                 frm.Id = int.Parse(id);
+                frm.CardType = dgv_DanhSach.ActiveRow.Cells["CardTypeCode"].Text;
                 frm.ShowDialog();
                 if (frm.IsUpdate)
                 {

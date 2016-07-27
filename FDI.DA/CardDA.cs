@@ -42,11 +42,12 @@ namespace FDI.DA
                 var query = from c in FDIDB.sp_LocCard(buiding, area, obj, cardType, cardNumber, code, name, phathanh, chuaphathanh, islock)
                             select new CardItem
                             {
+                                ID = c.Id,
                                 Code = c.Code,
                                 CardNumber = c.CardNumber,
                                 AccountName = c.AccountName,
                                 Balance = c.Balance,
-                                CardTypeCode = c.CardTypeCode ?? "#",
+                                CardTypeCode = c.TypeCard ?? "#",
                                 IsRelease = c.IsRelease ?? false,
                                 IsLockCard = c.IsLockCard ?? false,
                                 IsEdit = c.IsEdit
@@ -145,6 +146,17 @@ namespace FDI.DA
         {
             var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
                         select new DTBanTheItem
+                        {
+                            Name = c.Name,
+                            Value = c.Value ?? 0
+                        };
+            return query.ToList();
+        }
+
+        public List<DTBanHangItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        {
+            var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)
+                        select new DTBanHangItem
                         {
                             Name = c.Name,
                             Value = c.Value ?? 0
