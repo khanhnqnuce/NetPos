@@ -142,17 +142,69 @@ namespace FDI.DA
             return query.FirstOrDefault();
         }
 
-        public List<DTBanTheItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        public List<AreaItem> GetArea(string code)
+        {
+            try
+            {
+                var query = from c in FDIDB.tblAreas
+                            where c.BuidingCode == code
+                            orderby c.Desc
+                            select new AreaItem
+                            {
+                                Code = c.Code,
+                                Desc = c.Desc
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<AreaItem>();
+            }
+            
+        }
+
+        public List<ObjectItem> GetObject(string code)
+        {
+            try
+            {
+                var query = from c in FDIDB.tblObjects
+                            where c.AreaCode == code
+                            orderby c.Desc
+                            select new ObjectItem
+                            {
+                                Code = c.Code,
+                                Name = c.Name
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<ObjectItem>();
+            }
+            
+        }
+
+        public List<RecordItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
         {
             var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
-                        select new DTBanTheItem
+                        select new RecordItem
                         {
-                            Name = c.Name,
-                            Value = c.Value ?? 0
+                            CardNumber = c.CardNumber,
+                            Date = c.Date ?? new DateTime(),
+                            Value = c.Value ?? 0,
+                            Balance = c.Balance ?? 0,
+                            Action = c.Action,
+                            AccountName = c.AccountName,
+                            CardType = c.CardType,
+                            Buiding = c.Buiding,
+                            Area = c.Area,
+                            UserName = c.UserName,
+                            EventId = c.EventID,
+                            ProductCode = c.ProductCode
                         };
             return query.ToList();
         }
-
+        
         public List<DTBanHangItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
         {
             var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)

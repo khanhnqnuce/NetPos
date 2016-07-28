@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using FDI.Base;
 using FDI.DA;
 using FDI.Simple;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace NetPos.Frm
 {
@@ -13,21 +10,18 @@ namespace NetPos.Frm
     {
         readonly CardDA _cardDa = new CardDA();
         readonly RecordDA _recordDa = new RecordDA();
-        public delegate void CustomHandler(object sender, List<DTBanTheItem> lst);
+        public delegate void CustomHandler(object sender, List<RecordItem> lst);
         public event CustomHandler FillterRecordCard;
-        protected virtual void OnFillterRecordCard(List<DTBanTheItem> hs)
+        public ModelItem ModelItem;
+        protected virtual void OnFillterRecordCard(List<RecordItem> hs)
         {
             var handler = FillterRecordCard;
             if (handler != null) handler(this, hs);
         }
-        public frmLocDTBanThe()
+        public frmLocDTBanThe(ModelItem modelItem)
         {
+            ModelItem = modelItem;
             InitializeComponent();
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
         }
 
         public static DateTime EndOfDay(DateTime date)
@@ -44,32 +38,41 @@ namespace NetPos.Frm
         {
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
-            var date = DateTime.Now;
-            datStartDate.Value = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
-            datEndDate.Value = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
+            //var date = DateTime.Now;
+            
             // load buiding
 
             // load buiding
             var lstBuiding = _recordDa.GetBuidingItems();
-            lstBuiding.Insert(0, new BuidingItem{ Name = "-----------------Chọn------------------", Code = "" });
+            lstBuiding.Insert(0, new BuidingItem{ Name = "", Code = "-1" });
             cboBuiding.DataSource = lstBuiding;
             cboBuiding.DisplayMember = "Name";
             cboBuiding.ValueMember = "Code";
-
+            
             // load area
             var lstArea = _recordDa.GetAreaItems();
-            lstArea.Insert(0, new AreaItem { Desc = "-----------------Chọn------------------", Code = "" });
+            lstArea.Insert(0, new AreaItem { Desc = "", Code = "-1" });
             cboArea.DataSource = lstArea; 
             cboArea.DisplayMember = "Desc";
             cboArea.ValueMember = "Code";
+            
 
             // load Object
             var lstObj = _recordDa.GetObjectItems();
-            lstObj.Insert(0, new ObjectItem { Name = "-----------------Chọn------------------", Code = "" });
+            lstObj.Insert(0, new ObjectItem { Name = "", Code = "-1" });
             cboObject.DataSource = lstObj;
             cboObject.DisplayMember = "Name";
             cboObject.ValueMember = "Code";
+            LoadDefault();
+        }
 
+        public void LoadDefault()
+        {
+            cboObject.SelectedValue = ModelItem.ObjectCode;
+            cboArea.SelectedValue = ModelItem.AreaCode;
+            cboBuiding.SelectedValue = ModelItem.BuidingCode;
+            datStartDate.Value = ModelItem.StartDate;
+            datEndDate.Value = ModelItem.EndDate;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -91,6 +94,61 @@ namespace NetPos.Frm
             cboBuiding.SelectedValue = "";
             cboObject.SelectedValue = "";
             this.Hide();
+        }
+
+        private void cboBuiding_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var buiding = cboBuiding.SelectedValue.ToString();
+            ModelItem.BuidingCode = cboBuiding.SelectedValue.ToString();
+            if (!String.IsNullOrEmpty(buiding))
+            {
+                var lstArea = _cardDa.GetArea(buiding);
+                lstArea.Insert(0, new AreaItem { Desc = "", Code = "-1" });
+                cboArea.DataSource = lstArea;
+            }
+            else
+            {
+                var lstArea = _recordDa.GetAreaItems();
+                lstArea.Insert(0, new AreaItem { Desc = "", Code = "-1" });
+                cboArea.DataSource = lstArea;
+            }
+            cboArea.DisplayMember = "Desc";
+            cboArea.ValueMember = "Code";
+        }
+
+        private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var area = cboArea.SelectedValue.ToString();
+            ModelItem.AreaCode = cboArea.SelectedValue.ToString();
+            if (!String.IsNullOrEmpty(area))
+            {
+                var lstObj = _cardDa.GetObject(area);
+                lstObj.Insert(0, new ObjectItem { Desc = "", Code = "-1" });
+                cboObject.DataSource = lstObj;
+            }
+            else
+            {
+                var lstObj = _recordDa.GetObjectItems();
+                lstObj.Insert(0, new ObjectItem { Name = "", Code = "-1" });
+                cboObject.DataSource = lstObj;
+            }
+            cboArea.DisplayMember = "Desc";
+            cboArea.ValueMember = "Code";
+        }
+
+        private void datStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            ModelItem.StartDate = datStartDate.Value;
+        }
+
+        private void datEndDate_ValueChanged(object sender, EventArgs e)
+        {
+            ModelItem.EndDate = datStartDate.Value;
+        }
+
+        private void cboObject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
         }
     }
 }

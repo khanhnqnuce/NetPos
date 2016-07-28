@@ -90,7 +90,7 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblBuidings
+                var query = from c in FDIDB.tblBuidings orderby c.Name
                             select new BuidingItem
                             {
                                 Code = c.Code,
