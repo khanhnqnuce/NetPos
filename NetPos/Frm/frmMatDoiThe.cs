@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using FDI;
 using FDI.Base;
 using FDI.DA;
 using Infragistics.Win;

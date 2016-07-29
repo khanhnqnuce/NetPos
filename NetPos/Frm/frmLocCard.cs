@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using FDI.Base;
 using FDI.DA;
 using FDI.Simple;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace NetPos.Frm
 {
@@ -23,11 +20,6 @@ namespace NetPos.Frm
         public frmLocCard()
         {
             InitializeComponent();
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
         }
 
         public static DateTime EndOfDay(DateTime date)
@@ -104,5 +96,45 @@ namespace NetPos.Frm
             ckKhoa.Checked = false;
             this.Hide();
         }
+
+        private void cboBuiding_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var buiding = cboBuiding.SelectedValue.ToString();
+            if (!String.IsNullOrEmpty(buiding))
+            {
+                var lstArea = _cardDa.GetArea(buiding);
+                lstArea.Insert(0, new AreaItem { Desc = "", Code = "" });
+                cboArea.DataSource = lstArea;
+            }
+            else
+            {
+                var lstArea = _recordDa.GetAreaItems();
+                lstArea.Insert(0, new AreaItem { Desc = "", Code = "" });
+                cboArea.DataSource = lstArea;
+            }
+            cboArea.DisplayMember = "Desc";
+            cboArea.ValueMember = "Code";
+        }
+
+        private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var area = cboArea.SelectedValue.ToString();
+
+            if (!String.IsNullOrEmpty(area))
+            {
+                var lstObj = _cardDa.GetObject(area);
+                lstObj.Insert(0, new ObjectItem { Desc = "", Code = "" });
+                cboObject.DataSource = lstObj;
+            }
+            else
+            {
+                var lstObj = _recordDa.GetObjectItems();
+                lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
+                cboObject.DataSource = lstObj;
+            }
+            cboArea.DisplayMember = "Desc";
+            cboArea.ValueMember = "Code";
+        }
+        
     }
 }

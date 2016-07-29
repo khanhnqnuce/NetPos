@@ -17,12 +17,13 @@ namespace NetPos.FrmCtrl
 {
     public partial class frmDTBanHang : UserControl
     {
+        private ModelItem _modelItem = new ModelItem();
         public frmDTBanHang()
         {
             InitializeComponent();
         }
 
-        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
@@ -46,7 +47,7 @@ namespace NetPos.FrmCtrl
 
         public void Loc()
         {
-            var form = new frmLocDTBanHang();
+            var form = new frmLocDTBanHang(_modelItem);
             form.FillterRecordBuyProduct += FillterRecordBuyProduct;
             form.ShowDialog();
         }

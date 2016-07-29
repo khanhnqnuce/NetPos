@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using FDI.Base;
 using FDI.DA;
-using FDI.Simple;
 
 namespace NetPos.Frm
 {
