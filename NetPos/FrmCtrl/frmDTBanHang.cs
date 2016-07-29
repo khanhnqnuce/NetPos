@@ -22,7 +22,6 @@ namespace NetPos.FrmCtrl
             InitializeComponent();
         }
 
-
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
@@ -53,11 +52,28 @@ namespace NetPos.FrmCtrl
         }
 
         #region Event
-        private void FillterRecordBuyProduct(object sender, List<DTBanHangItem> lst)
+        private void FillterRecordBuyProduct(object sender, List<ThongKeItem> lst)
         {
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
         #endregion
+
+        private void dgv_DanhSach_InitializeLayout_1(object sender, InitializeLayoutEventArgs e)
+        {
+            var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Columns["ID"].Hidden = true;
+
+            band.Columns["Name"].CellActivation = Activation.NoEdit;
+            band.Columns["Value"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Name"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
+
+            band.Columns["Name"].Header.Caption = @"Thông tin";
+            band.Columns["Value"].Header.Caption = @"Số lượng";
+            band.Columns["Value"].FormatMonney();
+        }
 
     }
 }

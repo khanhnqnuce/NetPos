@@ -13,9 +13,9 @@ namespace NetPos.Frm
     {
         readonly CardDA _cardDa = new CardDA();
         readonly RecordDA _recordDa = new RecordDA();
-        public delegate void CustomHandler(object sender, List<DTBanHangItem> lst);
+        public delegate void CustomHandler(object sender, List<ThongKeItem> lst);
         public event CustomHandler FillterRecordBuyProduct;
-        protected virtual void OnFillterRecordBuyProduct(List<DTBanHangItem> hs)
+        protected virtual void OnFillterRecordBuyProduct(List<ThongKeItem> hs)
         {
             var handler = FillterRecordBuyProduct;
             if (handler != null) handler(this, hs);
@@ -80,7 +80,7 @@ namespace NetPos.Frm
             var area = cboArea.SelectedValue.ToString();
             var obj = cboObject.SelectedValue.ToString();
 
-            var items = _cardDa.ReportRevenueBuyProduct(startDate, endDate, buiding, area, obj);
+            var items = _cardDa.DTBanHangTongHop(startDate, endDate, buiding, area, obj);
 
             OnFillterRecordBuyProduct(items);
         }

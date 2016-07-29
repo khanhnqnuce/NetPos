@@ -1,6 +1,6 @@
 ﻿namespace FDI.Simple
 {
-    public class DTBanHangItem : BaseSimple
+    public class ThongKeItem : BaseSimple
     {
         public string Name { get; set; }
         public decimal Value { get; set; }

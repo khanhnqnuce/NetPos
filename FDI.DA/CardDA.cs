@@ -102,7 +102,7 @@ namespace FDI.DA
             }
         }
 
-        public List<GiaoDichItem> GetRecord(string card)
+        public List<GiaoDichItem> GiaoDichGanNhat(string card)
         {
             try
             {
@@ -186,34 +186,94 @@ namespace FDI.DA
 
         public List<RecordItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
         {
-            var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
-                        select new RecordItem
-                        {
-                            CardNumber = c.CardNumber,
-                            Date = c.Date ?? new DateTime(),
-                            Value = c.Value ?? 0,
-                            Balance = c.Balance ?? 0,
-                            Action = c.Action,
-                            AccountName = c.AccountName,
-                            CardType = c.CardType,
-                            Buiding = c.Buiding,
-                            Area = c.Area,
-                            UserName = c.UserName,
-                            //EventId = c.EventID,
-                            //ProductCode = c.ProductCode
-                        };
-            return query.ToList();
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
+                            select new RecordItem
+                            {
+                                CardNumber = c.CardNumber,
+                                Date = c.Date ?? new DateTime(),
+                                Value = c.Value ?? 0,
+                                Balance = c.Balance ?? 0,
+                                Action = c.Action,
+                                AccountName = c.AccountName,
+                                CardType = c.CardType,
+                                Buiding = c.Buiding,
+                                Area = c.Area,
+                                UserName = c.UserName
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<RecordItem>();
+            }
+            
         }
-        
-        public List<DTBanHangItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+
+        public List<RecordItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
         {
-            var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)
-                        select new DTBanHangItem
-                        {
-                            Name = c.Name,
-                            Value = c.Value ?? 0
-                        };
-            return query.ToList();
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)
+                            select new RecordItem
+                            {
+                                CardNumber = c.CardNumber,
+                                Date = c.Date ?? new DateTime(),
+                                Value = c.Value ?? 0,
+                                Balance = c.Balance ?? 0,
+                                Action = c.Action,
+                                AccountName = c.AccountName,
+                                CardType = c.CardType,
+                                Buiding = c.Buiding,
+                                Area = c.Area,
+                                UserName = c.UserName
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<RecordItem>();
+            }
+            
+        }
+
+        public List<ThongKeItem> DTBanTheTongHop(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanTheTọngHop(startDate, endDate, buiding, area, obj)
+                            select new ThongKeItem
+                            {
+                                Name = c.Name,
+                                Value = c.Value ?? 0
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<ThongKeItem>();
+            }
+
+        }
+
+        public List<ThongKeItem> DTBanHangTongHop(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanHangTongHop(startDate, endDate, buiding, area, obj)
+                            select new ThongKeItem
+                            {
+                                Name = c.Name,
+                                Value = c.Value ?? 0
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<ThongKeItem>();
+            }
+
         }
 
         public List<tblCard> Get(List<int> lst)

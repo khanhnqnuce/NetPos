@@ -28,7 +28,7 @@ namespace NetPos.Frm
             labTenTaiKhoan.Text = item.AccountName;
             labLoaiThe.Text = item.CardTypeCode;
 
-            dgv_DanhSach.DataSource = _da.GetRecord(CardNumber);
+            dgv_DanhSach.DataSource = _da.GiaoDichGanNhat(CardNumber);
             txtCard.Visible = false;
             lbMatheMoi.Visible = false;
             txtDes.Visible = false;

@@ -57,8 +57,7 @@
     <Compile Include="CardItem.cs" />
     <Compile Include="CardProcessItem.cs" />
     <Compile Include="CardTypeItem.cs" />
-    <Compile Include="DTBanHangItem.cs" />
-    <Compile Include="DTBanTheItem.cs" />
+    <Compile Include="ThongKeItem.cs" />
     <Compile Include="EventAlarmItem.cs" />
     <Compile Include="EventCodeItem.cs" />
     <Compile Include="FunctionItem.cs" />

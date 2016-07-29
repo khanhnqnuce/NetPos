@@ -34,8 +34,8 @@ namespace NetPos.Frm
             //chkIsLockCard.Enabled = false;
             //chkIsRelease.Enabled = false;
             txtloaiThe.Text = CardType;
-
-            dgv_DanhSach.DataSource = _cardDa.GetRecord(CardNumber);
+            var CardNumber = TblCardItem.CardNumber;
+            dgv_DanhSach.DataSource = _cardDa.GiaoDichGanNhat(CardNumber);
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)

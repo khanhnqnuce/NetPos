@@ -391,6 +391,7 @@ namespace NetPos.Frm
             _process = Process.DTBanThe;
             Function();
             ShowControl(_frmDTBanThe, pn_Main);
+            _frmDTBanThe.Loc();
         }
 
         private void menuBCDTBanHang_Click(object sender, EventArgs e)
@@ -398,6 +399,7 @@ namespace NetPos.Frm
             _process = Process.DTBanHang;
             Function();
             ShowControl(_frmDTBanHang, pn_Main);
+            _frmDTBanHang.Loc();
         }
     }
 }

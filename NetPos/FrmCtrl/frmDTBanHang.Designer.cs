@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.pn_Main = new System.Windows.Forms.Panel();
+            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
-            this.pn_Main.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1199, 576);
+            this.panel2.TabIndex = 29;
             // 
             // groupBox1
             // 
@@ -42,10 +51,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(875, 576);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.Size = new System.Drawing.Size(1199, 576);
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Báo cáo doanh thu bán hàng:";
+            this.groupBox1.Text = "Báo cáo doanh thu bán hàng chi tiết:";
             // 
             // dgv_DanhSach
             // 
@@ -59,38 +68,29 @@
             this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
             this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(869, 557);
+            this.dgv_DanhSach.Size = new System.Drawing.Size(1193, 557);
             this.dgv_DanhSach.TabIndex = 26;
-            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
-            // 
-            // pn_Main
-            // 
-            this.pn_Main.Controls.Add(this.groupBox1);
-            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Main.Location = new System.Drawing.Point(0, 0);
-            this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(875, 576);
-            this.pn_Main.TabIndex = 6;
+            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout_1);
             // 
             // frmDTBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pn_Main);
+            this.Controls.Add(this.panel2);
             this.Name = "frmDTBanHang";
-            this.Size = new System.Drawing.Size(875, 576);
+            this.Size = new System.Drawing.Size(1199, 576);
             this.Load += new System.EventHandler(this.frmDTBanThe_Load);
+            this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
-            this.pn_Main.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
-        private System.Windows.Forms.Panel pn_Main;
     }
 }
