@@ -38,11 +38,7 @@ namespace NetPos.Frm
         {
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
-            //var date = DateTime.Now;
             
-            // load buiding
-
-            // load buiding
             var lstBuiding = _recordDa.GetBuidingItems();
             lstBuiding.Insert(0, new BuidingItem{ Name = "", Code = "-1" });
             cboBuiding.DataSource = lstBuiding;
@@ -68,11 +64,12 @@ namespace NetPos.Frm
 
         public void LoadDefault()
         {
-            cboObject.SelectedValue = ModelItem.ObjectCode;
-            cboArea.SelectedValue = ModelItem.AreaCode;
-            cboBuiding.SelectedValue = ModelItem.BuidingCode;
-            datStartDate.Value = ModelItem.StartDate;
-            datEndDate.Value = ModelItem.EndDate;
+            var date = DateTime.Now;
+            cboObject.SelectedValue = ModelItem.ObjectCode??"-1";
+            cboArea.SelectedValue = ModelItem.AreaCode ?? "-1";
+            cboBuiding.SelectedValue = ModelItem.BuidingCode ?? "-1";
+            datStartDate.Value = ModelItem.StartDate ?? new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            datEndDate.Value = ModelItem.EndDate??new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,24 +79,27 @@ namespace NetPos.Frm
             var buiding = cboBuiding.SelectedValue.ToString();
             var area = cboArea.SelectedValue.ToString();
             var obj = cboObject.SelectedValue.ToString();
-
             var items = _cardDa.ReportRevenueCard(startDate, endDate, buiding, area, obj);
-
             OnFillterRecordCard(items);
+
+            ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
+            ModelItem.BuidingCode = cboBuiding.SelectedValue.ToString();
+            ModelItem.AreaCode = cboArea.SelectedValue.ToString();
+            ModelItem.StartDate = datStartDate.Value;
+            ModelItem.EndDate = datEndDate.Value;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            cboArea.SelectedValue = "";
-            cboBuiding.SelectedValue = "";
-            cboObject.SelectedValue = "";
-            this.Hide();
+            cboArea.SelectedValue = "-1";
+            cboBuiding.SelectedValue = "-1";
+            cboObject.SelectedValue = "-1";
+            Hide();
         }
 
         private void cboBuiding_SelectedIndexChanged(object sender, EventArgs e)
         {
             var buiding = cboBuiding.SelectedValue.ToString();
-            ModelItem.BuidingCode = cboBuiding.SelectedValue.ToString();
             if (!String.IsNullOrEmpty(buiding))
             {
                 var lstArea = _cardDa.GetArea(buiding);
@@ -119,7 +119,7 @@ namespace NetPos.Frm
         private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
         {
             var area = cboArea.SelectedValue.ToString();
-            ModelItem.AreaCode = cboArea.SelectedValue.ToString();
+            
             if (!String.IsNullOrEmpty(area))
             {
                 var lstObj = _cardDa.GetObject(area);
@@ -134,21 +134,6 @@ namespace NetPos.Frm
             }
             cboArea.DisplayMember = "Desc";
             cboArea.ValueMember = "Code";
-        }
-
-        private void datStartDate_ValueChanged(object sender, EventArgs e)
-        {
-            ModelItem.StartDate = datStartDate.Value;
-        }
-
-        private void datEndDate_ValueChanged(object sender, EventArgs e)
-        {
-            ModelItem.EndDate = datStartDate.Value;
-        }
-
-        private void cboObject_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
         }
     }
 }

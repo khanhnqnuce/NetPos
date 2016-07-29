@@ -199,8 +199,8 @@ namespace FDI.DA
                             Buiding = c.Buiding,
                             Area = c.Area,
                             UserName = c.UserName,
-                            EventId = c.EventID,
-                            ProductCode = c.ProductCode
+                            //EventId = c.EventID,
+                            //ProductCode = c.ProductCode
                         };
             return query.ToList();
         }

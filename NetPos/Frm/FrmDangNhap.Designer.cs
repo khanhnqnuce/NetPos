@@ -86,6 +86,7 @@
             this.txtMatKhau.PasswordChar = '•';
             this.txtMatKhau.Size = new System.Drawing.Size(257, 26);
             this.txtMatKhau.TabIndex = 11;
+            this.txtMatKhau.Text = "123456";
             this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             // 
             // groupBox1
@@ -128,6 +129,7 @@
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(257, 26);
             this.txtTaiKhoan.TabIndex = 10;
+            this.txtTaiKhoan.Text = "admin";
             // 
             // lbdangnhap
             // 

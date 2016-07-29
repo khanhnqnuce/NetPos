@@ -69,7 +69,6 @@
             this.cboObject.Name = "cboObject";
             this.cboObject.Size = new System.Drawing.Size(234, 21);
             this.cboObject.TabIndex = 6;
-            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
             // 
             // cboArea
             // 
@@ -160,7 +159,6 @@
             this.datEndDate.Name = "datEndDate";
             this.datEndDate.Size = new System.Drawing.Size(234, 20);
             this.datEndDate.TabIndex = 2;
-            this.datEndDate.ValueChanged += new System.EventHandler(this.datEndDate_ValueChanged);
             // 
             // datStartDate
             // 
@@ -170,7 +168,7 @@
             this.datStartDate.Size = new System.Drawing.Size(234, 20);
             this.datStartDate.TabIndex = 1;
             this.datStartDate.Value = new System.DateTime(2016, 7, 24, 0, 0, 0, 0);
-            this.datStartDate.ValueChanged += new System.EventHandler(this.datStartDate_ValueChanged);
+            
             // 
             // label2
             // 

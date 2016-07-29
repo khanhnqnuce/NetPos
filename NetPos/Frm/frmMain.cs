@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using FDI;
-using FDI.Base;
-using FDI.DA;
 using FDI.Simple;
-using Infragistics.Win;
-using Infragistics.Win.UltraWinGrid;
 using NetPos.FrmCtrl;
 using QLSV.Frm.Frm;
 

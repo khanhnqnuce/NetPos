@@ -11,16 +11,17 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblUsers
-                            where c.UserName == user && c.Password == pass
+                var query = from c in FDIDB.sp_Login(user,pass)
                             select new UserItem
                             {
+                                ID = c.Id,
                                 UserName = c.UserName,
                                 FullName = c.FullName,
-                                CardNumber = c.CardNumber,
                                 Code = c.Code,
-                                Right1 = c.Right1 ?? -1,
-                                IsLockUser = c.IsLockUser
+                                Right1 = c.Right1,
+                                AreaCode = c.AreaCode,
+                                BuidingCode = c.BuidingCode,
+                                Password = c.Password
                             };
                 return query.FirstOrDefault();
             }
