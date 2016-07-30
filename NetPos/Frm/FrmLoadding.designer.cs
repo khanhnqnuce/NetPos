@@ -1,4 +1,4 @@
-﻿namespace QLSV.Frm.Frm
+﻿namespace NetPos.Frm
 {
     partial class FrmLoadding
     {

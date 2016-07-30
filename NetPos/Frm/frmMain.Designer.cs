@@ -40,13 +40,13 @@
             this.menuBaoCaoDanhThuChiTiet = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaoCaoTongHop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBCDTBanThe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBCDTBanHang = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXemThongTin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLoc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXuatKhau = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +54,6 @@
             this.menuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.menuBCDTBanHang = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_Top.SuspendLayout();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +79,6 @@
             this.menuSua,
             this.menuXoa,
             this.menuMatDoiThe,
-            this.toolStripMenuItem3,
             this.menuLoc,
             this.menuIn,
             this.menuXuatKhau,
@@ -170,6 +168,13 @@
             this.menuBCDTBanThe.Text = "Báo cáo doanh thu bán thẻ";
             this.menuBCDTBanThe.Click += new System.EventHandler(this.menuBCDTBanThe_Click);
             // 
+            // menuBCDTBanHang
+            // 
+            this.menuBCDTBanHang.Name = "menuBCDTBanHang";
+            this.menuBCDTBanHang.Size = new System.Drawing.Size(227, 22);
+            this.menuBCDTBanHang.Text = "Báo cáo doanh thu bán hàng";
+            this.menuBCDTBanHang.Click += new System.EventHandler(this.menuBCDTBanHang_Click);
+            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Red;
@@ -219,14 +224,6 @@
             this.menuMatDoiThe.Text = "Mất Thẻ/Đổi Thẻ";
             this.menuMatDoiThe.Click += new System.EventHandler(this.menuMatDoiThe_Click);
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.Red;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(14, 20);
-            this.toolStripMenuItem3.Text = "|";
-            // 
             // menuLoc
             // 
             this.menuLoc.Image = global::NetPos.Properties.Resources.Search;
@@ -274,13 +271,6 @@
             this.pn_Main.Size = new System.Drawing.Size(1350, 655);
             this.pn_Main.TabIndex = 1;
             // 
-            // menuBCDTBanHang
-            // 
-            this.menuBCDTBanHang.Name = "menuBCDTBanHang";
-            this.menuBCDTBanHang.Size = new System.Drawing.Size(227, 22);
-            this.menuBCDTBanHang.Text = "Báo cáo doanh thu bán hàng";
-            this.menuBCDTBanHang.Click += new System.EventHandler(this.menuBCDTBanHang_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,7 +312,6 @@
         private System.Windows.Forms.ToolStripMenuItem MenuTKThe;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem QLT;
         private System.Windows.Forms.ToolStripMenuItem menuDSThe;
         private System.Windows.Forms.ToolStripMenuItem menuDanhSachDen;

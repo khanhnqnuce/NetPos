@@ -94,30 +94,6 @@ namespace NetPos.Frm
             Close();
         }
 
-        private void menuNhatKyLog_Click(object sender, EventArgs e)
-        {
-            var form = new frmLog();
-            ShowControl(form, pn_Main);
-        }
-
-        private void menuSuKienCanhBao_Click(object sender, EventArgs e)
-        {
-            var form = new frmEventAlarm();
-            ShowControl(form, pn_Main);
-        }
-
-        private void menuDSNapTien_Click(object sender, EventArgs e)
-        {
-            var form = new frmCardProcess();
-            ShowControl(form, pn_Main);
-        }
-
-        private void menuBackUpDuLieu_Click(object sender, EventArgs e)
-        {
-            var form = new frmDataBackup();
-            ShowControl(form, pn_Main);
-        }
-
         private void MenuTKThe_Click(object sender, EventArgs e)
         {
             _process = Process.ReportCard;
@@ -158,6 +134,8 @@ namespace NetPos.Frm
             form.CloseDialog += KillLoading;
             form.UpdateDialog += UpdateLoading;
             ShowControl(form, pn_Main);
+            //var a = new FrmProgessBar();
+            //a.ShowDialog();
         }
 
         private void menuLoc_Click(object sender, EventArgs e)
@@ -270,10 +248,10 @@ namespace NetPos.Frm
             {
                 case Process.Card:
                     menuXemThongTin.Visible = true;
-                    menuThem.Visible = true;
-                    menuSua.Visible = true;
-                    menuXoa.Visible = true;
-                    menuMatDoiThe.Visible = true;
+                    menuThem.Visible = _userItem.Right1 == 1;
+                    menuSua.Visible = _userItem.Right1 == 1;
+                    menuXoa.Visible = _userItem.Right1 == 1;
+                    menuMatDoiThe.Visible = _userItem.Right1 == 1;
                     menuLoc.Visible = true;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;

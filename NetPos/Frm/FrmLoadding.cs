@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
-namespace QLSV.Frm.Frm
+namespace NetPos.Frm
 {
     public partial class FrmLoadding : Form
     {
