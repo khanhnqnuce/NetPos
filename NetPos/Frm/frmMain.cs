@@ -34,11 +34,11 @@ namespace NetPos.Frm
             InitializeComponent();
             _frmCard = new frmCard();
             _frmRecord = new frmRecord();
-            _frmTkThe = new frmThongKeThe();
+            _frmTkThe = new frmThongKeThe(_userItem);
             _frmTheTrung = new frmTheTrungNhau();
             _frmDachSachDen = new frmDachSachDen();
-            _frmDTBanThe = new frmDTBanThe();
-            _frmDTBanHang = new frmDTBanHang();
+            _frmDTBanThe = new frmDTBanThe(_userItem);
+            _frmDTBanHang = new frmDTBanHang(_userItem);
         }
 
         private static void ShowControl(Control frm, Control panel)
@@ -123,6 +123,10 @@ namespace NetPos.Frm
             _process = Process.ReportCard;
             Function();
             ShowControl(_frmTkThe, pn_Main);
+            if (_userItem.Right1 == 2)
+            {
+                _frmTkThe.LocThongKeThe();
+            }
         }
 
         private void menuBaoCaoDanhThuChiTiet_Click(object sender, EventArgs e)

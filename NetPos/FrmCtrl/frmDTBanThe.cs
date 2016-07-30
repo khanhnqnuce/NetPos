@@ -14,8 +14,10 @@ namespace NetPos.FrmCtrl
     {
         readonly frmLocDTBanThe _formLoc;
         ModelItem _modelItem = new ModelItem();
-        public frmDTBanThe()
+        private UserItem _userItem;
+        public frmDTBanThe(UserItem userItem)
         {
+            _userItem = userItem;
             _formLoc = new frmLocDTBanThe(_modelItem);
             _formLoc.FillterRecordCard += FillterRecordCard;
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace NetPos.FrmCtrl
         {
             _formLoc.ModelItem = _modelItem;
             //_formLoc.LoadDefault();
+            _formLoc.User = _userItem;
             _formLoc.ShowDialog();
             _modelItem = _formLoc.ModelItem;
         }

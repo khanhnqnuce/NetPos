@@ -92,6 +92,7 @@
             this.cboArea.Name = "cboArea";
             this.cboArea.Size = new System.Drawing.Size(234, 21);
             this.cboArea.TabIndex = 4;
+            this.cboArea.SelectedIndexChanged += new System.EventHandler(this.cboArea_SelectedIndexChanged);
             // 
             // cboBuiding
             // 
@@ -103,6 +104,7 @@
             this.cboBuiding.Size = new System.Drawing.Size(234, 21);
             this.cboBuiding.TabIndex = 3;
             this.cboBuiding.ValueMember = "Code";
+            this.cboBuiding.SelectedIndexChanged += new System.EventHandler(this.cboBuiding_SelectedIndexChanged);
             // 
             // label6
             // 

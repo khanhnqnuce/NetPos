@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using FDI.DA;
 using FDI.Simple;
+using iTextSharp.text;
 
 namespace NetPos.Frm
 {
@@ -13,6 +14,7 @@ namespace NetPos.Frm
         public delegate void CustomHandler(object sender, List<ThongKeItem> lst);
         public event CustomHandler FillterRecordCard;
         public ModelItem ModelItem;
+        public UserItem User;
         protected virtual void OnFillterRecordCard(List<ThongKeItem> hs)
         {
             var handler = FillterRecordCard;
@@ -39,27 +41,47 @@ namespace NetPos.Frm
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             
-            var lstBuiding = _recordDa.GetBuidingItems();
-            lstBuiding.Insert(0, new BuidingItem{ Name = "", Code = "" });
-            cboBuiding.DataSource = lstBuiding;
-            cboBuiding.DisplayMember = "Name";
-            cboBuiding.ValueMember = "Code";
-            
-            // load area
-            var lstArea = _recordDa.GetAreaItems();
-            lstArea.Insert(0, new AreaItem { Desc = "", Code = "" });
-            cboArea.DataSource = lstArea; 
-            cboArea.DisplayMember = "Desc";
-            cboArea.ValueMember = "Code";
-            
+            if (User.Right1 == 1)
+            {
+                var lstBuiding = _recordDa.GetBuidingItems();
+                lstBuiding.Insert(0, new BuidingItem { Name = "", Code = "" });
+                cboBuiding.DataSource = lstBuiding;
+                cboBuiding.DisplayMember = "Name";
+                cboBuiding.ValueMember = "Code";
 
-            // load Object
-            var lstObj = _recordDa.GetObjectItems();
-            lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
-            cboObject.DataSource = lstObj;
-            cboObject.DisplayMember = "Name";
-            cboObject.ValueMember = "Code";
-            LoadDefault();
+                var lstArea = _recordDa.GetAreaItems();
+                lstArea.Insert(0, new AreaItem { Desc = "", Code = "" });
+                cboArea.DataSource = lstArea;
+                cboArea.DisplayMember = "Desc";
+                cboArea.ValueMember = "Code";
+
+                var lstObj = _recordDa.GetObjectItems();
+                lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
+                cboObject.DataSource = lstObj;
+                cboObject.DisplayMember = "Name";
+                cboObject.ValueMember = "Code";
+                LoadDefault();
+            }
+            else
+            {
+                cboBuiding.Enabled = false;
+
+                List<AreaItem> lstArea = new List<AreaItem>();
+                lstArea.Insert(0, new AreaItem { Desc = User.AreaName, Code = User.AreaCode });
+                cboArea.DataSource = lstArea;
+                cboArea.DisplayMember = "Desc";
+                cboArea.ValueMember = "Code";
+                cboArea.SelectedValue = User.AreaCode;
+
+                var area = User.AreaCode;
+                var lstObj = _cardDa.GetObject(area);
+                lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
+                cboObject.DataSource = lstObj;
+                cboObject.DisplayMember = "Name";
+                cboObject.ValueMember = "Code";
+
+            }
+            
         }
 
         public void LoadDefault()
@@ -74,16 +96,21 @@ namespace NetPos.Frm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var buiding = "";
+            if (User.Right1 == 1)
+            {
+                buiding = cboBuiding.SelectedValue.ToString();
+            }
+
             var startDate = datStartDate.Value;
             var endDate = datEndDate.Value;
-            var buiding = cboBuiding.SelectedValue.ToString();
             var area = cboArea.SelectedValue.ToString();
             var obj = cboObject.SelectedValue.ToString();
             var items = _cardDa.DTBanTheTongHop(startDate, endDate, buiding, area, obj);
             OnFillterRecordCard(items);
 
             ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
-            ModelItem.BuidingCode = cboBuiding.SelectedValue.ToString();
+            ModelItem.BuidingCode = buiding;
             ModelItem.AreaCode = cboArea.SelectedValue.ToString();
             ModelItem.StartDate = datStartDate.Value;
             ModelItem.EndDate = datEndDate.Value;
@@ -92,7 +119,7 @@ namespace NetPos.Frm
         private void button2_Click(object sender, EventArgs e)
         {
             cboArea.SelectedIndex = 0;
-            cboBuiding.SelectedIndex = 0;
+            cboBuiding.SelectedValue = "";
             cboObject.SelectedIndex = 0;
             Hide();
         }
@@ -119,11 +146,11 @@ namespace NetPos.Frm
         private void cboArea_SelectedIndexChanged(object sender, EventArgs e)
         {
             var area = cboArea.SelectedValue.ToString();
-            
+
             if (!String.IsNullOrEmpty(area))
             {
                 var lstObj = _cardDa.GetObject(area);
-                lstObj.Insert(0, new ObjectItem { Desc = "", Code = "" });
+                lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
                 cboObject.DataSource = lstObj;
             }
             else
@@ -132,8 +159,8 @@ namespace NetPos.Frm
                 lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
                 cboObject.DataSource = lstObj;
             }
-            cboArea.DisplayMember = "Desc";
-            cboArea.ValueMember = "Code";
+            cboObject.DisplayMember = "Name";
+            cboObject.ValueMember = "Code";
         }
     }
 }

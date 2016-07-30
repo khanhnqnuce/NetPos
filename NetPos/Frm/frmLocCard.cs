@@ -36,28 +36,28 @@ namespace NetPos.Frm
         {
             // load buiding
             var lstBuiding = _recordDa.GetBuidingItems();
-            lstBuiding.Insert(0, new BuidingItem{ Name = "-----------------Chọn------------------", Code = "" });
+            lstBuiding.Insert(0, new BuidingItem{ Name = "", Code = "" });
             cboBuiding.DataSource = lstBuiding;
             cboBuiding.DisplayMember = "Name";
             cboBuiding.ValueMember = "Code";
 
             // load area
             var lstArea = _recordDa.GetAreaItems();
-            lstArea.Insert(0, new AreaItem { Desc = "-----------------Chọn------------------", Code = "" });
+            lstArea.Insert(0, new AreaItem { Desc = "", Code = "" });
             cboArea.DataSource = lstArea; 
             cboArea.DisplayMember = "Desc";
             cboArea.ValueMember = "Code";
 
             // load Object
             var lstObj = _recordDa.GetObjectItems();
-            lstObj.Insert(0, new ObjectItem { Name = "-----------------Chọn------------------", Code = "" });
+            lstObj.Insert(0, new ObjectItem { Name = "", Code = "" });
             cboObject.DataSource = lstObj;
             cboObject.DisplayMember = "Name";
             cboObject.ValueMember = "Code";
 
             // load card type
             var lstCardType = _cardDa.GetTypeCard();
-            lstCardType.Insert(0, new CardTypeItem { Name = "-----------------Chọn------------------", Code = "" });
+            lstCardType.Insert(0, new CardTypeItem { Name = "", Code = "" });
             cboTypeCard.DataSource = lstCardType;
             cboTypeCard.DisplayMember = "Name";
             cboTypeCard.ValueMember = "Code";

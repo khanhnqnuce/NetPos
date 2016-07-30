@@ -16,28 +16,38 @@ namespace NetPos.FrmCtrl
     public partial class frmThongKeThe : UserControl
     {
         readonly ThongKeTheDA _da = new ThongKeTheDA();
-        
-        public frmThongKeThe()
+        readonly FrmLogThongKeThe _formLoc;
+        readonly ModelItem _modelItem = new ModelItem();
+        private UserItem _userItem;
+
+        public frmThongKeThe(UserItem userItem)
         {
+            _userItem = userItem;
+            _formLoc = new FrmLogThongKeThe(_modelItem);
+            _formLoc.FillterTkThe += FillterTkThe;
             InitializeComponent();
         }
 
         private void frmThongKeThe_Load(object sender, EventArgs e)
         {
-            var lst = _da.GetThongKeTheItems("","","");
-            dgv_DanhSach.DataSource = lst.ToDataTable();
+            if (_userItem.Right1 == 1)
+            {
+                var lst = _da.GetThongKeTheItems("", "", "");
+                dgv_DanhSach.DataSource = lst.ToDataTable();
 
-           var row = dgv_DanhSach.DisplayLayout.Bands[0].AddNew();
+                var row = dgv_DanhSach.DisplayLayout.Bands[0].AddNew();
 
-           row.Cells["NameType"].Value = "Tổng";
-           row.Cells["TotalCard"].Value = lst.Sum(c=>c.TotalCard);
-           row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
-           row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
-           row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalBlock);
-           row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
-           row.CellAppearance.BackColor = Color.LightCyan;
-            row.CellAppearance.FontData.Bold = DefaultableBoolean.True ;
-            row.CellAppearance.FontData.SizeInPoints = 14;
+                row.Cells["NameType"].Value = "Tổng";
+                row.Cells["TotalCard"].Value = lst.Sum(c => c.TotalCard);
+                row.Cells["TotalUsed"].Value = lst.Sum(c => c.TotalUsed);
+                row.Cells["TotalNotUsed"].Value = lst.Sum(c => c.TotalNotUsed);
+                row.Cells["TotalBlock"].Value = lst.Sum(c => c.TotalBlock);
+                row.Cells["TotalBalance"].Value = lst.Sum(c => c.TotalBalance);
+                row.CellAppearance.BackColor = Color.LightCyan;
+                row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
+                row.CellAppearance.FontData.SizeInPoints = 14;
+            }
+            
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -75,9 +85,9 @@ namespace NetPos.FrmCtrl
 
         public void LocThongKeThe()
         {
-            var form = new FrmLogThongKeThe();
-            form.FillterTkThe += FillterTkThe;
-            form.ShowDialog();
+            _formLoc.ModelItem = _modelItem;
+            _formLoc.User = _userItem;
+            _formLoc.ShowDialog();
         }
 
         #region Event

@@ -20,6 +20,7 @@ namespace FDI.DA
                                 Code = c.Code,
                                 Right1 = c.Right1,
                                 AreaCode = c.AreaCode,
+                                AreaName = c.AreaName,
                                 BuidingCode = c.BuidingCode,
                                 Password = c.Password
                             };
