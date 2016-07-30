@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using FDI.Simple;
 using NetPos.FrmCtrl;
-using QLSV.Frm.Frm;
 
 namespace NetPos.Frm
 {

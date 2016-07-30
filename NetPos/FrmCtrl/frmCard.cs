@@ -12,7 +12,6 @@ using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
 using PerpetuumSoft.Reporting.View;
-using QLSV.Frm.Frm;
 
 namespace NetPos.FrmCtrl
 {

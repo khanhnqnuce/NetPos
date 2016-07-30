@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using FDI.DA;
 using FDI.Simple;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace NetPos.Frm
 {

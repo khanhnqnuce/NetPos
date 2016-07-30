@@ -152,6 +152,7 @@
             this.menuBaoCaoDanhThuChiTiet.Name = "menuBaoCaoDanhThuChiTiet";
             this.menuBaoCaoDanhThuChiTiet.Size = new System.Drawing.Size(227, 22);
             this.menuBaoCaoDanhThuChiTiet.Text = "Báo cáo doanh thu chi tiết";
+            this.menuBaoCaoDanhThuChiTiet.Visible = false;
             this.menuBaoCaoDanhThuChiTiet.Click += new System.EventHandler(this.menuBaoCaoDanhThuChiTiet_Click);
             // 
             // menuBaoCaoTongHop

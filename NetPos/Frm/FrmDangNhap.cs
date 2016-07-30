@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 using FDI.DA;
-using NetPos.Frm;
 
-namespace QLSV.Frm.Frm
+namespace NetPos.Frm
 {
     public partial class FrmDangNhap : Form
     {
@@ -15,7 +14,7 @@ namespace QLSV.Frm.Frm
             InitializeComponent();
         }
 
-        private void FrmDangNhap_Load(object sender, System.EventArgs e)
+        private void FrmDangNhap_Load(object sender, EventArgs e)
         {
             lbdangnhap.ForeColor = Color.FromArgb(255, 255, 255);
             lbdangnhap.BackColor = Color.FromArgb(0, 171, 228);

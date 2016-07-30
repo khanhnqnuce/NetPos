@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace FDI.Common
+namespace NetPos
 {
     public class ExportManager
     {

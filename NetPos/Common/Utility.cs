@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Mail;
 using FDI.Utils;
 
-namespace FDI
+namespace NetPos
 {
     public static class Utility
     {
