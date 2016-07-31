@@ -22,12 +22,10 @@ namespace FDI.Base
         public string CardTypeCode { get; set; }
         public Nullable<bool> IsRelease { get; set; }
         public Nullable<bool> IsLockCard { get; set; }
-        public string Temp1 { get; set; }
-        public string Temp2 { get; set; }
-        public string Temp3 { get; set; }
-        public string Temp4 { get; set; }
-        public string Temp5 { get; set; }
         public bool IsEdit { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
+        public string CardStatus { get; set; }
+        public string OwnerCode { get; set; }
+        public Nullable<System.DateTime> DateIssue { get; set; }
     }
 }

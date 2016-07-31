@@ -60,9 +60,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
-            this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
-            this.groupBox1.SuspendLayout();
+this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components); this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -459,7 +458,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuExcel;
         private System.Windows.Forms.ToolStripMenuItem menuIn;
-        private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
-        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCardDetail;
-    }
+private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCardDetail;private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;    }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using FDI.Base;
 using FDI.DA;
 using FDI.Simple;
 using Infragistics.Win;
@@ -22,7 +21,7 @@ namespace NetPos.Frm
             InitializeComponent();
         }
 
-        private void FrmCardDetails_Load(object sender, System.EventArgs e)
+        private void FrmCardDetails_Load(object sender, EventArgs e)
         {
             CustomerItem = _cardDa.GetCustomer(Id);
             txtMaKH.Text = CustomerItem.CustomerID;
@@ -47,12 +46,12 @@ namespace NetPos.Frm
             }
             lbDate.Text = CustomerItem.DateIssue.ToString("dd/MM/yyyy HH:mm:ss");
             var CardNumber = CustomerItem.CardNumber;
-
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
             datEndDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
+
             var date = DateTime.Now;
-            var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0, 0);
-            var endDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0);
+            var endDate = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
             datStartDate.Value = startDate;
             datEndDate.Value = endDate;
 
@@ -83,7 +82,7 @@ namespace NetPos.Frm
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 
-        private void btnXem_Click(object sender, System.EventArgs e)
+        private void btnXem_Click(object sender, EventArgs e)
         {
             var CardNumber = txtMaThe.Text;
             var startDate = datStartDate.Value;
@@ -93,7 +92,14 @@ namespace NetPos.Frm
 
         private void menuExcel_Click(object sender, EventArgs e)
         {
-            //Export(folderBrowserDialog1.SelectedPath);
+            CustomerItem = _cardDa.GetCustomer(Id);
+            var result = folderBrowserDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                var fileName = string.Format("danh_sach_the_{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(folderBrowserDialog1.SelectedPath, fileName);
+                Excel.ChiTietThe(filePath, CustomerItem, dgv_DanhSach, datStartDate.Value.ToString("dd/MM/yyyy"), datEndDate.Value.ToString("dd/MM/yyyy"));
+            }
         }
 
         private void menuIn_Click(object sender, EventArgs e)

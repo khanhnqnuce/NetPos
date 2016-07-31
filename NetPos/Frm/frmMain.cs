@@ -16,7 +16,8 @@ namespace NetPos.Frm
         }
 
         #region Contructor
-        readonly frmCard _frmCard;
+
+        frmCard _frmCard;
         readonly frmRecord _frmRecord;
         readonly frmThongKeThe _frmTkThe;
         readonly frmTheTrungNhau _frmTheTrung;
@@ -58,9 +59,6 @@ namespace NetPos.Frm
         private void frmMain_Load(object sender, EventArgs e)
         {
             Function();
-            //_frmCard.ShowDialog += ShowLoading;
-            //_frmCard.CloseDialog += KillLoading;
-            //_frmCard.UpdateDialog += UpdateLoading;
             ShowControl(_frmCard, pn_Main);
         }
 
@@ -128,11 +126,8 @@ namespace NetPos.Frm
         {
             _process = Process.Card;
             Function();
-            var form = new frmCard();
-            form.ShowDialog += ShowLoading;
-            form.CloseDialog += KillLoading;
-            form.UpdateDialog += UpdateLoading;
-            ShowControl(form, pn_Main);
+            _frmCard = new frmCard();
+            ShowControl(_frmCard, pn_Main);
             //var a = new FrmProgessBar();
             //a.ShowDialog();
         }

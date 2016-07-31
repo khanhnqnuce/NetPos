@@ -19,7 +19,7 @@ namespace FDI.Base
         public string CardNumber { get; set; }
         public string MID { get; set; }
         public string FID { get; set; }
-        public Nullable<int> Value { get; set; }
+        public Nullable<decimal> Value { get; set; }
         public Nullable<int> Balance { get; set; }
         public string Action { get; set; }
         public string EventCode { get; set; }
