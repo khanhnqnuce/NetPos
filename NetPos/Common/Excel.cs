@@ -316,5 +316,130 @@ namespace NetPos
                 xlPackage.Save();
             }
         }
+
+        public static void BCDoanhThuBanThe(string filePath, UltraGrid grid)
+        {
+            var newFile = new FileInfo(filePath);
+            using (var xlPackage = new ExcelPackage(newFile))
+            {
+                var worksheet = xlPackage.Workbook.Worksheets.Add("DTBT");
+                xlPackage.Workbook.CalcMode = ExcelCalcMode.Manual;
+                var properties = new[]
+                    {
+                        "STT",
+                        "Loại thống kê",
+                        "Giá trị"
+                    };
+                worksheet.Cells["A1:I2"].Value = "BÁO CÁO DOANH THU BÁN THẺ";
+                worksheet.Cells["A1:I2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells["A1:I2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                worksheet.Cells["A1:I2"].Style.Font.Bold = true;
+                worksheet.Cells["A1:I2"].Style.Font.Size = 12;
+                worksheet.Cells["A1:I2"].Merge = true;
+                worksheet.Cells["A1:I2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                worksheet.Cells["A1:I2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+
+                var row = 3;
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    worksheet.Cells[row, i + 1].Value = properties[i];
+                    worksheet.Cells[row, i + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[row, i + 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(184, 204, 228));
+                    worksheet.Cells[row, i + 1].Style.Font.Bold = true;
+                    worksheet.Cells[row, i + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                }
+                worksheet.Cells[row, 1, row, properties.Length].AutoFilter = true;
+                row++;
+                var stt = 1;
+                foreach (var item in grid.Rows)
+                {
+                    var col = 1;
+                    worksheet.Cells[row, col].Value = stt++;
+                    worksheet.Cells[row, col].Style.Numberformat.Format = "0";
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                    worksheet.Cells[row, col].Value = item.Cells["Name"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["Value"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col].Style.Numberformat.Format = "#,##";
+                   
+                    row++;
+                }
+                var nameexcel = "doanh thu ban the" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
+                xlPackage.Workbook.Properties.Title = string.Format("{0} reports", nameexcel);
+                xlPackage.Workbook.Properties.Author = "Admin-IT";
+                xlPackage.Workbook.Properties.Subject = string.Format("{0} reports", "");
+                xlPackage.Workbook.Properties.Category = "Report";
+                xlPackage.Workbook.Properties.Company = "NetPos";
+                xlPackage.Save();
+            }
+        }
+
+
+        public static void BCDoanhThuBanHang(string filePath, UltraGrid grid)
+        {
+            var newFile = new FileInfo(filePath);
+            using (var xlPackage = new ExcelPackage(newFile))
+            {
+                var worksheet = xlPackage.Workbook.Worksheets.Add("DTBT");
+                xlPackage.Workbook.CalcMode = ExcelCalcMode.Manual;
+                var properties = new[]
+                    {
+                        "STT",
+                        "Thông tin",
+                        "Giá trị"
+                    };
+                worksheet.Cells["A1:I2"].Value = "BÁO CÁO DOANH THU BÁN THẺ";
+                worksheet.Cells["A1:I2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells["A1:I2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                worksheet.Cells["A1:I2"].Style.Font.Bold = true;
+                worksheet.Cells["A1:I2"].Style.Font.Size = 12;
+                worksheet.Cells["A1:I2"].Merge = true;
+                worksheet.Cells["A1:I2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                worksheet.Cells["A1:I2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+
+                var row = 3;
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    worksheet.Cells[row, i + 1].Value = properties[i];
+                    worksheet.Cells[row, i + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[row, i + 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(184, 204, 228));
+                    worksheet.Cells[row, i + 1].Style.Font.Bold = true;
+                    worksheet.Cells[row, i + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                }
+                worksheet.Cells[row, 1, row, properties.Length].AutoFilter = true;
+                row++;
+                var stt = 1;
+                foreach (var item in grid.Rows)
+                {
+                    var col = 1;
+                    worksheet.Cells[row, col].Value = stt++;
+                    worksheet.Cells[row, col].Style.Numberformat.Format = "0";
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                    worksheet.Cells[row, col].Value = item.Cells["Name"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["Value"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col].Style.Numberformat.Format = "#,##";
+
+                    row++;
+                }
+                var nameexcel = "doanh thu ban the" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
+                xlPackage.Workbook.Properties.Title = string.Format("{0} reports", nameexcel);
+                xlPackage.Workbook.Properties.Author = "Admin-IT";
+                xlPackage.Workbook.Properties.Subject = string.Format("{0} reports", "");
+                xlPackage.Workbook.Properties.Category = "Report";
+                xlPackage.Workbook.Properties.Company = "NetPos";
+                xlPackage.Save();
+            }
+        }
     }
 }

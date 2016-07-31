@@ -242,7 +242,7 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.sp_DTBanTheTọngHop(startDate, endDate, buiding, area, obj)
+                var query = from c in FDIDB.sp_DTBanTheTongHop(startDate, endDate, buiding, area, obj)
                             select new ThongKeItem
                             {
                                 Name = c.Name,

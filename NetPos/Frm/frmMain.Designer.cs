@@ -160,6 +160,7 @@
             this.menuBaoCaoTongHop.Name = "menuBaoCaoTongHop";
             this.menuBaoCaoTongHop.Size = new System.Drawing.Size(227, 22);
             this.menuBaoCaoTongHop.Text = "Báo cáo doanh thu tổng hợp";
+            this.menuBaoCaoTongHop.Visible = false;
             this.menuBaoCaoTongHop.Click += new System.EventHandler(this.menuBaoCaoTongHop_Click);
             // 
             // menuBCDTBanThe
