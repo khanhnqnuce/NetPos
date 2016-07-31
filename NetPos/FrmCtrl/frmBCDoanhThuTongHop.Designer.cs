@@ -45,7 +45,7 @@
             this.groupBox1.Size = new System.Drawing.Size(742, 517);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Báo cáo theo khu vực:";
+            this.groupBox1.Text = "Báo cáo doanh thu tổng hợp theo khu vực:";
             // 
             // dgv_DanhSach
             // 

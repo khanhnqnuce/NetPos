@@ -62,6 +62,14 @@ namespace NetPos.Frm
             cboTypeCard.DisplayMember = "Name";
             cboTypeCard.ValueMember = "Code";
 
+            List<AreaItem> lststatus = new List<AreaItem>();
+            lststatus.Insert(0, new AreaItem { Desc = "", Code = "" });
+            lststatus.Insert(1, new AreaItem { Desc = "Chưa phát hành", Code = "00" });
+            lststatus.Insert(2, new AreaItem { Desc = "Đã phát hành", Code = "01" });
+            lststatus.Insert(3, new AreaItem { Desc = "Đang bị khóa", Code = "02" });
+            cboStatus.DataSource = lststatus;
+            cboStatus.DisplayMember = "Desc";
+            cboStatus.ValueMember = "Code";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,11 +81,9 @@ namespace NetPos.Frm
             var cardNumber = txtCardNumber.Text;
             var code = txtMaKH.Text;
             var name = txtTenKH.Text;
-            var phathanh = ckPhatHanh.Checked;
-            var chuaphathanh = ckChuaPhatHanh.Checked;
-            var islock = ckKhoa.Checked;
+            var status = cboStatus.SelectedValue.ToString();
 
-            var RecordItems = _cardDa.FindCardItems(buiding, area, obj, cardType, cardNumber, code, name, phathanh, chuaphathanh, islock);
+            var RecordItems = _cardDa.FindCardItems(buiding, area, obj, cardType, cardNumber, code, name, status);
 
             OnFillterRecord(RecordItems);
         }
@@ -91,9 +97,7 @@ namespace NetPos.Frm
             txtCardNumber.Text = "";
             txtMaKH.Text = "";
             txtTenKH.Text = "";
-            ckPhatHanh.Checked = false;
-            ckChuaPhatHanh.Checked = false;
-            ckKhoa.Checked = false;
+            cboStatus.SelectedValue = "";
             this.Hide();
         }
 

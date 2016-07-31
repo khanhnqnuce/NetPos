@@ -9,22 +9,21 @@ namespace FDI.DA
 {
     public class CardDA : BaseDA
     {
-        public List<CardItem> GetAll()
+        public List<CardItem> GetAll(int id = 0)
         {
             try
             {
-                var query = from c in FDIDB.sp_GetListCard()
+                var query = from c in FDIDB.sp_GetListCard(id)
                             select new CardItem
                     {
-                        ID = c.Id,
-                        Code = c.Code,
-                        CardNumber = c.CardNumber,
-                        AccountName = c.AccountName,
+                        ID = c.id,
                         Balance = c.Balance,
-                        CardTypeCode = c.NameType ?? "#",
-                        IsRelease = c.IsRelease ?? false,
-                        IsLockCard = c.IsLockCard ?? false,
-                        IsEdit = c.IsEdit
+                        CardStatus = c.CardStatus,
+                        CardNumber = c.CardNumber,
+                        CardType = c.CardType,
+                        CustomerID = c.CustomerID,
+                        CustomerName = c.CustomerName,
+                        DateIssue = c.DateIssue??new DateTime(),
                     };
                 return query.ToList();
             }
@@ -35,22 +34,21 @@ namespace FDI.DA
 
         }
 
-        public List<CardItem> FindCardItems(string buiding, string area, string obj, string cardType, string cardNumber, string code, string name, bool? phathanh, bool? chuaphathanh, bool? islock)
+        public List<CardItem> FindCardItems(string buiding, string area, string obj, string cardType, string cardNumber, string code, string name, string status)
         {
             try
             {
-                var query = from c in FDIDB.sp_LocCard(buiding, area, obj, cardType, cardNumber, code, name, phathanh, chuaphathanh, islock)
+                var query = from c in FDIDB.sp_LocCard(buiding, area, obj, cardType, cardNumber, code, name, status)
                             select new CardItem
                             {
-                                ID = c.Id,
-                                Code = c.Code,
-                                CardNumber = c.CardNumber,
-                                AccountName = c.AccountName,
+                                ID = c.id,
                                 Balance = c.Balance,
-                                CardTypeCode = c.TypeCard ?? "#",
-                                IsRelease = c.IsRelease ?? false,
-                                IsLockCard = c.IsLockCard ?? false,
-                                IsEdit = c.IsEdit
+                                CardStatus = c.CardStatus,
+                                CardNumber = c.CardNumber,
+                                CardType = c.CardType,
+                                CustomerID = c.CustomerID,
+                                CustomerName = c.CustomerName,
+                                DateIssue = c.DateIssue ?? new DateTime(),
                             };
                 return query.ToList();
             }
@@ -86,13 +84,14 @@ namespace FDI.DA
                 var query = from c in FDIDB.sp_TheTrungNhau()
                             select new CardItem
                             {
-                                CardNumber = c.CardNumber,
-                                AccountName = c.AccountName,
+                                ID = c.id,
                                 Balance = c.Balance,
-                                CardTypeCode = c.CardTypeCode,
-                                IsRelease = c.IsRelease ?? false,
-                                IsLockCard = c.IsLockCard ?? false,
-                                IsEdit = c.IsEdit
+                                CardStatus = c.CardStatus,
+                                CardNumber = c.CardNumber,
+                                CardType = c.CardType,
+                                CustomerID = c.CustomerID,
+                                CustomerName = c.CustomerName,
+                                DateIssue = c.DateIssue ?? new DateTime(),
                             };
                 return query.ToList();
             }
@@ -107,14 +106,13 @@ namespace FDI.DA
             try
             {
             var query = from c in FDIDB.sp_GiaoDichGanNhat(card)
+                        orderby c.Date descending 
                         select new GiaoDichItem
                         {
-                            Action = c.Action,
+                            Event = c.Event,
                             Date = c.Date ?? new DateTime(),
                             Value = c.Value ?? 0,
-                            Balance = c.Balance ?? 0,
-                            Object = c.Object,
-                            ProductCode = c.ProductCode
+                            Object = c.Name,
                         };
             return query.ToList();
             }
@@ -124,9 +122,23 @@ namespace FDI.DA
             }
         }
 
-        public tblCard Get(int id)
+        public CustomerItem GetCustomer(int id)
         {
-            var query = from c in FDIDB.tblCards where c.Id == id select c;
+            var query = from c in FDIDB.sp_GetListCard(id)
+                        select new CustomerItem
+                        {
+                            ID = c.id,
+                            Balance = c.Balance,
+                            CardStatus = c.CardStatus,
+                            CardNumber = c.CardNumber,
+                            CardType = c.CardType,
+                            CustomerID = c.CustomerID,
+                            CustomerName = c.CustomerName,
+                            DateIssue = c.DateIssue ?? new DateTime(),
+                            BirthDate = c.BirthDate??new DateTime(),
+                            CustomerClass = c.CustomerClass??0,
+                            SchoolYear = c.SchoolYear
+                        };
             return query.FirstOrDefault();
         }
 
@@ -135,9 +147,9 @@ namespace FDI.DA
             var query = from c in FDIDB.sp_GetCard(card)
                         select new CardItem
                             {
-                                AccountName = c.AccountName,
+                                //AccountName = c.AccountName,
                                 CardNumber = c.CardNumber,
-                                CardTypeCode = c.NameType
+                                //CardTypeCode = c.NameType
                             };
             return query.FirstOrDefault();
         }

@@ -36,6 +36,7 @@ namespace NetPos.FrmCtrl
             #region Caption
             band.Columns["Area"].Header.Caption = @"Khu vực";
             band.Columns["CountValue"].Header.Caption = @"Tổng giao dịch";
+            band.Columns["CountValue"].FormatMonney();
 
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;

@@ -2,9 +2,8 @@
 
 namespace FDI.Simple
 {
-    public class CardItem:BaseSimple
+    public class CustomerItem : BaseSimple
     {
-        public int ID { get; set; }
         public string CardNumber { get; set; }
         public decimal Balance { get; set; }
         public string CardStatus { get; set; }
@@ -12,5 +11,8 @@ namespace FDI.Simple
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }
         public string CardType { get; set; }
+        public string SchoolYear { get; set; }
+        public DateTime BirthDate { get; set; }
+        public int CustomerClass { get; set; }
     }
 }

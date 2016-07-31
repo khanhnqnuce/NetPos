@@ -18,18 +18,18 @@ namespace NetPos.Frm
 
         private void frmEditCard_Load(object sender, EventArgs e)
         {
-            TblCardItem = _cardDa.Get(Id);
-            txtAccountName.Text = TblCardItem.AccountName;
-            txtBalance.Value = TblCardItem.Balance;
-            txtCardNumber.Text = TblCardItem.CardNumber;
-            txtCode.Text = TblCardItem.Code;
-            txtDiemThuong.Text = @"0";
-            chkIsEdit.Checked = TblCardItem.IsEdit;
-            chkIsLockCard.Checked = TblCardItem.IsLockCard ?? false;
-            chkIsRelease.Checked = TblCardItem.IsRelease ?? false;
-            var lstCardType = _cardDa.GetTypeCard();
-            cboCardType.DataSource = lstCardType;
-            cboCardType.SelectedValue = TblCardItem.CardTypeCode;
+            //TblCardItem = _cardDa.Get(Id);
+            //txtAccountName.Text = TblCardItem.AccountName;
+            //txtBalance.Value = TblCardItem.Balance;
+            //txtCardNumber.Text = TblCardItem.CardNumber;
+            //txtCode.Text = TblCardItem.Code;
+            //txtDiemThuong.Text = @"0";
+            //chkIsEdit.Checked = TblCardItem.IsEdit;
+            //chkIsLockCard.Checked = TblCardItem.IsLockCard ?? false;
+            //chkIsRelease.Checked = TblCardItem.IsRelease ?? false;
+            //var lstCardType = _cardDa.GetTypeCard();
+            //cboCardType.DataSource = lstCardType;
+            //cboCardType.SelectedValue = TblCardItem.CardTypeCode;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

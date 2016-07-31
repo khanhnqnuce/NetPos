@@ -24,8 +24,8 @@ namespace NetPos.Frm
         {
             var item = _da.Get(CardNumber);
             labMaThe.Text = item.CardNumber;
-            labTenTaiKhoan.Text = item.AccountName;
-            labLoaiThe.Text = item.CardTypeCode;
+            //labTenTaiKhoan.Text = item.AccountName;
+            //labLoaiThe.Text = item.CardTypeCode;
 
             dgv_DanhSach.DataSource = _da.GiaoDichGanNhat(CardNumber);
             txtCard.Visible = false;
@@ -42,11 +42,11 @@ namespace NetPos.Frm
 
                 if (rdoBlock.Checked)
                 {
-                    var item = _da.Get(IdCard);
-                    item.IsLockCard = true;
-                    IsLockCard = true;
-                    IsUpdate = true;
-                    _da.Save();
+                    //var item = _da.Get(IdCard);
+                    //item.IsLockCard = true;
+                    //IsLockCard = true;
+                    //IsUpdate = true;
+                    //_da.Save();
                     MessageBox.Show(@"Khóa thẻ thành công !");
                 }
                 else if (rdoRename.Checked)
