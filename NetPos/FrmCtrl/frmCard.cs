@@ -48,47 +48,29 @@ namespace NetPos.FrmCtrl
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
-            //band.Columns["ID"].Hidden = true;
+            band.Columns["ID"].Hidden = true;
 
-            //band.Columns["Code"].CellActivation = Activation.NoEdit;
-            //band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
-            //band.Columns["AccountName"].CellActivation = Activation.NoEdit;
-            //band.Columns["Balance"].CellActivation = Activation.NoEdit;
-            //band.Columns["CardTypeCode"].CellActivation = Activation.NoEdit;
-            //band.Columns["IsRelease"].CellActivation = Activation.NoEdit;
-            //band.Columns["IsLockCard"].CellActivation = Activation.NoEdit;
-            //band.Columns["IsEdit"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerID"].CellActivation = Activation.NoEdit;
+            band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerName"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["CardType"].CellActivation = Activation.NoEdit;
+            band.Columns["CardStatus"].CellActivation = Activation.NoEdit;
+            band.Columns["DateIssue"].CellActivation = Activation.NoEdit;
 
-            //band.Columns["Code"].MinWidth = 80;
-            //band.Columns["CardNumber"].MinWidth = 80;
-            //band.Columns["AccountName"].MinWidth = 200;
-            //band.Columns["Balance"].MinWidth = 120;
-            //band.Columns["CardTypeCode"].MinWidth = 150;
-            //band.Columns["IsRelease"].MinWidth = 120;
-            //band.Columns["IsLockCard"].MinWidth = 120;
-            //band.Columns["IsEdit"].MinWidth = 120;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Balance"].FormatMonney();
 
-            //band.Columns["Code"].CellAppearance.TextHAlign = HAlign.Right;
-            //band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Right;
-            //band.Columns["AccountName"].CellAppearance.TextHAlign = HAlign.Left;
-            //band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
-            //band.Columns["Balance"].FormatMonney();
-            //band.Columns["CardTypeCode"].CellAppearance.TextHAlign = HAlign.Left;
-            //band.Columns["IsRelease"].CellAppearance.TextHAlign = HAlign.Center;
-            //band.Columns["IsLockCard"].CellAppearance.TextHAlign = HAlign.Center;
-            //band.Columns["IsEdit"].CellAppearance.TextHAlign = HAlign.Center;
+            #region Caption
+            band.Columns["CustomerID"].Header.Caption = @"Mã khách hàng";
+            band.Columns["CardNumber"].Header.Caption = @"Số thẻ";
+            band.Columns["CustomerName"].Header.Caption = @"Tên tài khoản";
+            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["CardType"].Header.Caption = @"Loại thẻ";
+            band.Columns["CardStatus"].Header.Caption = @"Trạng thái";
+            band.Columns["DateIssue"].Header.Caption = @"Ngày phát hành";
 
-            //#region Caption
-            //band.Columns["Code"].Header.Caption = @"Mã khách hàng";
-            //band.Columns["CardNumber"].Header.Caption = @"Số thẻ";
-            //band.Columns["AccountName"].Header.Caption = @"Tên tài khoản";
-            //band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
-            //band.Columns["CardTypeCode"].Header.Caption = @"Loại thẻ";
-            //band.Columns["IsRelease"].Header.Caption = @"Đã được phát hành";
-            //band.Columns["IsEdit"].Header.Caption = @"Thẻ thành viên";
-            //band.Columns["IsLockCard"].Header.Caption = @"Khóa thẻ";
-
-            //#endregion
+            #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 

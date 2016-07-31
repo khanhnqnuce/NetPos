@@ -17,12 +17,12 @@ namespace FDI.DA
                             select new CardItem
                     {
                         ID = c.id,
-                        Balance = c.Balance,
-                        CardStatus = c.CardStatus,
-                        CardNumber = c.CardNumber,
-                        CardType = c.CardType,
                         CustomerID = c.CustomerID,
+                        CardNumber = c.CardNumber,
                         CustomerName = c.CustomerName,
+                        Balance = c.Balance,
+                        CardType = c.CardType,
+                        CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
                         DateIssue = c.DateIssue??new DateTime(),
                     };
                 return query.ToList();
@@ -42,12 +42,12 @@ namespace FDI.DA
                             select new CardItem
                             {
                                 ID = c.id,
-                                Balance = c.Balance,
-                                CardStatus = c.CardStatus,
-                                CardNumber = c.CardNumber,
-                                CardType = c.CardType,
                                 CustomerID = c.CustomerID,
+                                CardNumber = c.CardNumber,
                                 CustomerName = c.CustomerName,
+                                Balance = c.Balance,
+                                CardType = c.CardType,
+                                CardStatus = c.CardStatus == "00"?"Chưa phát hành":(c.CardStatus == "01"?"Đã phát hành":"Đã khóa"),
                                 DateIssue = c.DateIssue ?? new DateTime(),
                             };
                 return query.ToList();
@@ -85,12 +85,12 @@ namespace FDI.DA
                             select new CardItem
                             {
                                 ID = c.id,
-                                Balance = c.Balance,
-                                CardStatus = c.CardStatus,
-                                CardNumber = c.CardNumber,
-                                CardType = c.CardType,
                                 CustomerID = c.CustomerID,
+                                CardNumber = c.CardNumber,
                                 CustomerName = c.CustomerName,
+                                Balance = c.Balance,
+                                CardType = c.CardType,
+                                CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
                                 DateIssue = c.DateIssue ?? new DateTime(),
                             };
                 return query.ToList();
@@ -101,18 +101,18 @@ namespace FDI.DA
             }
         }
 
-        public List<GiaoDichItem> GiaoDichGanNhat(string card)
+        public List<GiaoDichItem> GiaoDichGanNhat(string card, DateTime startDate, DateTime endDate)
         {
             try
             {
-            var query = from c in FDIDB.sp_GiaoDichGanNhat(card)
+                var query = from c in FDIDB.sp_GiaoDichGanNhat(card, startDate, endDate)
                         orderby c.Date descending 
                         select new GiaoDichItem
                         {
                             Event = c.Event,
                             Date = c.Date ?? new DateTime(),
                             Value = c.Value ?? 0,
-                            Object = c.Name,
+                            Object = c.Object,
                         };
             return query.ToList();
             }

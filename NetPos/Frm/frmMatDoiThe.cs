@@ -26,8 +26,10 @@ namespace NetPos.Frm
             labMaThe.Text = item.CardNumber;
             //labTenTaiKhoan.Text = item.AccountName;
             //labLoaiThe.Text = item.CardTypeCode;
-
-            dgv_DanhSach.DataSource = _da.GiaoDichGanNhat(CardNumber);
+            var date = DateTime.Now;
+            var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0, 0);
+            var endDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            dgv_DanhSach.DataSource = _da.GiaoDichGanNhat(CardNumber, startDate, endDate);
             txtCard.Visible = false;
             lbMatheMoi.Visible = false;
             txtDes.Visible = false;
