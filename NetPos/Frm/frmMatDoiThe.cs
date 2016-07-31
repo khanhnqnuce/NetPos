@@ -22,10 +22,10 @@ namespace NetPos.Frm
 
         private void frmMatDoiThe_Load(object sender, EventArgs e)
         {
-            var item = _da.Get(CardNumber);
+            var item = _da.GetCustomer(IdCard);
             labMaThe.Text = item.CardNumber;
-            //labTenTaiKhoan.Text = item.AccountName;
-            //labLoaiThe.Text = item.CardTypeCode;
+            labTenTaiKhoan.Text = item.CustomerName;
+            labLoaiThe.Text = item.CardType;
             var date = DateTime.Now;
             var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0, 0);
             var endDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);

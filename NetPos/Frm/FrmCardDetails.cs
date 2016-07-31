@@ -26,10 +26,9 @@ namespace NetPos.Frm
             CustomerItem = _cardDa.GetCustomer(Id);
             txtMaKH.Text = CustomerItem.CustomerID;
             txtTenKH.Text = CustomerItem.CustomerName;
-            lbBirthday.Text = CustomerItem.BirthDate.ToString("dd/MM/yyyy");
+            lbBirthday.Text = CustomerItem.BirthDate;
             lbNamhoc.Text = CustomerItem.SchoolYear;
             lbClass.Text = CustomerItem.CustomerClass.ToString();
-
             txtSoDu.Text = string.Format("{0:0,0}",CustomerItem.Balance);
             txtMaThe.Text = CustomerItem.CardNumber;
             txtloaiThe.Text = CustomerItem.CardType;
@@ -46,6 +45,7 @@ namespace NetPos.Frm
                     break;
             }
             txtloaiThe.Text = CustomerItem.CardType;
+            lbDate.Text = CustomerItem.DateIssue.ToString("dd/MM/yyyy");
             var CardNumber = CustomerItem.CardNumber;
 
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";

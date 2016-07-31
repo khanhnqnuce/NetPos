@@ -23,7 +23,7 @@ namespace FDI.DA
                         Balance = c.Balance,
                         CardType = c.CardType,
                         CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
-                        DateIssue = c.DateIssue??new DateTime(),
+                        DateIssue = c.DateIssue == null ? "" : c.DateIssue.Value.ToString("dd/MM/yyyy"),
                     };
                 return query.ToList();
             }
@@ -48,7 +48,7 @@ namespace FDI.DA
                                 Balance = c.Balance,
                                 CardType = c.CardType,
                                 CardStatus = c.CardStatus == "00"?"Chưa phát hành":(c.CardStatus == "01"?"Đã phát hành":"Đã khóa"),
-                                DateIssue = c.DateIssue ?? new DateTime(),
+                                DateIssue = c.DateIssue == null ? "" : c.DateIssue.Value.ToString("dd/MM/yyyy"),
                             };
                 return query.ToList();
             }
@@ -91,7 +91,7 @@ namespace FDI.DA
                                 Balance = c.Balance,
                                 CardType = c.CardType,
                                 CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
-                                DateIssue = c.DateIssue ?? new DateTime(),
+                                DateIssue = c.DateIssue == null ? "" : c.DateIssue.Value.ToString("dd/MM/yyyy"),
                             };
                 return query.ToList();
             }
@@ -135,7 +135,7 @@ namespace FDI.DA
                             CustomerID = c.CustomerID,
                             CustomerName = c.CustomerName,
                             DateIssue = c.DateIssue ?? new DateTime(),
-                            BirthDate = c.BirthDate??new DateTime(),
+                            BirthDate = c.BirthDate == null ? "" : c.BirthDate.Value.ToString("dd/MM/yyyy"),
                             CustomerClass = c.CustomerClass??0,
                             SchoolYear = c.SchoolYear
                         };

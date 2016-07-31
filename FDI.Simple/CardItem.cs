@@ -11,6 +11,6 @@ namespace FDI.Simple
         public decimal Balance { get; set; }
         public string CardType { get; set; }
         public string CardStatus { get; set; }
-        public DateTime DateIssue { get; set; }
+        public string DateIssue { get; set; }
     }
 }

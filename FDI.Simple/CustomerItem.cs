@@ -12,7 +12,7 @@ namespace FDI.Simple
         public string CustomerName { get; set; }
         public string CardType { get; set; }
         public string SchoolYear { get; set; }
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
         public int CustomerClass { get; set; }
     }
 }
