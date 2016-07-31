@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Line Chart.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ComponentFactory.Krypton.Docking, Version=7.1.1.18, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
@@ -176,12 +177,6 @@
     <Compile Include="FrmCtrl\frmThongKeThe.Designer.cs">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm\FrmProgessBar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm\FrmProgessBar.designer.cs">
-      <DependentUpon>FrmProgessBar.cs</DependentUpon>
-    </Compile>
     <Compile Include="Frm\frmLocDTBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,7 +251,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Line Chart.ico" />
     <Content Include="Reports\rpRecord.rst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -335,9 +329,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCtrl\frmThongKeThe.resx">
       <DependentUpon>frmThongKeThe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Frm\FrmProgessBar.resx">
-      <DependentUpon>FrmProgessBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\frmLocDTBanHang.resx">
       <DependentUpon>frmLocDTBanHang.cs</DependentUpon>
