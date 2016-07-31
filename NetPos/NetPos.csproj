@@ -254,7 +254,9 @@
     <Content Include="Reports\rpRecord.rst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Reports\rpCardDetail.rst" />
+    <Content Include="Reports\rpDetailCard.rst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\change.png" />
     <None Include="Resources\matkhau1.png" />
     <None Include="Resources\taikhoan1.png" />

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
@@ -59,6 +60,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
@@ -385,6 +388,18 @@
             this.menuIn.Text = "In";
             this.menuIn.Click += new System.EventHandler(this.menuIn_Click);
             // 
+            // reportManager
+            // 
+            this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
+            this.rpCardDetail});
+            // 
+            // rpCardDetail
+            // 
+            this.rpCardDetail.FilePath = "";
+            this.rpCardDetail.ReportName = "";
+            this.rpCardDetail.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
+            // 
             // FrmCardDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,5 +459,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuExcel;
         private System.Windows.Forms.ToolStripMenuItem menuIn;
+        private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCardDetail;
     }
 }

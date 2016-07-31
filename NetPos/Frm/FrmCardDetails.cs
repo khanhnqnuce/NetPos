@@ -6,6 +6,7 @@ using FDI.DA;
 using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.Frm
 {
@@ -44,8 +45,7 @@ namespace NetPos.Frm
                     lbStatus.Text = @"Đã khóa";
                     break;
             }
-            txtloaiThe.Text = CustomerItem.CardType;
-            lbDate.Text = CustomerItem.DateIssue.ToString("dd/MM/yyyy");
+            lbDate.Text = CustomerItem.DateIssue.ToString("dd/MM/yyyy HH:mm:ss");
             var CardNumber = CustomerItem.CardNumber;
 
             datStartDate.CustomFormat = @"dd/MM/yyyy HH:mm:ss";
@@ -98,7 +98,61 @@ namespace NetPos.Frm
 
         private void menuIn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //var lst = _da.GetAll();
+                reportManager.DataSources.Clear();
+                reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
+                rpCardDetail.FilePath = Application.StartupPath + @"\Reports\rpDetailCard.rst";
+                rpCardDetail.GetReportParameter += GetParameter;
+                rpCardDetail.Prepare();
+                var previewForm = new PreviewForm(rpCardDetail)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
 
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        private void GetParameter(object sender,
+           PerpetuumSoft.Reporting.Components.GetReportParameterEventArgs e)
+        {
+            try
+            {
+                CustomerItem = _cardDa.GetCustomer(Id);
+                e.Parameters["CustomerID"].Value = CustomerItem.CustomerID;
+                e.Parameters["CustomerName"].Value = CustomerItem.CustomerName;
+                e.Parameters["BirthDate"].Value = CustomerItem.BirthDate;
+                e.Parameters["SchoolYear"].Value = CustomerItem.SchoolYear;
+                e.Parameters["CustomerClass"].Value = CustomerItem.CustomerClass.ToString();
+                e.Parameters["Balance"].Value = string.Format("{0:0,0}", CustomerItem.Balance);
+                e.Parameters["CardNumber"].Value = CustomerItem.CardNumber;
+                e.Parameters["CardType"].Value = CustomerItem.CardType;
+                switch (CustomerItem.CardStatus)
+                {
+                    case "00":
+                        e.Parameters["CardStatus"].Value = @"Chưa phát hành";
+                        break;
+                    case "01":
+                        e.Parameters["CardStatus"].Value = @"Đã phát hành";
+                        break;
+                    default:
+                        e.Parameters["CardStatus"].Value = @"Đã khóa";
+                        break;
+                }
+                e.Parameters["DateIssue"].Value = CustomerItem.DateIssue.ToString("dd/MM/yyyy HH:mm:ss");
+                e.Parameters["Time"].Value = "(" + datStartDate.Value.ToString("dd/MM/yyyy") + " - " +
+                                             datEndDate.Value.ToString("dd/MM/yyyy") + ")";
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
         }
 
         public void Export(string path)
@@ -115,5 +169,6 @@ namespace NetPos.Frm
                 Log2File.LogExceptionToFile(ex);
             }
         }
+
     }
 }
