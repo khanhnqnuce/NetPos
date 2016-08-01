@@ -16,10 +16,10 @@ namespace FDI.DA
                             select new BackListItem
                             {
                                 Date = c.Date ?? new DateTime(),
-                                MemoryID = c.MemoryID,
+                                MemoryID = c.MemoryID??0,
                                 CardNumber = c.CardNumber,
                                 ToObjects = c.ToObjects,
-                                IsInActive = c.IsInActive,
+                                IsInActive = c.IsInActive??false,
                                 Desc = c.Desc
                             };
 

@@ -27,18 +27,17 @@ namespace NetPos
                         "Tên tài khoản",
                         "Số dư",
                         "Loại thẻ",
-                        "Phát hành",
-                        "Thành viên",
-                        "Khóa thẻ"
+                        "Trạng thái",
+                        "Ngày phát hành"
                     };
-                worksheet.Cells["A1:I2"].Value = "DANH MỤC SẢN PHẨM";
-                worksheet.Cells["A1:I2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                worksheet.Cells["A1:I2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
-                worksheet.Cells["A1:I2"].Style.Font.Bold = true;
-                worksheet.Cells["A1:I2"].Style.Font.Size = 12;
-                worksheet.Cells["A1:I2"].Merge = true;
-                worksheet.Cells["A1:I2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                worksheet.Cells["A1:I2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                worksheet.Cells["A1:H2"].Value = "DANH SÁCH THẺ";
+                worksheet.Cells["A1:H2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells["A1:H2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                worksheet.Cells["A1:H2"].Style.Font.Bold = true;
+                worksheet.Cells["A1:H2"].Style.Font.Size = 12;
+                worksheet.Cells["A1:H2"].Merge = true;
+                worksheet.Cells["A1:H2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                worksheet.Cells["A1:H2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
 
                 var row = 3;
                 for (var i = 0; i < properties.Length; i++)
@@ -60,7 +59,7 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-                    worksheet.Cells[row, col].Value = item.Cells["Code"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["CustomerID"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
@@ -68,7 +67,7 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
-                    worksheet.Cells[row, col].Value = item.Cells["AccountName"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["CustomerName"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
@@ -76,19 +75,15 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "#,##";
 
-                    worksheet.Cells[row, col].Value = item.Cells["CardTypeCode"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["CardType"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
-                    worksheet.Cells[row, col].Value = item.Cells["IsRelease"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["CardStatus"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
-                    worksheet.Cells[row, col].Value = item.Cells["IsEdit"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                    worksheet.Cells[row, col].Value = item.Cells["IsLockCard"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["DateIssue"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col].Style.Numberformat.Format = "@";
                     row++;

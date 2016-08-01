@@ -46,7 +46,7 @@ namespace FDI.DA
                             select new BCKhuVucItem
                             {
                                 Area = c.Area,
-                                CountValue = c.CountValue ?? 0
+                                CountValue = c.CountValue == null ? (decimal)0 : (decimal)(0 - c.CountValue)
                             };
                 return query.ToList();
             }

@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FDI.Simple", "FDI.Simple\FD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetPos", "NetPos\NetPos.csproj", "{287CCBD8-E8D6-4E01-9944-D43F662A75EE}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{287CCBD8-E8D6-4E01-9944-D43F662A75EE} = {287CCBD8-E8D6-4E01-9944-D43F662A75EE}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -62,6 +67,16 @@ Global
 		{287CCBD8-E8D6-4E01-9944-D43F662A75EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{287CCBD8-E8D6-4E01-9944-D43F662A75EE}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{287CCBD8-E8D6-4E01-9944-D43F662A75EE}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.Debug|Any CPU.ActiveCfg = DVD-5
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.Debug|Any CPU.Build.0 = DVD-5
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.DVD-5|Any CPU.Build.0 = DVD-5
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.Release|Any CPU.ActiveCfg = SingleImage
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.Release|Any CPU.Build.0 = SingleImage
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{E7A1EF1E-478B-4668-9924-E52A3DC5A4FF}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
