@@ -13,7 +13,7 @@ namespace NetPos.FrmCtrl
     {
         readonly frmLocDTBanHang _formLoc;
         private ModelItem _modelItem = new ModelItem();
-        private UserItem _userItem;
+        private readonly UserItem _userItem;
         public frmDTBanHang(UserItem userItem)
         {
             _userItem = userItem;
@@ -22,15 +22,9 @@ namespace NetPos.FrmCtrl
             InitializeComponent();
         }
 
-        private void frmDTBanThe_Load(object sender, EventArgs e)
-        {
-
-        }
-
         public void Loc()
         {
             _formLoc.ModelItem = _modelItem;
-            //_formLoc.LoadDefault();
             _formLoc.User = _userItem;
             _modelItem = _formLoc.ModelItem;
             _formLoc.ShowDialog();
@@ -47,6 +41,7 @@ namespace NetPos.FrmCtrl
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Name"].CellActivation = Activation.NoEdit;

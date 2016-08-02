@@ -63,7 +63,7 @@
             this.pn_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn_Top.Location = new System.Drawing.Point(0, 0);
             this.pn_Top.Name = "pn_Top";
-            this.pn_Top.Size = new System.Drawing.Size(1350, 34);
+            this.pn_Top.Size = new System.Drawing.Size(1041, 34);
             this.pn_Top.TabIndex = 0;
             // 
             // menuMain
@@ -84,7 +84,7 @@
             this.menuThoat});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Size = new System.Drawing.Size(1350, 24);
+            this.menuMain.Size = new System.Drawing.Size(1041, 24);
             this.menuMain.TabIndex = 8;
             this.menuMain.Text = "menuStrip1";
             // 
@@ -259,14 +259,14 @@
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 34);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1350, 655);
+            this.pn_Main.Size = new System.Drawing.Size(1041, 289);
             this.pn_Main.TabIndex = 1;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 689);
+            this.ClientSize = new System.Drawing.Size(1041, 323);
             this.Controls.Add(this.pn_Main);
             this.Controls.Add(this.pn_Top);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

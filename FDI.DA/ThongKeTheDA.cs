@@ -19,7 +19,7 @@ namespace FDI.DA
                         TotalUsed = c.TotalUsed ?? 0,
                         TotalNotUsed = c.TotalNotUsed ?? 0,
                         TotalBlock = c.TotalBlock ?? 0,
-                        TotalBalance = c.TotalBalance == null ? (decimal)0 : (decimal)(0 - c.TotalBalance)
+                        TotalBalance = c.TotalBalance??0
                     };
                 return query.ToList();
             }

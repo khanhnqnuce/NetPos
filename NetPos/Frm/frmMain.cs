@@ -27,7 +27,7 @@ namespace NetPos.Frm
         #endregion
 
         private Process _process = Process.Card;
-        private UserItem _userItem;
+        private readonly UserItem _userItem;
         public frmMain(UserItem item)
         {
             _userItem = item;
@@ -94,7 +94,12 @@ namespace NetPos.Frm
             _process = Process.ReportCard;
             Function();
             ShowControl(_frmTkThe, pn_Main);
-            if (_userItem.Right1 == 2)
+            if (_userItem.Right1 == 1)
+            {
+                _frmTkThe.LoadGrid();
+                
+            }
+            else
             {
                 _frmTkThe.LocThongKeThe();
             }
@@ -268,7 +273,7 @@ namespace NetPos.Frm
                     menuThoat.Visible = true;
                     break;
                 case Process.DoubleCard:
-                    menuXemThongTin.Visible = false;
+                    menuXemThongTin.Visible = true;
                     menuSua.Visible = false;
                     menuXoa.Visible = true;
                     menuMatDoiThe.Visible = false;
@@ -298,6 +303,26 @@ namespace NetPos.Frm
                     menuThoat.Visible = true;
                     break;
                 case Process.ReportTotal:
+                    menuXemThongTin.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.DTBanThe:
+                    menuXemThongTin.Visible = false;
+                    menuSua.Visible = false;
+                    menuXoa.Visible = false;
+                    menuMatDoiThe.Visible = false;
+                    menuLoc.Visible = true;
+                    menuIn.Visible = true;
+                    menuXuatKhau.Visible = true;
+                    menuThoat.Visible = true;
+                    break;
+                case Process.DTBanHang:
                     menuXemThongTin.Visible = false;
                     menuSua.Visible = false;
                     menuXoa.Visible = false;

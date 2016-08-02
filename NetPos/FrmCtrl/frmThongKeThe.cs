@@ -30,6 +30,12 @@ namespace NetPos.FrmCtrl
 
         private void frmThongKeThe_Load(object sender, EventArgs e)
         {
+            
+            
+        }
+
+        public void LoadGrid()
+        {
             if (_userItem.Right1 == 1)
             {
                 var lst = _da.GetThongKeTheItems("", "", "");
@@ -47,13 +53,13 @@ namespace NetPos.FrmCtrl
                 row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
                 row.CellAppearance.FontData.SizeInPoints = 14;
             }
-            
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["NameType"].CellActivation = Activation.NoEdit;

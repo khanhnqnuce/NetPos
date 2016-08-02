@@ -79,7 +79,6 @@
             this.Controls.Add(this.panel2);
             this.Name = "frmDTBanHang";
             this.Size = new System.Drawing.Size(1199, 576);
-            this.Load += new System.EventHandler(this.frmDTBanThe_Load);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();

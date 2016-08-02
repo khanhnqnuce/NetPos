@@ -58,7 +58,7 @@ namespace NetPos.Frm
             {
                 cboBuiding.Enabled = false;
 
-                List<AreaItem> lstArea = new List<AreaItem>();
+                var lstArea = new List<AreaItem>();
                 lstArea.Insert(0, new AreaItem { Desc = User.AreaName, Code = User.AreaCode });
                 cboArea.DataSource = lstArea;
                 cboArea.DisplayMember = "Desc";

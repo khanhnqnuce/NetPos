@@ -24,6 +24,7 @@ namespace FDI.Simple
             public DateTime Date { get; set; }
             public string CardNumber { get; set; }
             public string Event { get; set; }
+            public string EventCode { get; set; }
             public decimal Value { get; set; }
             public string Object { get; set; }
             public string Area { get; set; }

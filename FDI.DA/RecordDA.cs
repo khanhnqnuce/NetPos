@@ -35,7 +35,7 @@ namespace FDI.DA
             {
                 return null;
             }
-            
+
         }
 
         public List<BCKhuVucItem> GetBcKhuVucItems()
@@ -62,13 +62,14 @@ namespace FDI.DA
             try
             {
                 var query = from c in FDIDB.sp_TatCaGiaoDich(startDate, endDate, buiding, area, ob)
-                            orderby c.Date descending 
+                            orderby c.Date descending
                             select new EventItem
                             {
-                                Date = c.Date??new DateTime(),
+                                Date = c.Date ?? new DateTime(),
                                 CardNumber = c.CardNumber,
+                                EventCode = c.EventCode,
                                 Event = c.Event,
-                                Value = c.Value??0,
+                                Value = (c.Value > 0) ? (decimal)c.Value : (decimal)(0 - c.Value),
                                 Object = c.Object,
                                 Area = c.Area
                             };
@@ -85,7 +86,8 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblBuidings orderby c.Name
+                var query = from c in FDIDB.tblBuidings
+                            orderby c.Name
                             select new BuidingItem
                             {
                                 Code = c.Code,
@@ -180,7 +182,8 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblEventCodes where c.Name != ""
+                var query = from c in FDIDB.tblEventCodes
+                            where c.Name != ""
                             select new EventCodeItem
                             {
                                 Code = c.Code,

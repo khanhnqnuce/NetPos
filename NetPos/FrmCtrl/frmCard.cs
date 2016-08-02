@@ -48,6 +48,7 @@ namespace NetPos.FrmCtrl
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["CustomerID"].CellActivation = Activation.NoEdit;
@@ -71,6 +72,7 @@ namespace NetPos.FrmCtrl
             band.Columns["DateIssue"].Header.Caption = @"Ngày phát hành";
 
             #endregion
+
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 

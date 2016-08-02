@@ -19,10 +19,12 @@ namespace NetPos.FrmCtrl
         {
             InitializeComponent();
         }
+
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
-            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;            
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
 
             band.Columns["Date"].CellActivation = Activation.NoEdit;
             band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
@@ -35,6 +37,7 @@ namespace NetPos.FrmCtrl
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["EventCode"].Hidden = true;
 
             #region Caption
             band.Columns["Date"].Header.Caption = @"Thời gian";

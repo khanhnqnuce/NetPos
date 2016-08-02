@@ -25,6 +25,7 @@ namespace NetPos.FrmCtrl
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Area"].CellActivation = Activation.NoEdit;
