@@ -33,7 +33,7 @@ namespace NetPos.FrmCtrl
             band.Columns["Object"].CellActivation = Activation.NoEdit;
             band.Columns["Area"].CellActivation = Activation.NoEdit;
 
-            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Center;

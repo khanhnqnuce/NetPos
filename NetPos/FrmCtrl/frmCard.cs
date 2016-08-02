@@ -158,7 +158,6 @@ namespace NetPos.FrmCtrl
                 if (frm.IsUpdate)
                 {
                     dgv_DanhSach.ActiveRow.Cells["CardNumber"].Value = frm.CardNumber;
-                    dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.IsLockCard;
                 }
 
             }

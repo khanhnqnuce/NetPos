@@ -15,16 +15,13 @@ namespace NetPos.Frm
             if (handler != null) handler(this);
         }
 
-        #region Contructor
-
         frmCard _frmCard;
         frmRecord _frmRecord;
-        readonly frmTheTrungNhau _frmTheTrung;
-        readonly frmDachSachDen _frmDachSachDen;
-        readonly frmThongKeThe _frmTkThe;
-        readonly frmDTBanThe _frmDtBanThe;
-        readonly frmDTBanHang _frmDtBanHang;
-        #endregion
+        frmTheTrungNhau _frmTheTrung;
+        frmDachSachDen _frmDachSachDen;
+        frmThongKeThe _frmTkThe;
+        frmDTBanThe _frmDtBanThe;
+        frmDTBanHang _frmDtBanHang;
 
         private Process _process = Process.Card;
         private readonly UserItem _userItem;
@@ -72,6 +69,7 @@ namespace NetPos.Frm
         {
             _process = Process.DoubleCard;
             Function();
+            _frmTheTrung = new frmTheTrungNhau();
             ShowControl(_frmTheTrung, pn_Main);
             _frmTheTrung.LoadGird();
         }
@@ -80,6 +78,7 @@ namespace NetPos.Frm
         {
             _process = Process.BackList;
             Function();
+            _frmDachSachDen = new frmDachSachDen();
             ShowControl(_frmDachSachDen, pn_Main);
             _frmDachSachDen.LoadGrid();
         }
@@ -93,6 +92,7 @@ namespace NetPos.Frm
         {
             _process = Process.ReportCard;
             Function();
+            _frmTkThe = new frmThongKeThe(_userItem);
             ShowControl(_frmTkThe, pn_Main);
             if (_userItem.Right1 == 1)
             {
@@ -116,7 +116,15 @@ namespace NetPos.Frm
 
         private void menuMatDoiThe_Click(object sender, EventArgs e)
         {
-            _frmCard.Rename();
+            switch (_process)
+            {
+                case Process.Card:
+                    _frmCard.Rename();
+                    break;
+                case Process.BackList:
+                    _frmDachSachDen.Rename();
+                    break;
+            }
         }
 
         private void menuXoa_Click(object sender, EventArgs e)
@@ -140,8 +148,6 @@ namespace NetPos.Frm
             _frmCard = new frmCard();
             ShowControl(_frmCard, pn_Main);
             _frmCard.LoadGrid();
-            //var a = new FrmProgessBar();
-            //a.ShowDialog();
         }
 
         private void menuLoc_Click(object sender, EventArgs e)
@@ -267,7 +273,7 @@ namespace NetPos.Frm
                     menuSua.Visible = false;
                     menuXoa.Visible = false;
                     menuMatDoiThe.Visible = false;
-                    menuLoc.Visible = true;
+                    menuLoc.Visible = false;
                     menuIn.Visible = true;
                     menuXuatKhau.Visible = true;
                     menuThoat.Visible = true;
@@ -392,6 +398,7 @@ namespace NetPos.Frm
         {
             _process = Process.DTBanThe;
             Function();
+            _frmDtBanThe = new frmDTBanThe(_userItem);
             ShowControl(_frmDtBanThe, pn_Main);
             _frmDtBanThe.Loc();
         }
@@ -400,6 +407,7 @@ namespace NetPos.Frm
         {
             _process = Process.DTBanHang;
             Function();
+            _frmDtBanHang = new frmDTBanHang(_userItem);
             ShowControl(_frmDtBanHang, pn_Main);
             _frmDtBanHang.Loc();
         }

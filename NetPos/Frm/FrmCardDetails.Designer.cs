@@ -60,8 +60,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuExcel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuIn = new System.Windows.Forms.ToolStripMenuItem();
-this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
-            this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components); this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();            this.groupBox1.SuspendLayout();
+            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -69,10 +71,15 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnXem);
             this.groupBox1.Controls.Add(this.lbDate);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.datEndDate);
             this.groupBox1.Controls.Add(this.lbStatus);
             this.groupBox1.Controls.Add(this.txtloaiThe);
             this.groupBox1.Controls.Add(this.txtSoDu);
+            this.groupBox1.Controls.Add(this.datStartDate);
             this.groupBox1.Controls.Add(this.lbClass);
             this.groupBox1.Controls.Add(this.lbNamhoc);
             this.groupBox1.Controls.Add(this.lbBirthday);
@@ -100,7 +107,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(655, 138);
+            this.lbDate.Location = new System.Drawing.Point(535, 138);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(66, 20);
             this.lbDate.TabIndex = 17;
@@ -110,7 +117,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.lbStatus.AutoSize = true;
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatus.Location = new System.Drawing.Point(655, 108);
+            this.lbStatus.Location = new System.Drawing.Point(535, 108);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(66, 20);
             this.lbStatus.TabIndex = 17;
@@ -120,7 +127,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.txtloaiThe.AutoSize = true;
             this.txtloaiThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtloaiThe.Location = new System.Drawing.Point(655, 78);
+            this.txtloaiThe.Location = new System.Drawing.Point(535, 78);
             this.txtloaiThe.Name = "txtloaiThe";
             this.txtloaiThe.Size = new System.Drawing.Size(66, 20);
             this.txtloaiThe.TabIndex = 17;
@@ -130,7 +137,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.txtSoDu.AutoSize = true;
             this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDu.Location = new System.Drawing.Point(655, 48);
+            this.txtSoDu.Location = new System.Drawing.Point(535, 48);
             this.txtSoDu.Name = "txtSoDu";
             this.txtSoDu.Size = new System.Drawing.Size(120, 20);
             this.txtSoDu.TabIndex = 16;
@@ -140,7 +147,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.lbClass.AutoSize = true;
             this.lbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbClass.Location = new System.Drawing.Point(233, 138);
+            this.lbClass.Location = new System.Drawing.Point(179, 138);
             this.lbClass.Name = "lbClass";
             this.lbClass.Size = new System.Drawing.Size(123, 20);
             this.lbClass.TabIndex = 15;
@@ -150,7 +157,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.lbNamhoc.AutoSize = true;
             this.lbNamhoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNamhoc.Location = new System.Drawing.Point(233, 109);
+            this.lbNamhoc.Location = new System.Drawing.Point(179, 109);
             this.lbNamhoc.Name = "lbNamhoc";
             this.lbNamhoc.Size = new System.Drawing.Size(123, 20);
             this.lbNamhoc.TabIndex = 15;
@@ -160,7 +167,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.lbBirthday.AutoSize = true;
             this.lbBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBirthday.Location = new System.Drawing.Point(233, 80);
+            this.lbBirthday.Location = new System.Drawing.Point(179, 80);
             this.lbBirthday.Name = "lbBirthday";
             this.lbBirthday.Size = new System.Drawing.Size(123, 20);
             this.lbBirthday.TabIndex = 15;
@@ -170,7 +177,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.txtTenKH.AutoSize = true;
             this.txtTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKH.Location = new System.Drawing.Point(233, 51);
+            this.txtTenKH.Location = new System.Drawing.Point(179, 51);
             this.txtTenKH.Name = "txtTenKH";
             this.txtTenKH.Size = new System.Drawing.Size(123, 20);
             this.txtTenKH.TabIndex = 15;
@@ -179,7 +186,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(540, 142);
+            this.label10.Location = new System.Drawing.Point(420, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 13);
             this.label10.TabIndex = 4;
@@ -189,7 +196,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.txtMaThe.AutoSize = true;
             this.txtMaThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaThe.Location = new System.Drawing.Point(655, 18);
+            this.txtMaThe.Location = new System.Drawing.Point(535, 18);
             this.txtMaThe.Name = "txtMaThe";
             this.txtMaThe.Size = new System.Drawing.Size(62, 20);
             this.txtMaThe.TabIndex = 14;
@@ -198,7 +205,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(568, 112);
+            this.label5.Location = new System.Drawing.Point(448, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 4;
@@ -207,7 +214,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(173, 142);
+            this.label7.Location = new System.Drawing.Point(119, 142);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 2;
@@ -217,7 +224,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             this.txtMaKH.AutoSize = true;
             this.txtMaKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKH.Location = new System.Drawing.Point(233, 22);
+            this.txtMaKH.Location = new System.Drawing.Point(179, 22);
             this.txtMaKH.Name = "txtMaKH";
             this.txtMaKH.Size = new System.Drawing.Size(118, 20);
             this.txtMaKH.TabIndex = 13;
@@ -226,7 +233,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(148, 113);
+            this.label9.Location = new System.Drawing.Point(94, 113);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 2;
@@ -235,7 +242,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(578, 82);
+            this.label8.Location = new System.Drawing.Point(458, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 4;
@@ -244,7 +251,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(144, 84);
+            this.label6.Location = new System.Drawing.Point(90, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 2;
@@ -253,7 +260,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(541, 52);
+            this.label3.Location = new System.Drawing.Point(421, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 3;
@@ -262,7 +269,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(112, 55);
+            this.label4.Location = new System.Drawing.Point(58, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 2;
@@ -271,7 +278,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(579, 22);
+            this.label2.Location = new System.Drawing.Point(459, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
@@ -280,7 +287,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 26);
+            this.label1.Location = new System.Drawing.Point(62, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
@@ -288,11 +295,6 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnXem);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.datEndDate);
-            this.groupBox2.Controls.Add(this.datStartDate);
             this.groupBox2.Controls.Add(this.dgv_DanhSach);
             this.groupBox2.Location = new System.Drawing.Point(12, 202);
             this.groupBox2.Name = "groupBox2";
@@ -303,7 +305,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // 
             // btnXem
             // 
-            this.btnXem.Location = new System.Drawing.Point(769, 14);
+            this.btnXem.Location = new System.Drawing.Point(881, 102);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(75, 23);
             this.btnXem.TabIndex = 33;
@@ -314,7 +316,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(114, 20);
+            this.label12.Location = new System.Drawing.Point(718, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 13);
             this.label12.TabIndex = 32;
@@ -323,7 +325,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(445, 20);
+            this.label11.Location = new System.Drawing.Point(709, 68);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 31;
@@ -332,17 +334,17 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // datEndDate
             // 
             this.datEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datEndDate.Location = new System.Drawing.Point(515, 16);
+            this.datEndDate.Location = new System.Drawing.Point(779, 64);
             this.datEndDate.Name = "datEndDate";
-            this.datEndDate.Size = new System.Drawing.Size(200, 20);
+            this.datEndDate.Size = new System.Drawing.Size(177, 20);
             this.datEndDate.TabIndex = 30;
             // 
             // datStartDate
             // 
             this.datStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datStartDate.Location = new System.Drawing.Point(175, 16);
+            this.datStartDate.Location = new System.Drawing.Point(779, 26);
             this.datStartDate.Name = "datStartDate";
-            this.datStartDate.Size = new System.Drawing.Size(200, 20);
+            this.datStartDate.Size = new System.Drawing.Size(177, 20);
             this.datStartDate.TabIndex = 29;
             // 
             // dgv_DanhSach
@@ -352,11 +354,12 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
             this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 46);
+            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
             this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(991, 416);
+            this.dgv_DanhSach.Size = new System.Drawing.Size(991, 443);
             this.dgv_DanhSach.TabIndex = 28;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout);
             // 
@@ -390,6 +393,7 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             // reportManager
             // 
             this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.OwnerForm = this;
             this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
             this.rpCardDetail});
             // 
@@ -416,7 +420,6 @@ this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.c
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

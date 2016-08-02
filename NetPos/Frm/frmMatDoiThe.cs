@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using FDI.Base;
 using FDI.DA;
@@ -27,8 +28,8 @@ namespace NetPos.Frm
             labTenTaiKhoan.Text = item.CustomerName;
             labLoaiThe.Text = item.CardType;
             var date = DateTime.Now;
-            var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0, 0);
-            var endDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            var startDate = new DateTime(date.Year, date.Month, 1, 0, 0,0);
+            var endDate = new DateTime(date.Year, date.Month, date.Day, 23, 59,59);
             dgv_DanhSach.DataSource = _da.GiaoDichGanNhat(CardNumber, startDate, endDate);
             txtCard.Visible = false;
             lbMatheMoi.Visible = false;
@@ -44,11 +45,9 @@ namespace NetPos.Frm
 
                 if (rdoBlock.Checked)
                 {
-                    //var item = _da.Get(IdCard);
-                    //item.IsLockCard = true;
-                    //IsLockCard = true;
-                    //IsUpdate = true;
-                    //_da.Save();
+                    var item = _da.Get(IdCard);
+                    item.CardStatus = "02";
+                    _da.Save();
                     MessageBox.Show(@"Khóa thẻ thành công !");
                 }
                 else if (rdoRename.Checked)
@@ -61,9 +60,17 @@ namespace NetPos.Frm
                     {
                         txtError.Dispose();
                         _da.UpdateCard(CardNumber, txtCard.Text);
-                        MessageBox.Show(@"Cập nhật thành công !");
+                        var log = new tblLog
+                        {
+                            Datetime = DateTime.Now,
+                            Object = "Mã thẻ cũ: " + CardNumber,
+                            Message = "Mã thẻ mới: " + txtCard.Text,
+                        };
+                        _da.Add(log);
+                        _da.Save();
                         IsUpdate = true;
                         CardNumber = txtCard.Text;
+                        MessageBox.Show(@"Cập nhật thành công !");
                     }
                 }
 
@@ -92,8 +99,6 @@ namespace NetPos.Frm
             }
             catch (Exception)
             {
-
-                throw;
             }
         }
 
@@ -132,35 +137,32 @@ namespace NetPos.Frm
             this.Close();
         }
 
-        private void dgv_DanhSach_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
             e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
             band.Columns["ID"].Hidden = true;
 
-            band.Columns["Action"].CellActivation = Activation.NoEdit;
             band.Columns["Date"].CellActivation = Activation.NoEdit;
             band.Columns["Value"].CellActivation = Activation.NoEdit;
-            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["Event"].CellActivation = Activation.NoEdit;
             band.Columns["Object"].CellActivation = Activation.NoEdit;
-            band.Columns["ProductCode"].CellActivation = Activation.NoEdit;
 
-            band.Columns["Action"].CellAppearance.TextHAlign = HAlign.Right;
+
             band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
-            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Object"].CellAppearance.TextHAlign = HAlign.Left;
-            band.Columns["ProductCode"].CellAppearance.TextHAlign = HAlign.Right;
 
             #region Caption
-            band.Columns["Action"].Header.Caption = @"Miêu tả";
+
             band.Columns["Date"].Header.Caption = @"Thời gian";
-            band.Columns["Value"].Header.Caption = @"Thanh toán";
-            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["Value"].Header.Caption = @"Số tiền";
+            band.Columns["Event"].Header.Caption = @"Giao dịch";
             band.Columns["Object"].Header.Caption = @"Đối tượng";
-            band.Columns["ProductCode"].Header.Caption = @"Mã hàng";
 
             #endregion
+
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 

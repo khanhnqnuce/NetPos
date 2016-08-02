@@ -5,6 +5,7 @@ using FDI;
 using FDI.DA;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
+using NetPos.Frm;
 using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
@@ -86,6 +87,30 @@ namespace NetPos.FrmCtrl
                 var fileName = string.Format("danh_sach_the_den-{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 var filePath = Path.Combine(path, fileName);
                 Excel.ExportToCardBackList(filePath, dgv_DanhSach);
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Rename()
+        {
+            try
+            {
+                if (dgv_DanhSach.ActiveRow == null) return;
+                var frm = new frmMatDoiThe();
+                var cardNumber = dgv_DanhSach.ActiveRow.Cells["CardNumber"].Text;
+                var idCard = dgv_DanhSach.ActiveRow.Cells["ID"].Text;
+                frm.IdCard = int.Parse(idCard);
+                if (string.IsNullOrEmpty(cardNumber)) return;
+                frm.CardNumber = cardNumber;
+                frm.ShowDialog();
+                if (frm.IsUpdate)
+                {
+                    dgv_DanhSach.ActiveRow.Cells["CardNumber"].Value = frm.CardNumber;
+                }
 
             }
             catch (Exception ex)

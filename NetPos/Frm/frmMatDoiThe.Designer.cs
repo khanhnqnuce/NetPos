@@ -181,6 +181,7 @@
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(210, 49);
             this.txtDes.TabIndex = 9;
+            this.txtDes.Visible = false;
             // 
             // lbMoTa
             // 
@@ -190,6 +191,7 @@
             this.lbMoTa.Size = new System.Drawing.Size(37, 13);
             this.lbMoTa.TabIndex = 8;
             this.lbMoTa.Text = "Mã tả:";
+            this.lbMoTa.Visible = false;
             // 
             // txtCard
             // 
@@ -197,6 +199,7 @@
             this.txtCard.Name = "txtCard";
             this.txtCard.Size = new System.Drawing.Size(210, 20);
             this.txtCard.TabIndex = 7;
+            this.txtCard.Visible = false;
             // 
             // lbMatheMoi
             // 
@@ -206,6 +209,7 @@
             this.lbMatheMoi.Size = new System.Drawing.Size(62, 13);
             this.lbMatheMoi.TabIndex = 6;
             this.lbMatheMoi.Text = "Mã thẻ mới:";
+            this.lbMatheMoi.Visible = false;
             // 
             // rdoRename
             // 

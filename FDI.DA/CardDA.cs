@@ -111,7 +111,7 @@ namespace FDI.DA
                         {
                             Event = c.Event,
                             Date = c.Date ?? new DateTime(),
-                            Value = c.Value ?? 0,
+                            Value = c.Value > 0 ?(decimal) c.Value:(decimal)(0-c.Value),
                             Object = c.Object,
                         };
             return query.ToList();
@@ -296,6 +296,12 @@ namespace FDI.DA
             return query.ToList();
         }
 
+        public tblCard Get(int id)
+        {
+            var query = from c in FDIDB.tblCards where c.Id == id select c;
+            return query.FirstOrDefault();
+        }
+
         public void UpdateCard(string cardOld, string cardNew)
         {
             FDIDB.sp_UpdateCard(cardNew, cardOld);
@@ -330,6 +336,11 @@ namespace FDI.DA
         public void Add(tblCard item)
         {
             FDIDB.tblCards.Add(item);
+        }
+
+        public void Add(tblLog item)
+        {
+            FDIDB.tblLogs.Add(item);
         }
 
         public void Delete(tblCard item)

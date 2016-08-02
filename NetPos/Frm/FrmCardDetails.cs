@@ -79,6 +79,7 @@ namespace NetPos.Frm
             band.Columns["Object"].Header.Caption = @"Đối tượng";
 
             #endregion
+
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 
