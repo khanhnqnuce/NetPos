@@ -12,6 +12,7 @@ namespace NetPos.FrmCtrl
     public partial class frmDachSachDen : UserControl
     {
         readonly BackListDA _da = new BackListDA();
+
         public frmDachSachDen()
         {
             InitializeComponent();
@@ -29,27 +30,27 @@ namespace NetPos.FrmCtrl
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Date"].CellActivation = Activation.NoEdit;
-            band.Columns["MemoryID"].CellActivation = Activation.NoEdit;
             band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
-            band.Columns["ToObjects"].CellActivation = Activation.NoEdit;
-            band.Columns["IsInActive"].CellActivation = Activation.NoEdit;
+            band.Columns["CardStatus"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerID"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerClass"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerName"].CellActivation = Activation.NoEdit;
+            band.Columns["CardType"].CellActivation = Activation.NoEdit;
+            band.Columns["CardTypeCode"].CellActivation = Activation.NoEdit;
+            band.Columns["SchoolYear"].CellActivation = Activation.NoEdit;
             band.Columns["Desc"].CellActivation = Activation.NoEdit;
-
-            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["MemoryID"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["ToObjects"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["IsInActive"].CellAppearance.TextHAlign = HAlign.Center;
-            band.Columns["Desc"].CellAppearance.TextHAlign = HAlign.Center;
 
             #region Caption
             band.Columns["Date"].Header.Caption = @"Thời gian";
-            band.Columns["MemoryID"].Header.Caption = @"MemoryID";
-            band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
-            band.Columns["ToObjects"].Header.Caption = @"Đầu đọc";
-            band.Columns["IsInActive"].Header.Caption = @"IsInActive";
-            band.Columns["Desc"].Header.Caption = @"Mô Tả";
-
+            band.Columns["CardNumber"].Header.Caption = @"Thời gian";
+            band.Columns["CardStatus"].Header.Caption = @"Thời gian";
+            band.Columns["CustomerID"].Header.Caption = @"Thời gian";
+            band.Columns["CustomerClass"].Header.Caption = @"Thời gian";
+            band.Columns["CustomerName"].Header.Caption = @"Thời gian";
+            band.Columns["CardType"].Header.Caption = @"Thời gian";
+            band.Columns["CardTypeCode"].Header.Caption = @"Thời gian";
+            band.Columns["SchoolYear"].Header.Caption = @"Thời gian";
+            band.Columns["Desc"].Header.Caption = @"Thời gian";
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
