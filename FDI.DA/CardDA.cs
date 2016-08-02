@@ -77,7 +77,7 @@ namespace FDI.DA
             }
         }
 
-        public List<CardItem> GetDuplicateCardTypeItems()
+        public List<CardItem> GetDuplicateCard()
         {
             try
             {
@@ -132,6 +132,7 @@ namespace FDI.DA
                             CardStatus = c.CardStatus,
                             CardNumber = c.CardNumber,
                             CardType = c.CardType,
+                            CardTypeCode = c.CardTypeCode,
                             CustomerID = c.CustomerID,
                             CustomerName = c.CustomerName,
                             DateIssue = c.DateIssue ?? new DateTime(),
@@ -288,6 +289,7 @@ namespace FDI.DA
 
         }
 
+        
         public List<tblCard> Get(List<int> lst)
         {
             var query = from c in FDIDB.tblCards where lst.Contains(c.Id) select c;
@@ -297,6 +299,32 @@ namespace FDI.DA
         public void UpdateCard(string cardOld, string cardNew)
         {
             FDIDB.sp_UpdateCard(cardNew, cardOld);
+        }
+
+        public tblCard GetCard(int id)
+        {
+            try
+            {
+                var query = from c in FDIDB.tblCards where c.Id == id select c;
+                return query.FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public tblCustomer GetCustomer(string code)
+        {
+            try
+            {
+                var query = from c in FDIDB.tblCustomers where c.CustomerID == code select c;
+                return query.FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public void Add(tblCard item)

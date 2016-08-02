@@ -11,6 +11,7 @@ namespace FDI.Simple
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }
         public string CardType { get; set; }
+        public string CardTypeCode { get; set; }
         public string SchoolYear { get; set; }
         public string BirthDate { get; set; }
         public int CustomerClass { get; set; }

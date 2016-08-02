@@ -26,18 +26,18 @@ namespace NetPos.FrmCtrl
 
         private void frmCard_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            //LoadGrid();
             //var thread = new Thread(LoadGrid) { IsBackground = true };
             //thread.Start();
             //OnShowDialog("Loading...");
             //LocCard();
         }
 
-        private void LoadGrid()
+        public void LoadGrid()
         {
             var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
-
+            lbTongGD.Text = lst.Count.ToString();
             //lock (LockTotal)
             //{
             //    OnCloseDialog();
@@ -105,12 +105,9 @@ namespace NetPos.FrmCtrl
                 frm.ShowDialog();
                 if (frm.IsUpdate)
                 {
-                    dgv_DanhSach.ActiveRow.Cells["Code"].Value = frm.TblCardItem.Code;
-                    dgv_DanhSach.ActiveRow.Cells["AccountName"].Value = frm.TblCardItem.AccountName;
-                    dgv_DanhSach.ActiveRow.Cells["CardTypeCode"].Value = frm.TblCardItem.CardTypeCode;
-                    dgv_DanhSach.ActiveRow.Cells["IsEdit"].Value = frm.TblCardItem.IsEdit;
-                    dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.TblCardItem.IsLockCard;
-                    dgv_DanhSach.ActiveRow.Cells["IsRelease"].Value = frm.TblCardItem.IsRelease;
+                    dgv_DanhSach.ActiveRow.Cells["CustomerID"].Value = frm.CustomerItem.CustomerID;
+                    dgv_DanhSach.ActiveRow.Cells["CustomerName"].Value = frm.CustomerItem.CustomerName;
+                    dgv_DanhSach.ActiveRow.Cells["CardStatus"].Value = frm.CustomerItem.CardStatus;
                 }
             }
             catch (Exception ex)
@@ -129,20 +126,19 @@ namespace NetPos.FrmCtrl
                 if (string.IsNullOrEmpty(id)) return;
                 frm.Id = int.Parse(id);
                 frm.ShowDialog();
-                //if (frm.IsUpdate)
-                //{
-                //    dgv_DanhSach.ActiveRow.Cells["Code"].Value = frm.TblCardItem.Code;
-                //    dgv_DanhSach.ActiveRow.Cells["AccountName"].Value = frm.TblCardItem.AccountName;
-                //    dgv_DanhSach.ActiveRow.Cells["CardTypeCode"].Value = frm.TblCardItem.CardTypeCode;
-                //    dgv_DanhSach.ActiveRow.Cells["IsEdit"].Value = frm.TblCardItem.IsEdit;
-                //    dgv_DanhSach.ActiveRow.Cells["IsLockCard"].Value = frm.TblCardItem.IsLockCard;
-                //    dgv_DanhSach.ActiveRow.Cells["IsRelease"].Value = frm.TblCardItem.IsRelease;
-                //}
+                
             }
             catch (Exception ex)
             {
                 Log2File.LogExceptionToFile(ex);
             }
+        }
+
+        public void LocCard()
+        {
+            var form = new frmLocCard();
+            form.FillterRecord += FillterRecord;
+            form.ShowDialog();
         }
 
         public void Rename()
@@ -203,7 +199,7 @@ namespace NetPos.FrmCtrl
                     _da.Delete(item);
                 }
                 _da.Save();
-
+                MessageBox.Show(@"Xóa thẻ thành công !");
 
             }
             catch (Exception ex)
@@ -216,7 +212,6 @@ namespace NetPos.FrmCtrl
         {
             try
             {
-                //var lst = _da.GetAll();
                 reportManager.DataSources.Clear();
                 reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
                 rpCard.FilePath = Application.StartupPath + @"\Reports\rpCard.rst";
@@ -270,62 +265,11 @@ namespace NetPos.FrmCtrl
                 Log2File.LogExceptionToFile(ex);
             }
         }
-        #endregion
 
-        private void dgv_DanhSach_MouseClick(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    ContextMenu m = new ContextMenu();
-            //    m.MenuItems.Add(new MenuItem("Cut"));
-            //    m.MenuItems.Add(new MenuItem("Copy"));
-            //    m.MenuItems.Add(new MenuItem("Paste"));
-
-            //    int currentMouseOverRow = dgv_DanhSach.HitTest(e.X, e.Y).RowIndex;
-
-            //    if (currentMouseOverRow >= 0)
-            //    {
-            //        m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
-            //    }
-
-            //    m.Show(dgv_DanhSach, new Point(e.X, e.Y));
-
-            //}
-        }
-
-        //private void btnTimKiem_Click(object sender, EventArgs e)
-        //{
-        //    var code = txtMaKhachHang.Text;
-        //    var NumberCard = txtMaThe.Text;
-        //    var name = txtName.Text;
-        //    var TypeCard = cboTypeCard.SelectedValue.ToString();
-
-        //    var lst = _da.FindCardItems(code, NumberCard, name, TypeCard);
-        //    dgv_DanhSach.DataSource = lst.ToDataTable();
-
-        //}
-
-        //private void btnReset_Click(object sender, EventArgs e)
-        //{
-        //    txtMaKhachHang.Text = "";
-        //    txtMaThe.Text = "";
-        //    txtName.Text = "";
-        //    cboTypeCard.SelectedItem = 0;
-        //    var lst = _da.GetAll();
-        //    dgv_DanhSach.DataSource = lst.ToDataTable();
-        //}
-
-        public void LocCard()
-        {
-            var form = new frmLocCard();
-            form.FillterRecord += FillterRecord;
-            form.ShowDialog();
-        }
-
-        #region Event
         private void FillterRecord(object sender, List<CardItem> lst)
         {
             dgv_DanhSach.DataSource = lst.ToDataTable();
+            lbTongGD.Text = lst.Count.ToString();
         }
         #endregion
 

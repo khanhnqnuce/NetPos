@@ -95,7 +95,6 @@
             this.Controls.Add(this.pn_Main);
             this.Name = "frmDachSachDen";
             this.Size = new System.Drawing.Size(1195, 549);
-            this.Load += new System.EventHandler(this.frmDachSachDen_Load);
             this.pn_Main.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();

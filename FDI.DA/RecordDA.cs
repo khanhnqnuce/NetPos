@@ -57,25 +57,20 @@ namespace FDI.DA
 
         }
 
-        public List<RecordItem> FindRecordItems(DateTime StartDate, DateTime EndDate, string Buiding, string Area, string PC, string Object, string Function, string EventCode, string TypeCard, string CardNumber, string User)
+        public List<EventItem> FindRecordItems(DateTime startDate, DateTime endDate, string buiding, string area, string ob)
         {
             try
             {
-                var query = from c in FDIDB.sp_Record( StartDate, EndDate, Buiding, Area, PC, Object, Function, EventCode, TypeCard, CardNumber, User)
-                            select new RecordItem
+                var query = from c in FDIDB.sp_TatCaGiaoDich(startDate, endDate, buiding, area, ob)
+                            orderby c.Date descending 
+                            select new EventItem
                             {
+                                Date = c.Date??new DateTime(),
                                 CardNumber = c.CardNumber,
-                                Date = c.Date ?? new DateTime(),
-                                Value = c.Value ?? 0,
-                                Balance = c.Balance ?? 0,
-                                Action = c.Action,
-                                AccountName = c.AccountName,
-                                CardType = c.CardType,
-                                Buiding = c.Buiding,
-                                Area = c.Area,
-                                UserName = c.UserName,
-                                EventId = c.EventID,
-                                ProductCode = c.ProductCode
+                                Event = c.Event,
+                                Value = c.Value??0,
+                                Object = c.Object,
+                                Area = c.Area
                             };
                 return query.ToList();
             }

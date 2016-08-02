@@ -43,7 +43,6 @@
             this.menuBCDTBanHang = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXemThongTin = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuThem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSua = new System.Windows.Forms.ToolStripMenuItem();
             this.menuXoa = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMatDoiThe = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +74,6 @@
             this.menuThongKe,
             this.toolStripMenuItem2,
             this.menuXemThongTin,
-            this.menuThem,
             this.menuSua,
             this.menuXoa,
             this.menuMatDoiThe,
@@ -151,8 +149,7 @@
             // 
             this.menuBaoCaoDanhThuChiTiet.Name = "menuBaoCaoDanhThuChiTiet";
             this.menuBaoCaoDanhThuChiTiet.Size = new System.Drawing.Size(227, 22);
-            this.menuBaoCaoDanhThuChiTiet.Text = "Báo cáo doanh thu chi tiết";
-            this.menuBaoCaoDanhThuChiTiet.Visible = false;
+            this.menuBaoCaoDanhThuChiTiet.Text = "Thống kê chi tiết giao dịch";
             this.menuBaoCaoDanhThuChiTiet.Click += new System.EventHandler(this.menuBaoCaoDanhThuChiTiet_Click);
             // 
             // menuBaoCaoTongHop
@@ -192,14 +189,6 @@
             this.menuXemThongTin.Size = new System.Drawing.Size(117, 20);
             this.menuXemThongTin.Text = "Xem Thông Tin";
             this.menuXemThongTin.Click += new System.EventHandler(this.menuXemThongTin_Click);
-            // 
-            // menuThem
-            // 
-            this.menuThem.Image = global::NetPos.Properties.Resources.Add;
-            this.menuThem.Name = "menuThem";
-            this.menuThem.Size = new System.Drawing.Size(66, 20);
-            this.menuThem.Text = "Thêm";
-            this.menuThem.Click += new System.EventHandler(this.menuThem_Click);
             // 
             // menuSua
             // 
@@ -300,7 +289,6 @@
         private System.Windows.Forms.Panel pn_Top;
         private System.Windows.Forms.Panel pn_Main;
         private System.Windows.Forms.MenuStrip menuMain;
-        private System.Windows.Forms.ToolStripMenuItem menuThem;
         private System.Windows.Forms.ToolStripMenuItem menuSua;
         private System.Windows.Forms.ToolStripMenuItem menuXoa;
         private System.Windows.Forms.ToolStripMenuItem menuMatDoiThe;

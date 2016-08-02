@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using FDI.Base;
 using FDI.DA;
+using FDI.Simple;
 
 namespace NetPos.Frm
 {
@@ -9,7 +9,7 @@ namespace NetPos.Frm
     {
         public int Id;
         readonly CardDA _cardDa = new CardDA();
-        public tblCard TblCardItem;
+        public CustomerItem CustomerItem;
         public bool IsUpdate = false;
         public frmEditCard()
         {
@@ -18,33 +18,50 @@ namespace NetPos.Frm
 
         private void frmEditCard_Load(object sender, EventArgs e)
         {
-            //TblCardItem = _cardDa.Get(Id);
-            //txtAccountName.Text = TblCardItem.AccountName;
-            //txtBalance.Value = TblCardItem.Balance;
-            //txtCardNumber.Text = TblCardItem.CardNumber;
-            //txtCode.Text = TblCardItem.Code;
-            //txtDiemThuong.Text = @"0";
-            //chkIsEdit.Checked = TblCardItem.IsEdit;
-            //chkIsLockCard.Checked = TblCardItem.IsLockCard ?? false;
-            //chkIsRelease.Checked = TblCardItem.IsRelease ?? false;
-            //var lstCardType = _cardDa.GetTypeCard();
-            //cboCardType.DataSource = lstCardType;
-            //cboCardType.SelectedValue = TblCardItem.CardTypeCode;
+            CustomerItem = _cardDa.GetCustomer(Id);
+            txtCusName.Text = CustomerItem.CustomerName;
+            txtBalance.Value = CustomerItem.Balance;
+            txtCardNumber.Text = CustomerItem.CardNumber;
+            txtCusCode.Text = CustomerItem.CustomerID;
+            cbKhoa.Checked = CustomerItem.CardStatus == "02";
+            cbPhatH.Checked = CustomerItem.CardStatus == "01";
+            cbChuaPH.Checked = CustomerItem.CardStatus == "00";
+            var lstCardType = _cardDa.GetTypeCard();
+            cboCardType.DataSource = lstCardType;
+            cboCardType.SelectedValue = CustomerItem.CardTypeCode;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                TblCardItem.Code = txtCode.Text;
-                TblCardItem.AccountName = txtAccountName.Text;
-                TblCardItem.IsEdit = chkIsEdit.Checked;
-                TblCardItem.IsLockCard = chkIsLockCard.Checked;
-                TblCardItem.IsRelease = chkIsRelease.Checked;
-                if (cboCardType.SelectedValue != null)
-                {
-                    TblCardItem.CardTypeCode = cboCardType.SelectedValue.ToString();
+                var card = _cardDa.GetCard(Id);
+                var cus = _cardDa.GetCustomer(card.OwnerCode);
+
+                if (cbChuaPH.Checked)
+                { 
+                    card.CardStatus = "00";
+                    CustomerItem.CardStatus = "Chưa phát hành";
                 }
+                if (cbPhatH.Checked)
+                {
+                    card.CardStatus = "01";
+                    CustomerItem.CardStatus = "Đã phát hành";
+                }
+                if (cbKhoa.Checked)
+                {
+                    card.CardStatus = "02";
+                    CustomerItem.CardStatus = "Đã khóa";
+                }
+
+                card.CardTypeCode = cboCardType.SelectedValue.ToString();
+
+                cus.CustomerID = txtCusCode.Text;
+                cus.CustomerName = txtCusName.Text;
+
+                CustomerItem.CustomerID = txtCusCode.Text;
+                CustomerItem.CustomerName = txtCusName.Text;
+
                 _cardDa.Save();
                 IsUpdate = true;
                 MessageBox.Show(@"Cập nhật dữ liệu thành công !");

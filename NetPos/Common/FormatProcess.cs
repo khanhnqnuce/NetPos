@@ -31,8 +31,8 @@ namespace NetPos
         }
         public static void FormatMonney(this UltraGridColumn @column)
         {
-            @column.Format = @"n";
-            @column.MaskInput = @"{LOC}-nnn,nnn,nnn";
+            @column.Format = @"#,##";
+            //@column.MaskInput = @"{LOC}-nnn.nnn.nnn";
             @column.MaskDataMode = MaskMode.IncludeLiteralsWithPadding;
             @column.MaskDisplayMode = MaskMode.IncludeBoth;
             @column.MaskClipMode = MaskMode.IncludeLiterals;

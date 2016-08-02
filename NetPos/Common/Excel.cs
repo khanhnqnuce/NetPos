@@ -23,8 +23,8 @@ namespace NetPos
                     {
                         "STT",
                         "Mã KH",
-                        "Số thẻ",
-                        "Tên tài khoản",
+                        "Mã thẻ",
+                        "Tên KH",
                         "Số dư",
                         "Loại thẻ",
                         "Trạng thái",
@@ -39,7 +39,7 @@ namespace NetPos
                 worksheet.Cells["A1:H2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 worksheet.Cells["A1:H2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
 
-                var row = 3;
+                var row = 4;
                 for (var i = 0; i < properties.Length; i++)
                 {
                     worksheet.Cells[row, i + 1].Value = properties[i];
@@ -83,7 +83,7 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
-                    worksheet.Cells[row, col].Value = item.Cells["DateIssue"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["DateIssue"].Value;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col].Style.Numberformat.Format = "@";
                     row++;
@@ -135,32 +135,27 @@ namespace NetPos
             var newFile = new FileInfo(filePath);
             using (var xlPackage = new ExcelPackage(newFile))
             {
-                var worksheet = xlPackage.Workbook.Worksheets.Add("Order");
+                var worksheet = xlPackage.Workbook.Worksheets.Add("GiaoDich");
                 xlPackage.Workbook.CalcMode = ExcelCalcMode.Manual;
                 var properties = new[]
                     {
                         "STT",
-                        "Mã thẻ",
                         "Thời gian",
-                        "Thanh toán",
-                        "Số dư tài khoản",
-                        "Miêu tả",
-                        "Tên tài khoản",
-                        "Loại thẻ",
-                        "Tòa nhà",
-                        "Khu vực",
-                        "Nhân viên bán thẻ"
+                        "Mã thẻ",
+                        "Loại giao dịch",
+                        "Số tiền",
+                        "Đối tượng",
+                        "Khu vục"
                     };
-                worksheet.Cells["A1:K2"].Value = "BÁO CÁO DOANH THU CHI TIẾT";
-                worksheet.Cells["A1:K2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                worksheet.Cells["A1:K2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
-                worksheet.Cells["A1:K2"].Style.Font.Bold = true;
-                worksheet.Cells["A1:K2"].Style.Font.Size = 14;
-                worksheet.Cells["A1:K2"].Merge = true;
-                worksheet.Cells["A1:K2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                worksheet.Cells["A1:K2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                worksheet.Cells["A1:G2"].Value = "CHI TIẾT GIAO DỊCH";
+                worksheet.Cells["A1:G2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells["A1:G2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                worksheet.Cells["A1:G2"].Style.Font.Bold = true;
+                worksheet.Cells["A1:G2"].Style.Font.Size = 14;
+                worksheet.Cells["A1:G2"].Merge = true;
+                worksheet.Cells["A1:G2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-                var row = 3;
+                var row = 4;
                 for (var i = 0; i < properties.Length; i++)
                 {
                     worksheet.Cells[row, i + 1].Value = properties[i];
@@ -180,48 +175,32 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-                    worksheet.Cells[row, col].Value = item.Cells["CardNumber"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
                     worksheet.Cells[row, col].Value = item.Cells["Date"].Value;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "dd/MM/yyyy";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CardNumber"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["Event"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
                     worksheet.Cells[row, col].Value = item.Cells["Value"].Value;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "#,##";
 
-                    worksheet.Cells[row, col].Value = item.Cells["Balance"].Value;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "#,##";
-
-                    worksheet.Cells[row, col].Value = item.Cells["Action"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                    worksheet.Cells[row, col].Value = item.Cells["AccountName"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                    worksheet.Cells[row, col].Value = item.Cells["CardType"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                    worksheet.Cells[row, col].Value = item.Cells["Buiding"].Text;
+                    worksheet.Cells[row, col].Value = item.Cells["Object"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
 
                     worksheet.Cells[row, col].Value = item.Cells["Area"].Text;
                     worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
-                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                    worksheet.Cells[row, col].Value = item.Cells["UserName"].Text;
-                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
                     worksheet.Cells[row, col].Style.Numberformat.Format = "@";
                     row++;
                 }
-                var nameexcel = "Bao cao doanh thu chi tiet" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
+                var nameexcel = "tong giao dich" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
                 xlPackage.Workbook.Properties.Title = string.Format("{0} reports", nameexcel);
                 xlPackage.Workbook.Properties.Author = "Admin-IT";
                 xlPackage.Workbook.Properties.Subject = string.Format("{0} reports", "");

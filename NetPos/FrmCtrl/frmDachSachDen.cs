@@ -17,9 +17,9 @@ namespace NetPos.FrmCtrl
             InitializeComponent();
         }
 
-        private void frmDachSachDen_Load(object sender, System.EventArgs e)
+        public void LoadGrid()
         {
-            var lst = _da.GetAdminAllSimple();
+            var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
         }
 

@@ -18,4 +18,15 @@ namespace FDI.Simple
         public string EventId { get; set; }
         public string ProductCode { get; set; }
     }
+    
+      public class EventItem
+        {
+            public DateTime Date { get; set; }
+            public string CardNumber { get; set; }
+            public string Event { get; set; }
+            public decimal Value { get; set; }
+            public string Object { get; set; }
+            public string Area { get; set; }
+        }
+   
 }

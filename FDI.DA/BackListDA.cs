@@ -8,7 +8,7 @@ namespace FDI.DA
 {
     public class BackListDA : BaseDA
     {
-        public List<BackListItem> GetAdminAllSimple()
+        public List<BackListItem> GetAll()
         {
             try
             {
