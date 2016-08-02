@@ -12,15 +12,20 @@ namespace FDI.DA
         {
             try
             {
-                var query = from c in FDIDB.tblBlackLists
+                var query = from c in FDIDB.sp_GetBackList()
                             select new BackListItem
                             {
-                                Date = c.Date ?? new DateTime(),
-                                MemoryID = c.MemoryID??0,
                                 CardNumber = c.CardNumber,
-                                ToObjects = c.ToObjects,
-                                IsInActive = c.IsInActive??false,
-                                Desc = c.Desc
+                                CardTypeCode = c.CardTypeCode,
+                                CustomerID = c.CustomerID,
+                                SchoolYear = c.SchoolYear,
+                                ID = c.id,
+                                Date = c.Date??new DateTime(),
+                                Desc = c.Desc,
+                                CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
+                                CardType = c.CardType,
+                                CustomerClass = c.CustomerClass??0,
+                                CustomerName = c.CustomerName
                             };
 
                 return query.ToList();

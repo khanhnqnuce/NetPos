@@ -27,6 +27,7 @@ namespace NetPos.FrmCtrl
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
         {
             var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
             band.Columns["ID"].Hidden = true;
 
             band.Columns["Date"].CellActivation = Activation.NoEdit;
@@ -42,15 +43,15 @@ namespace NetPos.FrmCtrl
 
             #region Caption
             band.Columns["Date"].Header.Caption = @"Thời gian";
-            band.Columns["CardNumber"].Header.Caption = @"Thời gian";
-            band.Columns["CardStatus"].Header.Caption = @"Thời gian";
-            band.Columns["CustomerID"].Header.Caption = @"Thời gian";
-            band.Columns["CustomerClass"].Header.Caption = @"Thời gian";
-            band.Columns["CustomerName"].Header.Caption = @"Thời gian";
-            band.Columns["CardType"].Header.Caption = @"Thời gian";
-            band.Columns["CardTypeCode"].Header.Caption = @"Thời gian";
-            band.Columns["SchoolYear"].Header.Caption = @"Thời gian";
-            band.Columns["Desc"].Header.Caption = @"Thời gian";
+            band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
+            band.Columns["CardStatus"].Header.Caption = @"Trạng thái";
+            band.Columns["CustomerID"].Header.Caption = @"Mã KH";
+            band.Columns["CustomerClass"].Header.Caption = @"Lớp";
+            band.Columns["CustomerName"].Header.Caption = @"Tên KH";
+            band.Columns["CardType"].Header.Caption = @"Loại thẻ";
+            band.Columns["CardTypeCode"].Hidden = true;
+            band.Columns["SchoolYear"].Header.Caption = @"Năm học";
+            band.Columns["Desc"].Header.Caption = @"Mô tả";
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
@@ -81,9 +82,9 @@ namespace NetPos.FrmCtrl
         {
             try
             {
-                var fileName = string.Format("danh_sach_the_{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var fileName = string.Format("danh_sach_the_den-{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 var filePath = Path.Combine(path, fileName);
-                Excel.ExportToCard(filePath, dgv_DanhSach);
+                Excel.ExportToCardBackList(filePath, dgv_DanhSach);
 
             }
             catch (Exception ex)

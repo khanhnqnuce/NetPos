@@ -18,7 +18,7 @@ namespace NetPos.Frm
         #region Contructor
 
         frmCard _frmCard;
-        readonly frmRecord _frmRecord;
+        frmRecord _frmRecord;
         readonly frmTheTrungNhau _frmTheTrung;
         readonly frmDachSachDen _frmDachSachDen;
         readonly frmThongKeThe _frmTkThe;
@@ -63,11 +63,6 @@ namespace NetPos.Frm
             _frmCard.LoadGrid();
         }
 
-        private void menuThem_Click(object sender, EventArgs e)
-        {
-            _frmCard.Add();
-        }
-
         private void menuSua_Click(object sender, EventArgs e)
         {
             _frmCard.Edit();
@@ -109,6 +104,7 @@ namespace NetPos.Frm
         {
             _process = Process.ReportDetail;
             Function();
+            _frmRecord = new frmRecord();
             ShowControl(_frmRecord, pn_Main);
             _frmRecord.Loc();
         }

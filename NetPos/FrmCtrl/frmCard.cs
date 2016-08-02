@@ -233,7 +233,7 @@ namespace NetPos.FrmCtrl
         {
             try
             {
-                var fileName = string.Format("danh_sach_the_{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var fileName = string.Format("danh_sach_the{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 var filePath = Path.Combine(path, fileName);
                 Excel.ExportToCard(filePath, dgv_DanhSach);
 

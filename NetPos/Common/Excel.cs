@@ -37,7 +37,6 @@ namespace NetPos
                 worksheet.Cells["A1:H2"].Style.Font.Size = 12;
                 worksheet.Cells["A1:H2"].Merge = true;
                 worksheet.Cells["A1:H2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                worksheet.Cells["A1:H2"].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
 
                 var row = 4;
                 for (var i = 0; i < properties.Length; i++)
@@ -88,39 +87,102 @@ namespace NetPos
                     worksheet.Cells[row, col].Style.Numberformat.Format = "@";
                     row++;
                 }
-                //foreach (var item in report)
-                //{
-                //    var col = 1;
-                //    worksheet.Cells[row, col].Value = stt++;
-                //    worksheet.Cells[row, col].Style.Numberformat.Format = "0";
-                //    worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-
-                //    worksheet.Cells[row, col].Value = item.Code;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.CardNumber;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.AccountName;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.Balance;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.CardTypeCode;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.IsRelease;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.IsEdit;
-                //    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
-
-                //    worksheet.Cells[row, col].Value = item.IsLockCard;
-                //    worksheet.Cells[row, col].Style.Numberformat.Format = "@";
-                //    row++;
-                //}
                 var nameexcel = "Danh sách thẻ" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
+                xlPackage.Workbook.Properties.Title = string.Format("{0} reports", nameexcel);
+                xlPackage.Workbook.Properties.Author = "Admin-IT";
+                xlPackage.Workbook.Properties.Subject = string.Format("{0} reports", "");
+                xlPackage.Workbook.Properties.Category = "Report";
+                xlPackage.Workbook.Properties.Company = "NetPos";
+                xlPackage.Save();
+            }
+        }
+
+        public static void ExportToCardBackList(string filePath, UltraGrid grid)
+        {
+            var newFile = new FileInfo(filePath);
+            using (var xlPackage = new ExcelPackage(newFile))
+            {
+                var worksheet = xlPackage.Workbook.Worksheets.Add("Order");
+                xlPackage.Workbook.CalcMode = ExcelCalcMode.Manual;
+                var properties = new[]
+                    {
+                        "STT",
+                        "Thời gian",
+                        "Mã thẻ",
+                        "Trạng thái",
+                        "Mã KH",
+                        "Lớp",
+                        "Tên KH",
+                        "Loại thẻ",
+                        "Năm học",
+                        "Mô tả"
+                    };
+                worksheet.Cells["A1:J2"].Value = "DANH SÁCH THẺ ĐEN";
+                worksheet.Cells["A1:J2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                worksheet.Cells["A1:J2"].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(255, 255, 255));
+                worksheet.Cells["A1:J2"].Style.Font.Bold = true;
+                worksheet.Cells["A1:J2"].Style.Font.Size = 12;
+                worksheet.Cells["A1:J2"].Merge = true;
+                worksheet.Cells["A1:J2"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                var row = 4;
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    worksheet.Cells[row, i + 1].Value = properties[i];
+                    worksheet.Cells[row, i + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    worksheet.Cells[row, i + 1].Style.Fill.BackgroundColor.SetColor(Color.FromArgb(184, 204, 228));
+                    worksheet.Cells[row, i + 1].Style.Font.Bold = true;
+                    worksheet.Cells[row, i + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                }
+                worksheet.Cells[row, 1, row, properties.Length].AutoFilter = true;
+                row++;
+                var stt = 1;
+                foreach (var item in grid.Rows)
+                {
+                    var col = 1;
+                    worksheet.Cells[row, col].Value = stt++;
+                    worksheet.Cells[row, col].Style.Numberformat.Format = "0";
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                    worksheet.Cells[row, col].Value = item.Cells["Date"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "dd/MM/yyyy";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CardNumber"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CardStatus"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CustomerID"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CustomerClass"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CustomerName"].Text;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["CardType"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["SchoolYear"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+
+                    worksheet.Cells[row, col].Value = item.Cells["Desc"].Value;
+                    worksheet.Cells[row, col].Style.Border.BorderAround(ExcelBorderStyle.Thin, Color.Black);
+                    worksheet.Cells[row, col++].Style.Numberformat.Format = "@";
+                    row++;
+                }
+                var nameexcel = "Danh sách thẻ đen" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss.fff");
                 xlPackage.Workbook.Properties.Title = string.Format("{0} reports", nameexcel);
                 xlPackage.Workbook.Properties.Author = "Admin-IT";
                 xlPackage.Workbook.Properties.Subject = string.Format("{0} reports", "");
@@ -414,7 +476,6 @@ namespace NetPos
                 xlPackage.Save();
             }
         }
-
 
         public static void ChiTietThe(string filePath, CustomerItem customerItem, UltraGrid grid, string starDate, string endDate)
         {
