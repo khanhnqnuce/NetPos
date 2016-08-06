@@ -19,6 +19,7 @@ namespace NetPos.FrmCtrl
             _userItem = userItem;
             _formLoc = new frmLocDTBanHang(_modelItem);
             _formLoc.FillterRecordBuyProduct += FillterRecordBuyProduct;
+            _formLoc.FillterRecordDetailBuyProduct += FillterRecordDetailBuyProduct;
             InitializeComponent();
         }
 
@@ -34,6 +35,11 @@ namespace NetPos.FrmCtrl
         private void FillterRecordBuyProduct(object sender, List<ThongKeItem> lst)
         {
             dgv_DanhSach.DataSource = lst.ToDataTable();
+        }
+
+        private void FillterRecordDetailBuyProduct(object sender, List<EventItem> lst)
+        {
+            dgv_DanhSachChiTiet.DataSource = lst.ToDataTable();
         }
         #endregion
 
@@ -53,6 +59,44 @@ namespace NetPos.FrmCtrl
             band.Columns["Name"].Header.Caption = @"Thông tin";
             band.Columns["Value"].Header.Caption = @"Số lượng";
             band.Columns["Value"].FormatMonney();
+        }
+
+        private void dgv_DanhSachChiTiet_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
+
+            band.Columns["Date"].CellActivation = Activation.NoEdit;
+            band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
+            band.Columns["Event"].CellActivation = Activation.NoEdit;
+            band.Columns["Value"].CellActivation = Activation.NoEdit;
+            band.Columns["Object"].CellActivation = Activation.NoEdit;
+            band.Columns["Area"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["EventCode"].Hidden = true;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            //band.Columns["Balance"].FormatMonney();
+
+            band.Columns["Value"].FormatMonney();
+            band.Columns["Date"].Format = @"dd/MM/yyyy hh:mm";
+
+            #region Caption
+            band.Columns["Date"].Header.Caption = @"Thời gian";
+            band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
+            band.Columns["Event"].Header.Caption = @"Loại giao dịch";
+            band.Columns["Value"].Header.Caption = @"Số tiền";
+            band.Columns["Balance"].Header.Caption = @"Số dư";
+            band.Columns["Object"].Header.Caption = @"Đối tượng";
+            band.Columns["Area"].Header.Caption = @"Khu vực";
+
+            #endregion
+            band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
 
     }

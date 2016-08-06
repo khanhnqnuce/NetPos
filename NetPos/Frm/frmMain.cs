@@ -339,6 +339,7 @@ namespace NetPos.Frm
                     menuThoat.Visible = true;
                     break;
             }
+            menuBaoCaoDanhThuChiTiet.Visible = false;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

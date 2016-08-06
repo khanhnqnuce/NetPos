@@ -13,6 +13,9 @@ namespace FDI.DA
         {
             try
             {
+                // Update so du
+                FDIDB.sp_capnhatsodu();
+
                 var query = from c in FDIDB.sp_GetListCard(id)
                             select new CardItem
                     {
@@ -25,6 +28,31 @@ namespace FDI.DA
                         CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
                         DateIssue = c.DateIssue == null ? "" : c.DateIssue.Value.ToString("dd/MM/yyyy"),
                     };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return new List<CardItem>();
+            }
+
+        }
+
+        public List<CardItem> ReportDetailCard(string buiding, string area, string obj)
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_ThongKeTheChiTiet(buiding, area, obj)
+                            select new CardItem
+                            {
+                                ID = c.id,
+                                CustomerID = c.CustomerID,
+                                CardNumber = c.CardNumber,
+                                CustomerName = c.CustomerName,
+                                Balance = c.Balance,
+                                CardType = c.CardType,
+                                CardStatus = c.CardStatus == "00" ? "Chưa phát hành" : (c.CardStatus == "01" ? "Đã phát hành" : "Đã khóa"),
+                                DateIssue = c.DateIssue == null ? "" : c.DateIssue.Value.ToString("dd/MM/yyyy"),
+                            };
                 return query.ToList();
             }
             catch (Exception)
@@ -112,6 +140,7 @@ namespace FDI.DA
                             Event = c.Event,
                             Date = c.Date ?? new DateTime(),
                             Value = c.Value > 0 ?(decimal) c.Value:(decimal)(0-c.Value),
+                            Balance = c.Balance ?? 0,
                             Object = c.Object,
                         };
             return query.ToList();
@@ -197,59 +226,59 @@ namespace FDI.DA
             
         }
 
-        public List<RecordItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
-        {
-            try
-            {
-                var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
-                            select new RecordItem
-                            {
-                                CardNumber = c.CardNumber,
-                                Date = c.Date ?? new DateTime(),
-                                Value = c.Value ?? 0,
-                                Balance = c.Balance ?? 0,
-                                Action = c.Action,
-                                AccountName = c.AccountName,
-                                CardType = c.CardType,
-                                Buiding = c.Buiding,
-                                Area = c.Area,
-                                UserName = c.UserName
-                            };
-                return query.ToList();
-            }
-            catch (Exception)
-            {
-                return new List<RecordItem>();
-            }
-            
-        }
+        //public List<RecordItem> ReportRevenueCard(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        //{
+        //    try
+        //    {
+        //        var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, obj)
+        //                    select new RecordItem
+        //                    {
+        //                        CardNumber = c.CardNumber,
+        //                        Date = c.Date ?? new DateTime(),
+        //                        Value = c.Value ?? 0,
+        //                        Balance = c.Balance ?? 0,
+        //                        Action = c.Action,
+        //                        AccountName = c.AccountName,
+        //                        CardType = c.CardType,
+        //                        Buiding = c.Buiding,
+        //                        Area = c.Area,
+        //                        UserName = c.UserName
+        //                    };
+        //        return query.ToList();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new List<RecordItem>();
+        //    }
 
-        public List<RecordItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
-        {
-            try
-            {
-                var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)
-                            select new RecordItem
-                            {
-                                CardNumber = c.CardNumber,
-                                Date = c.Date ?? new DateTime(),
-                                Value = c.Value ?? 0,
-                                Balance = c.Balance ?? 0,
-                                Action = c.Action,
-                                AccountName = c.AccountName,
-                                CardType = c.CardType,
-                                Buiding = c.Buiding,
-                                Area = c.Area,
-                                UserName = c.UserName
-                            };
-                return query.ToList();
-            }
-            catch (Exception)
-            {
-                return new List<RecordItem>();
-            }
+        //}
+
+        //public List<RecordItem> ReportRevenueBuyProduct(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
+        //{
+        //    try
+        //    {
+        //        var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, obj)
+        //                    select new RecordItem
+        //                    {
+        //                        CardNumber = c.CardNumber,
+        //                        Date = c.Date ?? new DateTime(),
+        //                        Value = c.Value ?? 0,
+        //                        Balance = c.Balance ?? 0,
+        //                        Action = c.Action,
+        //                        AccountName = c.AccountName,
+        //                        CardType = c.CardType,
+        //                        Buiding = c.Buiding,
+        //                        Area = c.Area,
+        //                        UserName = c.UserName
+        //                    };
+        //        return query.ToList();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new List<RecordItem>();
+        //    }
             
-        }
+        //}
 
         public List<ThongKeItem> DTBanTheTongHop(DateTime startDate, DateTime endDate, string buiding, string area, string obj)
         {

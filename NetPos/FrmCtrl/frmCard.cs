@@ -35,9 +35,11 @@ namespace NetPos.FrmCtrl
 
         public void LoadGrid()
         {
+            //ok
             var lst = _da.GetAll();
             dgv_DanhSach.DataSource = lst.ToDataTable();
             lbTongGD.Text = lst.Count.ToString();
+
             //lock (LockTotal)
             //{
             //    OnCloseDialog();

@@ -20,6 +20,14 @@ namespace NetPos.Frm
             var handler = FillterRecordCard;
             if (handler != null) handler(this, hs);
         }
+
+        public delegate void CustomHandlerDetail(object sender, List<EventItem> lst);
+        public event CustomHandlerDetail FillterRecordDetailCard;
+        protected virtual void OnFillterRecordDetailCard(List<EventItem> hs)
+        {
+            var handler = FillterRecordDetailCard;
+            if (handler != null) handler(this, hs);
+        }
         public frmLocDTBanThe(ModelItem modelItem)
         {
             ModelItem = modelItem;
@@ -106,8 +114,12 @@ namespace NetPos.Frm
             var endDate = datEndDate.Value;
             var area = cboArea.SelectedValue.ToString();
             var obj = cboObject.SelectedValue.ToString();
+
             var items = _cardDa.DTBanTheTongHop(startDate, endDate, buiding, area, obj);
             OnFillterRecordCard(items);
+
+            var list = _recordDa.FindDetailRecordItems(startDate, endDate, buiding, area, obj);
+            OnFillterRecordDetailCard(list);
 
             ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
             ModelItem.BuidingCode = buiding;

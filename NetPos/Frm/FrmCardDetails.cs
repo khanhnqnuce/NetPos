@@ -56,6 +56,7 @@ namespace NetPos.Frm
             datEndDate.Value = endDate;
 
             dgv_DanhSach.DataSource = _cardDa.GiaoDichGanNhat(CardNumber, startDate, endDate);
+
         }
 
         private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
@@ -68,13 +69,20 @@ namespace NetPos.Frm
             band.Columns["Date"].CellActivation = Activation.NoEdit;
             band.Columns["Value"].CellActivation = Activation.NoEdit;
             band.Columns["Object"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
 
+            band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+
             band.Columns["Value"].FormatMonney();
+            band.Columns["Date"].Format = @"dd/MM/yyyy hh:mm";
 
             #region Caption
             band.Columns["Event"].Header.Caption = @"Miêu tả";
             band.Columns["Date"].Header.Caption = @"Thời gian";
+            band.Columns["Balance"].Header.Caption = @"Số dư";
             band.Columns["Value"].Header.Caption = @"Thanh toán";
             band.Columns["Object"].Header.Caption = @"Đối tượng";
 

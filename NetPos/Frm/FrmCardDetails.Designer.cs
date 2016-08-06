@@ -51,11 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnXem = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.datEndDate = new System.Windows.Forms.DateTimePicker();
-            this.datStartDate = new System.Windows.Forms.DateTimePicker();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuExcel = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,23 +58,28 @@
             this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
             this.rpCardDetail = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnXem = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.datEndDate = new System.Windows.Forms.DateTimePicker();
+            this.datStartDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnXem);
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.lbDate);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.datEndDate);
             this.groupBox1.Controls.Add(this.lbStatus);
             this.groupBox1.Controls.Add(this.txtloaiThe);
             this.groupBox1.Controls.Add(this.txtSoDu);
-            this.groupBox1.Controls.Add(this.datStartDate);
             this.groupBox1.Controls.Add(this.lbClass);
             this.groupBox1.Controls.Add(this.lbNamhoc);
             this.groupBox1.Controls.Add(this.lbBirthday);
@@ -107,7 +107,7 @@
             // 
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(535, 138);
+            this.lbDate.Location = new System.Drawing.Point(513, 138);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(66, 20);
             this.lbDate.TabIndex = 17;
@@ -117,7 +117,7 @@
             // 
             this.lbStatus.AutoSize = true;
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatus.Location = new System.Drawing.Point(535, 108);
+            this.lbStatus.Location = new System.Drawing.Point(513, 108);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(66, 20);
             this.lbStatus.TabIndex = 17;
@@ -127,7 +127,7 @@
             // 
             this.txtloaiThe.AutoSize = true;
             this.txtloaiThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtloaiThe.Location = new System.Drawing.Point(535, 78);
+            this.txtloaiThe.Location = new System.Drawing.Point(513, 78);
             this.txtloaiThe.Name = "txtloaiThe";
             this.txtloaiThe.Size = new System.Drawing.Size(66, 20);
             this.txtloaiThe.TabIndex = 17;
@@ -137,7 +137,7 @@
             // 
             this.txtSoDu.AutoSize = true;
             this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDu.Location = new System.Drawing.Point(535, 48);
+            this.txtSoDu.Location = new System.Drawing.Point(513, 48);
             this.txtSoDu.Name = "txtSoDu";
             this.txtSoDu.Size = new System.Drawing.Size(120, 20);
             this.txtSoDu.TabIndex = 16;
@@ -186,7 +186,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(420, 142);
+            this.label10.Location = new System.Drawing.Point(398, 142);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 13);
             this.label10.TabIndex = 4;
@@ -196,7 +196,7 @@
             // 
             this.txtMaThe.AutoSize = true;
             this.txtMaThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaThe.Location = new System.Drawing.Point(535, 18);
+            this.txtMaThe.Location = new System.Drawing.Point(513, 18);
             this.txtMaThe.Name = "txtMaThe";
             this.txtMaThe.Size = new System.Drawing.Size(62, 20);
             this.txtMaThe.TabIndex = 14;
@@ -205,7 +205,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(448, 112);
+            this.label5.Location = new System.Drawing.Point(426, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 4;
@@ -242,7 +242,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 82);
+            this.label8.Location = new System.Drawing.Point(436, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 4;
@@ -260,7 +260,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(421, 52);
+            this.label3.Location = new System.Drawing.Point(399, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 3;
@@ -278,7 +278,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 22);
+            this.label2.Location = new System.Drawing.Point(437, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
@@ -302,50 +302,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lịch sử giao dịch";
-            // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(881, 102);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(75, 23);
-            this.btnXem.TabIndex = 33;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(718, 30);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Từ ngày:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(709, 68);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 13);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "Đến ngày:";
-            // 
-            // datEndDate
-            // 
-            this.datEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datEndDate.Location = new System.Drawing.Point(779, 64);
-            this.datEndDate.Name = "datEndDate";
-            this.datEndDate.Size = new System.Drawing.Size(177, 20);
-            this.datEndDate.TabIndex = 30;
-            // 
-            // datStartDate
-            // 
-            this.datStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datStartDate.Location = new System.Drawing.Point(779, 26);
-            this.datStartDate.Name = "datStartDate";
-            this.datStartDate.Size = new System.Drawing.Size(177, 20);
-            this.datStartDate.TabIndex = 29;
             // 
             // dgv_DanhSach
             // 
@@ -403,6 +359,73 @@
             this.rpCardDetail.ReportName = "";
             this.rpCardDetail.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(643, 173);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.TabIndex = 34;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnXem);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.datEndDate);
+            this.groupBox4.Controls.Add(this.datStartDate);
+            this.groupBox4.Location = new System.Drawing.Point(704, 18);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(275, 145);
+            this.groupBox4.TabIndex = 35;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Xem lịch sử giao dịch:";
+            // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(186, 104);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(75, 23);
+            this.btnXem.TabIndex = 38;
+            this.btnXem.Text = "Xem";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 70);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Đến ngày:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Từ ngày:";
+            // 
+            // datEndDate
+            // 
+            this.datEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datEndDate.Location = new System.Drawing.Point(84, 68);
+            this.datEndDate.Name = "datEndDate";
+            this.datEndDate.Size = new System.Drawing.Size(177, 20);
+            this.datEndDate.TabIndex = 35;
+            // 
+            // datStartDate
+            // 
+            this.datStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datStartDate.Location = new System.Drawing.Point(84, 26);
+            this.datStartDate.Name = "datStartDate";
+            this.datStartDate.Size = new System.Drawing.Size(177, 20);
+            this.datStartDate.TabIndex = 34;
+            // 
             // FrmCardDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,6 +446,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,14 +478,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnXem;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker datEndDate;
-        private System.Windows.Forms.DateTimePicker datStartDate;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuExcel;
         private System.Windows.Forms.ToolStripMenuItem menuIn;
 private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
-        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCardDetail;private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;    }
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpCardDetail;private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker datEndDate;
+        private System.Windows.Forms.DateTimePicker datStartDate;
+        private System.Windows.Forms.GroupBox groupBox3;
+    }
 }

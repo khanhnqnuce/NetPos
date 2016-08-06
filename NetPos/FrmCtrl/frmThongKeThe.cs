@@ -16,6 +16,7 @@ namespace NetPos.FrmCtrl
     public partial class frmThongKeThe : UserControl
     {
         readonly ThongKeTheDA _da = new ThongKeTheDA();
+        readonly CardDA _cardDa = new CardDA();
         readonly FrmLogThongKeThe _formLoc;
         readonly ModelItem _modelItem = new ModelItem();
         private UserItem _userItem;
@@ -25,12 +26,12 @@ namespace NetPos.FrmCtrl
             _userItem = userItem;
             _formLoc = new FrmLogThongKeThe(_modelItem);
             _formLoc.FillterTkThe += FillterTkThe;
+            _formLoc.FillterTkTheChiTiet += FillterTkTheChiTiet;
             InitializeComponent();
         }
 
         private void frmThongKeThe_Load(object sender, EventArgs e)
         {
-            
             
         }
 
@@ -52,6 +53,9 @@ namespace NetPos.FrmCtrl
                 row.CellAppearance.BackColor = Color.LightCyan;
                 row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
                 row.CellAppearance.FontData.SizeInPoints = 14;
+
+                var listCT = _cardDa.ReportDetailCard("", "", "");
+                dgv_DanhSachChitiet.DataSource = listCT.ToDataTable();
             }
         }
 
@@ -111,6 +115,11 @@ namespace NetPos.FrmCtrl
             row.CellAppearance.FontData.Bold = DefaultableBoolean.True;
             row.CellAppearance.FontData.SizeInPoints = 14;
         }
+
+        private void FillterTkTheChiTiet(object sender, List<CardItem> lst)
+        {
+            dgv_DanhSachChitiet.DataSource = lst.ToDataTable();
+        }
         #endregion
 
         public void Export(string path)
@@ -125,6 +134,38 @@ namespace NetPos.FrmCtrl
             {
                 Log2File.LogExceptionToFile(ex);
             }
+        }
+
+        private void dgv_DanhSachChiTiet_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            var band = e.Layout.Bands[0];
+            e.Layout.Override.RowSelectorNumberStyle = RowSelectorNumberStyle.VisibleIndex;
+            band.Override.HeaderAppearance.FontData.Bold = DefaultableBoolean.True;
+            band.Columns["ID"].Hidden = true;
+
+            band.Columns["CustomerID"].CellActivation = Activation.NoEdit;
+            band.Columns["CardNumber"].CellActivation = Activation.NoEdit;
+            band.Columns["CustomerName"].CellActivation = Activation.NoEdit;
+            band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["CardType"].CellActivation = Activation.NoEdit;
+            band.Columns["CardStatus"].CellActivation = Activation.NoEdit;
+            band.Columns["DateIssue"].CellActivation = Activation.NoEdit;
+
+            band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
+            band.Columns["Balance"].FormatMonney();
+
+            #region Caption
+            band.Columns["CustomerID"].Header.Caption = @"Mã khách hàng";
+            band.Columns["CardNumber"].Header.Caption = @"Số thẻ";
+            band.Columns["CustomerName"].Header.Caption = @"Tên tài khoản";
+            band.Columns["Balance"].Header.Caption = @"Số dư tài khoản";
+            band.Columns["CardType"].Header.Caption = @"Loại thẻ";
+            band.Columns["CardStatus"].Header.Caption = @"Trạng thái";
+            band.Columns["DateIssue"].Header.Caption = @"Ngày phát hành";
+
+            #endregion
+
+            band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
         }
     }
 }

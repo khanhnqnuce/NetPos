@@ -19,6 +19,15 @@ namespace NetPos.Frm
             var handler = FillterTkThe;
             if (handler != null) handler(this, hs);
         }
+
+        public delegate void CustomHandlerDetail(object sender, List<CardItem> lst);
+        public event FrmLogThongKeThe.CustomHandlerDetail FillterTkTheChiTiet;
+        protected virtual void OFillterTkTheChiTiet(List<CardItem> hs)
+        {
+            var handler = FillterTkTheChiTiet;
+            if (handler != null) handler(this, hs);
+        }
+
         public FrmLogThongKeThe(ModelItem modelItem)
         {
             ModelItem = modelItem;
@@ -91,6 +100,9 @@ namespace NetPos.Frm
 
             var items = _tkTheDa.GetThongKeTheItems(buiding, Area, Object);
             OnFillterTkThe(items);
+
+            var list = _cardDa.ReportDetailCard(buiding, Area, Object);
+            OFillterTkTheChiTiet(list);
 
             ModelItem.ObjectCode = cboObject.SelectedValue.ToString();
             ModelItem.BuidingCode = buiding;

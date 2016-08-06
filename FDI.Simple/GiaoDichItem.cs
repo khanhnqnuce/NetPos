@@ -8,6 +8,7 @@ namespace FDI.Simple
         public DateTime Date { get; set; }
         public string Event { get; set; }
         public decimal Value { get; set; }
+        public decimal Balance { get; set; }
         public string Object { get; set; }
     }
 }

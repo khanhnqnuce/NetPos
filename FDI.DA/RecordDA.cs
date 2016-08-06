@@ -82,6 +82,58 @@ namespace FDI.DA
 
         }
 
+        public List<EventItem> FindDetailRecordItems(DateTime startDate, DateTime endDate, string buiding, string area, string ob)
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanThe(startDate, endDate, buiding, area, ob)
+                            orderby c.Date descending
+                            select new EventItem
+                            {
+                                Date = c.Date ?? new DateTime(),
+                                CardNumber = c.CardNumber,
+                                EventCode = c.EventCode,
+                                Event = c.Event,
+                                Balance = c.Balance ?? 0,
+                                Value = (c.Value > 0) ? (decimal)c.Value : (decimal)(0 - c.Value),
+                                Object = c.Object,
+                                Area = c.Area
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
+        public List<EventItem> FindDetailEventItems(DateTime startDate, DateTime endDate, string buiding, string area, string ob)
+        {
+            try
+            {
+                var query = from c in FDIDB.sp_DTBanHang(startDate, endDate, buiding, area, ob)
+                            orderby c.Date descending
+                            select new EventItem
+                            {
+                                Date = c.Date ?? new DateTime(),
+                                CardNumber = c.CardNumber,
+                                EventCode = c.EventCode,
+                                Event = c.Event,
+                                Balance = c.Balance ?? 0,
+                                Value = (c.Value > 0) ? (decimal)c.Value : (decimal)(0 - c.Value),
+                                Object = c.Object,
+                                Area = c.Area
+                            };
+                return query.ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
         public List<BuidingItem> GetBuidingItems()
         {
             try

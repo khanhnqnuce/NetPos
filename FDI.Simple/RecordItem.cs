@@ -26,6 +26,7 @@ namespace FDI.Simple
             public string Event { get; set; }
             public string EventCode { get; set; }
             public decimal Value { get; set; }
+            public decimal Balance { get; set; }
             public string Object { get; set; }
             public string Area { get; set; }
         }

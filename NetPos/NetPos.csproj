@@ -257,6 +257,9 @@
     <Content Include="Reports\rpDetailCard.rst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\rpDTBanThe.rst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\change.png" />
     <None Include="Resources\matkhau1.png" />
     <None Include="Resources\taikhoan1.png" />
@@ -284,7 +287,6 @@
     <None Include="Resources\Modify.ico" />
     <None Include="Resources\Loading.ico" />
     <None Include="Resources\Load.ico" />
-    <None Include="Resources\Line Chart.ico" />
     <None Include="Resources\Info.ico" />
     <None Include="Resources\Exit.ico" />
     <None Include="Resources\Email.ico" />
