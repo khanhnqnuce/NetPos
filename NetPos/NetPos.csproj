@@ -260,6 +260,7 @@
     <Content Include="Reports\rpDTBanThe.rst">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Excel_15.png" />
     <None Include="Resources\change.png" />
     <None Include="Resources\matkhau1.png" />
     <None Include="Resources\taikhoan1.png" />

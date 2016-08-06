@@ -233,8 +233,9 @@
             // 
             // menuXuatKhau
             // 
+            this.menuXuatKhau.Image = global::NetPos.Properties.Resources.Excel_15;
             this.menuXuatKhau.Name = "menuXuatKhau";
-            this.menuXuatKhau.Size = new System.Drawing.Size(72, 20);
+            this.menuXuatKhau.Size = new System.Drawing.Size(88, 20);
             this.menuXuatKhau.Text = "Xuất Excel";
             this.menuXuatKhau.Click += new System.EventHandler(this.menuXuatKhau_Click);
             // 
