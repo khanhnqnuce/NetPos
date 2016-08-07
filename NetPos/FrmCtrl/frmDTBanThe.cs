@@ -113,6 +113,7 @@ namespace NetPos.FrmCtrl
                 //var lst = _da.GetAll();
                 reportManager.DataSources.Clear();
                 reportManager.DataSources.Add("danhsach", dgv_DanhSachChiTiet.DataSource);
+                reportManager.DataSources.Add("danhsachCT", dgv_DanhSach.DataSource);
                 rpDTBanThe.FilePath = Application.StartupPath + @"\Reports\rpDTBanThe.rst";
                 rpDTBanThe.GetReportParameter += GetParameter;
                 rpDTBanThe.Prepare();
