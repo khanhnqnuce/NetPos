@@ -190,7 +190,7 @@
             this.lbMoTa.Name = "lbMoTa";
             this.lbMoTa.Size = new System.Drawing.Size(37, 13);
             this.lbMoTa.TabIndex = 8;
-            this.lbMoTa.Text = "Mã tả:";
+            this.lbMoTa.Text = "Mô tả:";
             this.lbMoTa.Visible = false;
             // 
             // txtCard

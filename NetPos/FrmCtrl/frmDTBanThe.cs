@@ -26,13 +26,6 @@ namespace NetPos.FrmCtrl
             InitializeComponent();
         }
 
-
-        private void dgv_DanhSach_InitializeLayout(object sender, InitializeLayoutEventArgs e)
-        {
-            
-
-        }
-
         private void frmDTBanThe_Load(object sender, EventArgs e)
         {
         }
