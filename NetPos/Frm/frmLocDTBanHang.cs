@@ -120,6 +120,9 @@ namespace NetPos.Frm
             ModelItem.AreaCode = cboArea.SelectedValue.ToString();
             ModelItem.StartDate = datStartDate.Value;
             ModelItem.EndDate = datEndDate.Value;
+            ModelItem.BuidingName = cboBuiding.Text;
+            ModelItem.AreaName = cboArea.Text;
+            ModelItem.ObjectName = cboObject.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)

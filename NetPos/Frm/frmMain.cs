@@ -251,6 +251,12 @@ namespace NetPos.Frm
                 case Process.ReportTotal:
 
                     break;
+                case Process.DTBanThe:
+                    _frmDtBanThe.InTongHop();
+                    break;
+                case Process.DTBanHang:
+                    _frmDtBanHang.InTongHop();
+                    break;
             }
         }
 

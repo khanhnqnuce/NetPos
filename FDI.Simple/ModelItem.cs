@@ -10,5 +10,8 @@ namespace FDI.Simple
         public string BuidingCode { get; set; }
         public string AreaCode { get; set; }
         public string ObjectCode { get; set; }
+        public string BuidingName { get; set; }
+        public string AreaName { get; set; }
+        public string ObjectName { get; set; }
     }
 }

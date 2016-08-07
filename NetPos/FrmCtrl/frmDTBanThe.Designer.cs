@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgv_DanhSachChiTiet = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.pn_Main = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.dgv_DanhSachChiTiet = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.pn_Main = new System.Windows.Forms.Panel();
+            this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
+            this.rpDTBanThe = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).BeginInit();
-            this.pn_Main.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).BeginInit();
+            this.pn_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,31 +68,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(869, 557);
             this.panel2.TabIndex = 28;
-            // 
-            // dgv_DanhSachChiTiet
-            // 
-            this.dgv_DanhSachChiTiet.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
-            this.dgv_DanhSachChiTiet.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.dgv_DanhSachChiTiet.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
-            this.dgv_DanhSachChiTiet.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.dgv_DanhSachChiTiet.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.dgv_DanhSachChiTiet.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgv_DanhSachChiTiet.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_DanhSachChiTiet.Location = new System.Drawing.Point(0, 0);
-            this.dgv_DanhSachChiTiet.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_DanhSachChiTiet.Name = "dgv_DanhSachChiTiet";
-            this.dgv_DanhSachChiTiet.Size = new System.Drawing.Size(869, 110);
-            this.dgv_DanhSachChiTiet.TabIndex = 27;
-            this.dgv_DanhSachChiTiet.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSachChiTiet_InitializeLayout);
-            // 
-            // pn_Main
-            // 
-            this.pn_Main.Controls.Add(this.groupBox1);
-            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Main.Location = new System.Drawing.Point(0, 0);
-            this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(875, 576);
-            this.pn_Main.TabIndex = 6;
             // 
             // panel1
             // 
@@ -126,6 +105,43 @@
             this.dgv_DanhSach.TabIndex = 28;
             this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout_1);
             // 
+            // dgv_DanhSachChiTiet
+            // 
+            this.dgv_DanhSachChiTiet.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            this.dgv_DanhSachChiTiet.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.dgv_DanhSachChiTiet.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
+            this.dgv_DanhSachChiTiet.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.dgv_DanhSachChiTiet.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.dgv_DanhSachChiTiet.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_DanhSachChiTiet.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_DanhSachChiTiet.Location = new System.Drawing.Point(0, 0);
+            this.dgv_DanhSachChiTiet.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_DanhSachChiTiet.Name = "dgv_DanhSachChiTiet";
+            this.dgv_DanhSachChiTiet.Size = new System.Drawing.Size(869, 110);
+            this.dgv_DanhSachChiTiet.TabIndex = 27;
+            this.dgv_DanhSachChiTiet.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSachChiTiet_InitializeLayout);
+            // 
+            // pn_Main
+            // 
+            this.pn_Main.Controls.Add(this.groupBox1);
+            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Main.Location = new System.Drawing.Point(0, 0);
+            this.pn_Main.Name = "pn_Main";
+            this.pn_Main.Size = new System.Drawing.Size(875, 576);
+            this.pn_Main.TabIndex = 6;
+            // 
+            // reportManager
+            // 
+            this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
+            this.reportManager.Reports.AddRange(new PerpetuumSoft.Reporting.Components.ReportSlot[] {
+            this.rpDTBanThe});
+            // 
+            // rpDTBanThe
+            // 
+            this.rpDTBanThe.FilePath = "D:\\qlsv-khanhnq\\FDI\\NetPos\\trunk\\NetPos\\Reports\\rpCard.rst";
+            this.rpDTBanThe.ReportName = "";
+            this.rpDTBanThe.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
+            // 
             // frmDTBanThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,11 +152,11 @@
             this.Load += new System.EventHandler(this.frmDTBanThe_Load);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).EndInit();
-            this.pn_Main.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).EndInit();
+            this.pn_Main.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,5 +170,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSach;
+        private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
+        private PerpetuumSoft.Reporting.Components.FileReportSlot rpDTBanThe;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

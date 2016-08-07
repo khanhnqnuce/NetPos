@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using FDI;
 using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
 {
@@ -109,6 +111,47 @@ namespace NetPos.FrmCtrl
 
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
+        }
+
+        public void InTongHop()
+        {
+            try
+            {
+                //var lst = _da.GetAll();
+                reportManager.DataSources.Clear();
+                reportManager.DataSources.Add("danhsach", dgv_DanhSachChiTiet.DataSource);
+                rpDTBanThe.FilePath = Application.StartupPath + @"\Reports\rpDTBanThe.rst";
+                rpDTBanThe.GetReportParameter += GetParameter;
+                rpDTBanThe.Prepare();
+                var previewForm = new PreviewForm(rpDTBanThe)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        private void GetParameter(object sender,
+           PerpetuumSoft.Reporting.Components.GetReportParameterEventArgs e)
+        {
+            try
+            {
+                e.Parameters["Buiding"].Value = _modelItem.BuidingName;
+                e.Parameters["Area"].Value = _modelItem.AreaName;
+                e.Parameters["Object"].Value = _modelItem.ObjectName;
+
+                e.Parameters["Time"].Value = "(" + _modelItem.StartDate.Value.ToString("HH:ss dd/MM/yyyy ") + " - " +
+                                              _modelItem.EndDate.Value.ToString("HH:ss dd/MM/yyyy") + ")";
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
         }
 
     }

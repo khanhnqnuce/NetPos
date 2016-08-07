@@ -6,6 +6,7 @@ using FDI.Simple;
 using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using NetPos.Frm;
+using PerpetuumSoft.Reporting.View;
 
 namespace NetPos.FrmCtrl
 {
@@ -97,6 +98,47 @@ namespace NetPos.FrmCtrl
 
             #endregion
             band.Override.HeaderClickAction = HeaderClickAction.SortSingle;
+        }
+
+        public void InTongHop()
+        {
+            try
+            {
+                //var lst = _da.GetAll();
+                reportManager.DataSources.Clear();
+                reportManager.DataSources.Add("danhsach", dgv_DanhSach.DataSource);
+                rpDTBanHang.FilePath = Application.StartupPath + @"\Reports\rpDTBanThe.rst";
+                rpDTBanHang.GetReportParameter += GetParameter;
+                rpDTBanHang.Prepare();
+                var previewForm = new PreviewForm(rpDTBanHang)
+                {
+                    WindowState = FormWindowState.Maximized
+                };
+                previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        private void GetParameter(object sender,
+           PerpetuumSoft.Reporting.Components.GetReportParameterEventArgs e)
+        {
+            try
+            {
+                e.Parameters["Buiding"].Value = _modelItem.BuidingName;
+                e.Parameters["Area"].Value = _modelItem.AreaName;
+                e.Parameters["Object"].Value = _modelItem.ObjectName;
+
+                e.Parameters["Time"].Value = "(" + _modelItem.StartDate.Value.ToString("HH:ss dd/MM/yyyy ") + " - " +
+                                              _modelItem.EndDate.Value.ToString("HH:ss dd/MM/yyyy") + ")";
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
         }
 
     }

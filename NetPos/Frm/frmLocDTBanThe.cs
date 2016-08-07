@@ -89,15 +89,16 @@ namespace NetPos.Frm
                 cboObject.ValueMember = "Code";
 
             }
+            LoadDefault();
             
         }
 
         public void LoadDefault()
         {
             var date = DateTime.Now;
-            cboObject.SelectedValue = ModelItem.ObjectCode??"";
-            cboArea.SelectedValue = ModelItem.AreaCode ?? "";
             cboBuiding.SelectedValue = ModelItem.BuidingCode ?? "";
+            cboArea.SelectedValue = ModelItem.AreaCode ?? "";
+            cboObject.SelectedValue = ModelItem.ObjectCode ?? "";
             datStartDate.Value = ModelItem.StartDate ?? new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
             datEndDate.Value = ModelItem.EndDate??new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
         }
@@ -126,6 +127,9 @@ namespace NetPos.Frm
             ModelItem.AreaCode = cboArea.SelectedValue.ToString();
             ModelItem.StartDate = datStartDate.Value;
             ModelItem.EndDate = datEndDate.Value;
+            ModelItem.BuidingName = cboBuiding.Text;
+            ModelItem.AreaName = cboArea.Text;
+            ModelItem.ObjectName = cboObject.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
