@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters1 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters2 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
             this.pn_Main = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
             this.rpCard = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
+            this.excelExportFilter1 = new PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter(this.components);
+            this.pdfExportFilter1 = new PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter(this.components);
             this.pn_Main.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -147,6 +151,20 @@
             this.rpCard.ReportName = "";
             this.rpCard.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
             // 
+            // excelExportFilter1
+            // 
+            this.excelExportFilter1.ExportInLargePage = true;
+            this.excelExportFilter1.ExportInOnePage = true;
+            this.excelExportFilter1.ExportWithoutPageDelimeters = true;
+            this.excelExportFilter1.ExtraParameters = extraParameters1;
+            // 
+            // pdfExportFilter1
+            // 
+            this.pdfExportFilter1.ChangePermissionsPassword = null;
+            this.pdfExportFilter1.Compress = true;
+            this.pdfExportFilter1.ExtraParameters = extraParameters2;
+            this.pdfExportFilter1.UserPassword = null;
+            // 
             // frmCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +195,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTongGD;
-        private System.Windows.Forms.Label label1; 
+        private System.Windows.Forms.Label label1;
+        private PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter excelExportFilter1;
+        private PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter pdfExportFilter1; 
     }
 }

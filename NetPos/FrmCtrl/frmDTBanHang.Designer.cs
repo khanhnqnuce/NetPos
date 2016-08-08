@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters1 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters2 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_DanhSachChiTiet = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this.dgv_DanhSach = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
             this.rpDTBanHang = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
+            this.pdfExportFilter1 = new PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter(this.components);
+            this.excelExportFilter1 = new PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter(this.components);
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -65,22 +69,6 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Báo cáo doanh thu bán hàng chi tiết:";
-            // 
-            // dgv_DanhSach
-            // 
-            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
-            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
-            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
-            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
-            this.dgv_DanhSach.Name = "dgv_DanhSach";
-            this.dgv_DanhSach.Size = new System.Drawing.Size(1193, 93);
-            this.dgv_DanhSach.TabIndex = 26;
-            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout_1);
             // 
             // panel1
             // 
@@ -118,6 +106,22 @@
             this.dgv_DanhSachChiTiet.TabIndex = 27;
             this.dgv_DanhSachChiTiet.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSachChiTiet_InitializeLayout);
             // 
+            // dgv_DanhSach
+            // 
+            this.dgv_DanhSach.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            this.dgv_DanhSach.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.dgv_DanhSach.DisplayLayout.Override.WrapHeaderText = Infragistics.Win.DefaultableBoolean.True;
+            this.dgv_DanhSach.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.dgv_DanhSach.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.dgv_DanhSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_DanhSach.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_DanhSach.Location = new System.Drawing.Point(3, 16);
+            this.dgv_DanhSach.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_DanhSach.Name = "dgv_DanhSach";
+            this.dgv_DanhSach.Size = new System.Drawing.Size(1193, 93);
+            this.dgv_DanhSach.TabIndex = 26;
+            this.dgv_DanhSach.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.dgv_DanhSach_InitializeLayout_1);
+            // 
             // reportManager
             // 
             this.reportManager.DataSources = new PerpetuumSoft.Reporting.Components.ObjectPointerCollection(new string[0], new object[0]);
@@ -130,6 +134,20 @@
             this.rpDTBanHang.ReportName = "";
             this.rpDTBanHang.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
             // 
+            // pdfExportFilter1
+            // 
+            this.pdfExportFilter1.ChangePermissionsPassword = null;
+            this.pdfExportFilter1.Compress = true;
+            this.pdfExportFilter1.ExtraParameters = extraParameters1;
+            this.pdfExportFilter1.UserPassword = null;
+            // 
+            // excelExportFilter1
+            // 
+            this.excelExportFilter1.ExportInLargePage = true;
+            this.excelExportFilter1.ExportInOnePage = true;
+            this.excelExportFilter1.ExportWithoutPageDelimeters = true;
+            this.excelExportFilter1.ExtraParameters = extraParameters2;
+            // 
             // frmDTBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,10 +157,10 @@
             this.Size = new System.Drawing.Size(1199, 576);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSachChiTiet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_DanhSach)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,5 +175,7 @@
         private Infragistics.Win.UltraWinGrid.UltraGrid dgv_DanhSachChiTiet;
         private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
         private PerpetuumSoft.Reporting.Components.FileReportSlot rpDTBanHang;
+        private PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter pdfExportFilter1;
+        private PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter excelExportFilter1;
     }
 }

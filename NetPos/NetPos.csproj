@@ -98,7 +98,6 @@
     <Compile Include="Common\log2File.cs" />
     <Compile Include="Common\StaticEnum.cs" />
     <Compile Include="Common\Utility.cs" />
-    <Compile Include="FrmCtrl\BackListDA.cs" />
     <Compile Include="FrmCtrl\BaseControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -275,8 +274,6 @@
     <None Include="Resources\taikhoan.png" />
     <None Include="Resources\matkhau.png" />
     <None Include="Resources\cards-icon.png" />
-    <None Include="FrmCtrl\Reports\bangdiem.rst" />
-    <None Include="FrmCtrl\Reports\danhsachthe.rst" />
     <None Include="Resources\Change card.png" />
     <None Include="Resources\Duplicate.png" />
     <None Include="Resources\Black List.png" />

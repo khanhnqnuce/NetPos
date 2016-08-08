@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters1 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
+            PerpetuumSoft.Reporting.Export.ExtraParameters extraParameters2 = new PerpetuumSoft.Reporting.Export.ExtraParameters();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,6 +41,8 @@
             this.reportManager = new PerpetuumSoft.Reporting.Components.ReportManager(this.components);
             this.rpDTBanThe = new PerpetuumSoft.Reporting.Components.FileReportSlot(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.pdfExportFilter1 = new PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter(this.components);
+            this.excelExportFilter1 = new PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter(this.components);
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +146,20 @@
             this.rpDTBanThe.ReportName = "";
             this.rpDTBanThe.ReportScriptType = typeof(PerpetuumSoft.Reporting.Rendering.ReportScriptBase);
             // 
+            // pdfExportFilter1
+            // 
+            this.pdfExportFilter1.ChangePermissionsPassword = null;
+            this.pdfExportFilter1.Compress = true;
+            this.pdfExportFilter1.ExtraParameters = extraParameters1;
+            this.pdfExportFilter1.UserPassword = null;
+            // 
+            // excelExportFilter1
+            // 
+            this.excelExportFilter1.ExportInLargePage = true;
+            this.excelExportFilter1.ExportInOnePage = true;
+            this.excelExportFilter1.ExportWithoutPageDelimeters = true;
+            this.excelExportFilter1.ExtraParameters = extraParameters2;
+            // 
             // frmDTBanThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +191,7 @@
         private PerpetuumSoft.Reporting.Components.ReportManager reportManager;
         private PerpetuumSoft.Reporting.Components.FileReportSlot rpDTBanThe;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private PerpetuumSoft.Reporting.Export.Pdf.PdfExportFilter pdfExportFilter1;
+        private PerpetuumSoft.Reporting.Export.OpenXML.ExcelExportFilter excelExportFilter1;
     }
 }

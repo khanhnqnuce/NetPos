@@ -128,7 +128,7 @@ namespace NetPos.FrmCtrl
             {
                 var fileName = string.Format("thong_ke_the{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                 var filePath = Path.Combine(path, fileName);
-                Excel.ExportToTalCard(filePath, dgv_DanhSach);
+                Excel.ExportToTalCard(filePath, dgv_DanhSach,dgv_DanhSachChitiet);
             }
             catch (Exception ex)
             {

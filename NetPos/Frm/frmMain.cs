@@ -394,8 +394,11 @@ namespace NetPos.Frm
                     case Process.ReportDetail:
                         _frmRecord.Export(folderBrowserDialog1.SelectedPath);
                         break;
-                    case Process.ReportTotal:
-
+                    case Process.DTBanThe:
+                        _frmDtBanThe.Export(folderBrowserDialog1.SelectedPath);
+                        break;
+                    case Process.DTBanHang:
+                        _frmDtBanHang.Export(folderBrowserDialog1.SelectedPath);
                         break;
                 }
             }

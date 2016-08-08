@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Office2010.Excel;
@@ -16,7 +17,9 @@ namespace NetPos.FrmCtrl
     {
         readonly frmLocDTBanThe _formLoc;
         ModelItem _modelItem = new ModelItem();
-        private UserItem _userItem;
+        private readonly UserItem _userItem;
+        List<ThongKeItem> _lst = new List<ThongKeItem>();
+
         public frmDTBanThe(UserItem userItem)
         {
             _userItem = userItem;
@@ -42,7 +45,9 @@ namespace NetPos.FrmCtrl
         #region Event
         private void FillterRecordCard(object sender, List<ThongKeItem> lst)
         {
+            _lst = lst;
             dgv_DanhSachChiTiet.DataSource = lst.ToDataTable();
+            
         }
 
         private void FillterRecordDetailCard(object sender, List<EventItem> lst)
@@ -90,14 +95,14 @@ namespace NetPos.FrmCtrl
             band.Columns["OwnerCode"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["EventCode"].Hidden = true;
             band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
-            //band.Columns["Balance"].FormatMonney();
+            band.Columns["Balance"].FormatMonney();
 
             band.Columns["Value"].FormatMonney();
             band.Columns["Date"].Format = @"dd/MM/yyyy hh:mm";
 
             #region Caption
             band.Columns["Date"].Header.Caption = @"Thời gian";
-            band.Columns["OwnerCode"].Header.Caption = @"Mã khách hàng";
+            band.Columns["OwnerCode"].Header.Caption = @"Mã HS";
             band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
             band.Columns["Event"].Header.Caption = @"Loại giao dịch";
             band.Columns["Value"].Header.Caption = @"Số tiền";
@@ -125,6 +130,21 @@ namespace NetPos.FrmCtrl
                     WindowState = FormWindowState.Maximized
                 };
                 previewForm.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Log2File.LogExceptionToFile(ex);
+            }
+        }
+
+        public void Export(string path)
+        {
+            try
+            {
+                var fileName = string.Format("thong_ke_ban_the-{0}.xlsx", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                var filePath = Path.Combine(path, fileName);
+                Excel.BCDoanhThuBanThe(filePath, dgv_DanhSach,_modelItem,_lst);
 
             }
             catch (Exception ex)

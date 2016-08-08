@@ -145,6 +145,7 @@ namespace NetPos.Frm
 
             band.Columns["Date"].CellActivation = Activation.NoEdit;
             band.Columns["Value"].CellActivation = Activation.NoEdit;
+            band.Columns["Value"].FormatMonney();
             band.Columns["Event"].CellActivation = Activation.NoEdit;
             band.Columns["Object"].CellActivation = Activation.NoEdit;
 
