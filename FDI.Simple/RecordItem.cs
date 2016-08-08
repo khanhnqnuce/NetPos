@@ -22,6 +22,7 @@ namespace FDI.Simple
       public class EventItem
         {
             public DateTime Date { get; set; }
+            public string OwnerCode { get; set; }
             public string CardNumber { get; set; }
             public string Event { get; set; }
             public string EventCode { get; set; }

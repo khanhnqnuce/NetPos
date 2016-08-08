@@ -81,11 +81,13 @@ namespace NetPos.FrmCtrl
             band.Columns["Object"].CellActivation = Activation.NoEdit;
             band.Columns["Area"].CellActivation = Activation.NoEdit;
             band.Columns["Balance"].CellActivation = Activation.NoEdit;
+            band.Columns["OwnerCode"].CellActivation = Activation.NoEdit;
 
             band.Columns["Date"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["CardNumber"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["Value"].CellAppearance.TextHAlign = HAlign.Right;
             band.Columns["Event"].CellAppearance.TextHAlign = HAlign.Center;
+            band.Columns["OwnerCode"].CellAppearance.TextHAlign = HAlign.Center;
             band.Columns["EventCode"].Hidden = true;
             band.Columns["Balance"].CellAppearance.TextHAlign = HAlign.Right;
             //band.Columns["Balance"].FormatMonney();
@@ -95,6 +97,7 @@ namespace NetPos.FrmCtrl
 
             #region Caption
             band.Columns["Date"].Header.Caption = @"Thời gian";
+            band.Columns["OwnerCode"].Header.Caption = @"Mã khách hàng";
             band.Columns["CardNumber"].Header.Caption = @"Mã thẻ";
             band.Columns["Event"].Header.Caption = @"Loại giao dịch";
             band.Columns["Value"].Header.Caption = @"Số tiền";

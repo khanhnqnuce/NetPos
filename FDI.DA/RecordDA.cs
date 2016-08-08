@@ -91,6 +91,7 @@ namespace FDI.DA
                             select new EventItem
                             {
                                 Date = c.Date ?? new DateTime(),
+                                OwnerCode = c.OwnerCode,
                                 CardNumber = c.CardNumber,
                                 EventCode = c.EventCode,
                                 Event = c.Event,
@@ -117,6 +118,7 @@ namespace FDI.DA
                             select new EventItem
                             {
                                 Date = c.Date ?? new DateTime(),
+                                OwnerCode = c.OwnerCode,
                                 CardNumber = c.CardNumber,
                                 EventCode = c.EventCode,
                                 Event = c.Event,
